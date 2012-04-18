@@ -9,14 +9,25 @@
     this.Class = function(){
         "use strict";
 
-        var _class = function(){};
+        var _class = function(){
+            //console.log('initflag');
+            //console.log(this.constructor.prototype.__initializing__);
+            if(!this.__initializing__ && this.init ){
+                this.init.apply(this,arguments);
+            }else{
+                delete this.constructor.prototype.__initializing__;
+                //console.log('after');
+                //console.log(this.__initializing__);
+                //console.log(this);
+            }
+        };
 
         // another way to define fnTest for browsers like firefox that the 'toString' method do not suppot to out put the commented line.
         // fnTest = /xyz/.test(function () {
         //     //xyz;
         // }) ? /\b_super\b/ : /.*/;
 
-        var toString = Object.prototype.toString, objTest = /\bObject\b/,_args = arguments, prototype = _class.prototype, fnTest = /xyz/.test(function () {xyz;}) ? /\b_super\b/ : /.*/ ;
+        var toString = Object.prototype.toString, objTest = /\bObject\b/, _args = arguments, prototype = _class.prototype, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/ ;
 
 
         //_class.prototype = typeof _args[0] === 'object'? _args[0] : (typeof _args[1] === 'object' ? _args[1] : {}); //prototype;
@@ -32,6 +43,10 @@
 
         _class.inherits = function(parent){
             if(typeof parent === 'function' && parent.prototype.__className__){
+
+                // Instantiate a base class (but only create the instance,
+                // don't run the init constructor)
+                parent.prototype.__initializing__ = true;
 
                 var _super = parent.prototype, proto = new parent(), prop = this.prototype;
 
@@ -60,7 +75,7 @@
                                 this._super = tmp;
 
                                 return ret;
-                            };a
+                            };
                         })(name, prop[name]) : prop[name];
 
                 }
