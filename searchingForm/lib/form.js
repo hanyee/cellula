@@ -9,6 +9,7 @@
 var SearchingForm = new Class('SearchingForm', {
     root : null,
     collection : null,
+    validateAll : false,
     init : function(cfg){
         if (typeof cfg === 'object') {
             for (var n in this) {
@@ -18,31 +19,43 @@ var SearchingForm = new Class('SearchingForm', {
         //this.root = root;
         //this.collection = collection;
         //this.search = this.bind(this.search,this);
-        this.bindAll('search');
-        this.registerEvents();
 
+        this.bindAll('search');
+
+        this.registerEvents();
+    },
+    save : function(){
+        for(var n in this.collection){
+            var r = this.collection[n].setData();
+            // TODO:
+            // validateAll ?
+            if(!r) return r;
+        }
     },
     getFormData : function(){
         var data = {};
         for(var n in this.collection){
-            this.collection[n].setData();
+            //this.collection[n].setData();
             data[this.collection[n].key] = this.collection[n].getValue();
         }
         return data;
     },
     registerEvents:function(){},
     search : function(e){
+        //this.save();
+        if(this.save() === undefined){
+            var formData = this.getFormData();
+            // TODO:
+            // next
 
+
+            return;
+        }
         if(e){
             e.preventDefault();
-            var that = e.data;
         }
-
         console.log(this);
-
-        console.log(this.getFormData());
-        console.log('binded');
-
+        console.log(formData);
     }
 
 });
@@ -59,19 +72,20 @@ var QueryElement = new Class('QueryElement',{
         //this.setData();
         fn.apply(this, Array.prototype.slice.call(arguments,1));
         var ret = this.validate();
-        if (ret === undefined) {
-            this.isValidated = true;
-        }else{
+
+        if (ret !== undefined) { // validate method should not return anything if there's no validate error
             // throw 'QueryElement was failed to be constructed caused by '+ret;
             // this.rollback
             //this.value = this.previous.value;
             //this.data = this.previous.data;
-
-            return this.errHandler(ret);
+            this.errHandler(ret);
+            return false;
         }
+        this.isValidated = true;
+        return true;
     },
     set : function(cfg){
-        this.prepareData(function(cfg){
+        return this.prepareData(function(cfg){
             if(typeof cfg === 'object'){
                 for(var n in cfg){
                     this.data[n] = cfg[n];
