@@ -6,59 +6,111 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var SearchingForm = new Class('SearchingForm', {
+var SearchModuleBase = new Class('SearchModuleBase' ,{
     root : null,
     collection : null,
     validateAll : false,
-    init : function(cfg){
+    initCfg : function(cfg){
         if (typeof cfg === 'object') {
             for (var n in this) {
                 this[n] = cfg[n] ? cfg[n] : this[n];
             }
         }
-        //this.root = root;
-        //this.collection = collection;
-        //this.search = this.bind(this.search,this);
-
-        this.bindAll('search');
-
-        this.registerEvents();
     },
     save : function(){
         for(var n in this.collection){
-            var r = this.collection[n].setData();
+            var r = this.collection[n].setData.apply(this.collection[n], arguments);
             // TODO:
             // validateAll ?
             if(!r) return r;
         }
     },
-    getFormData : function(){
+    getData : function(){
         var data = {};
         for(var n in this.collection){
-            //this.collection[n].setData();
             data[this.collection[n].key] = this.collection[n].getValue();
         }
         return data;
     },
-    registerEvents:function(){},
-    search : function(e){
+    registerEvents:function(){}
+});
+
+var SearchingForm = new Class('SearchingForm', {
+    init : function(cfg){
+        this.initCfg(cfg);
+
+        this.bindAll('search','doSearch');
+
+        this.registerEvents();
+    },
+    getFormData : function(){
+        return this.getData();
+    },
+    doSearch : function(e){
+        // TODO:
+        // to deal with different framework's events handler
+        if(e){
+            e.preventDefault();
+        }
+
         //this.save();
-        if(this.save() === undefined){
+        if(this.save.apply(this, arguments) === undefined){
             var formData = this.getFormData();
             // TODO:
             // next
 
 
-            return;
+            //return;
         }
-        if(e){
-            e.preventDefault();
-        }
-        console.log(this);
-        console.log(formData);
+
+        this.applyInterface('getDefault', this.search);
+
+
+
+
+    },
+    search : function(pageData){
+        // TODO:
+        // mix data
+        console.log('search');
+        console.log(pageData);
     }
 
-});
+}).inherits(SearchModuleBase);
+
+var Paginator = new Class('Paginator', {
+    pageDefault : {
+        size : {},
+        number: {}
+    },
+    paginate : function(){
+        console.log('paginate');
+        this.save();
+        console.log(this.getData());
+
+        this.applyInterface('search', this.getData());
+
+    },
+    getDefault : function(){
+        return this.pageDefault;
+    },
+    init : function(cfg){
+        this.initCfg(cfg);
+
+        this.bindAll('changeSize', 'paginate');
+
+        this.registerEvents();
+    },
+    changeSize : function(){
+        this.save();
+        console.log('change');
+        console.log(this.getData());
+        // TODO:
+        // mix this.getData() && this.pageDefault.number
+        //this.applyInterface('search', mixed data);
+    }
+}).inherits(SearchModuleBase);
+
 
 var QueryElement = new Class('QueryElement',{
     key : '',
@@ -102,7 +154,7 @@ var QueryElement = new Class('QueryElement',{
         return this.data[name];
     },
     validate : function(){},
-    init:function (cfg) {
+    init : function (cfg) {
         if (typeof cfg === 'object') {
             for (var n in this) {
                 this[n] = cfg[n] ? cfg[n] : this[n];
@@ -113,21 +165,15 @@ var QueryElement = new Class('QueryElement',{
     }
 });
 
-//var QueryElementFactory = new Class('QueryElementFactory',{
-//    makeElement : function(elements){
-var QueryElementFactory = function(elements){
-        if(typeof elements === 'object'){
-            var elArray = [];
-            for(var n in elements){
-                var t = new QueryElement(elements[n]);
-                //for(var nn in t){
-                //    t[nn] = elements[n][nn]?elements[n][nn]:t[nn];
-                //}
-                t.isValidated ? elArray.push(t) : delete t;
-            }
-            return elArray;
-        }else{
-            throw 'can not parse elements!';
+var ElementFactory = function (typeClass, elements) {
+    if (typeof elements === 'object' && typeof typeClass === 'function' && typeClass.prototype.__className__) {
+        var elArray = [];
+        for (var n in elements) {
+            var t = new typeClass(elements[n]);
+            t.isValidated ? elArray.push(t) : delete t;
         }
-    };
-//});
+        return elArray;
+    } else {
+        throw 'can not parse elements!';
+    }
+};
