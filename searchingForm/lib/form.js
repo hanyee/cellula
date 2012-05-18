@@ -26,9 +26,17 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
         }
     },
     getData : function(){
-        var data = {};
-        for(var n in this.collection){
-            data[this.collection[n].key] = this.collection[n].getValue();
+        var data = {}, l = arguments.length;
+        if(l === 0){
+            for(var n in this.collection){
+                //data[this.collection[n].key] = this.collection[n].getValue();
+                data = UtilTools.mix(data, this.collection[n].data.value);
+            }
+        }else{
+            for(var i=0; i<l; i++ ){
+                console.log(arguments);
+                data = UtilTools.mix(data, this.collection[arguments[i]].data.value);
+            }
         }
         return data;
     },
@@ -55,25 +63,23 @@ var SearchingForm = new Class('SearchingForm', {
 
         //this.save();
         if(this.save.apply(this, arguments) === undefined){
-            var formData = this.getFormData();
+            //var formData = this.getFormData();
             // TODO:
             // next
-
-
             //return;
+
+            //this.applyInterface('getDefault', this.search);
+            this.applyInterface('getData', this.search, 'sizePerPageStr');
+
         }
-
-        this.applyInterface('getDefault', this.search);
-
-
-
-
     },
     search : function(pageData){
         // TODO:
         // mix data
+        var data = UtilTools.mix(this.getFormData(),pageData);
         console.log('search');
         console.log(pageData);
+        console.log(data);
     }
 
 }).inherits(SearchModuleBase);
@@ -94,6 +100,7 @@ var Paginator = new Class('Paginator', {
     getDefault : function(){
         return this.pageDefault;
     },
+
     init : function(cfg){
         this.initCfg(cfg);
 
@@ -105,31 +112,33 @@ var Paginator = new Class('Paginator', {
         this.save();
         console.log('change');
         console.log(this.getData());
+        console.log(this.getData('number'));
+        console.log(this.getData('sizePerPageStr'));
         // TODO:
         // mix this.getData() && this.pageDefault.number
-        //this.applyInterface('search', mixed data);
+        this.applyInterface('search', UT.mix(this.getData(),this.pageDefault.number));
     }
 }).inherits(SearchModuleBase);
 
 
 var QueryElement = new Class('QueryElement',{
     key : '',
-    value : '',
+    //value : '',
     data : {},
-    previous : null,
+    //previous : null,
     errHandler : function(){},
-    prepareData : function(fn){
+    prepareData : function(fn){ // Deprecated
         // TODO:
         // this.previous = this;
-        //this.setData();
+        // this.setData();
         fn.apply(this, Array.prototype.slice.call(arguments,1));
         var ret = this.validate();
 
         if (ret !== undefined) { // validate method should not return anything if there's no validate error
             // throw 'QueryElement was failed to be constructed caused by '+ret;
             // this.rollback
-            //this.value = this.previous.value;
-            //this.data = this.previous.data;
+            // this.value = this.previous.value;
+            // this.data = this.previous.data;
             this.errHandler(ret);
             return false;
         }
@@ -137,6 +146,7 @@ var QueryElement = new Class('QueryElement',{
         return true;
     },
     set : function(cfg){
+        /*
         return this.prepareData(function(cfg){
             if(typeof cfg === 'object'){
                 for(var n in cfg){
@@ -145,10 +155,29 @@ var QueryElement = new Class('QueryElement',{
                 this.value = this.data.value ? this.data.value : this.value;
             }
         }, cfg);
+        */
+
+        if(UtilTools.isObject(cfg)){
+            var t = {};
+            // var t = UtilTools.mix(this);
+            t.data = UtilTools.mix({}, this.data, cfg);
+
+            var ret = this.validate.call(t);
+
+            if (ret !== undefined) { // validate method should not return anything if there's no validate error
+                // throw 'QueryElement was failed to be constructed caused by '+ret;
+                this.errHandler(ret);
+                return false;
+            }
+            this.data = t.data;
+            this.isValidated = true;
+            return true;
+        }
     },
     setData : function(){},
     getValue : function(){
-        return this.value;
+        //return this.value;
+        return this.data.value;
     },
     getProp : function(name){
         return this.data[name];
@@ -167,13 +196,60 @@ var QueryElement = new Class('QueryElement',{
 
 var ElementFactory = function (typeClass, elements) {
     if (typeof elements === 'object' && typeof typeClass === 'function' && typeClass.prototype.__className__) {
-        var elArray = [];
+        //var elArray = [];
+        var elArray = {};
         for (var n in elements) {
             var t = new typeClass(elements[n]);
-            t.isValidated ? elArray.push(t) : delete t;
+            //t.isValidated ? elArray.push(t) : delete t;
+            t.isValidated ? elArray[t.key] = t : delete t;
         }
         return elArray;
     } else {
         throw 'can not parse elements!';
     }
 };
+
+var UtilTools = UtilTools || {};
+
+UtilTools.isObject = function(obj){
+    return /\bObject\b/.test(Object.prototype.toString.call(obj));
+};
+UtilTools.isArray = function(obj){
+    return /\bArray\b/.test(Object.prototype.toString.call(obj));
+};
+
+UtilTools.copy = function(obj){
+    /*
+    var r = {};
+    if(UtilTools.isObject(obj)){
+        if(UtilTools.isObject(arguments[1])){
+
+        }else{
+
+        }
+    }
+    if(UtilTools.isObject(obj)){
+        t = obj;
+    }
+    return t;
+    */
+
+
+    if (!UtilTools.isObject(obj)) return obj;
+    return UtilTools.isArray(obj) ? obj.slice() : UtilTools.mix({},obj);
+};
+
+UtilTools.mix = function(){
+    var ret = arguments[0] || {};
+    for(var i=1, l=arguments.length; i<l; i++){
+        var t = arguments[i];
+        if(typeof t === 'object'){ // if Array is not allowed --> UtilTools.isObject(t)
+            for(var n in t){
+                ret[n] = t[n];
+            }
+        }
+    }
+    return ret;
+};
+
+var UT = UtilTools;
