@@ -1,0 +1,75 @@
+ /*
+ * @name: ui-page
+ * @overview: 通用 分页
+ * @require: null
+ */
+a.ui-page-item-home,a.ui-page-item-Previous,a.ui-page-item-next,a.ui-page-item-end{
+	display:-moz-inline-box;
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	vertical-align:middle;
+	text-indent:-9999px;
+	overflow:hidden;
+	*text-indent:0;
+	font-size:0;
+	line-height:0;
+}
+.ui-page {
+	height:22px;
+	/* margin-top:20px; */
+	padding:5px 12px;
+	line-height:22px;
+	border:1px solid #dfdfdf;
+	overflow:hidden;
+	background:#ececec url(http://img.alipay.net/ea/frame/v1/icon-page.png) repeat-x 0 -128px;
+}
+.ui-page * {
+	vertical-align:middle;
+}
+.ui-page-item {
+	float:right;
+	_margin-top:5px;
+}
+.ui-page-item a,.ui-page-item em {
+	height:12px;
+	margin-left:3px;
+	font-family:SimSun,Arial,Helvetica,sans-serif;
+	line-height:100%;
+	color:#333;
+}
+a.ui-page-item-home,a.ui-page-item-Previous,a.ui-page-item-next,a.ui-page-item-end {
+	width:12px;
+	background:url(http://img.alipay.net/ea/frame/v1/icon-page.png) no-repeat;
+}
+a.ui-page-item-home {
+	background-position:1px 0;
+}
+a.ui-page-item-Previous {
+	background-position:1px -30px;
+}
+a.ui-page-item-next {
+	background-position:1px -60px;
+}
+a.ui-page-item-end {
+background-position:1px -90px;
+}
+a.ui-page-item-number {
+	margin-left:2px;
+}
+a.ui-page-item-number:hover {
+	color:#f60;
+}
+.ui-page .loading-s {
+	float:right;
+	margin:5px 0 0 8px;
+}
+.ui-page-jump {
+	float:right;
+	margin-left:5px;
+}
+/*重置元件-文本输入框*/
+.ui-page-jump input.i-text {
+	width:40px;
+	margin-right:2px;
+}

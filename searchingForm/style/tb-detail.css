@@ -1,0 +1,14 @@
+.tb-detail {
+	margin-bottom: 15px;
+	border-left: 1px solid  #D7D7D7;
+	border-top: 1px solid  #D7D7D7;
+}
+.tb-detail table {
+	width: 100%;
+}
+.tb-detail th, .tb-detail td {
+    border-bottom: 1px solid  #D7D7D7;
+	border-right: 1px solid  #D7D7D7;
+    line-height: 22px;
+    padding: 8px 15px;
+}

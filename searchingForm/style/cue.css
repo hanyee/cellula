@@ -1,0 +1,72 @@
+.notice {
+    background: url("http://img.alipay.net/ea/frame/v1/icon-msg.png") no-repeat scroll -751px 0 transparent;
+    color: #666666;
+    line-height: 200%;
+    margin: 25px 0;
+    height: 50px;
+	min-height: 50px;
+    padding: 7px 0 0 68px;
+}
+.notice h2 {
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.n-cue {
+    background-color: #FAF8FF;
+    border: 1px solid #CC99FF;
+    padding: 30px 30px 18px 98px;
+	background-position: -721px 18px;
+}
+.n-cue-s {
+    background-position: -525px -210px;
+    border: 0 none;
+    margin-top: 10px;
+    padding-left: 50px;
+}
+.n-warn {
+    background-position: -420px -367px;
+}
+.m-message, .m-cue, .m-warn, .m-help, .m-error {
+    background: url("http://img.alipay.net/ea/frame/v1/icon-msg.png") no-repeat scroll -507px -263px transparent;
+    color: #666666;
+    line-height: 16px;
+    padding-left: 20px;
+	padding-top: 1px;
+	font-size: 12px;
+    margin: 3px 0 5px;
+    min-height: 16px;
+}
+.m-cue {
+    background-position: -507px -263px;
+}
+.m-cue em {
+    color: #9900CC;
+}
+.m-error {
+    background-position: -471px -331px;
+    color: #FF0000;
+}
+.m-warn {
+    background-position: -291px -507px;
+}
+.m-help {
+    background-position: -489px -298px;
+}
+.m-help a, .m-help a:hover {
+    color: #00A50E;
+    font-family: Arial,Helvetica,sans-serif;
+    text-decoration: underline;
+}
+.m-true {
+    background: url("http://img.alipay.net/assets/i/base/icon/info_16.png") no-repeat scroll 0 -596px transparent;
+}
+.air-msg {
+    font-size: 12px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    margin-top: 5px;
+    text-indent: 26px;
+    width: 95%;
+}

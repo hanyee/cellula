@@ -1,0 +1,21 @@
+.main-normal h2.normal-title {
+    background: url("http://img.alipay.net/ea/frame/v1/bg-main-normal.png") no-repeat scroll 0 -72px transparent;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 5px;
+}
+.main-normal h2.normal-title strong {
+    background: url("http://img.alipay.net/ea/frame/v1/bg-main-normal.png") no-repeat scroll right 0 transparent;
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    height: 36px;
+    padding: 0 66px 0 18px;
+}
+.main-normal .normal-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #3C3C3C;
+    min-height: 250px;
+    padding: 24px 38px 38px;
+    position: relative;
+}

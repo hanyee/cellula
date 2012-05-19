@@ -1,0 +1,135 @@
+.search-head, .search-foot {
+    background: url("http://img.alipay.net/ea/frame/v1/bg-search.png") repeat-x scroll 0 -155px #FFFCFB;
+    height: 10px;
+    overflow: hidden;
+}
+.search-head-lt, .search-head-rt, .search-foot-lt, .search-foot-rt {
+    background: url("http://img.alipay.net/ea/frame/v1/bg-search.png") no-repeat scroll 0 -119px transparent;
+    height: 10px;
+    width: 5px;
+}
+.search-head, .search-head-lt, .search-head-rt {
+    height: 29px;
+}
+.search-head-lt {
+    background-position: 0 -107px;
+    float: left;
+}
+.search-head-rt {
+    background-position: 0 -282px;
+    float: right;
+}
+.search h3 {
+    color: #424242;
+    margin: 0;
+    padding-left: 8px;
+    padding-top: 9px;
+}
+.search-body-hide {
+   
+}
+.search-body {
+    background:  #FFFFFF;
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 0 1px;
+    min-height: 25px;
+    padding: 0 10px 10px;
+}
+.search-foot {
+    background-position: 0 -228px;
+}
+.search-foot-lt {
+    background-position: 0 -190px;
+    float: left;
+}
+.search-foot-rt {
+    background-position: 0 -210px;
+    float: right;
+}
+/* search form */
+.search {
+    color: #660000;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.search table * {
+    vertical-align: middle;
+}
+
+.search .el-pad {
+    padding-left: 12px;
+}
+.search th {
+    text-align: right;
+}
+.search th, .search td {
+    height: 21px;
+    padding: 6px 2px;
+}
+.search select {
+    height: 21px;
+}
+
+/* form */
+.fm-item {
+    color: #333333;
+    font-size: 14px;
+    line-height: 23px;
+    margin: 1px 0;
+    padding: 5px 5px 5px 210px;
+}
+.fm-item * {
+    vertical-align: middle;
+}
+.fm-item .t-explain, .fm-item .t-cue, .fm-item .t-error, .fm-item select, .fm-item a {
+    font-size: 12px;
+}
+.fm-item strong {
+    color: #FF6600;
+}
+.fm-item div * {
+    vertical-align: baseline;
+}
+.fm-item label {
+    float: left;
+    margin-left: -210px;
+    padding: 0;
+    text-align: right;
+    width: 210px;
+}
+.fm-item label .required {
+    color: #FF6600;
+    margin-right: 6px;
+}
+.fm-item .fm-content {
+    padding-top: 6px;
+    white-space: nowrap;
+}
+.fm-item .fm-content label {
+    float: left;
+    margin: 0;
+    width: auto;
+}
+.fm-item .fm-content input {
+    height: 32px;
+    width: 24px;
+}
+.fm-item .fm-content a {
+    border: 1px solid #FFFFFF;
+    display: inline-block;
+    height: 30px;
+    text-transform: none;
+    width: 120px;
+}
+.fm-item .fm-content a.current, .fm-item .fm-content a:hover {
+    border: 1px solid #FF6600;
+}
+.fm-item textarea {
+    height: 70px;
+    width: 300px;
+}
+.t-explain {
+    color: #999999;
+}
+

@@ -1,0 +1,79 @@
+.fn-iblock-text, .a-button, .a-button span, .a-icon-text, .page-link a, .page-link em, span.b-operate, span.b-form, .step li span, span.m-message, .fm-item span.t-explain {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 110%;
+    text-align: left;
+    vertical-align: middle;
+}
+.fn-iblock, .a-icon, .search-control a, a.page-home, a.page-Previous, a.page-next, a.page-end, .loading, .loading-s {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: middle;
+}
+.fn-clear, #head, #head-head, #content, #container, #foot, .pop-container, .fm-item, .page, .step-how, .search, .fm-list ul, .img-list ul, .g-content {
+}
+.fn-clear:after, #head:after, #head-head:after, #content:after, #container:after, #foot:after, .pop-container:after, .fm-item:after, .page:after, .step-how:after, .search:after, .fm-list ul:after, .img-list ul:after, .g-content:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.fn-mt5 {
+    margin-top: 5px;
+}
+.fn-mt10 {
+    margin-top: 10px;
+}
+.fn-mt20 {
+    margin-top: 20px;
+}
+.fn-ml5 {
+    margin-left: 5px;
+}
+.fn-ml12 {
+    margin-left: 12px;
+}
+.fn-ml15 {
+    margin-left: 15px;
+}
+.fn-ml10 {
+    margin-left: 10px;
+}
+.fn-ml20 {
+    margin-left: 20px;
+}
+.fn-mr10 {
+    margin-right: 10px;
+}
+.fn-mr15 {
+    margin-right: 15px;
+}
+.fn-pl20 {
+    padding-left: 20px;
+}
+input.i-input {
+    border: 1px solid #A5ACB2;
+    height: 19px;
+    outline: medium none;
+    padding: 1px 0 0 2px;
+    width: 200px;
+}
+input.i-text {
+    width: 200px;
+}
+input.i-date {
+    width: 70px;
+}
+input.i-calendar {
+    background: url("http://img.alipay.net/ea/frame/v1/icon-fun.png") no-repeat scroll right -829px transparent;
+    padding-right: 22px;
+    width: 70px;
+}
+input.i-money {
+    width: 115px;
+}
+

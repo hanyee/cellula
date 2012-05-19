@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>the-simple-way-searchingForm</title>
+    <link media="all" href="style/base.css" rel="stylesheet" charset="utf-8">
+    <link media="all" href="style/common.css" rel="stylesheet" charset="utf-8">
+    <link media="all" href="style/form.css" rel="stylesheet" charset="utf-8">
+    <link media="all" href="style/i-table.css" rel="stylesheet" charset="utf-8">
+    <link media="all" href="style/ui-page.css" rel="stylesheet" charset="utf-8">
+</head>
+<body>
+<div class="search">
+    <div class="search-head fn-clear">
+        <span class="search-head-lt"></span>
+        <span class="search-head-rt"></span>
+
+        <h3 class="fn-clear"><strong>查询账户明细</strong></h3>
+
+    </div>
+    <div class="search-body search-body-hide">
+        <form action="/aa" id="J_searchForm" method="post">
+            <table id="J_fieldsTable">
+                <tbody>
+                <tr>
+                    <th width="126">时间：</th>
+                    <td width="238">
+
+                        <input id="J_beginDate" maxlength="10" name="beginDate" class="i-input i-calendar" value="2010-02-15"><a
+                            href="#" id="time-start" class="a-icon a-calendar">日历</a> 至
+                        <input id="J_endDate" maxlength="10" class="i-input i-calendar" name="endDate" value="2010-02-21"><a
+                            href="#" id="time-end" class="a-icon a-calendar">日历</a></td>
+                    <td width="87"><span class="el-pad">支付宝账户：</span></td>
+                    <td width="252"><select name="myselfAccount" id="myselfAccount">
+                        <option value="2088201897436754" selected=""> (qiyeban2@yahoo.cn)</option>
+                        <option value="2088201899866436">关联账户1 (xiazhejun2@163.com)</option>
+
+                        <option value="2088201899918339">关联账户2 (xiazhejun3@163.com)</option>
+                    </select></td>
+                    <td width="62">交易状态：</td>
+                    <td width="145"><select name="tradeStatus" id="tradeStatus">
+                        <option value="all">所有</option>
+                        <option value="success">成功</option>
+                        <option value="failed">失败</option>
+
+                    </select></td>
+                </tr>
+                <tr>
+                    <th><span class="el-pad">交易号：</span></th>
+                    <td><input id="billNo" name="" class="i-input i-text" /></td>
+                    <td><span class="el-pad">商户订单号：</span></td>
+                    <td><input name="Input" class="i-input i-text" /></td>
+                    <td><span class="el-pad">收付款：</span></td>
+
+                    <td><select name="select3">
+                        <option value="" selected="">全部</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th>交易对方账号：</th>
+                    <td>
+                        <input name="" class="i-input i-text"></td>
+
+                    <td><span class="el-pad">交易来源地：</span></td>
+                    <td><select name="select2">
+                        <option value="" selected="">所有</option>
+                    </select></td>
+                    <td>&nbsp;</td>
+                    <td><input id="J_querySubmitBtn" type="submit" value="查 询" class="btn"></td>
+                </tr>
+                </tbody>
+
+            </table>
+        </form>
+    </div>
+    <div class="search-foot fn-clear">
+        <span class="search-foot-lt"></span>
+        <span class="search-foot-rt"></span>
+    </div>
+
+
+    <div class="tb-data">
+
+        <table>
+            <thead>
+            <tr>
+                <th>交易时间</th>
+                <th>交易号</th>
+                <th>商户订单号</th>
+                <th>交易来源地</th>
+
+                <th>支付宝对方账户</th>
+                <th>类型</th>
+                <th>收入</th>
+                <th>支出</th>
+                <th>账户余额</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+                <td>2010.02.21 13：00</td>
+                <td>46543123597465654</td>
+                <td>001641265</td>
+                <td>国航</td>
+
+                <td>dingdali@yahoo.com</td>
+                <td>收款</td>
+                <td>10，000</td>
+                <td>10，000</td>
+                <td>10，000</td>
+            </tr>
+
+            <tr>
+                <td>2010.02.21 13：00</td>
+                <td>46543123597465654</td>
+                <td>001641265</td>
+                <td>国航</td>
+                <td>dingdali@yahoo.com</td>
+
+                <td>收款</td>
+                <td>10，000</td>
+                <td>10，000</td>
+                <td>10，000</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div class="ui-page" id="J_paginator">
+	    <span class="ui-page-jump"> 跳至：
+			<input id="J_pageNumber" type="text" name="number" size="2" class="i-input i-text">
+			<input id="J_pageConfirm" type="button" class="a-button a-ok" name="button2" value="确定">
+		</span>
+		<span class="ui-page-item">
+            <a class="ui-page-item-first" href="#">first</a>
+            <a class="ui-page-item-prev" href="#">prev</a>
+            <a href="#" class="ui-page-item-number">[1]</a>
+            <a href="#" class="ui-page-item-number">[2]</a>
+            <em>3</em>
+            <a href="#" class="ui-page-item-number">[4]</a>
+            <a href="#" class="ui-page-item-number">[5]</a>
+            <a href="#" class="ui-page-item-next">下一页</a>
+            <a href="#" class="ui-page-item-last">最后页</a>
+        </span>
+
+        <span class="ui-page-info">
+            共41条记录，共5页，当前1－10条，每页
+			<select id="J_sizePerPage" name="sizePerPageStr">
+                <option value="10">10条</option>
+                <option value="20">20条</option>
+                <option value="40">40条</option>
+            </select>
+		</span>
+
+    </div>
+</div>
+
+
+<script type="text/javascript" src="jquery-1.7.2.js"></script>
+<script type="text/javascript" src="../lib/dev/Class.js"></script>
+<script type="text/javascript" src="lib/form.js"></script>
+<script type="text/javascript" src="lib/table.js"></script>
+<!--
+<script type="text/javascript" src="lib/paginator.js"></script>
+-->
+
+<script type="text/javascript">
+    // public global
+    var ModelTypeEnum = {
+        DATE:'date',
+        SELECT:'select',
+        CALENDAR:'calendar'
+    };
+
+    var ModelFactory = function(){
+        var tmp = function(){
+            for(n in tmp.factoryMap){
+                if(n == this.get('type')){
+                    tmp.factoryMap[n](this);
+                    return;
+                }
+            }
+        };
+        tmp.factoryMap = {};
+        tmp.push = function(type,fn){
+            tmp.factoryMap[type] = fn;
+        };
+        return tmp;
+    }();
+</script>
+
+<script type="text/javascript">
+    var regCal = /^\d{4}-((0[1-9]{1})|(1[0-2]{1}))-((0[1-9]{1})|([1-2]{1}[0-9]{1})|(3[0-1]{1}))$/;
+
+    var elementsArray = ElementFactory(QueryElement, [{
+        key : 'clendar',
+        data : {
+            value : {
+                beginDate : '',
+                endDate : ''
+            }
+        },
+        setData : function(){
+            return this.set({
+                value : {
+                    beginDate : $('#J_beginDate').val(),
+                    endDate : $('#J_endDate').val()
+                }
+            });
+        },
+        errHandler : function(msg){
+            alert(msg);
+        },
+        validate : function(){
+            var b = this.data.value.beginDate, e = this.data.value.beginDate;
+            if(!(regCal.test(b) && regCal.test(e))){
+                return '日期格式错误！';
+            }
+            if(b > e){
+                return '开始日期不能大于结束日期';
+            }
+        }
+    },{
+        key : '#billNo',
+        data : {
+            value : {}
+        },
+        setData : function(){
+            //this.value = $(this.key).val();
+            //console.log(arguments);
+            return this.set({
+                value : {
+                    billNo : $(this.key).val()
+                }
+            });
+        },
+        errHandler : function(msg){
+            alert(msg);
+        },
+        validate : function(){
+            if(this.data.value.length > 5 ){
+                return '长度不能大于5！';
+            }
+        }
+    },{
+        key : '#tradeStatus',
+        data : {
+            value : {}
+        },
+        setData : function(){
+            // result of set method should be returned
+            return this.set({
+                value : {
+                    tradeStatus : $(this.key).val()
+                }
+            });
+        },
+        validate : function(){
+            if(this.data.value === ''){
+                // return false;
+            }
+        }
+    }]);
+
+    pageElements = ElementFactory(QueryElement, [{
+        key : 'page',
+        setData : function(){
+            return this.set({value : {current : 3, totalPages : 8}});
+        }
+    },{
+        key : 'sizePerPageStr',
+        setData : function(){
+            //this.value = $(this.key).val();
+            //console.log(arguments);
+            return this.set({value : {sizePerPageStr : $('#J_sizePerPage').val()}});
+        }
+    }, {
+        key : 'number',
+        setData : function(){
+            //this.value = $(this.key).val();
+            //console.log(arguments);
+            return this.set({value : {number : $('#J_pageNumber').val()}});
+        },
+        errHandler : function(msg){
+            alert(msg);
+        },
+        validate : function(){
+            if(isNaN(Number(this.data.value.number))){
+                return 'must be a number!';
+            }
+        }
+    }]);
+
+    console.log(elementsArray);
+    console.log(pageElements);
+
+    var f = new SearchingForm({
+        root : 'J_searchForm',
+        collection : elementsArray,
+
+        registerEvents : function(){
+            $('#J_querySubmitBtn').bind('click', this.doSearch);
+            //this.search();
+        }
+    });
+
+    var pg = new Paginator({
+        root : 'J_paginator',
+        collection : pageElements,
+        pageDefault : {
+            size : {sizePerPageStr : 20},
+            number : {number : 1},
+            page : {
+                first : 1,
+                last : null,
+                pre : null,
+                next : null,
+                totalItems : 0,
+                totalPages : 0,
+                current : 1,
+                currentArray : []
+            }
+        },
+        registerEvents : function(){
+            $('#J_sizePerPage').bind('change', this.changeSize);
+            $('#J_pageConfirm').bind('click', this.paginate);
+            $('[class*="ui-page-item-"]').bind('click', this.paginate);
+
+
+        }
+    });
+
+    !function(){
+        f.interfaceReg('getDefault', pg);
+        f.interfaceReg('getData', pg);
+        pg.interfaceReg('search', f);
+    }();
+
+</script>
+</body>
+</html>

@@ -25,6 +25,12 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
             if(!r) return r;
         }
     },
+    get : function(){
+        if(arguments.length === 0){
+            return this.collection;
+        }
+        return this.collection[arguments[0]];
+    },
     getData : function(){
         var data = {}, l = arguments.length;
         if(l === 0){
@@ -34,7 +40,6 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
             }
         }else{
             for(var i=0; i<l; i++ ){
-                console.log(arguments);
                 data = UtilTools.mix(data, this.collection[arguments[i]].data.value);
             }
         }
@@ -78,7 +83,7 @@ var SearchingForm = new Class('SearchingForm', {
         // mix data
         var data = UtilTools.mix(this.getFormData(),pageData);
         console.log('search');
-        console.log(pageData);
+        //console.log(pageData);
         console.log(data);
     }
 
@@ -87,12 +92,54 @@ var SearchingForm = new Class('SearchingForm', {
 var Paginator = new Class('Paginator', {
     pageDefault : {
         size : {},
-        number: {}
+        number: {},
+        page : {
+            first : 1,
+            last : null,
+            prev : null,
+            next : null,
+            totalItems : null,
+            totalPages : null,
+            current : null,
+            currentArray : null
+        }
     },
-    paginate : function(){
+    typeEnum : {
+        first : '\\bfirst\\b',
+        last : '\\blast\\b',
+        prev : '\\bprev\\b',
+        next : '\\bnext\\b'
+        //current : '\\bcurrent\\b'
+        //number : '(\\D*)(\\d+)(\\D*)'
+    },
+    getOperationType : function(name){
+        for(var n in this.typeEnum){
+            if(new RegExp(this.typeEnum[n]).test(name)) return n;
+        }
+    },
+    calcNumber : function(t){
+        var type = this.getOperationType(t.className), c = parseInt(this.getData('page')['current']), l = this.getData('page')['totalPages'];
+
+        console.log(t.className);
+        console.log(type);
+        console.log(c);
+
+        if(type === undefined){
+            return /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2];
+        }
+        // if(type === 'first') return 1;
+        if(type === 'last') return l;
+        if(type === 'prev') return c - 1;
+        if(type === 'next') return c + 1;
+
+        return 1;
+    },
+    paginate : function(e){
         console.log('paginate');
         this.save();
-        console.log(this.getData());
+
+        //console.log(this.calcNumber(e.currentTarget));
+        this.get('number').set({value : {number : this.calcNumber(e.currentTarget)}});
 
         this.applyInterface('search', this.getData());
 
@@ -108,18 +155,17 @@ var Paginator = new Class('Paginator', {
 
         this.registerEvents();
     },
-    changeSize : function(){
+    changeSize : function(e){
         this.save();
         console.log('change');
-        console.log(this.getData());
-        console.log(this.getData('number'));
-        console.log(this.getData('sizePerPageStr'));
+        //console.log(this.getData());
+        //console.log(this.getData('number'));
+        //console.log(this.getData('sizePerPageStr'));
         // TODO:
         // mix this.getData() && this.pageDefault.number
         this.applyInterface('search', UT.mix(this.getData(),this.pageDefault.number));
     }
 }).inherits(SearchModuleBase);
-
 
 var QueryElement = new Class('QueryElement',{
     key : '',
@@ -214,6 +260,7 @@ var UtilTools = UtilTools || {};
 UtilTools.isObject = function(obj){
     return /\bObject\b/.test(Object.prototype.toString.call(obj));
 };
+
 UtilTools.isArray = function(obj){
     return /\bArray\b/.test(Object.prototype.toString.call(obj));
 };
