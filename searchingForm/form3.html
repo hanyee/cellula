@@ -132,7 +132,7 @@
     <div class="ui-page" id="J_paginator">
 	    <span class="ui-page-jump"> 跳至：
 			<input id="J_pageNumber" type="text" name="number" size="2" class="i-input i-text">
-			<input id="J_pageConfirm" type="button" class="a-button a-ok" name="button2" value="确定">
+			<input id="J_pageConfirm" type="button" class="ui-paging-info ui-paging-goto" name="button2" value="确定">
 		</span>
 		<span class="ui-page-item">
             <a class="ui-page-item-first" href="#">first</a>
@@ -161,7 +161,12 @@
 
 <script type="text/javascript" src="jquery-1.7.2.js"></script>
 <script type="text/javascript" src="../lib/dev/Class.js"></script>
+
+<script type="text/javascript" src="lib/util.js"></script>
+<script type="text/javascript" src="lib/searchModule.js"></script>
 <script type="text/javascript" src="lib/form.js"></script>
+<script type="text/javascript" src="lib/paginator.js"></script>
+<script type="text/javascript" src="lib/element.js"></script>
 <script type="text/javascript" src="lib/table.js"></script>
 <!--
 <script type="text/javascript" src="lib/paginator.js"></script>
@@ -271,7 +276,7 @@
             return this.set({value : {current : 3, totalPages : 8}});
         }
     },{
-        key : 'sizePerPageStr',
+        key : 'size',
         setData : function(){
             //this.value = $(this.key).val();
             //console.log(arguments);
@@ -282,13 +287,13 @@
         setData : function(){
             //this.value = $(this.key).val();
             //console.log(arguments);
-            return this.set({value : {number : $('#J_pageNumber').val()}});
+            return this.set({value : {number1 : $('#J_pageNumber').val()}});
         },
         errHandler : function(msg){
             alert(msg);
         },
         validate : function(){
-            if(isNaN(Number(this.data.value.number))){
+            if(isNaN(Number(this.data.value.number1))){
                 return 'must be a number!';
             }
         }
@@ -300,10 +305,13 @@
     var f = new SearchingForm({
         root : 'J_searchForm',
         collection : elementsArray,
-
         registerEvents : function(){
             $('#J_querySubmitBtn').bind('click', this.doSearch);
             //this.search();
+        },
+        customSearch : function(){
+            console.log('custom');
+            console.log('post? submit? as your wish!');
         }
     });
 
@@ -312,7 +320,7 @@
         collection : pageElements,
         pageDefault : {
             size : {sizePerPageStr : 20},
-            number : {number : 1},
+            number : {number1 : 1111},
             page : {
                 first : 1,
                 last : null,
@@ -328,7 +336,6 @@
             $('#J_sizePerPage').bind('change', this.changeSize);
             $('#J_pageConfirm').bind('click', this.paginate);
             $('[class*="ui-page-item-"]').bind('click', this.paginate);
-
 
         }
     });
