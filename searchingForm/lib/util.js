@@ -17,22 +17,6 @@ UtilTools.isArray = function(obj){
 };
 
 UtilTools.copy = function(obj){
-    /*
-     var r = {};
-     if(UtilTools.isObject(obj)){
-     if(UtilTools.isObject(arguments[1])){
-
-     }else{
-
-     }
-     }
-     if(UtilTools.isObject(obj)){
-     t = obj;
-     }
-     return t;
-     */
-
-
     if (!UtilTools.isObject(obj)) return obj;
     return UtilTools.isArray(obj) ? obj.slice() : UtilTools.mix({},obj);
 };

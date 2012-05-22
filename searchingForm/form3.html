@@ -309,7 +309,7 @@
             $('#J_querySubmitBtn').bind('click', this.doSearch);
             //this.search();
         },
-        customSearch : function(){
+        search : function(){
             console.log('custom');
             console.log('post? submit? as your wish!');
         }
@@ -343,7 +343,7 @@
     !function(){
         f.interfaceReg('getDefault', pg);
         f.interfaceReg('getData', pg);
-        pg.interfaceReg('search', f);
+        pg.interfaceReg('doSearch', f);
     }();
 
 </script>

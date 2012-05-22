@@ -24,30 +24,34 @@ var SearchingForm = new Class('SearchingForm', {
     doSearch : function(e){
         // TODO:
         // to deal with different framework's events handler
-        if(e){
+        var pageDefault, size, postData, isEvent = false;
+        if(e && e.preventDefault){
             e.preventDefault();
+            isEvent = true;
         }
 
-        //this.save();
         if(this.save.apply(this, arguments) === undefined){
+            if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
+                pageDefault = this.applyInterface('getDefault');
+                size = this.applyInterface('getData', 'size');
+                postData = UtilTools.mix(this.getFormData(), size, pageDefault.number?pageDefault.number:{});
+            }else{
+                if(e){ // triggered by paginator
+                    postData = UtilTools.mix(this.getFormData(), e);
+                }
+            }
 
-            //this.applyInterface('getDefault', this.search);
-
-            this.applyInterface('getDefault', this.setDefault);
-            this.applyInterface('getData', this.search, 'size');
+            console.log('dosearch');
+            console.log(postData);
+            this.search.call(this, postData);
         }
     },
-    search : function(pageData){
-        // TODO:
-        // mix data
-        if(!pageData[UtilTools.getFirstPropName(this.pageDefault.number)]){
-            pageData = UtilTools.mix(pageData, this.pageDefault.number);
-        }
-        var data = UtilTools.mix(this.getFormData(),pageData);
+    search : function(data){
+
         console.log('search');
-        //console.log(pageData);
+
         console.log(data);
-        this.customSearch.call(this, data);
+        //this.customSearch.call(this, data);
     },
     customSearch : function(){}
 }).inherits(SearchModuleBase);

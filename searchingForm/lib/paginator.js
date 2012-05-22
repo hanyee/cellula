@@ -61,14 +61,14 @@ var Paginator = new Class('Paginator', {
     },
     paginate : function(e){
         console.log('paginate');
-        //this.save();
-        if(this.save.apply(this, arguments) === undefined){
-            //console.log(this.calcNumber(e.currentTarget));
-            if(this.getOperationType(e.currentTarget.className) !== 'goto'){
-                this.operate(e.currentTarget);
-            }
 
-            this.applyInterface('search', this.getData());
+        if(this.getOperationType(e.currentTarget.className) === 'goto'){
+            if(this.save.apply(this, arguments) === undefined){
+                return this.applyInterface('doSearch', this.getData());
+            }
+        }else{
+            this.operate(e.currentTarget);
+            return this.applyInterface('doSearch', this.getData());
         }
     },
     getDefault : function(){
@@ -87,6 +87,6 @@ var Paginator = new Class('Paginator', {
         console.log('change');
         // TODO:
         // mix this.getData() && this.pageDefault.number
-        this.applyInterface('search', UT.mix(this.getData(),this.pageDefault.number));
+        this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
     }
 }).inherits(SearchModuleBase);
