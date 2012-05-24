@@ -8,7 +8,7 @@
 
 var QueryElement = new Class('QueryElement',{
     key : '',
-    value : '',
+    value : '{}',
     data : {value:{}},
     //previous : null,
     errHandler : function(msg){
@@ -50,6 +50,7 @@ var QueryElement = new Class('QueryElement',{
         }
     },
     setData : function(){
+        //return this.value ? this.set(new Function("return {value : " + this.value + "}").call(this)) : true;
         return this.set(new Function("return {value : " + this.value + "}").call(this));
     },
     getValue : function(){
