@@ -168,9 +168,6 @@
 <script type="text/javascript" src="lib/paginator.js"></script>
 <script type="text/javascript" src="lib/element.js"></script>
 <script type="text/javascript" src="lib/table.js"></script>
-<!--
-<script type="text/javascript" src="lib/paginator.js"></script>
--->
 
 <script type="text/javascript">
     // public global
@@ -202,25 +199,13 @@
 
     var elementsArray = ElementFactory(QueryElement, [{
         key : 'calendar',
-        data : {
-            value : {
-                beginDate : '',
-                endDate : ''
-            }
+        data: {
+            sth:'sth'
         },
-        setData : function(){
-            return this.set({
-                value : {
-                    beginDate : $('#J_beginDate').val(),
-                    endDate : $('#J_endDate').val()
-                }
-            });
-        },
-        errHandler : function(msg){
-            alert(msg);
-        },
+        value : "{beginDate : $('#J_beginDate').val(), endDate : $('#J_endDate').val()}",
+        //errHandler : function(msg){},
         validate : function(){
-            var b = this.data.value.beginDate, e = this.data.value.beginDate;
+            var b = this.data.value.beginDate, e = this.data.value.endDate;
             if(!(regCal.test(b) && regCal.test(e))){
                 return '日期格式错误！';
             }
@@ -228,23 +213,10 @@
                 return '开始日期不能大于结束日期';
             }
         }
-    },{
+    }, {
         key : '#billNo',
-        data : {
-            value : {}
-        },
-        setData : function(){
-            //this.value = $(this.key).val();
-            //console.log(arguments);
-            return this.set({
-                value : {
-                    billNo : $(this.key).val()
-                }
-            });
-        },
-        errHandler : function(msg){
-            alert(msg);
-        },
+        value : "{billNo : $(this.key).val()}",
+        //errHandler : function(msg){},
         validate : function(){
             if(this.data.value.length > 5 ){
                 return '长度不能大于5！';
@@ -252,48 +224,21 @@
         }
     },{
         key : '#tradeStatus',
-        data : {
-            value : {}
-        },
-        setData : function(){
-            // result of set method should be returned
-            return this.set({
-                value : {
-                    tradeStatus : $(this.key).val()
-                }
-            });
-        },
-        validate : function(){
-            if(this.data.value === ''){
-                // return false;
-            }
-        }
+        value : "{tradeStatus : $(this.key).val()}"
     }]);
 
     pageElements = ElementFactory(QueryElement, [{
         key : 'page',
-        setData : function(){
-            return this.set({value : {current : 3, totalPages : 8}});
-        }
+        value : "{current : 3, totalPages : 8}"
     },{
         key : 'size',
-        setData : function(){
-            //this.value = $(this.key).val();
-            //console.log(arguments);
-            return this.set({value : {sizePerPageStr : $('#J_sizePerPage').val()}});
-        }
+        value : "{sizePerPageStr : $('#J_sizePerPage').val()}"
     }, {
         key : 'number',
-        setData : function(){
-            //this.value = $(this.key).val();
-            //console.log(arguments);
-            return this.set({value : {number1 : $('#J_pageNumber').val()}});
-        },
-        errHandler : function(msg){
-            alert(msg);
-        },
+        value : "{number : $('#J_pageNumber').val()}",
+        //errHandler : function(msg){},
         validate : function(){
-            if(isNaN(Number(this.data.value.number1))){
+            if(isNaN(Number(this.data.value.number))){
                 return 'must be a number!';
             }
         }
@@ -307,9 +252,8 @@
         collection : elementsArray,
         registerEvents : function(){
             $('#J_querySubmitBtn').bind('click', this.doSearch);
-            //this.search();
         },
-        search : function(){
+        search : function(data){
             console.log('custom');
             console.log('post? submit? as your wish!');
         }
@@ -320,17 +264,7 @@
         collection : pageElements,
         pageDefault : {
             size : {sizePerPageStr : 20},
-            number : {number1 : 1111},
-            page : {
-                first : 1,
-                last : null,
-                pre : null,
-                next : null,
-                totalItems : 0,
-                totalPages : 0,
-                current : 1,
-                currentArray : []
-            }
+            number : {number : 1111}
         },
         registerEvents : function(){
             $('#J_sizePerPage').bind('change', this.changeSize);
@@ -344,6 +278,8 @@
         f.interfaceReg('getDefault', pg);
         f.interfaceReg('getData', pg);
         pg.interfaceReg('doSearch', f);
+        console.log(pg.pageDefault);
+
     }();
 
 </script>

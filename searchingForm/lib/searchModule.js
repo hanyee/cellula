@@ -13,16 +13,20 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
     initCfg : function(cfg){
         if (typeof cfg === 'object') {
             for (var n in this) {
-                this[n] = cfg[n] ? cfg[n] : this[n];
+                //this[n] = cfg[n] ? cfg[n] : this[n];
+                UtilTools.isObject(this[n]) && UtilTools.isObject(cfg[n]) ? this[n] = UtilTools.deepMix({},this[n],cfg[n]): this[n] = cfg[n] ? cfg[n] : this[n];
             }
         }
     },
-    save : function(){
-        for(var n in this.collection){
+    save:function () { // save the specified element
+        var c = this.collection, o = arguments[0];
+        if (typeof o === 'string') return c[o] ? c[o].setData.call(c[o]) : undefined;
+
+        for (var n in this.collection) {
             var r = this.collection[n].setData.apply(this.collection[n], arguments);
             // TODO:
             // validateAll ?
-            if(!r) return r;
+            if (!r) return r;
         }
     },
     get : function(){

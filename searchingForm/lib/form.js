@@ -13,10 +13,6 @@ var SearchingForm = new Class('SearchingForm', {
         this.bindAll('search','doSearch');
 
         this.registerEvents();
-
-    },
-    setDefault : function(d){
-        this.pageDefault = d;
     },
     getFormData : function(){
         return this.getData();
@@ -30,7 +26,7 @@ var SearchingForm = new Class('SearchingForm', {
             isEvent = true;
         }
 
-        if(this.save.apply(this, arguments) === undefined){
+        if(this.save.apply(this, isEvent?arguments:[]) === undefined){
             if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
                 pageDefault = this.applyInterface('getDefault');
                 size = this.applyInterface('getData', 'size');
@@ -38,6 +34,7 @@ var SearchingForm = new Class('SearchingForm', {
             }else{
                 if(e){ // triggered by paginator
                     postData = UtilTools.mix(this.getFormData(), e);
+                    console.log(e);
                 }
             }
 
@@ -47,11 +44,9 @@ var SearchingForm = new Class('SearchingForm', {
         }
     },
     search : function(data){
-
         console.log('search');
-
         console.log(data);
         //this.customSearch.call(this, data);
     },
-    customSearch : function(){}
+    customSearch : function(){} // Deprecated
 }).inherits(SearchModuleBase);

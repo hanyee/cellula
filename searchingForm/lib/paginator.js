@@ -37,11 +37,6 @@ var Paginator = new Class('Paginator', {
     },
     calcNumber : function(t){
         var type = this.getOperationType(t.className), c = parseInt(this.getData('page')['current']), l = this.getData('page')['totalPages'];
-
-        //console.log(t.className);
-        //console.log(type);
-        //console.log(c);
-
         if(type === undefined){
             return /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2]; // ? /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2] : this.get('number').getValue()[0];
         }
@@ -56,7 +51,7 @@ var Paginator = new Class('Paginator', {
         var t = {}, number = this.get('number');
         if(number){
             t[UtilTools.getFirstPropName(number.getValue())] = this.calcNumber(ct);
-            number.set({value : t});
+            number.set({value : t});console.log(number);
         }
     },
     paginate : function(e){
@@ -66,7 +61,7 @@ var Paginator = new Class('Paginator', {
             if(this.save.apply(this, arguments) === undefined){
                 return this.applyInterface('doSearch', this.getData());
             }
-        }else{
+        }else{ console.log('not goto');
             this.operate(e.currentTarget);
             return this.applyInterface('doSearch', this.getData());
         }
@@ -83,7 +78,7 @@ var Paginator = new Class('Paginator', {
         this.registerEvents();
     },
     changeSize : function(e){
-        this.save();
+        this.save('size');
         console.log('change');
         // TODO:
         // mix this.getData() && this.pageDefault.number

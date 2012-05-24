@@ -39,14 +39,8 @@ UtilTools.deepMix = function(){
     for(var i=1, l=arguments.length; i<l; i++){
         var t = arguments[i];
         if(typeof t === 'object'){ // if Array is not allowed --> UtilTools.isObject(t)
-            for(var n in t){/*
-                if(typeof ret[n] === 'object' && typeof t[n] === 'object'){
-                    ret[n] = this.deepMix(ret[n], t[n]);
-                }else{
-                    ret[n] = t[n];
-                }
-                */
-                typeof ret[n] === 'object' && typeof t[n] === 'object' ? ret[n] = this.deepMix(ret[n], t[n]) : ret[n] = t[n];
+            for(var n in t){
+                typeof ret[n] === 'object' && typeof t[n] === 'object' ? ret[n] = this.deepMix({}, ret[n], t[n]) : ret[n] = t[n];
             }
         }
     }

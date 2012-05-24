@@ -8,10 +8,12 @@
 
 var QueryElement = new Class('QueryElement',{
     key : '',
-    //value : '',
-    data : {},
+    value : '',
+    data : {value:{}},
     //previous : null,
-    errHandler : function(){},
+    errHandler : function(msg){
+        alert(msg);
+    },
     prepareData : function(fn){ // Deprecated
         // TODO:
         // this.previous = this;
@@ -31,25 +33,25 @@ var QueryElement = new Class('QueryElement',{
         return true;
     },
     set : function(cfg){
+        if(!UtilTools.isObject(cfg['value'])) throw 'data structure error!';
         if(UtilTools.isObject(cfg)){
             var t = {};
-
             //t.data = UtilTools.mix({}, this.data, cfg);
             t.data = UtilTools.deepMix({}, this.data, cfg);
-
             var ret = this.validate.call(t);
-
             if (ret !== undefined) { // validate method should not return anything if there's no validate error
                 // throw 'QueryElement was failed to be constructed caused by '+ret;
                 this.errHandler(ret);
                 return false;
             }
-            this.data = t.data;
+            this.data = UtilTools.mix({},t.data);
             this.isValidated = true;
             return true;
         }
     },
-    setData : function(){},
+    setData : function(){
+        return this.set(new Function("return {value : " + this.value + "}").call(this));
+    },
     getValue : function(){
         //return this.value;
         return this.data.value;
@@ -61,7 +63,8 @@ var QueryElement = new Class('QueryElement',{
     init : function (cfg) {
         if (typeof cfg === 'object') {
             for (var n in this) {
-                this[n] = cfg[n] ? cfg[n] : this[n];
+                //this[n] = cfg[n] ? cfg[n] : this[n];
+                UtilTools.isObject(this[n]) && UtilTools.isObject(cfg[n]) ? this[n] = UtilTools.deepMix({},this[n],cfg[n]): this[n] = cfg[n] ? cfg[n] : this[n];
             }
         }
         this.setData();
