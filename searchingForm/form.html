@@ -132,6 +132,9 @@
     <div class="section">
         <!-- begin ui-paging -->
         <div class="ui-paging fn-clear">
+            <input type="hidden" id="J_totalItmes" value="50" />
+            <input type="hidden" id="J_pagingCurrent" value="2">
+
             <a class="ui-paging-prev" href="#">上一页</a>
             <a class="ui-paging-item" href="#"><span>1</span></a>
             <a class="ui-paging-item ui-paging-current" href="#"><span>2</span></a>
@@ -143,25 +146,25 @@
             <span class="ui-paging-ellipsis">...</span>
             <a class="ui-paging-item" href="#"><span>1024</span></a>
             <a class="ui-paging-next" href="#">下一页</a>
+
             <span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span>
             <span class="ui-paging-info ui-paging-which">
-                <input id="J_pageNumber" type="text" value="6" name="some_name">
+                <input id="J_pageNumber" type="text" value="" name="some_name">
             </span>
-
             <a href="#" class="ui-paging-info ui-paging-goto"><span>跳转</span></a>
         </div>
         <!-- end ui-paging -->
     </div>
 
-
+<!--
     <div class="section">
-        <!-- begin ui-paging -->
+
         <div class="ui-paging fn-clear">
             <a class="ui-paging-prev" href="#">上一页</a>
             <span class="ui-paging-info">第<span class="ui-paging-bold">5/7</span>页</span>
             <a class="ui-paging-next" href="#">下一页</a>
         </div>
-        <!-- end ui-paging -->
+
     </div>
 
 
@@ -174,6 +177,8 @@
             <a class="ui-paging-last" href="#">尾页</a>
         </div>
     </div>
+
+    -->
 </form>
 
 <script type="text/javascript" src="jquery-1.7.2.js"></script>
@@ -217,9 +222,10 @@
         value : "{batchNo : $(this.key).val()}"
     }]);
 
-    pageElements = ElementFactory(QueryElement, [{
+    var pageElements = ElementFactory(QueryElement, [{
         key : 'page',
-        value : "{current : 3, totalPages : 8}"
+        value : "{current : $('#J_pagingCurrent').val(), totalPages : 8, totalItems : $('#J_totalItmes').val()}"
+        //value : "{current : 1, totalPages : 8}"
     },{
         key : 'size'
     }, {
@@ -250,7 +256,8 @@
     var pg = new Paginator({
         collection : pageElements,
         pageDefault : {
-            number : {number : 1}
+            number : {number : 1},
+            size : {size : 10}
         },
         registerEvents : function(){
             //$('#J_sizePerPage').bind('change', this.changeSize);

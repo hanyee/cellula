@@ -16,6 +16,13 @@ UtilTools.isArray = function(obj){
     return /\bArray\b/.test(Object.prototype.toString.call(obj));
 };
 
+UtilTools.isEmptyObject = function( obj ) {
+    for ( var name in obj ) {
+        return false;
+    }
+    return true;
+};
+
 UtilTools.copy = function(obj){
     if (!UtilTools.isObject(obj)) return obj;
     return UtilTools.isArray(obj) ? obj.slice() : UtilTools.mix({},obj);

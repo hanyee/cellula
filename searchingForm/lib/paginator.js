@@ -8,6 +8,8 @@
 
 var Paginator = new Class('Paginator', {
     pageDefault : {
+        /**
+         *
         size : {},
         number: {},
         page : {
@@ -20,6 +22,7 @@ var Paginator = new Class('Paginator', {
             current : null,
             currentArray : null
         }
+         */
     },
     typeEnum : {
         first : '\\bfirst\\b',
@@ -36,14 +39,14 @@ var Paginator = new Class('Paginator', {
         }
     },
     calcNumber : function(t){
-        var type = this.getOperationType(t.className), c = parseInt(this.getData('page')['current']), l = this.getData('page')['totalPages'];
+        var type = this.getOperationType(t.className), c = parseInt(this.getData('page')['current']), l = parseInt(this.getData('page')['totalPages']);
         if(type === undefined){
             return /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2]; // ? /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2] : this.get('number').getValue()[0];
         }
         // if(type === 'first') return 1;
         if(type === 'last') return l;
-        if(type === 'prev') return c - 1;
-        if(type === 'next') return c + 1;
+        if(type === 'prev') return c - 1 > 1 ? c - 1 : 1;
+        if(type === 'next') return c + 1 < l ? c + 1 : l;
 
         return 1;
     },
@@ -51,7 +54,7 @@ var Paginator = new Class('Paginator', {
         var t = {}, number = this.get('number');
         if(number){
             t[UtilTools.getFirstPropName(number.getValue())] = this.calcNumber(ct);
-            number.set({value : t});console.log(number);
+            number.set({value : t});
         }
     },
     paginate : function(e){
@@ -61,7 +64,7 @@ var Paginator = new Class('Paginator', {
             if(this.save.apply(this, arguments) === undefined){
                 return this.applyInterface('doSearch', this.getData());
             }
-        }else{ console.log('not goto');
+        }else{
             this.operate(e.currentTarget);
             return this.applyInterface('doSearch', this.getData());
         }
@@ -69,13 +72,12 @@ var Paginator = new Class('Paginator', {
     getDefault : function(){
         return this.pageDefault;
     },
-
     init : function(cfg){
         this.initCfg(cfg);
 
         this.bindAll('changeSize', 'paginate');
 
-        this.registerEvents();
+        this.render();
     },
     changeSize : function(e){
         this.save('size');
@@ -83,5 +85,18 @@ var Paginator = new Class('Paginator', {
         // TODO:
         // mix this.getData() && this.pageDefault.number
         this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
+    },
+    getRootNode : function(rootStyle){
+        var nodesArray = document.getElementsByClassName(rootStyle);
+        if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
+        if(nodesArray.length === 1) return nodesArray[0];
+
+        throw new Error('root id undefined or more paginators!');
+    },
+    render : function(){
+        var root = this.getRootNode('ui-paging');
+
+
+        this.registerEvents();
     }
 }).inherits(SearchModuleBase);

@@ -30,17 +30,19 @@ var SearchingForm = new Class('SearchingForm', {
             if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
                 pageDefault = this.applyInterface('getDefault');
                 size = this.applyInterface('getData', 'size');
-                postData = UtilTools.mix(this.getFormData(), size, pageDefault.number?pageDefault.number:{});
+                postData = UtilTools.mix(this.getFormData(), UtilTools.isEmptyObject(size)?pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
             }else{
                 if(e){ // triggered by paginator
-                    postData = UtilTools.mix(this.getFormData(), e);
-                    console.log(e);
+                    postData = UtilTools.mix({},this.getFormData(), e);
                 }
             }
 
             console.log('dosearch');
             console.log(postData);
             this.search.call(this, postData);
+
+            // paginating
+
         }
     },
     search : function(data){
