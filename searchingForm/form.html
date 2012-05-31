@@ -132,9 +132,9 @@
     <div class="section">
         <!-- begin ui-paging -->
         <div class="ui-paging fn-clear">
-            <input type="hidden" id="J_totalItmes" value="50" />
+            <input type="hidden" id="J_totalItmes" value="152" />
             <input type="hidden" id="J_pagingCurrent" value="2">
-
+<!--
             <a class="ui-paging-prev" href="#">上一页</a>
             <a class="ui-paging-item" href="#"><span>1</span></a>
             <a class="ui-paging-item ui-paging-current" href="#"><span>2</span></a>
@@ -152,6 +152,7 @@
                 <input id="J_pageNumber" type="text" value="" name="some_name">
             </span>
             <a href="#" class="ui-paging-info ui-paging-goto"><span>跳转</span></a>
+            -->
         </div>
         <!-- end ui-paging -->
     </div>
@@ -233,8 +234,12 @@
         value : "{number : $('#J_pageNumber').val()}",
         //errHandler : function(msg){},
         validate : function(){
-            if(isNaN(Number(this.data.value.number))){
+            var v = this.data.value.number;
+            if(v && isNaN(Number(v))){
                 return 'must be a number!';
+            }
+            if(v === ''){
+                return 'could not be empty!';
             }
         }
     }]);

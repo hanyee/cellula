@@ -41,7 +41,7 @@ var Paginator = new Class('Paginator', {
     calcNumber : function(t){
         var type = this.getOperationType(t.className), c = parseInt(this.getData('page')['current']), l = parseInt(this.getData('page')['totalPages']);
         if(type === undefined){
-            return /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2]; // ? /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2] : this.get('number').getValue()[0];
+            return /(\D*)(\d+)(\D*)/.exec(t.innerHTML) ? /(\D*)(\d+)(\D*)/.exec(t.innerHTML)[2] : undefined;
         }
         // if(type === 'first') return 1;
         if(type === 'last') return l;
@@ -51,13 +51,17 @@ var Paginator = new Class('Paginator', {
         return 1;
     },
     operate : function(ct){
-        var t = {}, number = this.get('number');
-        if(number){
-            t[UtilTools.getFirstPropName(number.getValue())] = this.calcNumber(ct);
+        var t = {}, number = this.get('number'), gotoNum = this.calcNumber(ct);
+        if(number && gotoNum){
+            t[UtilTools.getFirstPropName(number.getProp('value'))] = gotoNum;
             number.set({value : t});
+            return true;
         }
     },
     paginate : function(e){
+        if(e && e.preventDefault){
+            e.preventDefault();
+        }
         console.log('paginate');
 
         if(this.getOperationType(e.currentTarget.className) === 'goto'){
@@ -65,8 +69,9 @@ var Paginator = new Class('Paginator', {
                 return this.applyInterface('doSearch', this.getData());
             }
         }else{
-            this.operate(e.currentTarget);
-            return this.applyInterface('doSearch', this.getData());
+            if(this.operate(e.currentTarget)){
+                return this.applyInterface('doSearch', this.getData());
+            }
         }
     },
     getDefault : function(){
@@ -94,9 +99,29 @@ var Paginator = new Class('Paginator', {
         throw new Error('root id undefined or more paginators!');
     },
     render : function(){
-        var root = this.getRootNode('ui-paging');
+        var root = this.getRootNode('ui-paging'),
+            current = this.get('page').getProp('value').current,
+            total = this.get('page').getProp('value').totalItems,
+            sv = this.get('size').getProp('value'),
+            pds = this.pageDefault.size,
+            size = UtilTools.isEmptyObject(sv) ? pds[UtilTools.getFirstPropName(pds)] : sv[UtilTools.getFirstPropName(sv)],
+            m = total % size,
+            pages = (total-m) / size + (m > 0 ? 1 : 0);
 
+        var tpl = '<a class="ui-paging-prev" href="#">上一页</a>'
 
+            +'<a class="ui-paging-item" href="#"><span>1</span></a>'
+            +'<a class="ui-paging-item ui-paging-current" href="#"><span>2</span></a>'
+            +'<span class="ui-paging-ellipsis">...</span>'
+            +'<a class="ui-paging-item" href="#"><span>$-{totalPages}</span></a>'
+            +'<a class="ui-paging-next" href="#">下一页</a>'
+            +'<span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span>'
+            +'<span class="ui-paging-info ui-paging-which">'
+            +'<input id="J_pageNumber" type="text" value="" name="some_name">'
+            +'</span>'
+            +'<a href="#" class="ui-paging-info ui-paging-goto"><span>跳转</span></a>';
+
+        root.innerHTML = UtilTools.MakeTpl(tpl, {totalPages:pages});
         this.registerEvents();
     }
 }).inherits(SearchModuleBase);

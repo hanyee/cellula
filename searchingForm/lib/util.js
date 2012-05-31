@@ -62,4 +62,17 @@ UtilTools.getFirstPropName = function(obj){
     }
 };
 
+UtilTools.MakeTpl = function(tpl, data) {
+    var newTpl = tpl;
+    for (n in data) {
+        var reg = new RegExp("(\\$\\-\\{" + n + "\\})", "g");
+        newTpl = newTpl.replace(reg, data[n]);
+    }
+    // replace extra placeholders with '' || if there's no matching data for it
+    var r = new RegExp("(\\$\\-\\{[a-zA-Z0-9]+\\})", "g");
+    newTpl = newTpl.replace(r, "");
+
+    return newTpl;
+};
+
 var UT = UtilTools;
