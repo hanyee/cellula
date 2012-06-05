@@ -24,6 +24,8 @@ var Paginator = new Class('Paginator', {
         }
          */
     },
+    sizeDefault : 5,
+    pageTpl : '',
     typeEnum : {
         first : '\\bfirst\\b',
         last : '\\blast\\b',
@@ -100,28 +102,41 @@ var Paginator = new Class('Paginator', {
     },
     render : function(){
         var root = this.getRootNode('ui-paging'),
-            current = this.get('page').getProp('value').current,
+            current = parseInt(this.get('page').getProp('value').current),
             total = this.get('page').getProp('value').totalItems,
             sv = this.get('size').getProp('value'),
             pds = this.pageDefault.size,
             size = UtilTools.isEmptyObject(sv) ? pds[UtilTools.getFirstPropName(pds)] : sv[UtilTools.getFirstPropName(sv)],
             m = total % size,
-            pages = (total-m) / size + (m > 0 ? 1 : 0);
+            pages = (total-m) / size + (m > 0 ? 1 : 0),
+            sd = this.sizeDefault,
+            half = (sd-1)/2;
+            this.get('page').set({value:{totalPages : pages}});
 
-        var tpl = '<a class="ui-paging-prev" href="#">上一页</a>'
+        var tplCfg = {
+            totalPages : pages,
+            totalShow : pages > sd ? (pages-half > current?true:false) : false,
+            ellipsis : pages > sd ? (pages-half-1 > current?true:false) : false,
+            items : [
+                //{num:5,currentClass:false}
+            ],
+            current : current
+        };
 
-            +'<a class="ui-paging-item" href="#"><span>1</span></a>'
-            +'<a class="ui-paging-item ui-paging-current" href="#"><span>2</span></a>'
-            +'<span class="ui-paging-ellipsis">...</span>'
-            +'<a class="ui-paging-item" href="#"><span>$-{totalPages}</span></a>'
-            +'<a class="ui-paging-next" href="#">下一页</a>'
-            +'<span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span>'
-            +'<span class="ui-paging-info ui-paging-which">'
-            +'<input id="J_pageNumber" type="text" value="" name="some_name">'
-            +'</span>'
-            +'<a href="#" class="ui-paging-info ui-paging-goto"><span>跳转</span></a>';
+        for (var i = 1,l = (pages > sd ? sd : pages), h = half; i <= l; i++) {
+            var num = 1;
+            if(pages > sd){
+                if(current >half && current <= pages-half) num = current - h, h--;
+                if(current > pages-half) num = pages - sd + i;
+                if(current <= half) num = i;
+            }else{
+                num = i;
+            }
 
-        root.innerHTML = UtilTools.MakeTpl(tpl, {totalPages:pages});
+            tplCfg.items.push({num:num, currentClass:current === num ? true : false});
+        }
+
+        root.innerHTML = UtilTools.parseTpl(this.pageTpl, tplCfg);
         this.registerEvents();
     }
 }).inherits(SearchModuleBase);

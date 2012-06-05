@@ -132,8 +132,8 @@
     <div class="section">
         <!-- begin ui-paging -->
         <div class="ui-paging fn-clear">
-            <input type="hidden" id="J_totalItmes" value="152" />
-            <input type="hidden" id="J_pagingCurrent" value="2">
+            <input type="hidden" id="J_totalItmes" value="132" />
+            <input type="hidden" id="J_pagingCurrent" value="10">
 <!--
             <a class="ui-paging-prev" href="#">上一页</a>
             <a class="ui-paging-item" href="#"><span>1</span></a>
@@ -195,6 +195,16 @@
 
 <script type="text/javascript">
     var regCal = /^\d{4}-((0[1-9]{1})|(1[0-2]{1}))-((0[1-9]{1})|([1-2]{1}[0-9]{1})|(3[0-1]{1}))$/;
+    var tpl = '<a class="ui-paging-prev" href="#">上一页</a>'
+            +'$-{#items}<a class="ui-paging-item$-{#currentClass} ui-paging-current$-{/currentClass}" href="#"><span>$-{num}</span></a>$-{/items}'
+            +'$-{#ellipsis}<span class="ui-paging-ellipsis">...</span>$-{/ellipsis}'
+            +'$-{#totalShow}<a class="ui-paging-item" href="#"><span>$-{totalPages}</span></a>$-{/totalShow}'
+            +'<a class="ui-paging-next" href="#">下一页</a>'
+            +'<span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">$-{current}/$-{totalPages}</span>页</span>'
+            +'<span class="ui-paging-info ui-paging-which">'
+            +'<input id="J_pageNumber" type="text" value="" name="some_name">'
+            +'</span>'
+            +'<a href="#" class="ui-paging-info ui-paging-goto"><span>跳转</span></a>';
 
     var elementsArray = ElementFactory(QueryElement, [{
         key : 'calendar',
@@ -225,7 +235,7 @@
 
     var pageElements = ElementFactory(QueryElement, [{
         key : 'page',
-        value : "{current : $('#J_pagingCurrent').val(), totalPages : 8, totalItems : $('#J_totalItmes').val()}"
+        value : "{current : $('#J_pagingCurrent').val(), totalItems : $('#J_totalItmes').val()}"
         //value : "{current : 1, totalPages : 8}"
     },{
         key : 'size'
@@ -260,6 +270,7 @@
 
     var pg = new Paginator({
         collection : pageElements,
+        pageTpl : tpl,
         pageDefault : {
             number : {number : 1},
             size : {size : 10}

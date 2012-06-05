@@ -14,24 +14,6 @@ var QueryElement = new Class('QueryElement',{
     errHandler : function(msg){
         alert(msg);
     },
-    prepareData : function(fn){ // Deprecated
-        // TODO:
-        // this.previous = this;
-        // this.setData();
-        fn.apply(this, Array.prototype.slice.call(arguments,1));
-        var ret = this.validate();
-
-        if (ret !== undefined) { // validate method should not return anything if there's no validate error
-            // throw 'QueryElement was failed to be constructed caused by '+ret;
-            // this.rollback
-            // this.value = this.previous.value;
-            // this.data = this.previous.data;
-            this.errHandler(ret);
-            return false;
-        }
-        this.isValidated = true;
-        return true;
-    },
     set : function(cfg){
         if(!UtilTools.isObject(cfg['value'])) throw 'data structure error!';
         if(UtilTools.isObject(cfg)){
