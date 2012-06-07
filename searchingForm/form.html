@@ -129,9 +129,9 @@
     <div class="section">
         <!-- begin ui-paging -->
         <div class="ui-paging fn-clear">
-            <input type="hidden" id="J_totalItmes" value="132" />
+ <!--           <input type="hidden" id="J_totalItmes" value="132" />
             <input type="hidden" id="J_pagingCurrent" value="10">
-<!--
+
             <a class="ui-paging-prev" href="#">上一页</a>
             <a class="ui-paging-item" href="#"><span>1</span></a>
             <a class="ui-paging-item ui-paging-current" href="#"><span>2</span></a>
@@ -177,6 +177,12 @@
     </div>
 
     -->
+
+    改变 总记录数 和 当前页 点击 分页看 分页效果：<br/>
+    总记录数<input type="text" id="J_totalItmes" value="132" />
+    当前页<input type="text" id="J_pagingCurrent" value="10" />
+    <input id="confirm" type="button" value="分页" onclick="pg.render()"/>
+    提交的数据为：<span id="result"></span>
 </form>
 
 <script type="text/javascript" src="jquery-1.7.2.js"></script>
@@ -260,8 +266,13 @@
             $('.ui-button-mblue').bind('click', this.doSearch);
         },
         search : function(data){
-            console.log('custom');
-            console.log('post? submit? as your wish!');
+            console.log('custom! post? submit? as your wish!');
+
+            var str = '';
+            for(var nn in data){
+                str += nn + '=' + data[nn]+'; '
+            }
+            $('#result').html(str);
         }
     });
 
