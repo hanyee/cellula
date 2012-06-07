@@ -1,0 +1,143 @@
+/**
+ * @name: ui-tab
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: tab组件
+ * @require: null
+ * @example 
+    <div class="ui-tab">
+        <ul class="ui-tab-trigger">
+            <li class="ui-tab-trigger-item ui-tab-trigger-item-current">选项一</li>
+            <li class="ui-tab-trigger-item">选项二</li>
+        </ul>
+    </div>
+    <div class="ui-tab-cnt">
+        <div class="ui-tab-cnt-item ui-tab-cnt-item-current">内容一</div>
+        <div class="ui-tab-cnt-item">内容二</div>
+    </div>
+ */
+.ui-tab {
+    position: relative;
+    *zoom: 1;
+}
+
+.ui-tab-trigger {
+    border-bottom: 1px solid #D2D2D2;
+    height:36px;
+}
+
+.ui-tab-title {
+    float:left;
+    font-size:16px;
+    padding:7px 20px 0 15px;
+    font-weight:700;
+}
+h2.ui-tab-title {
+    font-size: 16px;
+}
+
+.ui-tab-tool {
+    padding:6px 0 0;
+    float:right;
+}
+
+.ui-tab-trigger ul {
+    height:100%;
+    float:left;
+}
+
+.ui-tab-trigger-item, .ui-tab-trigger-item a, .ui-tab-trigger-item a:visited, .ui-tab-trigger-item span, /** 默认样式 */
+.ui-tab-trigger-item-current, .ui-tab-trigger-item-current a, .ui-tab-trigger-item-current a:visited, .ui-tab-trigger-item-current span, /** 选中样式 */
+.ui-tab-trigger-item-hover, .ui-tab-trigger-item-hover a, .ui-tab-trigger-item-hover a:visited, .ui-tab-trigger-item-hover span {
+    background:url("https://i.alipayobjects.com/e/201205/3BOSKVle0J.png") no-repeat 0 0;
+}
+
+/** 默认样式 */
+.ui-tab-trigger-item {
+    position:relative;
+    bottom:-1px;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    height:100%;
+    margin-right: 5px;
+    padding:0 0 0 3px;
+    background-position:0 -74px;
+}
+
+.ui-tab-trigger-item a, .ui-tab-trigger-item a:visited, .ui-tab-trigger-item span {
+    padding:7px 21px 0 19px;
+    float: left;
+    height: 29px;
+    color: #4D4D4D;
+    background-position:right -74px;
+}
+.ui-tab-trigger-item a:hover {
+    text-decoration: none;
+}
+
+/** 鼠标移上去效果 */
+.ui-tab-trigger-item-hover {
+     background-position:0 -37px;
+}
+.ui-tab-trigger-item-hover a, .ui-tab-trigger-item-hover span {
+    background-position:right -37px;
+}
+
+/** 选中样式 */
+.ui-tab-trigger-item-current {
+    background-position:0 0;
+}
+.ui-tab-trigger-item-current a, .ui-tab-trigger-item-current a:visited, .ui-tab-trigger-item-current span {
+    font-weight:700;
+    padding:7px 20px 0 19px;
+    background-position:right 0;
+}
+.ui-tab-trigger-item-current em {
+    font-weight:700;
+}
+
+.ui-tab-ctn {
+
+}
+
+.ui-tab-ctn-item {
+    display: none;
+}
+
+.ui-tab-ctn-item-current {
+    display: block;
+}
+
+/** 下tab */
+
+.ui-tab-bottom .ui-tab-trigger {
+    border-bottom:none;
+    border-top:1px solid #D2D2D2;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item {
+    bottom:0;
+    top:-1px;
+    background-position:0 -148px;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item a, .ui-tab-bottom .ui-tab-trigger-item a:visited, .ui-tab-bottom .ui-tab-trigger-item span {
+    background-position:right -148px;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item-hover {
+    background-position:0 -111px;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item-hover a, .ui-tab-bottom .ui-tab-trigger-item-hover span {
+    background-position:right -111px;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item-current {
+    background-position:0 -185px;
+}
+
+.ui-tab-bottom .ui-tab-trigger-item-current a, .ui-tab-bottom .ui-tab-trigger-item-current a:visited, .ui-tab-bottom .ui-tab-trigger-item-current span {
+    background-position:right -185px;
+}
+

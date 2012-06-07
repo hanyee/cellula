@@ -1,0 +1,51 @@
+/** 
+ * @name: ui-accordion
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 系统级accordion组件
+ * @require: null
+ * @example 
+    <div id="J_accordion" class="ui-accordion">
+        <h1 class="ui-accordion-header">Part 1 Title</h1>
+        <div class="ui-accordion-content">
+            Part 1 content
+        </div>
+        <h1 class="ui-accordion-header">Part 2 Title</h1>
+        <div class="ui-accordion-content">
+            Part 2 content
+        </div>
+        <h1 class="ui-accordion-header">Part 3 Title</h1>
+        <div class="ui-accordion-content">
+            Part 3 content
+        </div>
+        <h1 class="ui-accordion-header">Part 4 Title</h1>
+        <div class="ui-accordion-content">
+            Part 4 content
+        </div>
+        <h1 class="ui-accordion-header">Part 5 Title</h1>
+        <div class="ui-accordion-content">
+            Part 5 content
+        </div>
+    </div>
+*/
+.ui-accordion {
+    border-top:1px solid #ccc;
+}
+.ui-accordion-header {
+    padding:5px 10px 0;
+    background:#ccc url("../images/ui-table-header.png") repeat-x 0 0;
+    height:23px;
+    color:#4d4d4d;
+    font-weight:700;
+    border:1px solid #ccc;
+    border-top:none;
+}
+.ui-accordion-content {
+    min-height:100px;
+    _height:100px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-top:none;
+}
+.ui-accordion-current {
+    border-top:none;
+}

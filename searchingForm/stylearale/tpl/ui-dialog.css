@@ -1,0 +1,47 @@
+/**
+ * @name: ui-dialog
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: dialog对话框
+ * @require: null
+ */
+
+
+.ui-dialog {
+    box-shadow : 2px 2px 2px #ccc;
+    -webkit-box-shadow:2px 2px 2px #ccc;
+    -moz-box-shadow:2px 2px 2px #ccc;
+    position: absolute;
+}
+
+html body .ui-confirmation .ui-dialog-container{
+    background-color: #FFFFFF;
+    padding: 10px 5px 10px 8px;
+    text-align: center;
+    z-index: 10;
+    color:#4d4d4d;
+    border: 1px solid #CCCCCC;
+    zoom:1;
+    width:170px;
+}
+
+.ui-dialog-shadow{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    position: relative;
+    left: -2px;
+    top: -3px;
+    padding: 10px 5px 10px 10px;
+}
+
+html body .ui-dialog-arrow {
+    position: absolute;
+    top: -7px;
+    right: 20px;
+    width: 15px;
+    height: 8px;
+    overflow: hidden;
+    z-index: 999;
+    background: url("https://i.alipayobjects.com/e/201203/2D1gpJACA5.png") no-repeat 0 0 transparent;
+}
+
+

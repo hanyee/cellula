@@ -1,0 +1,47 @@
+/** 
+ * @name: ui-xbox
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 系统级xbox组件
+ * @require: null
+ * @example 
+    <div class="ui-xbox fn-mt20">
+        <div class="ui-xbox-container">
+            <div class="ui-title fn-clear">
+                <h3>标题标题</h3>
+                <span class="ui-title-link"><a class="ui-xbox-close-link" href="#">关闭</a></span>
+            </div>
+            <div class="ui-line"></div>
+            <div class="ui-box-cnt">
+                内容内容内容
+            </div>
+        </div>
+    </div>
+*/
+
+.ui-xbox {
+    border:3px solid #D2D2D2;
+}
+
+.ui-xbox-container {
+    border:1px solid #C1C1C1;
+    padding:7px;
+}
+
+.ui-box-cnt {
+    padding:10px 0 5px;
+}
+
+.ui-xbox .ui-title {
+    padding:3px 0 5px;
+}
+.ui-xbox .ui-title-link {
+    float:right;
+    height:18px;
+    line-height:19px;
+    overflow:hidden;
+}
+.ui-xbox-close-link {
+    background:url("https://i.alipayobjects.com/e/201205/2bxYWH4pqb.png") no-repeat -2px -73px;
+    padding-left:14px;
+    display:block;
+}

@@ -1,0 +1,103 @@
+/** 图标样式, 里面的span主要是用于说明图片意义
+@name ui-icon
+@example
+<a class="ui-icon-shield" href="#">
+    <span>独立担保交易</span>
+</a>
+*/
+.ui-icon-shield,.ui-icon-bow,.ui-icon-box,.ui-icon-flag,.ui-icon-flag-off,.ui-icon-rmb,.ui-icon-expand-right,.ui-icon-downarrow,
+.ui-icon-flag-yellow,.ui-icon-flag-green,.ui-icon-flag-right,.ui-icon-flag-exclamation,.ui-icon-cashback,
+.ui-icon-list-row,
+.ui-icon-list-thumb,
+.ui-icon-list-row-off,
+.ui-icon-list-thumb-off {
+    display:-moz-inline-stack;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    width:18px;
+    height:18px;
+    overflow:hidden;
+    cursor:default;
+    vertical-align:middle;
+    background:url("https://i.alipayobjects.com/sys/consume/record/ico-trade-note.png") no-repeat 0 0;
+}
+
+.ui-icon-shield span,.ui-icon-bow span,.ui-icon-box span,.ui-icon-flag span,.ui-icon-flag-off span,.ui-icon-rmb span,.ui-icon-expand-right span,.ui-icon-downarrow span,
+.ui-icon-flag-yellow span,.ui-icon-flag-green span,.ui-icon-flag-right span,.ui-icon-flag-exclamation span,.ui-icon-cashback span,
+.ui-icon-list-row span,
+.ui-icon-list-thumb span,
+.ui-icon-list-row-off span,
+.ui-icon-list-thumb-off span {
+    display:none;
+}
+
+.ui-icon-bow{
+    background-position:0 -85px;
+}
+.ui-icon-box{
+    background-position:0 -43px;
+}
+.ui-icon-rmb{
+    background-position:3px -209px;
+}
+.ui-icon-expand-right{
+        width:9px;
+        background-position:0 -459px;
+}
+.ui-icon-downarrow{
+    background-position:0px -414px;
+    cursor:pointer;
+}
+/* 返现 */
+.ui-icon-cashback{
+    background-position:-32px -208px;
+}
+.ui-icon-flag{
+    background-position:0 -168px;
+}
+.ui-icon-flag-off{
+    background-position:0 -126px;
+}
+.ui-icon-flag,.ui-icon-flag-off,.ui-icon-flag-green,.ui-icon-flag-right,.ui-icon-flag-exclamation,.ui-icon-flag-yellow
+{
+    cursor:pointer;
+}
+.ui-icon-flag-yellow{
+    background-position:-30px -125px;
+}
+.ui-icon-flag-green{
+    background-position:-30px -167px;
+}
+.ui-icon-flag-right{
+    background-position:-30px 1px;
+}
+.ui-icon-flag-exclamation{
+    background-position:-30px -40px;
+}
+
+/* 显示方式 */
+.ui-icon-list-row,
+.ui-icon-list-row-off,
+.ui-icon-list-thumb,
+.ui-icon-list-thumb-off{
+    width:20px;
+    height:17px;
+    vertical-align:middle;
+    cursor:pointer;
+}
+.ui-icon-list-row{
+    background-position:2px -253px;
+}
+.ui-icon-list-row-off{
+    background-position:2px -296px;
+}
+.ui-icon-list-row,.ui-icon-list-row-off{
+    margin-right:3px;
+}
+.ui-icon-list-thumb{
+    background-position:2px -337px;
+}
+.ui-icon-list-thumb-off{
+    background-position:2px -379px;
+}

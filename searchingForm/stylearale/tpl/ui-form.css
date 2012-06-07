@@ -1,0 +1,407 @@
+/**
+ * @name: ui-form
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 通用表单样式
+ * @require: null
+ */
+
+.ui-form {}
+
+label, label:focus, label:hover, label:active {
+    border: 0 none;
+    outline: medium none;
+}
+legend {
+    display:none;
+}
+fieldset {
+    padding:10px 0 0;
+}
+
+/** 表单项 */
+.ui-form-item{
+    padding:0 0 20px 170px;
+    margin:0;
+}
+
+.ui-form-item select {
+    color:#4d4d4d;
+    vertical-align:middle;
+}
+.ui-form-item-normal {
+    padding-left:0;
+}
+.ui-form-spliter {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    padding:6px 3px 0;
+}
+
+/** 表单标签 */
+.ui-label {
+    padding:3px 0 6px;
+    padding:5px 0 0\9;
+    *padding:4px 0 0;
+    _padding:3px 0 0;
+    width:170px;
+    float:left;
+    *margin-top:1px;
+    margin-left:-170px;
+    vertical-align:middle;
+    text-align:right;
+    color:#4D4D4D;
+    font-size:14px;
+    position:relative;
+}
+
+/** 表单必填项 */
+.ui-form .required {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    position:relative;
+    top:2px;
+    padding:0 5px 0;
+    color:#f00;
+}
+
+/** 表单输入元素 input, textarea */
+.ui-input,
+.ui-textarea,
+.ui-form .ui-securitycore .ui-checkcode-input /** 对手机校验码进行修正 */{
+    border:1px solid #CCC;
+    border-top-color:#a6a6a6;
+    color:#4D4D4D;
+    font:normal 12px tahoma, arial, \5b8b\4f53;
+    padding:7px 4px;
+    padding:8px 4px 5px\9;
+    *padding:8px 4px 5px;
+    _padding:7px 4px 6px;
+    vertical-align:top;
+    width:210px;
+}
+.ui-form .ui-securitycore .ui-checkcode-input {
+    width:100px;
+}
+
+
+.ui-form .ui-securitycore .ui-checkcode-input {
+    height:auto;
+}
+
+.ui-form-item-placeholder, .ui-input-placeholder, .ui-textarea-placeholder {
+    color:#A6A6A6;
+}
+
+.ui-input-len3{
+    width:3em;
+}
+
+.ui-input-len4 {
+    width:4em;
+}
+.ui-input-authcode {
+    width:4.5em;
+}
+
+.ui-input-len6, .ui-input-securitycode, .ui-input-date {
+    width:6em;
+}
+
+.ui-input-len8 {
+    width:8em;
+}
+
+.ui-input-len10 {
+    width:14em;
+}
+
+.ui-input-hover, .ui-textarea-hover {
+    border-color:#A6A6A6;
+    color:#4D4D4D;
+}
+
+/** 获取焦点提示样式 */
+.ui-form-item-focus .ui-form-explain, .ui-form-item-hover .ui-form-explain {
+    color:#4D4D4D;
+}
+
+.ui-form-item-hover .ui-input, .ui-form-item-hover .ui-textarea {
+    border-color:#A6A6A6;
+    color:#4D4D4D;
+}
+
+/** 获取焦点样式 */
+.ui-form-item .ui-input:focus, .ui-form-item .ui-textarea:focus,
+.ui-form-item .ui-input-focus, .ui-form-item .ui-textarea-focus,
+.ui-form-item-focus .ui-input, .ui-form-item-focus .ui-textarea,
+.ui-form .ui-securitycore .ui-checkcode-input:focus{
+    color:#4D4D4D;
+    border-color:#07F;
+    outline:1px solid #8CDDFF;
+    *padding:7px 3px 4px;
+    *border:2px solid #07F;
+}
+/** radio标签样式 */
+.ui-radio, .ui-checkbox {
+    vertical-align:middle;
+    margin-top:2px;
+    margin-top:-2px\0;
+    *margin-top:0px;
+    width:16px;
+    *zoom:1;
+}
+.ui-radio-label, .ui-checkbox-label {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    position:relative;
+    padding:0 5px 0 1px;
+    top:2px;
+    top:0px\9;
+    *top:1px;
+    _top:0;
+}
+
+.ui-input-banknum {
+    font-size:18px;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+.ui-input-amount, .ui-input-digital, .ui-form .ui-securitycore .ui-input-digital {
+    font-weight:700;
+}
+.ui-form .ui-securitycore .ui-form-item-placeholder {
+    font-weight:500;
+}
+
+.ui-textarea {
+    width:650px;
+    overflow:auto;
+    resize:none;/** 针对textarea可以支持resize而设 */
+}
+
+.ui-input-disabled, .ui-textarea-disabled {
+    border-color:#CCC;
+    background-color:#F2F2F2;
+    color:#CCC;
+    cursor:default;
+}
+
+
+/** 表单项提示信息 */
+.ui-form-explain {
+    color:#A6A6A6;
+    padding:3px 0 0;
+    padding-top:5px\9;
+    *padding-top:5px;
+    _padding-top:3px;
+    _margin-left:3px;
+    font-size:12px;
+}
+
+
+/** 报错表单输入框样式 */
+.ui-form-item-error .ui-input {
+    border-color:#F00;
+    color:#FF5243;
+}
+.ui-form-item-error .alieditContainer {
+    border:1px solid #F00;
+}
+
+.ui-form-item-success .ui-form-explain,
+.ui-form-item-forbidden .ui-form-explain,
+.ui-form-item-cue .ui-form-explain,
+.ui-form-item-warn .ui-form-explain,
+.ui-form-item-error .ui-form-explain,
+.ui-form-item-doubt .ui-form-explain, 
+.ui-form-item-wait .ui-form-explain,
+.ui-form-item-loading .ui-form-explain {
+    background:url("../images/icons.png") no-repeat 0 0;
+    color:#4D4D4D;
+    padding-left:19px;
+}
+
+.ui-form-item-error .ui-select {
+    border-color: #F00;
+}
+
+.ui-form-item-error .ui-select-value {
+    color: #F00;
+}
+
+/** 成功提示信息样式 */
+.ui-form-item-success .ui-form-explain {
+    background-position: -486px -520px;
+}
+
+/** 禁止提示信息样式 */
+.ui-form-item-forbidden .ui-form-explain {
+    color:#FF5243;
+    background-position: -458px -546px;
+}
+
+/** 普通信息提示样式 */
+.ui-form-item-cue .ui-form-explain {
+    background-position: -431px -570px;
+}
+
+/** 警告提示信息样式 */
+.ui-form-item-warn .ui-form-explain {
+    background-position:-400px -596px;
+}
+
+/** 错误提示信息样式 */
+.ui-form-item-error .ui-form-explain{
+    color:#FF5243;
+    background-position: -368px -626px;
+}
+
+/** 疑问提示信息样式 */
+.ui-form-item-doubt .ui-form-explain{
+    background-position: -338px -653px;
+}
+
+/** 等待提示信息样式 */
+.ui-form-item-wait .ui-form-explain{
+    background-position: -305px -681px;
+}
+
+/** 动态加载信息提示 */
+.ui-form-item-loading .ui-form-explain {
+    background:url("https://i.alipayobjects.com/e/201205/2budYKAewD.gif") no-repeat 0 4px;
+}
+
+/** 正在加载信息提示样式 */
+.ui-loading-text {
+    zoom:1;
+    padding-right:15px;
+    color:#20B907;
+    background:url("https://i.alipayobjects.com/e/201205/2bueMwUB2X.gif") no-repeat right 80%;
+}
+
+.ui-form-text,
+.ui-form-link,
+.sl-checkcode-link/** 图片验证码 */{
+    display:-moz-inline-stack;
+    display: inline-block;
+    *display:inline;
+    zoom:1;
+    padding:3px 0 0;
+}
+.ui-form-text {
+    font-size:14px;
+    vertical-align:middle;
+}
+
+.ui-form-link, .sl-checkcode-link {
+    padding-top:5px;
+}
+.ui-form-link {
+    *padding-top:2px;
+    vertical-align:middle;
+    height:18px;
+}
+
+.ui-form-link, .sl-checkcode-link {
+    margin:0 0 0 3px;
+    margin-top:3px\9;
+}
+
+.ui-form-alieditlink {
+    padding:0;
+    position:relative;
+    top:-2px;
+    left:3px;
+}
+
+/** 图片验证码 */
+.sl-checkcode-img {
+    vertical-align:top;
+}
+.sl-checkcode-link {
+    height:22px;
+    line-height:1.2;
+    padding-top:8px;
+    overflow:hidden;
+}
+
+.ui-form-item-authcodebreak .sl-checkcode-link {
+    width:40px;
+    height:30px;
+    padding-top:0;
+}
+
+.ui-input-del {
+    display:block;
+    width:10px;
+    height:10px;
+    text-indent:-10em;
+    overflow:hidden;
+    margin:4px 0 0 3px;
+    background:url("../images/ui-input-del.png") no-repeat 0 0;
+}
+
+.ui-input-add, .ui-input-add:visited, .ui-input-add:hover {
+    margin:10px 0 0;
+    text-decoration:none;
+    display:block;
+    padding:6px 0 0 31px;
+    width:190px;
+    height:24px;
+    font-weight:700;
+    overflow:hidden;
+    background:url("../images/ui-input-add.png") no-repeat 0 0;
+}
+
+
+/** 水平显示表单 */
+
+.ui-form-horizontal .ui-form-item{
+    display:inline;
+    float:left;
+    padding:0 0 15px 70px;
+}
+
+.ui-form-horizontal .ui-form-item select{
+    width:90px;
+}
+.ui-form-horizontal .ui-label{
+    width:70px;
+    margin-left:-70px;
+}
+.ui-form-horizontal .ui-input {
+    width:90px;
+}
+.ui-form-horizontal .ui-input-date {
+    width:6em;
+}
+
+.ui-form-horizontal .ui-form-item-last{
+    width:60px;
+    padding:0 0 15px 5px;
+}
+.ui-form-horizontal .ui-form-item-time{
+    width:220px;
+}
+
+
+/** 垂直显示表单 */
+
+.ui-form-vertical {}
+
+.ui-form-vertical .ui-form-item {
+    padding-left:20px;
+}
+.ui-form-vertical .ui-label {
+    margin:0;
+    text-align:left;
+    float:none;
+    display:block;
+}
+/** 竖直必填 */
+.ui-form-vertical .required {
+    padding-left:0;
+}

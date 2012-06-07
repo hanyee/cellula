@@ -1,0 +1,174 @@
+/**
+ * @name: ui-table
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 表格组件
+ * @require: null
+ * @example 
+    <div class="ui-table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+*/
+
+.ui-table {
+    border:1px solid #CCC;
+    background-color:#FFF;
+}
+.ui-table table {
+    border-collapse:collapse;
+    width:100%;
+}
+
+.ui-table-fixed table {
+    table-layout:fixed;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+.ui-table th, .ui-table td {
+    color:#4d4d4d;
+    text-align:left;
+    padding: 6px 9px 6px 10px;
+    vertical-align:middle;
+}
+
+.ui-table caption, .ui-table th {
+    padding: 5px 9px 5px 10px;
+    font-weight:700;
+    background:#f7f7f7 url("../images/ui-table-header.png") repeat-x 0 0;
+    border-bottom:1px solid #ccc;
+}
+.ui-table caption:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.ui-table caption {
+    zoom:1;
+    padding:4px 9px 3px 10px;
+}
+
+.ui-table-caption {
+    float:left;
+    font-size:14px;
+}
+
+.ui-table-tool {
+    color:#ccc;
+    font-size:12px;
+    font-weight:normal;
+    padding:1px 0 0 19px;
+}
+.ui-table-tool-title {
+    color:#6a6a6a;
+}
+.ui-table-tool .ft-bar {
+    padding:0 7px 0 6px;
+}
+
+/** 表格排序按钮 */
+.ui-table .sort {
+    padding:0 11px 0 0;
+    overflow:hidden;
+    text-decoration:none;
+    color:#4D4D4D;
+    background:url("../images/ui-table-sort.png") no-repeat right 3px;
+}
+
+.ui-table-spliter {
+    background-color:#f2f2f2;
+}
+
+.ui-table-inner {
+    border-right:0;
+    border-bottom:0;
+}
+
+.ui-table-inner th {padding:3px 5px;border-top:0;border-left:0;}
+
+.ui-table .ui-table-explain {
+    color:#A6A6A6;
+}
+
+.ui-table .border-left-none {border-left:0;}
+
+.ui-table-foot td {
+    text-align:right;
+    padding-right:9px;
+    border-top:1px solid #ccc;
+    background-color:#f2f2f2;
+}
+
+/** 当checkbox在表格当中时 */
+.ui-table .ui-checkbox {
+    vertical-align:middle;
+
+}
+
+/** 当图片在表格当中时 */
+.ui-table img {
+    vertical-align:middle;
+}
+
+/** 表格全边框 */
+.ui-table-border {
+    border-left:none;
+    border-top:none;
+}
+
+.ui-table-border th, .ui-table-border td {
+    border-top:1px solid #CCC;
+    border-left:1px solid #CCC;
+}
+
+/** 表格无边框 */
+.ui-table-bordernone {
+    border:none;
+}
+
+/** 表格上边框 */
+.ui-table-bordertop {
+    border-top:none;
+}
+
+.ui-table-bordertop caption {
+    border-top:1px solid #ccc;
+    border-bottom:none;
+}
+
+.ui-table-bordertop th, .ui-table-bordertop td {
+    border-top:1px solid #ccc;
+}
+
+/** 表格左边框 */
+.ui-table-borderleft {
+    border-left:none;
+}
+
+.ui-table-borderleft caption {
+    border-left:1px solid #CCC;
+}
+
+.ui-table-borderleft th, .ui-table-borderleft td {
+    border-left:1px solid #ccc;
+}
+

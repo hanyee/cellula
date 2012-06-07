@@ -1,0 +1,34 @@
+/*
+    @name：组件 语音提示
+    @desc：语音提示 
+*/
+.tip-voice{
+    width:532px;
+    overflow:hidden;
+    background:#F9F9F9;
+    border:1px #D4D4D4 solid;
+    _font-family:Simsun;
+}
+.tip-voice-container{
+    padding:10px;
+    border:1px #FFFFFF solid;
+    line-height:normal;
+}
+.tip-voice-container .tip-voice-normal{
+    padding:0 0 3px 0;
+    line-height:17px;
+}
+.tip-voice-container .tip-voice-normal p{
+
+}
+.tip-voice .tip-voice-success{
+    margin:0;
+    line-height:16px;
+    padding:0 30px 10px 24px;
+    background:url('http://img.alipay.net/pa/frame/v2/ico-pa.png') no-repeat;
+    background-position:-164px -390px;
+    color:#4D4D4D;
+}
+.tip-voice .btn-normal{
+    *margin-right:4px;
+}

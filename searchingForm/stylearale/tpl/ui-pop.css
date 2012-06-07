@@ -1,0 +1,313 @@
+/** 提示样式
+@name ui-pop
+@example
+*/
+
+
+.pop-close-link{
+    display:block;
+    position:absolute;
+    padding:10px;
+    height: 1px;
+    right:0;
+    top: 12px;
+    overflow:hidden;
+    text-indent:-10em;
+    font:500 12px/19px Arial;
+    background:url("https://img.alipay.com/pa/frame/v2/ico-pa.png") 3px -155px no-repeat;
+}
+
+.pop-close-link span{
+    visibility:hidden;
+}
+
+.pop-close-link em{
+    display:none;
+}
+
+
+.pop-form{
+    position:absolute;
+    z-index:999;
+}
+.pop-form .container{
+    background:#f5f5f5;
+    border:2px #797979 solid;
+    padding:10px;
+    _padding:10px 3px 10px 10px;
+    overflow:hidden;
+}
+.pop-form .title{
+    margin:0;
+}
+.pop-form .title h3{
+    font-size:14px;
+    line-height:21px;
+}
+.pop-form .angle{
+    width:12px;
+    height:14px;
+    line-height:14px;
+    background:url("https://img.alipay.com/pa/frame/v2/ico-pa.png") -40px -100px no-repeat;
+    margin:-2px 0 0 20px;
+}
+.pop-form .angle-top{
+    background-position:-57px -100px;
+    margin:-12px 0 0 0;
+    z-index:9999;
+    top:0;
+    right:15px;
+    position:absolute;
+}
+.pop-form .angle-br{
+    background-position:-74px -100px;
+    margin:-2px 0 0;
+}
+.pop-form .pop-close-link{
+    right:10px;
+    top:10px;
+}
+
+
+
+.ui-pop {
+    background: #a8a8a8;
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    z-index:900;
+}
+
+.ui-pop-ctn{
+    height: 100%;
+    position: relative;
+    top: -2px;
+    left: -2px;
+    border: 1px #dea90c solid;
+    background: #ffff8d;
+    padding:5px;
+}
+
+.ui-pop-angle{
+    position:absolute;
+    width:10px;
+    height:11px;
+    line-height:11px;
+    background:url("https://img.alipay.com/pa/frame/v2/ico-pa.png") -40px -128px no-repeat;
+    top:100%;
+    margin-top:-3px;
+    display:block;
+    left:20px;
+    z-index:888;
+    overflow:hidden;
+}
+.ui-pop-angle-top{
+    background:url("https://img.alipay.com/pa/frame/v2/ico-pa.png") -40px -140px no-repeat;
+    top:-9px;
+}
+
+.ui-pop th,.ui-pop td{
+    white-space:nowrap;
+}
+
+.ui-pop .pop-close-link{
+    top:5px;
+    right:5px;
+}
+
+.ui-pop-title h3{
+    font-size:14px;
+    line-height:21px;
+}
+
+
+.p-cue{
+	
+}
+.p-cue .container{
+	border:1px solid #CBD7E3;
+	background: #E5F5FF;
+}
+/* 带阴影的ui-pop */
+.ui-pop-normal{
+    background:#E3E3E3;
+}
+.ui-pop-normal .ui-pop-ctn{
+    left:-2px;
+    _top:-2px;
+    padding:10px;
+    border:1px #A5A5A5 solid;
+    background:#F8F8F8;
+}
+.ui-pop-normal .ui-pop-angle{
+    font-size:1px;
+    background-position:-57px -126px;
+}
+
+.ui-pop-normal .pop-close-link{
+    display:block;
+    width:20px;
+    height:20px;
+    padding:0;
+    position:absolute;
+    right:10px;
+    top:10px;
+    background-position:0 -155px;
+}
+
+.ui-pop-normal .ui-pop-title{
+    margin:0;
+}
+
+
+/*
+    @name：组件 确认操作弹窗
+    @desc：是否进行某操作，如是否删除
+    @example
+    <div style="top: 430px; left: 10px" class="ui-pop ui-pop-confirm">
+        <div class="ui-pop-confirm-ctn">
+            <span class="ui-pop-message">确认删除？</span>
+            <span class="ui-button ui-button-sorange"><button class="ui-button-text">确定</button></span>
+            <span class="ui-button ui-button-swhite fn-ml5"><button class="ui-button-text">取消</button></span>
+        </div>
+    </div>
+*/
+.ui-pop-confirm{
+    width:230px;
+    border:3px solid #FF7272;
+    background:#F5F5F5;
+    position:absolute;
+    z-index:100;
+}
+.ui-pop-confirm-ctn {
+    padding:7px 12px;
+}
+.ui-pop-message{
+    padding-right:30px;
+}
+.ui-pop-confirm .ui-button{
+    margin-left:5px;
+}
+
+/** @name ui-pop-square
+     @desc 用于弹出符层带阴影矩形
+     @example
+     <div style="top: 630px; left: 10px;width:500px;" class="ui-pop ui-pop-square">
+        <div class="pop-container">
+            内容啊内容啊内容啊
+        </div>
+        <div class="pop-shadow"></div>
+    </div>
+*/
+.ui-pop-square{
+    position:absolute;
+    left:0;
+    top:0;
+    width:170px;
+
+    background-color:#A8A8A8;
+}
+
+.ui-pop-square .ui-pop-ctn{
+    position:relative;
+    z-index:2;
+    left:-2px;
+    top:-2px;
+    padding:5px;
+    width:auto;
+    height:100%;
+    border:1px solid #CBD7E3;
+    background:#E5F5FF;
+
+}
+
+.ui-pop-square .ui-pop-ctn {
+    
+}
+
+.ui-pop-square-warn .ui-pop-ctn{
+    border:1px solid #E7C560;
+    background:#FFFF8F;
+}
+
+.ui-pop-square .ui-pop-shadow{
+    position:absolute;
+    top:2px;
+    left:2px;
+    background:#666;
+    width:100%;
+    height:100%;
+    z-index:1;
+    opacity:0.5;
+    filter:alpha(Opacity=70,Style=0);
+    -moz-opacity:0.5;
+}
+
+/*  类别下拉选择控件 */
+.pop-select{
+    position:absolute;
+    left:100px;
+    top:150px;
+    width:300px;
+    border:1px solid #D2D2D2;
+}
+.pop-select .pop-content{
+    position:relative;
+    zoom:1;
+}
+.pop-select dl{
+    margin:0 10px 8px;
+}
+.pop-select dt{
+    padding: 8px 0 0;
+}
+.pop-select dd{
+    border-bottom:1px solid #E3E3E3;
+}
+.pop-select dl a{
+    padding: 3px 10px 3px 0;
+    outline: none;
+    text-decoration: none;
+    white-space:nowrap;
+    *display:inline-block;
+    *padding:1px 10px 0 0;
+    line-height:20px;
+}
+.pop-select .selected,
+.pop-select .selected:hover{
+    padding-left:14px;
+    background-image:url("https://i.alipayobjects.com/e/201205/2bxYWH4pqb.png");
+    background-repeat:no-repeat;
+}
+.pop-select .selected{
+    background-position:0 -230px;
+    *background-position:0 -231px;
+}
+.pop-select .selected:hover{
+    background-position:0 -174px;
+    *background-position:0 -175px;
+}
+.pop-select .pop-select-title{
+    position:absolute;
+    top:-22px;
+    left:-1px;
+    background:#fff;
+    border:1px solid #D2D2D2;
+    border-bottom:none;
+}
+.pop-select  .pop-select-title-link{
+    display:block;
+    padding: 3px 15px 3px 10px;
+    line-height:15px;
+    background-position:right -206px;
+}
+.pop-select  a.pop-select-title-link:hover{
+    background-position:right -146px;
+    *background-position:right -148px;
+}
+
+.pop-select .pop-select-action{
+    border:none;
+}
+
+

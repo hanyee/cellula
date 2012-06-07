@@ -1,0 +1,116 @@
+/*
+ * @name: ui-notice
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 通用提示, 成功提示、禁止提示、信息提示、警告提示、错误提示、疑问提示、等待提示。
+ * @require: null
+ * @example 
+<div class="ui-notice ui-notice-success">
+    <div class="ui-notice-cnt">
+        <h3 class="ui-notice-title">成功</h3>
+        <p class="ui-notice-explain">
+            缴款成功成功！
+        </p>
+        <p class="ui-notice-explain-other">
+            现在您可能需要：<a href="#">返回首页</a>
+            <span class="fn-bar">|</span>
+            <a href="#">返回账单查询</a>
+            <span class="fn-bar">|</span>
+            <a href="#">返回合同查询</a>
+        </p>
+    </div>
+</div>
+*/
+.ui-notice {
+    font-size: 12px;
+    min-height: 50px;
+    _height: 50px;
+    padding: 14px 22px 12px 87px;
+}
+
+.ui-notice-success,  .ui-notice-forbidden, .ui-notice-cue, .ui-notice-warn,  .ui-notice-error, .ui-notice-doubt, .ui-notice-wait {
+    background: url("../images/icons.png") no-repeat 0 0;
+    border:1px solid #E5E5CD;
+}
+
+.ui-notice-success {
+    background-color: #EFFFCF;
+    background-position: -428px 15px;
+    border-color:#E7E7CF;
+}
+
+.ui-notice-forbidden {
+    background-color: #FFEFEB;
+    background-position: -353px -32px;
+    border-color:#F7CBB6;
+}
+
+.ui-notice-cue {
+    background-color: #E5F5FF;
+    background-position: -280px -83px;
+    border-color:#CBD7E3;
+}
+
+.ui-notice-warn {
+    background-color: #FFFF9E;
+    background-position: -208px -133px;
+    border-color:#E8C761;
+}
+
+.ui-notice-error {
+    background-color: #FFEFEF;
+    background-position: -136px -182px;
+    border-color:#F7CBB6;
+}
+
+.ui-notice-doubt {
+    background-color: #E5F5FF;
+    background-position: -60px -230px;
+    border-color:#CBD7E3;
+}
+
+.ui-notice-wait {
+    background-color: #E5F5FF;
+    background-position: 27px -281px;
+    border-color:#CBD7E3;
+}
+
+.ui-notice-title {
+    color:#4d4d4d;
+    font:700 14px 宋体;
+    margin: 0;
+    padding: 0 0 0;
+}
+
+.ui-notice-explain {
+    color: #999;
+    margin: 4px 0 0;
+    padding: 0;
+}
+
+.ui-notice-explain-other {
+    color: #4d4d4d;
+    margin: 3px 0 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+.ui-notice-explain-other .fn-bar{
+    padding:0 5px;
+}
+
+.ui-notice-noexplain .ui-notice-cnt {
+    padding:11px 0 0;
+}
+
+/** 嵌套于xbox之中 */
+
+.ui-xbox .ui-xbox-action a, .ui-xbox .ui-xbox-action a:hover {
+    text-decoration:none;
+}
+.ui-xbox .ui-notice-success, .ui-xbox .ui-notice-forbidden, .ui-xbox .ui-notice-cue,
+.ui-xbox .ui-notice-warn, .ui-xbox .ui-notice-error, .ui-xbox .ui-notice-doubt, .ui-xbox .ui-notice-wait{
+    border:none;
+    background-color:#fff;
+    margin-top:5px;
+    padding-bottom:27px;
+}

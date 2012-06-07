@@ -1,0 +1,214 @@
+/**
+ * @name: ui-paging
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 分页组件
+ * @require: null
+ * @example 
+    <div class="ui-paging fn-clear">
+        <a href="#" class="ui-paging-prev">上一页</a>
+
+        <a href="#" class="ui-paging-item"><span>1</span></a>
+        <a href="#" class="ui-paging-item ui-paging-current"><span>2</span></a>
+        <a href="#" class="ui-paging-item"><span>3</span></a>
+        <a href="#" class="ui-paging-item"><span>4</span></a>
+        <a href="#" class="ui-paging-item"><span>5</span></a>
+        <a href="#" class="ui-paging-item"><span>6</span></a>
+
+        <a href="#" class="ui-paging-item"><span>7</span></a>
+        <span class="ui-paging-ellipsis">...</span>
+        <a href="#" class="ui-paging-item"><span>1024</span></a>
+        <a href="#" class="ui-paging-next">下一页</a>
+        <span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span> 
+        <span class="ui-paging-info ui-paging-which"><input type="text" name="some_name" value="6"></span>
+
+        <a class="ui-paging-info ui-paging-goto" href="#"><span>跳转</span></a>
+    </div>
+*/
+
+.ui-paging-first, .ui-paging-prev, .ui-paging-next, .ui-paging-last,
+.ui-paging-item, .ui-paging-item span, 
+a.ui-paging-item, a.ui-paging-item span, .ui-paging-ellipsis, 
+.ui-paging-goto, .ui-paging-goto span, a.ui-paging-goto, a.ui-paging-goto span, .ui-paging-which, .ui-paging-which input{
+    float:left;
+    background: transparent url('../images/ui-paging.png') no-repeat 0 0;
+}
+.ui-paging {height:24px;}
+.ui-paging, .ui-paging input { color:#4d4d4d; }
+
+.ui-paging a{
+    color:#4d4d4d;
+    margin:0 2px 0 0;
+}
+.ui-paging a, .ui-paging a:hover {
+    text-decoration:none;
+}
+
+/** 默认样式 */
+.ui-page-item, a.ui-paging-item {
+    font-weight:700;
+    text-decoration:none;
+    height:24px;
+    line-height:24px;
+    padding:0 0 0 7px;
+    background-position:0 -120px;
+}
+.ui-page-item span, a.ui-paging-item span {
+    padding:0 7px 0 0;
+    background-position:right -120px;
+    cursor:pointer;
+}
+
+/** 鼠标移上去样式 */
+.ui-paging-hover, a.ui-paging-item:hover {
+    background-position:0 -144px;
+}
+.ui-paging-hover, a.ui-paging-item:hover span {
+    background-position:right -144px;
+}
+
+/** 当前样式 */
+.ui-paging-current, a.ui-paging-current, a.ui-paging-current:hover {
+    color:#fff;
+    background-position:0 -192px;
+}
+.ui-paging-current span, a.ui-paging-current span, a.ui-paging-current:hover span {
+    color:#fff;
+    background-position:right -192px;
+}
+
+/** 上一页 */
+.ui-paging-first, a.ui-paging-first,
+.ui-paging-prev, a.ui-paging-prev {
+    margin-right:5px;
+    height: 24px;
+    width: 45px;
+    padding:0 0 0 22px;
+    line-height:24px;
+    overflow:hidden;
+}
+.ui-paging-first-hover, a.ui-paging-first:hover,
+.ui-paging-prev-hover, a.ui-paging-prev:hover {
+    background-position:0 -24px;
+    text-decoration:none;
+}
+.ui-paging-last, a.ui-paging-last,
+.ui-paging-next, a.ui-paging-next {
+    margin:0 8px 0 3px;
+    padding:0 0 0 10px;
+    height: 24px;
+    width: 57px;
+    background-position:-67px 0;
+    line-height:24px;
+}
+.ui-paging-last-hover, a.ui-paging-last:hover,
+.ui-paging-next-hover, a.ui-paging-next:hover {
+    background-position:-67px -24px;
+    text-decoration:none;
+}
+
+span.ui-paging-first, span.ui-paging-prev, span.ui-paging-next, span.ui-paging-last {
+    color:#ccc;
+}
+span.ui-paging-first, span.ui-paging-prev {
+    background-position:0 -48px;
+}
+span.ui-paging-next, span.ui-paging-last{
+    background-position:-67px -48px;
+}
+
+.ui-paging-info {
+    line-height:24px;
+    line-height:26px\9;
+    *line-height:26px;
+    _line-height:24px;
+    float:left;
+    display:inline;
+    margin:0 6px 0 5px;
+    height:24px;
+    overflow:hidden;
+}
+
+.ui-paging-ellipsis {
+    width:35px;
+    height:24px;
+    text-indent:-10em;
+    overflow:hidden;
+    margin:0 2px 0 0;
+    background-position:0 -216px;
+}
+
+.ui-paging-goto, a.ui-paging-goto {
+    padding:0 0 0 12px;
+    background-position:0 -72px;
+}
+.ui-paging-goto span, a.ui-paging-goto span {
+    padding:0 11px 0 0;
+    background-position:right -72px;
+    cursor:pointer;
+}
+.ui-paging-goto-hover, .ui-paging-goto:hover {
+    background-position:0 -96px;
+}
+
+.ui-paging-goto-hover span, .ui-paging-goto:hover span {
+    background-position:right -96px;
+}
+
+.ui-paging-which {
+    padding:0 0 0 5px;
+    background-position:0 -168px;
+}
+
+.ui-paging-which input {
+    background-position:right -168px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 6px;
+    width:20px;
+    font-weight:700;
+    border:none;
+    overflow:hidden;
+}
+
+.ui-paging-bold {
+    font-weight:700;
+    padding:0 8px 0 7px;
+}
+
+.ui-paging-first, a.ui-paging-first, .ui-paging-prev, a.ui-paging-prev, .ui-paging-next, a.ui-paging-next, .ui-paging-last, a.ui-paging-last {
+    line-height:28px\9;
+    *line-height:28px;
+    _line-height:24px;
+}
+
+/** 文字翻页样式 reset 重置默认样式 */
+
+.ui-paging-text a.ui-paging-first,  .ui-paging-text a.ui-paging-first:hover,
+.ui-paging-text a.ui-paging-prev, .ui-paging-text a.ui-paging-prev:hover,
+.ui-paging-text a.ui-paging-next, .ui-paging-text a.ui-paging-next:hover,
+.ui-paging-text a.ui-paging-last,  .ui-paging-text a.ui-paging-last:hover {
+    background:url("https://i.alipayobjects.com/e/201205/2bxYWH4pqb.png") no-repeat 0 30px;
+    width:auto;
+    color:#06B;
+}
+/** 首页 */
+.ui-paging-text a.ui-paging-first,  .ui-paging-text a.ui-paging-first:hover {
+    background-position:0 8px;
+    padding:0 5px 0 20px;
+}
+/** 上一页 */
+.ui-paging-text a.ui-paging-prev, .ui-paging-text a.ui-paging-prev:hover {
+    background-position:8px -49px;
+    padding:0 5px 0 20px;
+}
+/** 下一页 */
+.ui-paging-text a.ui-paging-next, .ui-paging-text a.ui-paging-next:hover {
+    background-position:39px -30px;
+    padding:0 20px 0 5px;
+    margin-right:5px;
+}
+/** 尾页 */
+.ui-paging-text a.ui-paging-last,  .ui-paging-text a.ui-paging-last:hover {
+    background-position:right -11px;
+    padding:0 20px 0 5px;
+}

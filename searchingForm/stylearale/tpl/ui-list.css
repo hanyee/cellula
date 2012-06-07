@@ -1,0 +1,61 @@
+/**
+ * @name: ui-list
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 表表样式
+ * @require: null
+ * @example
+    <ul class="ui-list">
+        <li>xxx</li>
+        <li>xxx</li>
+    </ul>
+*/
+.ui-list {}
+.ui-list li {
+    padding:0 0 3px 10px;
+    background:url("../images/icons.png") no-repeat 0 -425px;
+}
+
+.ui-list a {
+    color:#4c4c4c;
+}
+
+.ui-list-explain {
+    color:#A6A6A6;
+}
+
+.ui-list-normal li {
+    padding:0 0 3px;
+    background-image:none;
+}
+
+.ui-list-item-first {
+
+}
+
+.ui-list li a:visited {
+
+}
+
+.ui-list li a:hover {
+
+}
+
+.ui-list-bluelink .ui-list-item {
+    background:url("https://img.alipay.com/sys/personal/style/ui-components.png") no-repeat -173px -20px;
+
+}
+.ui-list-bluelink .ui-list-item a:link, .ui-list-bluelink .ui-list-item a:visited {
+    color: #0088CC;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ui-list-graylink .ui-list-item {
+    background:url("https://img.alipay.com/sys/personal/style/ui-components.png") no-repeat -189px -1px;
+
+}
+.ui-list-graylink .ui-list-item a:link, .ui-list-graylink .ui-list-item a:visited {
+    color: #808080;
+    cursor: pointer;
+    text-decoration: none;
+}

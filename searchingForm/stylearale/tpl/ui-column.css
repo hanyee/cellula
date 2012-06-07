@@ -1,0 +1,48 @@
+.ui-column {
+    font-size: 14px;
+    line-height: 23px;
+    padding: 5px;
+}
+
+.ui-column-item {
+    clear: both;
+    *zoom: 1;
+}
+
+.ui-column-item:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.ui-column-item .ui-column-left {
+    display: inline;
+    float: left;
+    width: 180px;
+    text-align: right;
+    padding: 5px 0;
+}
+
+.ui-column-item .ui-column-right {
+    font-size: 14px;
+    margin: 0 0 0 190px;
+    padding: 5px;
+}
+
+.ui-column-horizontal .ui-column-item {
+    float: left;
+    display: inline;
+    clear: none;
+}
+
+.ui-column-horizontal .ui-column-item .ui-column-left {
+    width: 80px;
+}
+
+.ui-column-horizontal .ui-column-item .ui-column-right {
+    margin-left: 80px;
+    _padding: 0px;
+}

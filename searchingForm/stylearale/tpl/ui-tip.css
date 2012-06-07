@@ -1,0 +1,263 @@
+/** 提示样式 icon的上，左，下边距都是10px 距离文字是9px 单行高度为34px 其中icon高度为14px
+ * @name: ui-tip
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: tip提示组件
+ * @require: null
+ * @example 
+基本样式
+<div class="ui-tip"></div>
+
+带箭头标识, 其它同样添加标签即可。
+<div class="ui-tip ui-tip-error">
+   <div class="ui-tip-arrow"></div>
+    <div class="ui-tip-ctn"></div>
+</div>
+
+
+错误提示
+<div class="ui-tip ui-tip-error">
+    <div class="ui-tip-ctn"></div>
+</div>
+
+警告提示
+<div class="ui-tip ui-tip-warn">
+    <div class="ui-tip-ctn"></div>
+</div>
+
+信息提示
+<div class="ui-tip ui-tip-cue">
+    <div class="ui-tip-ctn"></div>
+</div>
+
+禁止提示
+<div class="ui-tip ui-tip-forbidden">
+    <div class="ui-tip-ctn"></div>
+</div>
+
+成功提示
+<div class="ui-tip ui-tip-success">
+    <div class="ui-tip-cnt"></div>
+</div>
+*/
+
+.ui-tip {
+    border: 1px solid #C9D5E3;
+    background-color: #E4F5FF;
+    margin: 10px 0 0;
+    zoom: 1;
+    position: relative;
+    color:#4d4d4d;
+}
+
+/** tip当中的小箭头 */
+.ui-tip-arrow {
+    position: absolute;
+    top: -8px;
+    left: 36px;
+    font-size: 0;
+    width: 13px;
+    height: 9px;
+    overflow: hidden;
+    background: url("../images/icons.png") no-repeat 0 0
+}
+
+/** tip容器 */
+.ui-tip-ctn {
+    padding: 6px 10px 6px 32px;
+    padding:7px 10px 5px 32px\9; /** for ie8 */
+    *padding:8px 10px 4px 32px;  /** for ie7 */
+    _padding:6px 10px 6px 32px;  /** for ie6 */
+    border: 1px solid #F8FCFF;
+}
+
+/** tip说明文字 */
+.ui-tip-explain {
+    margin-top: 1px;
+}
+
+.ui-tip-success .ui-tip-ctn,
+.ui-tip-forbidden .ui-tip-ctn,
+.ui-tip-cue .ui-tip-ctn,
+.ui-tip-warn .ui-tip-ctn,
+.ui-tip-error .ui-tip-ctn,
+.ui-tip-doubt .ui-tip-ctn,
+.ui-tip-wait .ui-tip-ctn,
+.ui-tip-close {
+    background: url("../images/icons.png") no-repeat 0 0;
+}
+
+.ui-tip-close {
+    position:absolute;
+    top:6px;
+    right:6px;
+    width:8px;
+    height:7px;
+    line-height:0;
+    display:block;
+    overflow:hidden;
+    text-indent:-100em;
+    cursor:pointer;
+    background-position:-25px 0;
+}
+
+/** 成功提示 */
+.ui-tip-success {
+    border-color:#B9E39B;
+}
+
+.ui-tip-success .ui-tip-ctn {
+    background-color: #E7FFCB;
+    background-position: -478px -517px;
+    *background-position:-478px -516px;
+}
+
+
+/** 禁止提示 */
+.ui-tip-forbidden {
+    border-color: #F6C8B5;
+}
+
+.ui-tip-forbidden .ui-tip-arrow {
+    background-position: 0 -20px;
+}
+
+.ui-tip-forbidden .ui-tip-ctn {
+    background-color: #FCEEE8;
+    background-position: -450px -542px;
+    *background-position: -449px -541px;
+}
+
+
+/** 信息提示 */
+.ui-tip-cue {
+    border-color: #C9D5E3;
+}
+
+.ui-tip-cue .ui-tip-arrow {
+    background-position: 0 0;
+}
+
+.ui-tip-cue .ui-tip-ctn {
+    background-color: #E5F5FF;
+    background-position: -423px -567px;
+    *background-position: -422px -566px;
+}
+
+
+/** 警告提示 */
+.ui-tip-warn {
+    border-color: #E8C561;
+}
+
+.ui-tip-warn .ui-tip-arrow {
+    background-position: 0 -10px;
+}
+
+.ui-tip-warn .ui-tip-ctn {
+    background-color: #FFFF8D;
+    background-position: -392px -593px;
+    *background-position:-391px -592px;
+}
+
+
+/** 错误提示 */
+.ui-tip-error {
+    border-color: #F5C8B5;
+}
+
+.ui-tip-error .ui-tip-arrow {
+    background-position: 0 -20px;
+}
+
+.ui-tip-error .ui-tip-ctn {
+    background-color: #FDEEE9;
+    background-position: -360px -623px;
+    *background-position: -359px -622px;
+}
+
+/** 疑问提示 */
+.ui-tip-doubt {
+    border-color: #C9D5E3;
+}
+
+.ui-tip-doubt .ui-tip-ctn {
+    background-color: #E4F5FF;
+    background-position: -330px -650px;
+    *background-position:-329px -649px;
+}
+
+/** 等待提示 */
+.ui-tip-wait {
+    border-color: #C9D5E3;
+}
+
+.ui-tip-wait .ui-tip-ctn {
+    background-color: #E4F5FF;
+    background-position: -297px -678px;
+    *background-position:-296px -677px;
+}
+
+
+/** 无图标提示 */
+.ui-tip-noicon {
+    
+}
+
+.ui-tip-noicon .ui-tip-ctn {
+    padding-left:10px;
+    background-image:none;
+}
+
+/** 有关闭按钮 */
+.ui-tip-canclose .ui-tip-ctn {
+    padding-right:20px;
+}
+
+/** cue提示左边显示箭头 */
+.ui-tip-cue-larrow {
+    margin-left:7px;
+}
+
+/** cue提示右边显示箭头 */
+.ui-tip-cue-rarrow {
+    margin-right:7px;
+}
+
+.ui-tip-cue-rarrow .ui-tip-arrow,
+.ui-tip-cue-barrow .ui-tip-arrow,
+.ui-tip-cue-larrow .ui-tip-arrow {
+    width:9px;
+    height:13px;
+    background-position:-48px 0;
+}
+
+/** cue提示右边显示箭头 */
+.ui-tip-cue-rarrow .ui-tip-arrow {
+    right:-8px;
+    top:9px;
+    left:auto;
+}
+
+/** cue提示下边显示箭头 */
+.ui-tip-cue-barrow .ui-tip-arrow {
+    width:13px;
+    height:9px;
+    top:auto;
+    left:36px;
+    bottom:-8px;
+    background-position:-34px 0;
+}
+
+/** cue提示左边显示箭头 */
+.ui-tip-cue-larrow .ui-tip-arrow {
+    top:9px;
+    left:-8px;
+    background-position:-15px 0;
+}
+
+
+
+
+
+
+

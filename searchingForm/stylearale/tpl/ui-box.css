@@ -1,0 +1,100 @@
+/**
+ * @name: ui-box
+ * @author: 偏右(xingmin.zhu@alipay.com)
+ * @description: 带title的区块widget
+ * @require: alice.solutions.sl-linear
+ * @example:
+ * <div class="ui-box fn-clear">
+ *     <div class="ui-box-title fn-clear"><!-- 可选 -->
+ *         <h3>区块标题</h3>
+ *         <a href="#" class="ui-box-title-link">其他链接</a><!-- 可选 -->
+ *         <a href="#" class="ui-box-title-more">更多</a><!-- 可选 -->
+ *         <span class="ui-box-title-toolbar">设定</span><!-- 可选 -->
+ *     </div>
+ *     <div class="ui-box-container">
+ *         <div class="ui-box-content"></div><!-- 可选 -->
+ *     </div>
+ * </div>
+ */
+.ui-box {
+    border:1px solid #ccc;
+}
+.ui-box-green /* 新手模块配色 */ {
+    border:1px solid #a0c96f;
+}
+.ui-box-orange {
+    border: 1px solid #d5c5b1;
+}
+.ui-box-follow /* 使用在box和上面的box相连的情况下 */ {
+    border-top:none;
+}
+.ui-box-title {
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+.ui-box-title-border {
+    border:1px solid #fff;
+    height:14px;
+    line-height:16px;
+    overflow:hidden;
+    padding:9px 10px 10px;
+    *padding:9px 10px 10px;
+    padding:9px 10px\0;
+}
+.ui-box-title h3 {
+    color:#656565;
+    font-size:14px;
+    font-weight:700;
+    float:left;
+    display:inline;
+}
+.ui-box-title .ui-box-title-setting {
+    float:right;
+    display:inline;
+    width:16px;
+    height:16px;
+    line-height:16px;
+    background: transparent url("https://i.alipayobjects.com/sys/personal/style/ui-components.png") no-repeat -2px -2px;
+    text-indent:-9999px;
+    overflow:hidden;
+    cursor:pointer;
+}
+.ui-box-title .ui-box-title-setting:hover {
+    background: transparent url("https://i.alipayobjects.com/sys/personal/style/ui-components.png") no-repeat -29px -2px;
+}
+.ui-box-title .ui-box-title-more {
+    float:right;
+}
+.ui-box-title .ui-box-title-link {
+    float:left;
+    display:inline;
+    margin-left:15px;
+    *margin-top:1px;
+}
+.ui-box-container {
+    background:#fff;
+}
+.ui-box-content /* 可选，用于默认有内边距的box */ {
+    padding:10px 10px 15px;
+}
+.ui-box-green .ui-box-container {
+    background:#efffe2;
+    border:none;
+}
+/* 橙色 */
+.ui-box-orange .ui-box-container {
+    background: #f9f0e4;
+    border: none;
+}
+.ui-box-nocontainer /* 可选，用于只有标题栏的box */ {
+    border-bottom:none;
+    overflow:hidden;
+    _position:relative;
+    height:36px;
+}
+.ui-box-nocontainer .ui-box-container {
+    opacity:0;
+}
+
+/** end ---ui-box.css---*/
+

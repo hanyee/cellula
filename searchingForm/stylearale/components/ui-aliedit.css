@@ -1,0 +1,215 @@
+/*
+	@名称: 密码控件样式
+	@功能: 包含1控件样式 2未安装控件时渲染出链接的样式 3浮层样式
+*/
+/* 隐藏样式 */
+.fn-hide,.hidden{display:none;}
+/* 控件样式 */
+.alieditContainer *{
+	vertical-align:bottom;
+}
+.alieditContainer{
+	display:inline-block;*display:inline;zoom:1;width:180px;height:24px;vertical-align:bottom;position: relative;
+}
+.alieditContainer object{width:100%;height:24px;}
+.alieditContainer a.aliedit-install{
+	border:1px solid #AEAEAE;line-height:24px;color:#06F!important;_width:180px;min-width:180px;height:100%;display:block;text-align:center;
+}
+.promptText_PTA{display:none;}
+
+/* 基于light控件脚本对应的样式 */
+.edit-tips {
+	background: #A8A8A8;
+    height: 28px;
+    left: 0;
+	top: 0;
+    position: relative;
+    margin-top: -64px;
+    width: 180px;
+}
+.edit-tips-two-lines {
+    background: none repeat scroll 0 0 #A8A8A8;
+    height: 48px;
+    left: 0;
+    position: relative;
+    top: -84px;
+    width: 180px;
+}
+.edit-tips-text {
+    background: none repeat scroll 0 0 #FFFF8D;
+    border: 1px solid #DEA90C;
+    display: block;
+    line-height: 20px;
+    left: -2px;
+    padding: 3px 5px;
+    position: relative;
+    top: -2px;
+    width: 168px;
+}
+.edit-tips-angle {
+    background: url("http://img.alipay.net/pa/frame/v2/ico-pa.png") no-repeat scroll -40px -128px transparent;
+    display: block;
+    height: 11px;
+    left: 20px;
+	overflow: hidden;
+    line-height: 11px;
+    margin-top: -3px;
+    position: absolute;
+    top: 100%;
+    width: 10px;
+}
+/* 浮层样式 */
+.light-dialog{
+	width:600px;
+	height:370px;
+	overflow:hidden;
+	position:absolute;
+	z-index:9999;
+	top:5%;
+	left:10%;
+	border:6px solid #767576;
+	background:#fff;
+	visibility: hidden;
+	-moz-box-shadow:3px 2px 6px #333333;
+	-webkit-box-shadow: #333 2px 2px 6px;
+}
+.light-dialog iframe {
+	width:100%;
+	height:100%;
+}
+.light-dialog-shadow{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:9998;
+	width:100%;
+	height:100%;
+	background:#000;
+	visibility: hidden;
+	opacity:.2;
+	filter:alpha(opacity=20);
+	-ms-filter:'alpha(opacity=20)';
+}
+.light-dialog-shadow iframe{opacity:0;filter:alpha(opacity=0);-ms-filter:'alpha(opacity=0)';}
+.light-load{
+	position: absolute;
+	z-index: 9999;
+	visibility: hidden;
+}
+.light-dialog-top {
+	padding: 20px;
+}
+.light-dialog-title {
+	border-bottom: 1px solid #DBDBDB;
+	margin-bottom: 3px;
+	overflow: hidden;
+	padding-bottom: 3px;
+	position: relative;
+	width:100%;
+}
+.light-dialog-title h2{
+	float: left;
+	font: 18px/22px SimHei;
+}
+.light-dialog-title a {
+	border-bottom: 1px solid #FFFFFF;
+	display: block;
+	line-height: 22px;
+	position: absolute;
+	text-decoration: none;
+	right: 0;
+	top: 0;
+}
+.light-dialog-title s {
+	-moz-transition: all 0.2s ease-in-out 0s;
+	background: url("http://img.alipay.net/pa/frame/v2/ico-text.png") no-repeat scroll -2px -76px transparent;
+	cursor: pointer;
+	display: inline-block;
+	height: 11px;
+	overflow: hidden;
+	position: absolute;
+	top: 6px;
+	vertical-align: middle;
+	width: 11px;
+}
+.light-dialog-title em {
+	cursor: pointer;
+	display: inline-block;
+	font-style: normal;
+	font-weight: normal;
+	margin-left: 11px;
+	text-align: right;
+	font-size: 12px;
+	width: 30px;
+}
+.light-dialog-title a:hover {
+	text-decoration: none;
+}
+.light-dialog-title a:hover em {
+	text-decoration: underline;
+}
+.light-dialog-title a:hover s {
+	-moz-transform: rotate(90deg);
+}
+
+
+/* 不基于框架的控件脚本对应的样式 */
+.aliedit-dn{
+    position:relative;
+    display:block;
+    width:165px;
+    height:100%;
+    margin:-24px 0 0;
+    border:1px solid red;
+    line-height:24px;
+    text-align:center;
+    color:#f00;
+    font-size:12px;
+    background:#fff;
+}
+.aliedit-xbox{
+    width:600px;
+    height:370px;
+    overflow:hidden;
+    position:absolute;
+    z-index:9999;
+    top:5%;
+    left:10%;
+    border:6px solid #767576;
+    background:#fff;
+    -moz-box-shadow:3px 2px 6px #333333;
+    -webkit-box-shadow: #333 2px 2px 6px;
+}
+.aliedit-xbox iframe,
+.aliedit-box-shadow iframe{
+    width:100%;
+    height:100%;
+}
+.aliedit-box-shadow{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9998;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:.2;
+    filter:alpha(opacity=20);
+    -ms-filter:'alpha(opacity=20)';
+}
+.aliedit-box-shadow iframe{opacity:0;filter:alpha(opacity=0);-ms-filter:'alpha(opacity=0)';}
+.aliedit-load{z-index:9999;}
+
+.aliedit-tips{
+	position: relative;
+	_position:absolute;
+	display:block;
+    width:192px;
+    height:37px;
+    background:url(http://img.alipay.net/pa/global/home/bg-aliedit.png) 0 -36px no-repeat;
+    margin-top:-61px;
+}
+.aliedit-tips-update{
+	background-position:0 -76px;
+}
+.pop-aliedit .container{padding:20px;overflow:hidden;border:3px #A2A2A2 solid;background:#F3F3F3;}

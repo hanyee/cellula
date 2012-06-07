@@ -1,0 +1,42 @@
+/*
+ * @name: 重复元素
+ * @overview: 重复出现的元素，我们通常用这种方法来写，这样也会方便JS操作
+ * @require: null
+ */
+.ui-repeater {
+    padding:15px;
+}
+
+.ui-repeater-title{
+
+}
+.ui-repeater-container{
+    display: table;
+    width:100%;
+}
+
+.ui-repeater-item {
+    border-bottom: 1px dotted #aaa;
+    margin-bottom:10px;
+    height:100%;
+    display:table-row;
+    vertical-align:middle;
+    width:960px;
+}
+
+.ui-repeater-item-current {
+
+}
+
+.ui-repeater-detail{
+
+}
+
+.ui-repeater-item-last{
+
+}
+
+
+
+
+

@@ -1,0 +1,87 @@
+/** 统一字体及字体颜色样式
+ @name font
+ @example
+    <span class="ft-orange">200.00</span>
+*/
+/** 字体 */
+html body .ft-orange, html body .ft-green {
+    font-family: tahoma,verdana,arial;
+}
+
+/** 颜色 */
+html body .ft-weaken {
+    color: #666;
+}
+html body .ft-link {
+    color: #0090F0;
+}
+html body .ft-orange {
+    color: #F60;
+}
+html body .ft-green {
+    color: #53A000;
+}
+html body .ft-explain {
+    color: #A6A6A6;
+}
+html body .ft-normal {
+    color: #4D4D4D;
+}
+html body .ft-black {
+    color: #000;
+}
+/** 大小 */
+html body .ft-12 {
+    font-size: 12px;
+}
+html body .ft-14 {
+    font-size: 14px;
+}
+html body .ft-18 {
+    font-size: 18px;
+}
+
+/** 对齐 */
+html body .ft-left {
+    text-align: left;
+}
+html body .ft-center {
+    text-align: center;
+}
+html body .ft-right {
+    text-align: right;
+}
+html body .ft-top {
+    vertical-align: top;
+}
+html body .ft-middle {
+    vertical-align: middle;
+}
+html body .ft-bottom {
+    vertical-align: bottom;
+}
+html body .ft-baseline {
+    vertical-align: baseline;
+}
+/** 样式 */
+html body .ft-bold {
+    font-weight: 700;
+}
+html body .ft-normal {
+    font-weight: normal;
+}
+html body .ft-bar {
+    color: #BCBCBC;
+    padding: 0 7px 0 6px;
+}
+
+/** 换行 */
+.ft-break {
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+/** 不换行 */
+.ft-nowrap {
+    white-space:nowrap;
+}

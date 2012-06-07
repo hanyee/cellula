@@ -1,0 +1,45 @@
+/**
+ * @name: ui-title
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 标题组件
+ * @require: null
+ * @example 
+    <div class="ui-title">
+        <h2>标题标题</h2>
+        <span class="ui-title-link">
+            <a href="#">链接链接</a>
+        </span>
+    </div>
+*/
+.ui-title:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.ui-title {
+    padding:20px 0 10px;
+    zoom:1;
+    color:#4d4d4d;
+}
+
+.ui-title h1, .ui-title h2, .ui-title h3, .ui-title h4, .ui-title h5, .ui-title h6{
+    float:left;
+    font:500 18px \9ED1\4F53;
+}
+.ui-title h3, .ui-title h4, .ui-title h5, .ui-title h6 {
+    font:700 14px Simsun;
+}
+
+.ui-title-link {
+    float:left;
+    padding:2px 0 0 8px;
+}
+
+.ui-title-linksmall {
+    padding-top:0;
+    margin-top:-1px;
+}

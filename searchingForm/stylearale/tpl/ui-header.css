@@ -1,0 +1,50 @@
+/**
+ * @name: ui-header
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 头部样式
+ * @require: null
+*/
+.site-nav {
+    background: none repeat scroll 0 0 #F7F7F7;
+    color: #BFCDD8;
+    height: 32px;
+    width: 100%;
+}
+.the-alipay-global .site-con, .header-cnt {
+    width:990px;
+    margin:0 auto;
+}
+
+.site-nav h2 {
+    color: #666666;
+    float: left;
+    line-height: 32px;
+}
+
+/** 用于覆盖下拉白色背景 */
+.site-nav .global-toplink .global-toplink-username {
+    background-color: #F7F7F7;
+}
+
+.site-nav .global-dropdown-active .global-toplink-username {
+    background-color: #FFF;
+}
+
+.header {
+    background:#2566A0;
+    color: #FFFFFF;
+    height: 66px;
+    width: 100%;
+}
+
+.header-cnt {
+    height:66px;
+}
+
+.header-cnt img {
+    vertical-align:top;
+}
+
+.header-cnt h1 {
+    margin-top: 15px;
+}

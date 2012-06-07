@@ -1,0 +1,436 @@
+/**
+ * @name: ui-button
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 各种按钮样式
+ * @require: null
+ * @example:
+ * 外层可以是 a, span 标签
+ * 里层可以是 span, input, button
+ * a > span
+ * <a class="ui-button ui-button-sorange">
+ *    <span class="ui-button-text">确定</span>
+ * </a>
+ *
+ * span > input
+ * <sapn class="ui-button ui-button-sorange">
+ *    <input type="button" class="ui-button-text" value="确定" />
+ * </span>
+ *
+ * span > button
+ * <span class="ui-button ui-button-sorange">
+ *    <button class="ui-button-text">确定</button>
+ * </span>
+ */
+
+    /** 按钮基类样式*/
+    .ui-button{display:inline-block;padding:0; text-decoration:none !important;text-align:center; *zoom:1;*display:inline; overflow:visible;vertical-align:middle;position:relative;}
+    .ui-button-text{cursor:pointer; border:none;float:left;cursor:pointer;}
+    .ui-button-icon {position:absolute;top:10px;width:6px;height:11px;}
+    .ui-button input.ui-button-text, .ui-button button.ui-button-text{*line-height:normal;overflow:visible;border:none; float:left;}
+
+    .ui-button-sblue, .ui-button-swhite, .ui-button-sorange, /** 小按钮 高 24px */
+    .ui-button-sblue-hover, .ui-button-swhite-hover, .ui-button-sorange-hover,
+    .ui-button-sblue-disabled, .ui-button-swhite-disabled, .ui-button-sorange-disabled, /** 小按钮不可点 */
+
+    .ui-button-mblue, .ui-button-mwhite, .ui-button-morange, /** 普通按钮 高 30px */
+    .ui-button-mblue-hover, .ui-button-mwhite-hover, .ui-button-morange-hover,
+    .ui-button-mblue-disabled, .ui-button-mwhite-disabled, .ui-button-morange-disabled, /** 普通按钮不可点 */
+
+    .ui-button-lblue, .ui-button-lwhite, .ui-button-lorange, /** 大按钮 高 34px */
+    .ui-button-lblue-hover, .ui-button-lwhite-hover, .ui-button-lorange-hover,
+    .ui-button-lblue-disabled, .ui-button-lwhite-disabled, .ui-button-lorange-disabled, /** 大按钮不可点 */
+
+    .ui-button-text {
+        padding:0 0 0 4px;
+        background:url("../images/ui-button.png") no-repeat 0 0;
+    }
+
+    .ui-button-text {
+        padding:0 4px 0 0;
+        background-position:right 0;
+    }
+
+    .ui-button-icon {
+        background:url("../images/ui-button-icon.png") no-repeat 0 0;
+    }
+
+    /** 小按钮 height:24px */
+    .ui-button-sblue .ui-button-text, .ui-button-swhite .ui-button-text, .ui-button-sorange .ui-button-text {
+        /* height:24px; */
+        height:25px; /** 为了兼容个人版25px高度小按钮 */
+        color:#FFF;
+        font:700 12px/1 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+    a.ui-button-sblue .ui-button-text, a.ui-button-swhite .ui-button-text, a.ui-button-sorange .ui-button-text {
+        padding:6px 11px 0 8px;
+        /* height:18px; */
+        height:19px; /** 为了兼容个人版的25px高度小按钮 */
+    }
+
+    /*a.ui-button-swhite .ui-button-text {*/
+        /*padding-top:7px;*/
+        /*height:17px;*/
+    /*}*/
+
+    /** 对button进行处理 */
+    .ui-button-sblue button.ui-button-text, .ui-button-swhite button.ui-button-text, .ui-button-sorange button.ui-button-text {
+        padding:4px 8px 4px 5px;
+        padding:5px 8px 2px 5px\9;
+        /* height:24px; */
+        height:25px; /** 为了兼容个人版的25px 高度小按钮 */
+    }
+
+    /** 对input进行处理 */
+    .ui-button-sblue input.ui-button-text, .ui-button-swhite input.ui-button-text, .ui-button-sorange input.ui-button-text {
+        padding:1px 8px 1px 5px;
+        padding:2px 8px 1px 5px\9;
+    }
+
+    /*.ui-button-swhite input.ui-button-text {*/
+        /*padding:2px 8px 2px 5px;*/
+    /*}*/
+
+    .ui-button-swhite {
+        background-position:0 -50px;
+    }
+
+    .ui-button-swhite .ui-button-text {
+        background-position:right -50px;
+        color:#4D4D4D;
+    }
+
+    .ui-button-sorange {
+        background-position:0 -100px;
+    }
+
+    .ui-button-sorange .ui-button-text {
+        background-position:right -100px;
+    }
+
+    /** 小按钮 hover */
+    a.ui-button-sblue:hover, .ui-button-sblue-hover {
+        background-position:0 -25px;
+    }
+    a.ui-button-sblue:hover .ui-button-text, .ui-button-sblue-hover .ui-button-text {
+        background-position:right -25px;
+    }
+
+    a.ui-button-swhite:hover, .ui-button-swhite-hover {
+        background-position:0 -75px;
+    }
+    a.ui-button-swhite:hover .ui-button-text, .ui-button-swhite-hover .ui-button-text {
+        background-position:right -75px;
+    }
+
+    a.ui-button-sorange:hover, .ui-button-sorange-hover {
+        background-position:0 -125px;
+    }
+    a.ui-button-sorange:hover .ui-button-text, .ui-button-sorange-hover .ui-button-text {
+        background-position:right -125px;
+    }
+
+
+    /** 小按钮 disabled */
+    a.ui-button-sblue-disabled:hover, a.ui-button-swhite-disabled:hover, a.ui-button-sorange-disabled:hover,
+    .ui-button-sblue-disabled, .ui-button-swhite-disabled, .ui-button-sorange-disabled {
+        background-position:0 -150px;
+    } 
+    
+    a.ui-button-sblue-disabled:hover .ui-button-text, a.ui-button-swhite-disabled:hover .ui-button-text, a.ui-button-sorange-disabled:hover .ui-button-text, 
+    .ui-button-sblue-disabled .ui-button-text, .ui-button-swhite-disabled .ui-button-text, .ui-button-sorange-disabled .ui-button-text {
+        background-position:right -150px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 普通按钮 height:30px */
+    .ui-button-mblue .ui-button-text, .ui-button-morange .ui-button-text, .ui-button-mwhite .ui-button-text {
+        /* height:30px; */
+        height:31px; /** 为了兼容个人版31px高度按钮 */
+        color:#fff;
+        font:700 14px/1.2 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+    a.ui-button-mblue .ui-button-text, a.ui-button-mwhite .ui-button-text, a.ui-button-morange .ui-button-text {
+        padding:8px 21px 0 18px;
+        /* height:22px; */
+        height:23px; /** 兼容个人版31px按钮 */
+    }
+
+    a.ui-button-mwhite .ui-button-text {
+        padding-top:7px;
+        /* height:23px; */
+        height:24px; /** 兼容个人版 31px 按钮 */
+    }
+
+    /** 对button进行处理 */
+    .ui-button-mblue button.ui-button-text, .ui-button-mwhite button.ui-button-text, .ui-button-morange button.ui-button-text {
+        padding:4px 18px 3px 15px;
+        padding:6px 18px 1px 15px\9;
+        /* height:30px; */
+        height:31px; /* 兼容个人版 31px 按钮 */
+    }
+
+    /** 对input进行处理 */
+    .ui-button-mblue input.ui-button-text, .ui-button-mwhite input.ui-button-text, .ui-button-morange input.ui-button-text {
+        padding:3px 18px 3px 15px;
+        padding:5px 18px 1px 15px\9;
+    }
+
+    /*.ui-button-mwhite input.ui-button-text {*/
+        /*padding:4px 18px 2px 15px;*/
+    /*}*/
+
+    .ui-button-mblue {
+        background-position:0 -175px;
+    }
+
+    .ui-button-mblue .ui-button-text {
+        background-position:right -175px;
+    }
+
+    .ui-button-mwhite {
+        background-position:0 -237px;
+    }
+
+    .ui-button-mwhite .ui-button-text {
+        background-position:right -237px;
+        color:#4d4d4d;
+    }
+
+    .ui-button-morange {
+        background-position:0 -299px;
+    }
+
+    .ui-button-morange .ui-button-text {
+        background-position:right -299px;
+    }
+
+    /** 普通按钮 hover */
+    a.ui-button-mblue:hover, .ui-button-mblue-hover {
+        background-position:0 -206px;
+    }
+    a.ui-button-mblue:hover .ui-button-text, .ui-button-mblue-hover .ui-button-text {
+        background-position:right -206px;
+    }
+
+    a.ui-button-mwhite:hover, .ui-button-mwhite-hover {
+        background-position:0 -268px;
+    }
+    a.ui-button-mwhite:hover .ui-button-text, .ui-button-mwhite-hover .ui-button-text {
+        background-position:right -268px;
+    }
+
+    a.ui-button-morange:hover, .ui-button-morange-hover {
+        background-position:0 -330px;
+    }
+    a.ui-button-morange:hover .ui-button-text, .ui-button-morange-hover .ui-button-text {
+        background-position:right -330px;
+    }
+
+    /** 普通按钮 disabled */
+    a.ui-button-mblue-disabled:hover, a.ui-button-mwhite-disabled:hover, a.ui-button-morange-disabled:hover,
+    .ui-button-mblue-disabled, .ui-button-mwhite-disabled, .ui-button-morange-disabled {
+        background-position:0 -361px;
+    } 
+
+    a.ui-button-mblue-disabled:hover .ui-button-text, a.ui-button-mwhite-disabled:hover .ui-button-text, a.ui-button-morange-disabled:hover .ui-button-text,
+    .ui-button-mblue-disabled .ui-button-text, .ui-button-mwhite-disabled .ui-button-text, .ui-button-morange-disabled .ui-button-text {
+        background-position:right -361px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 大按钮 height:34px */
+    .ui-button-lblue .ui-button-text, .ui-button-lorange .ui-button-text, .ui-button-lwhite .ui-button-text {
+        /* height:34px; */
+        height:35px; /** 兼容个人版 35px 按钮 */
+        color:#FFF;
+        font:700 14px/1.4 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+
+    a.ui-button-lblue .ui-button-text, a.ui-button-lwhite .ui-button-text, a.ui-button-lorange .ui-button-text {
+        padding:8px 19px 4px 16px;
+        /* height:22px; */
+        height:23px; /* 兼容个人版 35px 按钮 */
+    }
+
+    /** 对button进行处理 */
+    .ui-button-lblue button.ui-button-text, .ui-button-lwhite button.ui-button-text, .ui-button-lorange button.ui-button-text {
+        padding:4px 18px 3px 15px;
+        padding:4px 18px 2px 15px\9;
+        /* height:34px; */
+        height:35px; /** 兼容个人版 35px 按钮 */
+    }
+
+    /** 对input进行处理 */
+    .ui-button-lblue input.ui-button-text, .ui-button-lwhite input.ui-button-text, .ui-button-lorange input.ui-button-text {
+        padding:3px 18px 3px 15px;
+        padding:4px 18px 2px 15px\9;
+    }
+
+    /*.ui-button-lwhite input.ui-button-text {*/
+        /*padding:4px 18px 4px 15px;*/
+    /*}*/
+
+    .ui-button-lblue {
+        background-position:0 -392px;
+    }
+
+    .ui-button-lblue .ui-button-text {
+        background-position:right -392px;
+    }
+
+    .ui-button-lwhite {
+        background-position:0 -462px;
+    }
+
+    .ui-button-lwhite .ui-button-text {
+        background-position:right -462px;
+        color:#4d4d4d;
+    }
+
+    .ui-button-lorange {
+        background-position:0 -532px;
+    }
+
+    .ui-button-lorange .ui-button-text {
+        background-position:right -532px;
+    }
+
+    /** 大按钮 hover */
+    a.ui-button-lblue:hover, .ui-button-lblue-hover {
+        background-position:0 -427px;
+    }
+    a.ui-button-lblue:hover .ui-button-text, .ui-button-lblue-hover .ui-button-text {
+        background-position:right -427px;
+    }
+
+    a.ui-button-lwhite:hover, .ui-button-lwhite-hover {
+        background-position:0 -497px;
+    }
+    a.ui-button-lwhite:hover .ui-button-text, .ui-button-lwhite-hover .ui-button-text {
+        background-position:right -497px;
+    }
+
+    a.ui-button-lorange:hover, .ui-button-lorange-hover {
+        background-position:0 -567px;
+    }
+    a.ui-button-lorange:hover .ui-button-text, .ui-button-lorange-hover .ui-button-text {
+        background-position:right -567px;
+    }
+
+    /** 大按钮 disabled */
+    a.ui-button-lblue-disabled:hover, a.ui-button-lwhite-disabled:hover, a.ui-button-lorange-disabled:hover,
+    .ui-button-lblue-disabled, .ui-button-lwhite-disabled, .ui-button-lorange-disabled {
+        background-position:0 -602px;
+    } 
+
+    a.ui-button-lblue-disabled:hover .ui-button-text, a.ui-button-lwhite-disabled:hover .ui-button-text, a.ui-button-lorange-disabled:hover .ui-button-text, 
+    .ui-button-lblue-disabled .ui-button-text, .ui-button-lwhite-disabled .ui-button-text, .ui-button-lorange-disabled .ui-button-text {
+        background-position:right -602px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+
+
+
+    /** 按钮上一步 可以单独拆分成一个文件 文件便引入 */
+    a.ui-button-mblue-prev-disabled:hover, a.ui-button-mwhite-prev-disabled:hover, a.ui-button-morange-prev-disabled:hover,
+    .ui-button-mblue-prev-disabled, .ui-button-mwhite-prev-disabled, .ui-button-morange-prev-disabled, /** 上一步不可点 */
+    .ui-button-mblue-next-disabled, .ui-button-mwhite-next-disabled, .ui-button-morange-next-disabled /** 下一步不可点 */{
+        background:url("../images/ui-button.png") no-repeat 0 0;
+    }
+    /** 普通按钮 */
+    .ui-button-mblue-prev .ui-button-icon, .ui-button-mwhite-prev .ui-button-icon, .ui-button-morange-prev .ui-button-icon {
+        left:15px;
+        background-position:0 0;
+    }
+
+    /** 白色按钮黑色箭头 */
+    .ui-button-mwhite-prev .ui-button-icon {
+        background-position:-7px 0;
+    }
+
+    .ui-button-mblue-next .ui-button-icon, .ui-button-mwhite-next .ui-button-icon, .ui-button-morange-next .ui-button-icon {
+        right:15px;
+        background-position:-21px 0;
+    }
+
+    .ui-button-mwhite-next .ui-button-icon {
+        background-position:-28px 0;
+    }
+
+    /** 普通按钮 上一步，下一步 disabled */
+    a.ui-button-mblue-prev-disabled:hover, a.ui-button-mwhite-prev-disabled:hover, a.ui-button-morange-prev-disabled:hover,
+    a.ui-button-mblue-next-disabled:hover, a.ui-button-mwhite-next-disabled:hover, a.ui-button-morange-next-disabled:hover,
+    .ui-button-mblue-prev-disabled, .ui-button-mwhite-prev-disabled, .ui-button-morange-prev-disabled, 
+    .ui-button-mblue-next-disabled, .ui-button-mwhite-next-disabled, .ui-button-morange-next-disabled {
+        background-position:0 -361px;
+    } 
+
+    a.ui-button-mblue-prev-disabled:hover .ui-button-icon, a.ui-button-mwhite-prev-disabled:hover .ui-button-icon, a.ui-button-morange-prev-disabled:hover .ui-button-icon,
+    .ui-button-mblue-prev-disabled .ui-button-icon, .ui-button-mwhite-prev-disabled .ui-button-icon, .ui-button-morange-prev-disabled .ui-button-icon {
+        left:15px;
+        background-position:-14px 0;
+    }
+
+    a.ui-button-mblue-next-disabled:hover .ui-button-icon, a.ui-button-mwhite-next-disabled:hover .ui-button-icon, a.ui-button-morange-next-disabled:hover .ui-button-icon,
+    .ui-button-mblue-next-disabled .ui-button-icon, .ui-button-mwhite-next-disabled .ui-button-icon, .ui-button-morange-next-disabled .ui-button-icon {
+        right:15px;
+        background-position:-35px 0;
+    }
+
+    a.ui-button-mblue-prev-disabled:hover .ui-button-text, a.ui-button-mwhite-prev-disabled:hover .ui-button-text, a.ui-button-morange-prev-disabled:hover .ui-button-text, 
+    a.ui-button-mblue-next-disabled:hover .ui-button-text, a.ui-button-mwhite-next-disabled:hover .ui-button-text, a.ui-button-morange-next-disabled:hover .ui-button-text,
+    .ui-button-mblue-prev-disabled .ui-button-text, .ui-button-mwhite-prev-disabled .ui-button-text, .ui-button-morange-prev-disabled .ui-button-text, 
+    .ui-button-mblue-next-disabled .ui-button-text, .ui-button-mwhite-next-disabled .ui-button-text, .ui-button-morange-next-disabled .ui-button-text {
+        background-position:right -361px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 调整上一步箭头与文字间距离 */
+    a.ui-button-mblue-prev .ui-button-text, a.ui-button-mwhite-prev .ui-button-text, a.ui-button-morange-prev .ui-button-text,
+    a.ui-button-mblue-prev-disabled .ui-button-text, a.ui-button-mwhite-prev-disabled .ui-button-text, a.ui-button-morange-prev-disabled .ui-button-text /** 不可点 */{
+        padding-right:14px;
+        padding-left:27px;
+    }
+
+    /** 对button进行处理 */
+    .ui-button-mblue-prev button.ui-button-text, .ui-button-mwhite-prev button.ui-button-text, .ui-button-morange-prev button.ui-button-text, 
+    .ui-button-mblue-prev-disabled button.ui-button-text, .ui-button-mwhite-prev-disabled button.ui-button-text, .ui-button-morange-prev-disabled button.ui-button-text  /** 不可点 */{
+        padding-right:11px;
+        padding-left:24px;
+    }
+
+    /** 对input进行处理 */
+    .ui-button-mblue-prev input.ui-button-text, .ui-button-mwhite-prev input.ui-button-text, .ui-button-morange-prev input.ui-button-text,
+    .ui-button-mblue-prev-disabled input.ui-button-text, .ui-button-mwhite-prev-disabled input.ui-button-text, .ui-button-morange-prev-disabled input.ui-button-text {
+        padding-right:11px;
+        padding-left:24px;
+    }
+
+    /** 调整下一步箭头与文字间距离 */
+    a.ui-button-mblue-next .ui-button-text, a.ui-button-mwhite-next .ui-button-text, a.ui-button-morange-next .ui-button-text, 
+    a.ui-button-mblue-next-disabled .ui-button-text, a.ui-button-mwhite-next-disabled .ui-button-text, a.ui-button-morange-next-disabled .ui-button-text {
+        padding-right:30px;
+        padding-left:11px;
+    }
+
+    /** 对button进行处理 */
+    .ui-button-mblue-next button.ui-button-text, .ui-button-mwhite-next button.ui-button-text, .ui-button-morange-next button.ui-button-text,
+    .ui-button-mblue-next-disabled button.ui-button-text, .ui-button-mwhite-next-disabled button.ui-button-text, .ui-button-morange-next-disabled button.ui-button-text {
+        padding-right:27px;
+        padding-left:8px;
+    }
+
+    /** 对input进行处理 */
+    .ui-button-mblue-next input.ui-button-text, .ui-button-mwhite-next input.ui-button-text, .ui-button-morange-next input.ui-button-text,
+    .ui-button-mblue-next-disabled input.ui-button-text, .ui-button-mwhite-next-disabled input.ui-button-text, .ui-button-morange-next-disabled input.ui-button-text {
+        padding-right:27px;
+        padding-left:8px;
+    }

@@ -1,0 +1,90 @@
+/** 带图标信息提示
+@name: ui-message
+@author: 天孝(chentao.yuan@alipay.com)
+@description: 信息提示, 错误提示、成功提示、警告提示、禁止提示、等待提示、疑问提示。
+@require: null
+@name ui-message
+@example
+成功提示
+<span class="ui-message ui-message-success"></span>
+
+禁止提示
+<span class="ui-message ui-message-forbidden"></span>
+
+信息提示
+<span class="ui-message ui-message-cue"></span>
+
+警告提示
+<span class="ui-message ui-message-warn"></span>
+
+错误提示
+<span class="ui-message ui-message-error"></span>
+
+疑问提示
+<span class="ui-message ui-message-doubt"></span>
+
+等待提示
+<span class="ui-message ui-message-wait"></span>
+
+请求提示
+<span class="ui-message ui-message-loading"></span>
+
+*/
+
+.ui-message {
+    padding:4px 0 4px 20px;
+    background:url("../images/icons.png") no-repeat 0 100px;
+    zoom:1;
+    *padding:1px 0 0 20px;
+    _padding:0 0 1px 20px;
+    line-height:23px;
+}
+
+.ui-message-success {
+    background-position:-485px -520px;
+}
+
+.ui-message-forbidden {
+    background-position:-457px -546px;
+}
+
+.ui-message-cue {
+    background-position:-430px -570px;
+}
+
+.ui-message-warn {
+    background-position:-399px -597px;
+}
+
+.ui-message-error {
+    background-position:-367px -626px;
+}
+
+.ui-message-doubt {
+    background-position:-337px -653px;
+}
+
+.ui-message-wait {
+    background-position:-304px -682px;
+}
+
+.ui-message-loading {
+    background:url("https://i.alipayobjects.com/e/201205/2budYKAewD.gif") no-repeat 0 3px;
+}
+
+.ui-message-error, .ui-message-forbidden {
+    color:#f00;
+}
+
+.ui-message-notext {
+    display:inline-block;
+    line-height:14px;
+    width:0;
+    height:12px;
+    *height:20px;
+    overflow:hidden;
+    white-space:nowrap;
+    vertical-align:middle;
+}
+
+

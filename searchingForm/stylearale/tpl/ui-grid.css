@@ -1,0 +1,57 @@
+/** begin ---ui-grid.css---*/
+/**
+ * @name: 内容布局(20格栅格布局)
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 下边有注释的为常用宽度
+ * @example: (相加为20，则页面宽度为990px)
+ * <div class="ui-grid-row">
+ *     <div class="ui-grid-4"></div>
+ *     <div class="ui-grid-16"></div>
+ * </div>
+ */
+.ui-grid-1,.ui-grid-2,.ui-grid-3,
+.ui-grid-4,.ui-grid-5,.ui-grid-6,
+.ui-grid-7,.ui-grid-8,.ui-grid-9,
+.ui-grid-10,.ui-grid-11,.ui-grid-12,
+.ui-grid-13,.ui-grid-14,.ui-grid-15,
+.ui-grid-16,.ui-grid-17,.ui-grid-18,
+.ui-grid-19,.ui-grid-20 {
+    margin: 0 0 0 10px;
+    float:left;
+    display:inline;
+}
+.ui-grid-1 {width:40px;}
+.ui-grid-2 {width:90px;}
+.ui-grid-3 {width:140px;}
+.ui-grid-4 {width:190px;} /* 右侧推广位的宽度 */
+.ui-grid-5 {width:240px;} /* 左侧边栏的宽度 */
+.ui-grid-6 {width:290px;}
+.ui-grid-7 {width:340px;}
+.ui-grid-8 {width:390px;}
+.ui-grid-9 {width:440px;}
+.ui-grid-10 {width:490px;}
+.ui-grid-11 {width:540px;}
+.ui-grid-12 {width:590px;} /* 中央区域宽度 */
+.ui-grid-13 {width:640px;}
+.ui-grid-14 {width:690px;}
+.ui-grid-15 {width:740px;}
+.ui-grid-16 {width:790px;}
+.ui-grid-17 {width:840px;} /* 交易明细表区域的宽度 */
+.ui-grid-18 {width:890px;}
+.ui-grid-19 {width:940px;}
+.ui-grid-20 {width:990px;} /* 最大页面宽度 */
+
+/* 清理浮动 */
+.ui-grid-row:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.ui-grid-row {
+    zoom: 1; /* for IE6 IE7 */
+    margin:0 0 0 -10px;
+}

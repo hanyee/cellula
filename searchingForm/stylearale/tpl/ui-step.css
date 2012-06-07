@@ -1,0 +1,136 @@
+/**
+ * @name: ui-step
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 步聚组件
+ * @require: null
+ * @example 
+     <ul class="ui-step ui-step-two">
+        <li class="ui-step-item ui-step-item-current">
+            <span>1、第一步</span>
+        </li>
+        <li class="ui-step-item ui-step-item-last">
+            <span>3、第三步</span>
+        </li>
+    </ul>
+*/
+
+.ui-step{
+    width:100%;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+.ui-step-title {
+    float:left;
+    height:29px;
+    line-height:29px;
+}
+.ui-step-item, .ui-step-item span {
+    background:url('https://img.alipay.com/pa/frame/v2/bg-step.png') no-repeat 0 0;
+    text-align:center;
+}
+.ui-step-item {
+    width:207px;
+    height:29px;
+    line-height:29px;
+    padding-left:20px;
+    float:left;
+    overflow:hidden;
+    position:relative;
+    background-position:right -108px;
+    border:none;
+}
+.ui-step-item span {
+    display:block;
+    width:100%;
+    font-size:14px;
+    line-height:29px;
+    position:absolute;
+    left:-17px;
+    _text-indent:17px;
+    background-position:0 -108px;
+}
+/* 完成的步骤 */
+.ui-step-item-finished{
+    background-position:-4px -108px;
+}
+.ui-step-item-finished span{
+    left:0;
+    background-position:0 -108px;
+}
+/* 当前步骤 */
+.ui-step-item-current {
+  background-position:right -51px;
+  border:none;
+}
+.ui-step-item-current span {
+  background-position:17px -51px;
+  font-weight:bold;
+  color:#AB4400;
+}
+/* 最后的步骤 */
+.ui-step-item-last{
+    border-right:1px solid #DBDBDB;
+    background-position:right -406px;
+}
+.ui-step-item-last span{
+    background:none;
+    left:0;
+}
+
+.ui-step-item-last-current{
+    height:29px;
+    background-position:right -166px;
+    border:none;
+    border-right: 1px solid #ffab0a;
+}
+
+.ui-step-item-last-current span {
+    background-position:15px -166px;
+    font-weight:bold;
+    color:#AB4400;
+    left:-15px;
+}
+.ui-step-two .ui-step-item{
+    width: 474px;
+}
+.ui-step-three .ui-step-item{
+    width:309px;
+}
+.ui-step-four .ui-step-item {
+    width:226px;
+}
+.ui-step-five .ui-step-item {
+    width:177px;
+}
+
+.ui-step-one{
+    background:#fff;
+    padding:1px;
+    border:1px solid #dbdbdb;
+    display:block;
+    height:81px;
+    position:relative;
+    overflow:visible;
+    font-size:14px;
+}
+.ui-step-one h2{
+    position:absolute;
+    left:-1px;
+    top:-1px;
+    height:85px;
+    width:210px;
+    background:transparent url('https://img.alipay.com/pa/frame/v2/bg-step.png') repeat-x 0 -210px;
+    color:#ab4400;
+    text-align: center;
+    line-height:85px;
+}
+.ui-step-one .ui-step-explain{
+    background:transparent url('https://img.alipay.com/pa/frame/v2/bg-step.pngg') repeat-x 0 -310px;
+    height:81px;
+    line-height:81px;
+    padding-left:230px;
+}
+
+
+
+

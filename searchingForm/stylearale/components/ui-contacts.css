@@ -1,0 +1,262 @@
+/*  @name: ui-contacts
+    @base: ui-contacts
+    @desc: 联系人
+    @required: ui-tab2,ui-tab2-1,ui-popmenu,ui-menu
+    @example: 
+    <div>
+        <!-- 联系人搜索模块 -->
+        <div class="ui-contacts-search">
+            <div class="ui-contacts-search-container">
+                <input type="text" value="在我的联系人中搜索" class="ui-contacts-search-text ui-fm-placeholder">
+                <input type="button" value="" class="ui-contacts-search-close">
+                 
+                <a class="ui-contacts-close" href="#">x</a>
+ 
+            </div>
+        </div>
+        <!-- /联系人搜索模块 -->
+        <!-- 联系人模块 -->
+        <div class="ui-tab2 ui-tab2-1 ui-contacts">
+            <div class="ui-contacts-container">
+                <div class="ui-tab2-head">
+                    <ul>
+                        <li class="current"><a><span>最近交易的</span></a></li>
+                        <li>
+                            <a><span>我的联系人(1)<em>▼</em></span></a>
+                            <a href="#" class="ui-contacts-arrow"><em>▼</em></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 标签 操作 -->
+                <div class="ui-menu ui-popmenu" style="display:none;">
+                    <ul>
+                        <li class="ui-menu-item">
+                            <a href="#">所有我的联系人(1)</a>
+                        </li>
+                        <li class="ui-menu-item">
+                            <a href="#">未分组联系人(1)</a>
+                        </li>
+                        <li class="ui-menu-item">
+                            <a href="#">搜索结果</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /标签 操作 -->
+                <div class="ui-contacts-group">
+                    <div class="fn-hide">
+                        <ul>
+                            <li title="个人版" class="ui-contacts-item">
+                                <label class="ui-contacts-detail">
+                                    <input type="checkbox" value="" class="ui-contacts-select">
+                                    "<span class="ui-contacts-nickname">1111</span>"
+                                    <span class="ui-contacts-account">(grb1@alitest.com)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li title="春泥" class="ui-contacts-item">
+                            <label class="ui-contacts-detail">
+                                <input type="checkbox" value="" class="ui-contacts-select">
+                                "<span class="ui-contacts-nickname">春泥</span>"
+                                <span class="ui-contacts-account">(alipay0@qq.com)</span>
+                            </label>
+                            </li>
+                            <li title="测试用户七" class="ui-contacts-item current">
+                                <label class="ui-contacts-detail">
+                                    <input type="checkbox" value="" class="ui-contacts-select" />
+                                    "<span class="ui-contacts-nickname">测试用户七</span>"
+                                    <span class="ui-contacts-account">(test007@qq.com)</span>
+                                </label>
+                            </li>
+                            <li title="个人版" class="ui-contacts-item">
+                                <label class="ui-contacts-detail">
+                                    <input type="checkbox" value="" class="ui-contacts-select">
+                                    "<span class="ui-contacts-nickname">个人版</span>"
+                                    <span class="ui-contacts-account">(grb1@alitest.com)</span>
+                                </label>
+                            </li>
+                            <li title="PER专用" class="ui-contacts-item">
+                                <label class="ui-contacts-detail">
+                                    <input type="checkbox" value="" class="ui-contacts-select">
+                                    "<span class="ui-contacts-nickname">PER专用</span>"
+                                    <span class="ui-contacts-account">(per001@alitest.com)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /联系人模块 -->
+    </div>
+*/
+/* 生活助手联系人组件 */
+.ui-contacts-search{
+    width:300px;/* overwrite */
+}
+.ui-contacts-close, .ui-contacts-close:hover, 
+.contacts-btn, .contacts-btn:hover, .contacts-link, 
+.ui-contacts-search,
+.ui-contacts-search-container,
+.ui-contacts-search-close,
+.ui-contacts-arrow,
+.ui-contacts .ui-tab2-head .ui-contacts-arrow,
+.ui-contacts .ui-tab2-head  .current .ui-contacts-arrow {
+    background:url(https://i.alipayobjects.com/e/201112/2Eq6tTY2Cp.png) no-repeat;
+}
+.ui-contacts-close{
+    position:absolute;/* required */
+    top:5px;/* overwrite */
+    right:5px;/* overwrite */
+    display:block;/* required */
+    width:15px;/* overwrite */
+    height:15px;/* overwrite */
+    overflow:hidden;/* overwrite */
+    text-indent:-999em;/* overwrite */
+    background-position: 0 -139px;/* overwrite */
+}
+.ui-contacts-close:hover {
+    background-position: -15px -139px;/* overwrite */
+}
+.ui-contacts-search,
+.ui-contacts-search-container{
+    height:59px;/* overwrite */
+}
+.ui-contacts-search-close{
+    background-position:0 -124px;/* overwrite */
+}
+.ui-contacts-search{
+    background-position: 0 0;/* overwrite */
+}
+.ui-contacts-search-container{
+    background-position: right -61px;/* overwrite */
+    position:relative;/* overwrite */
+}
+.ui-contacts-search-container .ui-fm-placeholder {
+    color:#b2b2b2;
+}
+.ui-contacts-search-text{
+    border:none;/* overwrite */
+    position:absolute;/* overwrite */
+    top:28px;/* overwrite */
+    *top:28px;/* overwrite */
+    left:26px;/* overwrite */
+    height:19px;/* overwrite */
+    line-height:19px;/* overwrite */
+    width:224px;/* overwrite */
+    background:transparent; /* overwrite */
+}
+.ui-contacts-search-btn,
+.ui-contacts-search-close{
+    width:13px;/* overwrite */
+    height:13px;/* overwrite */
+    border:none;/* overwrite */
+    position:absolute;/* overwrite */
+    right:34px;/* overwrite */
+    top:32px;/* overwrite */
+    background-color:#FFFFFF;/* overwrite */
+    display:block;/* overwrite */
+    text-indent:-999em;/* overwrite */
+    cursor:pointer;/* overwrite */
+}
+.ui-contacts{
+    width:290px;/* overwrite */
+    padding:2px 4px 4px;/* overwrite */
+    border:1px solid #d2d2d2;/* overwrite */
+    background:#e8e8e8 url(http://img.alipay.net/alice/ui-contacts.png) 0 0 repeat-x;/* overwrite */
+}
+.ui-contacts .ui-tab2-head em{
+    visibility:hidden;/* overwrite */
+    margin-right:4px;
+}
+.ui-contacts .ui-tab2-head .ui-contacts-arrow,
+.ui-contacts .ui-tab2-head  .current .ui-contacts-arrow {
+    zoom:1;/* overwrite */
+    width:16px;/* overwrite */
+    height:20px;
+    overflow:hidden;
+    margin-left:-24px;/* overwrite */
+    background-position: -14px -119px;/* overwrite */
+}
+.ui-contacts .ui-tab2-head .ui-contacts-arrow:hover,
+.ui-contacts .ui-tab2-head  .current .ui-contacts-arrow:hover {
+    background-position:-14px -119px;
+}
+/* 联系人组模板 */
+.ui-contacts-group{
+    height:330px;/* overwrite */
+    overflow:hidden;/* overwrite */
+    overflow-y:auto;/* overwrite */
+    padding-top:3px;/* overwrite */
+    background:#FFFFFF;/* overwrite */
+    border:1px #D2D2D2 solid;/* overwrite */
+    border-width:0 1px 1px 1px;/* overwrite */
+    position:relative;/* overwrite */
+}
+/* 联系人项模板 */
+.ui-contacts-item{
+    height:33px;/* overwrite */
+    overflow:hidden;/* overwrite */
+    border-bottom:1px #DEDEDE solid;/* overwrite */
+    word-break:break-all;/* overwrite */
+}
+/* 联系人特殊项 */
+.ui-contacts-group .first{
+    border-top:1px #DEDEDE solid;/* overwrite */
+}
+/* 联系人状态 */
+.ui-contacts-group .current{
+  background:#feffce;/* overwrite */
+}
+.ui-contacts-item:hover,
+.ui-contacts-item-hover{
+  background:#dbf0ff;/* overwrite */
+}
+/* 单条联系人 */
+.ui-contacts-detail{
+    display:block;/* overwrite */
+    height:25px;/* overwrite */
+    padding-top:7px;/* overwrite */
+    cursor:pointer;/* overwrite */
+    white-space:nowrap;/* overwrite */
+    *white-space:normal;/* overwrite */
+}
+.ui-contacts-select{
+    vertical-align:middle;/* overwrite */
+    float:left;/* overwrite */
+    height:20px;/* overwrite */
+    margin:0 6px 0 12px;/* overwrite */
+}
+.ui-contacts-nickname{
+    font-weight:600;/* overwrite */
+    margin-right: 0.5em;/* overwrite */
+}
+.ui-contacts-account{
+    font-weight:normal;/* overwrite */
+}
+/* 覆盖 */
+.ui-contacts .ui-popmenu{
+    position:absolute;/* overwrite */
+}
+ 
+/* 联系人触发按钮的样式，若无视觉要求，请使用contacts-btn */
+.contacts-btn, .contacts-link {
+    width:117px;
+    height:36px;
+    line-height:36px;
+    background-position:-183px -124px;
+    display: block;
+    padding:0 0 0 36px;
+    color:#4d4d4d;
+    font-weight: bold;
+}
+.contacts-btn, .contacts-btn:hover {
+    text-decoration:none;
+    color:#808080;
+}
+.contacts-btn:hover, .contacts-link {
+    background-position:-30px -124px;
+    color:#4d4d4d;
+}

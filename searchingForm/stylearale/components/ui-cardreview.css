@@ -1,0 +1,42 @@
+/**
+ * @name: ui-cardreview
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 银行卡号填写放大镜组件
+ * @require: null
+ * @example 
+    <div class="ui-form-item">
+        <label class="ui-label" for="card">银行卡号:</label><input class="ui-input ui-input-banknum" type="text" id="card" />
+    </div>
+    相应的脚本文件:
+
+    Loader.use('alipay.cardreview', function() {
+        var cardreview = new alipay.CardReview({
+            id: 'card',
+            position:"top", // 显示到上面, 默认不写，显示到下面
+            useIframe: true, // 启用iframe遮档
+            textClass : "ui-cardreview-cnt", // 显示卡号的内容层样式 必填项 否则组件报js错
+            explainClass : "ui-cardreview-explain", // 提示信息层样式
+            explainText:"银行卡号是16位数字" // 提示信息内容
+        });
+    });
+*/
+.ui-cardreview {
+    border:1px solid #facf66;
+    background-color:#fffdca;
+    z-index:9999;/** xbox 是 10000 */
+}
+.ui-cardreview-cnt {
+    color:#fe4236;
+    font:700 28px 黑体;
+    font-weight:500\0;
+    *font-weight:500;
+    _font-weight:500;
+    padding:8px 13px 8px 9px;
+    letter-spacing:-1px;
+}
+.ui-cardreview-explain {
+    color:#cf9064;
+    font-size:12px;
+    border-top:1px dashed #fdce64;
+    padding:4px 8px 5px 10px;
+}

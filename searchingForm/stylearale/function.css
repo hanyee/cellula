@@ -1,0 +1,111 @@
+/** 主要用于调整元素的外边距与内边距
+* @name function
+* @example <div class="fn-mt5">上边margin为5px</div>
+*/
+/** 让元素内联显示 */
+html body .fn-inline {
+    display:-moz-inline-stack;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+}
+html body .fn-left {
+    float:left;
+}
+
+html body .fn-right {
+    float:right;
+}
+/** 上边距 */
+html body .fn-m0 {
+    margin:0;
+}
+html body .fn-mt0 {
+    margin-top:0;
+}
+html body .fn-mr0 {
+    margin-right:0;
+}
+html body .fn-mb0 {
+    margin-bottom:0;
+}
+html body .fn-ml0 {
+    margin-left:0;
+}
+html body .fn-mt5 {
+    margin-top:5px;
+}
+
+html body .fn-mt10 {
+    margin-top:10px;
+}
+
+html body .fn-mt15 {
+    margin-top:15px;
+}
+
+html body .fn-mt20 {
+    margin-top:20px;
+}
+/** 右边距 */
+html body .fn-mr5 {
+    margin-right:5px;
+}
+
+html body .fn-mr10 {
+    margin-right:10px;
+}
+
+
+html body .fn-mr20 {
+    margin-right:20px;
+}
+
+/** 下边距 */
+html body .fn-mb5 {
+    margin-bottom:5px;
+}
+
+html body .fn-mb10 {
+    margin-bottom:10px;
+}
+
+html body .fn-mb15 {
+    margin-bottom:15px;
+}
+
+html body .fn-mb20 {
+    margin-bottom:20px;
+}
+/** 左边距 */
+html body .fn-ml5 {
+    margin-left:5px;
+}
+
+html body .fn-ml10 {
+    margin-left:10px;
+}
+
+html body .fn-ml15 {
+    margin-left:15px;
+}
+
+html body .fn-ml20 {
+    margin-left:20px;
+}
+
+html body .fn-pd0 {
+    padding:0;
+}
+html body .fn-pt0 {
+    padding-top:0;
+}
+html body .fn-pr0 {
+    padding-right:0;
+}
+html body .fn-pb0 {
+    padding-bottom:0;
+}
+html body .fn-pl0 {
+    padding-left:0;
+}

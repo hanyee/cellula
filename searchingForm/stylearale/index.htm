@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>彩票缴款通 - 支付宝</title>
+    <meta name="description" content="中国最大的第三方电子支付服务提供商"/>
+    <meta name="keywords" content="网上购物-网上支付-安全支付-安全购物-购物，安全-支付-支付宝,在线-付款,收款-网上,贸易-网上贸易"/>
+
+    <link rel="icon" href="https://img.alipay.com/common/favicon/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="https://img.alipay.com/common/favicon/favicon.ico" type="image/x-icon"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="base.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="font.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="function.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-table.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-title.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-button.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-form.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-tip.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-tab.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-list.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-xbox.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-box.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-message.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-icon.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-line.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-footer.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-notice.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-step.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-pop.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-column.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-repeater.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-paging.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-dialog.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-list-icons.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-slider-digit.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="tpl/ui-grid.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="solutions/sl-input-file.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="solutions/sl-linear.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="default.css"/>
+    <style type="text/css">
+
+        .layout {
+            width:1400px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 5px 10px 5px;
+            margin: 30px 0 5px;
+            background-color: #858575;
+            color: #ffffff;
+        }
+
+        .section {
+            margin:20px 0 0;
+        }
+
+        .add-btn {
+            top:3px;
+        }
+
+        .buttons {
+            padding:10px 0 0;
+        }
+
+        /** ui-grid使用  */
+        .row-container {width:990px;margin:20px auto 0;}
+        .row {height:30px;margin:0 0 10px -10px;}
+        .row div {
+            text-align:center;
+            background-color:#eee;
+            height:100%;
+            color:#4d4d4d;
+            font:700 12px/30px verdana;
+        }
+
+        .row div:hover {
+            background-color:#ccc;
+            cursor:default;
+        }
+
+        /** ui-step使用 */
+        .row-step {margin:0 0 10px -10px;min-height:100px;_height:100px;}
+        .ui-step-title {display:none;}
+        
+        /** ui-box使用 */
+        .ui-box, .ui-box-green {
+            margin:20px 0 0;
+        }
+        .ui-box-follow {
+            margin-top:0;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="layout">
+
+<div class="content">
+    <div class="ui-tab fn-mt20">
+        <div class="ui-tab-trigger">
+            <ul id="J_tabTrigger0">
+                <li class="ui-tab-trigger-item"><span>ui-tip</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-message</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-notice</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-button</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-tab</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-list</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-dialog</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-table</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-paging</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-form</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-step</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-pop</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-box</span></li>
+                <li class="ui-tab-trigger-item"><span>ui-grid</span></li>
+            </ul>
+        </div>
+        <div id="J_tabContainer0" class="ui-tab-ctn">
+                <div class="ui-tab-ctn-item">
+
+                    <!-- 成功提示 -->
+                    <div class="ui-tip ui-tip-success">
+                        <div class="ui-tip-ctn">加载文件成功</div>
+                    </div>
+
+                    <!-- 禁止提示 -->
+                    <div class="ui-tip ui-tip-forbidden">
+                        <div class="ui-tip-arrow"></div>
+                        <div class="ui-tip-ctn">禁加跨域加载文件...</div>
+                    </div>
+
+                    <!-- 禁止提示 -->
+                    <div class="ui-tip ui-tip-forbidden">
+                        <div class="ui-tip-ctn">禁加跨域加载文件...</div>
+                    </div>
+
+                    <!-- 信息提示 -->
+                    <div class="ui-tip ui-tip-cue">
+                        <div class="ui-tip-arrow"></div>
+                        <div class="ui-tip-ctn">您的账户余额已用完，请及时充值。您的账户余额已用完，请及时充值。</div>
+                    </div>
+
+                    <!-- 信息提示 -->
+                    <div class="ui-tip ui-tip-cue">
+                        <div class="ui-tip-ctn">该中心暂时关闭，无法进行操作。</div>
+                    </div>
+
+                    <!-- 警告提示 -->
+                    <div class="ui-tip ui-tip-warn">
+                        <div class="ui-tip-arrow"></div>
+                        <div class="ui-tip-ctn">警告, 当前页面还未加载完成...</div>
+                    </div>
+
+                    <!-- 警告提示 -->
+                    <div class="ui-tip ui-tip-warn">
+                        <div class="ui-tip-ctn">警告, 当前页面还未加载完成...</div>
+                    </div>
+
+                    <!-- 错误提示 -->
+                    <div class="ui-tip ui-tip-error">
+                        <div class="ui-tip-arrow"></div>
+                        <div class="ui-tip-ctn">请填写你想加载的文件列表</div>
+                    </div>
+
+                    <!-- 错误提示 -->
+                    <div class="ui-tip ui-tip-error">
+                        <div class="ui-tip-ctn">请填写你想加载的文件列表</div>
+                    </div>
+
+                    <!-- 错误提示 -->
+                    <div class="ui-tip ui-tip-doubt">
+                        <div class="ui-tip-ctn">这个是什么东西哇？</div>
+                    </div>
+
+                    <!-- 错误提示 -->
+                    <div class="ui-tip ui-tip-wait">
+                        <div class="ui-tip-ctn">正在加载中，请稍等。。。</div>
+                    </div>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+                    <div class="fn-mt20">
+                        <span class="ui-message ui-message-success fn-ml10">删除当前用户成功！</span>
+
+                        <span class="ui-message ui-message-forbidden fn-ml10">禁止删除该用户！</span>
+
+                        <span class="ui-message ui-message-cue fn-ml10">用户名和密码不能为空</span>
+
+                        <span class="ui-message ui-message-warn fn-ml10">删除当前记录将无法恢复！</span>
+
+                        <span class="ui-message ui-message-error fn-ml10">请求出错啦，请确定请求地址正确。</span>
+
+                        <span class="ui-message ui-message-doubt fn-ml10">这是什么内容？</span>
+
+                        <span class="ui-message ui-message-wait fn-ml10">请稍候再试。。。</span>
+                    </div>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+                
+                    <div class="ui-notice ui-notice-wait fn-mt20">
+                        <div class="ui-notice-cnt">
+                            <h3 class="ui-notice-title">抱歉，操作失败</h3>
+
+                            <p class="ui-notice-explain">错误原因，需技术提供。</p>
+
+                            <p class="ui-notice-explain-other">
+                                现在您可能需要：<a href="#">返回首页</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回账单查询</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回合同查询</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ui-notice ui-notice-error fn-mt20">
+                        <div class="ui-notice-cnt">
+                            <h3 class="ui-notice-title">抱歉，操作失败</h3>
+
+                            <p class="ui-notice-explain">错误原因，需技术提供。</p>
+
+                            <p class="ui-notice-explain-other">
+                                现在您可能需要：<a href="#">返回首页</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回账单查询</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回合同查询</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ui-notice ui-notice-success fn-mt20">
+                        <div class="ui-notice-cnt">
+                            <h3 class="ui-notice-title">成功</h3>
+
+                            <p class="ui-notice-explain-other">
+                                现在您可能需要：<a href="#">返回首页</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回账单查询</a>
+                                <span class="fn-bar">|</span>
+                                <a href="#">返回合同查询</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ui-notice ui-notice-cue fn-mt20">
+                        <div class="ui-notice-cnt">
+                            <h3 class="ui-notice-title">您尚未通过实名认证，无法使用彩票缴款通。</h3>
+
+                            <p class="ui-notice-explain">
+                                现在您可能需要：<a href="#">申请实名认证</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ui-notice ui-notice-forbidden fn-mt20">
+                        <h3 class="ui-notice-title">文案文案</h3>
+
+                        <p class="ui-notice-explain">
+                            没有权限访问！
+                        </p>
+                    </div>
+                    <div class="ui-notice ui-notice-warn fn-mt20">
+                        <h3 class="ui-notice-title">文案文案</h3>
+
+                        <p class="ui-notice-explain-other">
+                            没有查询到可显示的信息
+                        </p>
+                    </div>
+
+
+                    <div class="ui-notice ui-notice-forbidden fn-mt20">
+                        <h3 class="ui-notice-title">文案文案</h3>
+
+                        <p class="ui-notice-explain">
+                            没有权限访问！
+                        </p>
+                    </div>
+                    <div class="ui-notice ui-notice-warn fn-mt20">
+                        <h3 class="ui-notice-title">文案文案</h3>
+
+                        <div class="ui-notice-explain">
+                            <div class="ui-tip ui-tip-error">
+                                <div class="ui-tip-ctn">
+                                    <p>提示啊提示啊，嵌套的啊嵌套的啊。</p>
+                                    <ul class="ui-list fn-mt10">
+                                        <li class="ui-list-item">
+                                            <a href="#">签约后如何改造网站的演示</a>
+                                        </li>
+                                        <li class="ui-list-item">
+                                            <a href="#">帮助文档下载</a>
+                                        </li>
+                                        <li class="ui-list-item">
+                                            <a href="#">签约后如何改造网站的演示</a>
+                                        </li>
+                                    </ul>
+                                
+                                </div>
+                            </div>
+                            <ul class="ui-list fn-mt10">
+                                <li class="ui-list-item">
+                                    <a href="#">签约后如何改造网站的演示</a>
+                                </li>
+                                <li class="ui-list-item">
+                                    <a href="#">帮助文档下载</a>
+                                </li>
+                                <li class="ui-list-item">
+                                    <a href="#">签约后如何改造网站的演示</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+                    
+
+<div class="buttons">
+    <!-- 蓝色小按钮 -->
+    <a href="#" class="ui-button ui-button-sblue"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-sblue"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-sblue"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+    <a href="#" class="ui-button ui-button-sblue ui-button-sblue-disabled"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-sblue ui-button-sblue-disabled"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-sblue ui-button-sblue-disabled"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 白色小按钮 -->
+    <a href="#" class="ui-button ui-button-swhite"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-swhite"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-swhite"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 橙色小按钮 -->
+    <a href="#" class="ui-button ui-button-sorange"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-sorange"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-sorange"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+
+<div class="buttons">
+    <!-- 橙色按钮 -->
+    <a href="#" class="ui-button ui-button-mblue"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-mblue"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-mblue"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+    <a href="#" class="ui-button ui-button-mblue ui-button-mblue-disabled"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-mblue ui-button-mblue-disabled"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-mblue ui-button-mblue-disabled"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 上一步 -->
+    <a href="#" class="ui-button ui-button-mblue ui-button-mblue-prev"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-mblue ui-button-mblue-prev"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-mblue ui-button-mblue-prev"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+
+</div>
+
+<div class="buttons">
+    <!-- 下一步 -->
+    <a href="#" class="ui-button ui-button-mblue ui-button-mblue-next"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-mblue ui-button-mblue-next"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-mblue ui-button-mblue-next"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+<div class="buttons">
+    <!-- 白色按钮 -->
+    <a href="#" class="ui-button ui-button-mwhite"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-mwhite"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-mwhite"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 上一步 -->
+    <a href="#" class="ui-button ui-button-mwhite ui-button-mwhite-prev"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-mwhite ui-button-mwhite-prev"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-mwhite ui-button-mwhite-prev"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+
+</div>
+
+<div class="buttons">
+    <!-- 下一步 -->
+    <a href="#" class="ui-button ui-button-mwhite ui-button-mwhite-next"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-mwhite ui-button-mwhite-next"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-mwhite ui-button-mwhite-next"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+<div class="buttons">
+    <!-- 橙色按钮 -->
+    <a href="#" class="ui-button ui-button-morange"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-morange"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-morange"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 上一步  -->
+    <a href="#" class="ui-button ui-button-morange ui-button-morange-prev"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-morange ui-button-morange-prev"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-morange ui-button-morange-prev"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+<div class="buttons">
+    <!-- 下一步 -->
+    <a href="#" class="ui-button ui-button-morange ui-button-morange-next"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-morange ui-button-morange-next"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-morange ui-button-morange-next"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+<div class="buttons">
+    <!-- 上一步 不可点 -->
+    <a href="#" class="ui-button ui-button-morange ui-button-morange-prev-disabled"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-morange ui-button-morange-prev-disabled"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-morange ui-button-morange-prev-disabled"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+<div class="buttons">
+    <!-- 下一步 不可点 -->
+    <a href="#" class="ui-button ui-button-morange ui-button-morange-next-disabled"><span class="ui-button-text">橙色按钮</span><span class="ui-button-icon"></span></a>
+    <span class="ui-button ui-button-morange ui-button-morange-next-disabled"><button class="ui-button-text">橙色按钮</button><span class="ui-button-icon"></span></span>
+    <span class="ui-button ui-button-morange ui-button-morange-next-disabled"><input type="button" class="ui-button-text" value="橙色按钮" /><span class="ui-button-icon"></span></span>
+</div>
+
+
+
+
+<div class="buttons">
+    <!-- 蓝色大按钮 -->
+    <a href="#" class="ui-button ui-button-lblue"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-lblue"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-lblue"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 白色大按钮 -->
+    <a href="#" class="ui-button ui-button-lwhite"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-lwhite"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-lwhite"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+<div class="buttons">
+    <!-- 橙色大按钮 -->
+    <a href="#" class="ui-button ui-button-lorange"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-lorange"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-lorange"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+    <!-- 橙色大按钮 -->
+    <a href="#" class="ui-button ui-button-lorange ui-button-lorange-disabled"><span class="ui-button-text">橙色按钮</span></a>
+    <span class="ui-button ui-button-lorange ui-button-lorange-disabled"><button class="ui-button-text">橙色按钮</button></span>
+    <span class="ui-button ui-button-lorange ui-button-lorange-disabled"><input type="button" class="ui-button-text" value="橙色按钮" /></span>
+</div>
+
+
+                    
+                </div>
+                <div class="ui-tab-ctn-item">
+
+                    <div class="ui-tab fn-mt10">
+                        <div class="ui-tab-trigger">
+                            <h3 class="ui-tab-title">标题</h3>
+                            <ul id="J_productDetailTab">
+                                <li class="ui-tab-trigger-item ui-tab-trigger-item-current">
+                                    <span>选项一</span>
+                                </li>
+                                <li class="ui-tab-trigger-item">
+                                    <span>选项一</span>
+                                </li>
+                                <li class="ui-tab-trigger-item">
+                                    <span>选项三选项三选项三选</span>
+                                </li>
+                            </ul>
+                            <span class="ui-tab-tool">
+                                <a href="#">返回</a>
+                            </span>
+                        </div>
+                        <div id="J_productDetailContent" class="ui-tab-ctn">
+                            <div class="ui-tab-ctn-item ui-tab-ctn-item-current">选项一内容</div>
+                            <div class="ui-tab-ctn-item">选项二内容</div>
+                            <div class="ui-tab-ctn-item">选项三内容选项三内容</div>
+                        </div>
+                    </div>
+
+                    <div class="ui-tab ui-tab-bottom fn-mt20">
+                        <div id="J_tabctn1" class="ui-tab-ctn">
+                            <div class="ui-tab-ctn-item ui-tab-ctn-item-current">选项一内容</div>
+                            <div class="ui-tab-ctn-item">选项二内容</div>
+                            <div class="ui-tab-ctn-item">选项三内容</div>
+                        </div>
+                        <div class="ui-tab-trigger">
+                            <h3 class="ui-tab-title">标题</h3>
+                            <ul id="J_tabtri1">
+                                <li class="ui-tab-trigger-item ui-tab-trigger-item-current">
+                                    <span>选项一</span>
+                                </li>
+                                <li class="ui-tab-trigger-item">
+                                    <span>选项二</span>
+                                </li>
+                                <li class="ui-tab-trigger-item">
+                                    <span>选项三</span>
+                                </li>
+                            </ul>
+                            <span class="ui-tab-tool">
+                                <a href="#">返回</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+
+                    <ul class="ui-list ui-list-normal fn-mt10">
+                        <li class="ui-list-item">
+                            已发货， 发货时间：2012年01月04日21时。物流公司：<a href="#">圆通速递</a> [571000300501738]
+                            <a href="#">申请退款</a>
+                        </li>
+                        <li class="ui-list-item">
+                            若您未在<span>5天11小时13分53秒</span>内确认收获，交易将自动结束，交易金额付款至对方账户。
+                        </li>
+                    </ul>
+
+                    <ul class="ui-list fn-mt20">
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">帮助文档下载</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                    </ul>
+
+                    <ul class="ui-list ui-list-bluelink fn-mt20">
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">帮助文档下载</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                    </ul>
+
+                    <ul class="ui-list ui-list-graylink fn-mt20">
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">帮助文档下载</a>
+                        </li>
+                        <li class="ui-list-item">
+                            <a href="#">签约后如何改造网站的演示</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+                
+                <div style="position:relative;" class="fn-mt10">
+                    <div class="ui-dialog ui-confirmation" id="J_xboxDelete" style="left: 10px; top: 10px;">
+                        <div id="J_xboxDelete_aralex_confirmbox_tmpl">
+                            <div class="ui-dialog-container">
+                                <span class="ui-dialog-arrow"></span>
+                                <div class="fn-mb10">是否删除编号为<span id="J_xboxSiteCode">29040</span>的网点？</div>
+                                <span class="ui-button ui-button-sorange"><input type="button" value="确定" class="ui-button-text"></span><span class="ui-button ui-button-swhite fn-ml15"><input type="button" value="取消" class="ui-button-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                <div class="ui-tab-ctn-item">
+
+
+<div class="ui-table fn-mt20">
+    <table>
+        <colgroup>
+            <col width="200"/>
+            <col width="200"/>
+            <col width="200"/>
+            <col />
+        </colgroup>
+        <thead>
+        <tr>
+            <th>
+                <a class="sort" href="#">序号</a>
+            </th>
+            <th>
+                <a class="sort" href="#">名称</a>
+            </th>
+            <th>
+                <a class="sort" href="#">简介</a>
+            </th>
+            <th>
+                <a class="sort" href="#">备注</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<form class="ui-form fn-mt20" action="#" method="post">
+    <div class="ui-form-item ui-form-item-normal">
+        <input class="ui-input" type="text" value="" name="dateStart" />
+        <span class="ui-form-spliter">  -</span>
+        <input class="ui-input" type="text" value="" name="dateEnd" />
+        <span class="ui-button ui-button-mblue"><input class="ui-button-text" type="submit" value="查 询" /></span>
+    </div>
+    <div class="ui-table">
+        <table>
+            <colgroup>
+                <col width="10" />
+                <col width="200"/>
+                <col width="200"/>
+                <col width="200"/>
+                <col />
+            </colgroup>
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>序号</th>
+                <th>名称</th>
+                <th>简介</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" name="test" value="1" /></td>
+                    <td>90000</td>
+                    <td>兰坤</td>
+                    <td>111111111111111111</td>
+                    <td>江西体彩</td>
+                </tr>
+                <tr class="ui-table-spliter">
+                    <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" name="test" value="1" /></td>
+                    <td>90000</td>
+                    <td>兰坤</td>
+                    <td>111111111111111111</td>
+                    <td>江西体彩</td>
+                </tr>
+                <tr>
+                    <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" name="test" value="1" /></td>
+                    <td>90000</td>
+                    <td>兰坤</td>
+                    <td>111111111111111111</td>
+                    <td>江西体彩</td>
+                </tr>
+                <tr class="ui-table-spliter">
+                    <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" name="test" value="1" /></td>
+                    <td>90000</td>
+                    <td>兰坤</td>
+                    <td>111111111111111111</td>
+                    <td>江西体彩</td>
+                </tr>
+                <tr>
+                    <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" name="test" value="1" /></td>
+                    <td>90000</td>
+                    <td>兰坤</td>
+                    <td>111111111111111111</td>
+                    <td>江西体彩</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+<div class="ui-table fn-mt20">
+    <table>
+        <colgroup>
+            <col width="200"/>
+            <col width="200"/>
+            <col width="200"/>
+            <col />
+        </colgroup>
+        <caption>
+            <span class="ui-table-caption">我的交易记录</span>
+            <span class="ui-table-tool fn-left">
+                <a href="#">记录查询</a><span class="ft-bar">|</span>
+                <a href="#">退款管理</a><span class="ft-bar">|</span>
+                <a href="#">充提记录</a><span class="ft-bar">|</span>
+                <a href="#">电子对账单</a>
+            </span>
+        </caption>
+        <tbody>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="ui-table-foot">
+                <td colspan="4" class="ft-right">
+                    注：您最近有<a href="#">48</a>笔消费记录，<a href="#">5</a>笔待处理。<a href="#">&gt;&gt;查看所有消费记录</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="ui-table fn-mt20">
+    <table>
+        <colgroup>
+            <col width="200"/>
+            <col width="200"/>
+            <col width="200"/>
+            <col />
+        </colgroup>
+        <caption>
+            <span class="ui-table-caption">我的交易记录</span>
+            <span class="ui-table-tool fn-right">
+                <a href="#">记录查询</a><span class="ft-bar">|</span>
+                <a href="#">退款管理</a><span class="ft-bar">|</span>
+                <a href="#">充提记录</a><span class="ft-bar">|</span>
+                <a href="#">电子对账单</a>
+            </span>
+        </caption>
+        <tbody>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>兰坤</td>
+                <td>111111111111111111</td>
+                <td>江西体彩</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="ui-table-foot">
+                <td colspan="4">
+                    注：您最近有<a href="#">48</a>笔消费记录，<a href="#">5</a>笔待处理。<a href="#">&gt;&gt;查看所有消费记录</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+<div class="ui-table fn-mt20">
+    <table>
+        <colgroup>
+            <col width="100"/>
+            <col width="500"/>
+            <col width="70"/>
+            <col width="70"/>
+            <col />
+        </colgroup>
+        <caption>
+            <span class="ui-table-caption">我的交易记录</span>
+            <span class="ui-table-tool">
+                <a href="#">记录查询</a><span class="ft-bar">|</span>
+                <a href="#">退款管理</a><span class="ft-bar">|</span>
+                <a href="#">充提记录</a><span class="ft-bar">|</span>
+                <a href="#">电子对账单</a>
+            </span>
+        </caption>
+        <tbody>
+            <tr>
+                <td>2011-09-13</td>
+                <td><a href="#">信用卡还款</a></td>
+                <td><span class="ft-orange">-370.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">付款</a><span class="ft-bar">|</span>
+                        <a href="#">关闭交易</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a><span class="ft-bar">|</span>
+                        <a href="#">找人代付</a>
+                    </span>
+                </td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>2011-09-13</td>
+                <td><a href="#">AA收款</a></td>
+                <td><span class="ft-green">+ 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">退款</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a><span class="ft-bar">|</span>
+                        <a href="#">找人代付</a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>2011-09-13</td>
+                <td><a href="#">淘宝购物-xxx淘宝购物</a></td>
+                <td><span class="ft-orange">- 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">退款</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a>
+                    </span>
+                </td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td>2011-09-13</td>
+                <td><a href="#">AA收款</a></td>
+                <td><span class="ft-green">+ 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">退款</a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>2011-09-13</td>
+                <td><a href="#">淘宝购物-xxx淘宝购物</a></td>
+                <td><span class="ft-orange">- 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">退款</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a>
+                    </span>
+                </td>
+            </tr>
+
+            <tr class="ui-table-spliter">
+                <td>2011-09-13</td>
+                <td><a href="#">AA收款</a></td>
+                <td><span class="ft-green">+ 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">退款</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a><span class="ft-bar">|</span>
+                        <a href="#">找人代付</a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>2011-09-13</td>
+                <td><a href="#">淘宝购物-xxx淘宝购物</a></td>
+                <td><span class="ft-orange">- 6.00</span> 元</td>
+                <td>等待付款</td>
+                <td>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">付款</a><span class="ft-bar">|</span>
+                        <a href="#">关闭交易</a><span class="ft-bar">|</span>
+                        <a href="#">详情</a><span class="ft-bar">|</span>
+                        <a href="#">找人代付</a>
+                    </span>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr class="ui-table-foot">
+                <td colspan="5" class="ft-left">
+                    注：您最近有<a href="#">48</a>笔消费记录，<a href="#">5</a>笔待处理。<a href="#">&gt;&gt;查看所有消费记录</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+
+<div class="ui-table fn-mt20">
+    <table>
+        <colgroup>
+            <col width="10" />
+            <col width="30" />
+            <col width="700" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <td colspan="4" class="ui-table-explain">以下是最近3个月内有过交易的记录列表。</td>
+            </tr>
+            <tr>
+                <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" value="1" /></td>
+                <td class="fn-pr0"><img class="user-img" src="images/user-img.png" alt="" /></td>
+                <td>
+                    <span class="user-name">张三</span> <br />moumoumou@alipay.com
+                </td>
+                <td class="ft-right">
+                        <div class="ui-table-tool">
+                            <span class="ui-table-tool-title">向他：</span>
+                            <a href="#">付款</a><span class="ft-bar">|</span>
+                            <a href="#">收款</a><span class="ft-bar">|</span>
+                            <a href="#">交易记录</a>
+                        </div>
+                        <div class="ui-table-tool">
+                            <a href="#">+保存为联系人</a>
+                        </div>
+                </td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" value="1" /></td>
+                <td class="fn-pr0"><img class="user-img" src="images/user-img.png" alt="" /></td>
+                <td>
+                    <span class="user-name">李四</span> <br />moumoumou@alipay.com
+                </td>
+                <td class="ft-right">
+                        <div class="ui-table-tool">
+                            <span class="ui-table-tool-title">向他：</span>
+                            <a href="#">付款</a><span class="ft-bar">|</span>
+                            <a href="#">收款</a><span class="ft-bar">|</span>
+                            <a href="#">交易记录</a>
+                        </div>
+                        <div class="ui-table-tool">
+                            <a href="#">+保存为联系人</a>
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" value="1" /></td>
+                <td class="fn-pr0"><img class="user-img" src="images/user-img.png" alt="" /></td>
+                <td>
+                    <span class="user-name">王五</span> <br />moumoumou@alipay.com
+                </td>
+                <td class="ft-right">
+                        <div class="ui-table-tool">
+                            <span class="ui-table-tool-title">向他：</span>
+                            <a href="#">付款</a><span class="ft-bar">|</span>
+                            <a href="#">收款</a><span class="ft-bar">|</span>
+                            <a href="#">交易记录</a>
+                        </div>
+                        <div class="ui-table-tool">
+                            <a href="#">+保存为联系人</a>
+                        </div>
+                </td>
+            </tr>
+            <tr class="ui-table-spliter">
+                <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" value="1" /></td>
+                <td class="fn-pr0"><img class="user-img" src="images/user-img.png" alt="" /></td>
+                <td>
+                    <span class="user-name">老六</span> <br />moumoumou@alipay.com
+                </td>
+                <td class="ft-right">
+                        <div class="ui-table-tool">
+                            <span class="ui-table-tool-title">向他：</span>
+                            <a href="#">付款</a><span class="ft-bar">|</span>
+                            <a href="#">收款</a><span class="ft-bar">|</span>
+                            <a href="#">交易记录</a>
+                        </div>
+                        <div class="ui-table-tool">
+                            <a href="#">+保存为联系人</a>
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="fn-pr0"><input class="ui-checkbox" type="checkbox" value="1" /></td>
+                <td class="fn-pr0"><img class="user-img" src="images/user-img.png" alt="" /></td>
+                <td>
+                    <span class="user-name">某七</span> <br />moumoumou@alipay.com
+                </td>
+                <td class="ft-right">
+                        <div class="ui-table-tool">
+                            <span class="ui-table-tool-title">向他：</span>
+                            <a href="#">付款</a><span class="ft-bar">|</span>
+                            <a href="#">收款</a><span class="ft-bar">|</span>
+                            <a href="#">交易记录</a>
+                        </div>
+                        <div class="ui-table-tool">
+                            <a href="#">+保存为联系人</a>
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+                </div>
+                <div class="ui-tab-ctn-item">
+                
+       <div class="section">
+            <!-- begin ui-paging -->
+            <div class="ui-paging fn-clear">
+                <a href="#" class="ui-paging-prev">上一页</a>
+                <a href="#" class="ui-paging-item">
+                    <span>1</span>
+                </a>
+                <a href="#" class="ui-paging-item">
+                    <span>2</span>
+                </a>
+
+                <a href="#" class="ui-paging-item"><span>3</span></a>
+                <a href="#" class="ui-paging-item"><span>4</span></a>
+                <a href="#" class="ui-paging-item ui-paging-current"><span>5</span></a>
+                <a href="#" class="ui-paging-item"><span>6</span></a>
+                <a href="#" class="ui-paging-item"><span>7</span></a>
+                <a href="#" class="ui-paging-next">下一页</a>
+
+                <span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">5/7</span>页</span> 
+            </div>
+            <!-- end ui-paging -->
+        </div>
+        <div class="section">
+            <!-- begin ui-paging -->
+            <div class="ui-paging fn-clear">
+                <a href="#" class="ui-paging-prev">上一页</a>
+
+                <a href="#" class="ui-paging-item"><span>1</span></a>
+                <a href="#" class="ui-paging-item ui-paging-current"><span>2</span></a>
+                <a href="#" class="ui-paging-item"><span>3</span></a>
+                <a href="#" class="ui-paging-item"><span>4</span></a>
+                <a href="#" class="ui-paging-item"><span>5</span></a>
+                <a href="#" class="ui-paging-item"><span>6</span></a>
+
+                <a href="#" class="ui-paging-item"><span>7</span></a>
+                <span class="ui-paging-ellipsis">...</span>
+                <a href="#" class="ui-paging-item"><span>1024</span></a>
+                <a href="#" class="ui-paging-next">下一页</a>
+                <span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span> 
+                <span class="ui-paging-info ui-paging-which"><input type="text" name="some_name" value="6"></span>
+
+                <a class="ui-paging-info ui-paging-goto" href="#"><span>跳转</span></a>
+            </div>
+            <!-- end ui-paging -->
+        </div>
+        <div class="section">
+            <!-- begin ui-paging -->
+            <div class="ui-paging fn-clear">
+                <span class="ui-paging-prev">上一页</span>
+                <span class="ui-paging-info">第<span class="ui-paging-bold">1/7</span>页</span> 
+                <a href="#" class="ui-paging-next">下一页</a>
+            </div>
+            <!-- end ui-paging -->
+        </div>
+        <div class="section">
+            <!-- begin ui-paging -->
+            <div class="ui-paging fn-clear">
+                
+                <a href="#" class="ui-paging-prev">上一页</a>
+                <span class="ui-paging-info">第<span class="ui-paging-bold">5/7</span>页</span> 
+                <a href="#" class="ui-paging-next">下一页</a>
+            </div>
+            <!-- end ui-paging -->
+        </div>
+        <div class="section">
+            <!-- begin ui-paging -->
+            <div class="ui-paging fn-clear">
+                 
+                <a href="#" class="ui-paging-prev">上一页</a>
+                <span class="ui-paging-info">第<span class="ui-paging-bold">7/7</span>页</span>
+                <span class="ui-paging-next">下一页</span>
+            </div>
+            <!-- end ui-paging -->
+        </div>
+
+        <div class="title">ui-paging-text</div>
+
+        <div class="section">
+            <div class="ui-paging ui-paging-text fn-clear">
+                <a href="#" class="ui-paging-first">首页</a>
+                <a href="#" class="ui-paging-prev">上一页</a>
+                <span class="ui-paging-info">21 - 40条，共60条</span>
+                <a href="#" class="ui-paging-next">上一页</a>
+                <a href="#" class="ui-paging-last">尾页</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="ui-paging ui-paging-text fn-clear">
+                <span class="ui-paging-info">21 - 40条，共60条</span>
+                <a href="#" class="ui-paging-next">上一页</a>
+                <a href="#" class="ui-paging-last">上一页</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="ui-paging ui-paging-text fn-clear">
+                <a href="#" class="ui-paging-first">首　页</a>
+                <a href="#" class="ui-paging-prev">上一页</a>
+                <span class="ui-paging-info">21 - 40条，共60条</span>
+            </div>
+        </div>
+
+
+
+                </div>
+                <div class="ui-tab-ctn-item">
+        <form action="#" method="post" class="ui-form fn-mt20">
+                <div class="ui-form-item ui-form-item-success">
+                    <label class="ui-label"><span class="required">*</span>网点编号：</label>
+                    <input type="text" class="ui-input ui-input-focus" value="输入内容" />
+                    <div class="ui-form-explain">提示信息</div>
+                </div>
+                <div class="ui-form-item ui-form-item-error">
+                    <label class="ui-label"><span class="required">*</span>批次号：</label>
+                    <input type="text" class="ui-input" value="" />
+                    <div class="ui-form-explain">请填写批次号</div>
+                </div>
+                <div class="ui-form-item ui-form-item-cue">
+                    <label class="ui-label">创建时间：</label>
+                    <input type="text" class="ui-input ui-input-hover" />
+                    <span class="ui-form-spliter">到</span>
+                    <input type="text" class="ui-input" />
+                    <div class="ui-form-explain">起始日期, 格式为 yy-mm-dd</div>
+                </div>
+                <div class="ui-form-item ui-form-item-doubt">
+                    <label class="ui-label"><span class="required">*</span>所属中心：</label>
+                    <div class="ui-form-text">
+                        <select id="">
+                            <option value="" selected="selected">请选择相应的中心</option>
+                            <option value="">900</option>
+                            <option value="">800</option>
+                        </select>
+                    </div>
+
+                    <div class="ui-form-explain">中心是什么？</div>
+                </div>
+                <div class="ui-form-item ui-form-item-forbidden">
+                    <label class="ui-label"><span class="required">*</span>请选择性别：</label>
+                    <div class="ui-form-text">
+                        <input id="first" type="radio" class="ui-radio" name="sex" value="1" /><label class="ui-radio-label" for="first">男</label>  
+                        <input id="second" type="radio" class="ui-radio" name="sex" value="1" /><label class="ui-radio-label" for="second">女</label>
+                    </div>
+                    <div class="ui-form-explain">您跨过前端校验填写了错误的第三性别！</div>
+                </div>
+                <div class="ui-form-item ui-form-item-warn">
+                    <label class="ui-label">请选择爱好：</label>
+                    <div class="ui-form-text">
+                        <input id="a" type="checkbox" class="ui-checkbox" name="a" value="1" /><label class="ui-checkbox-label" for="a">爬山</label>  
+                        <input id="b" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="b">游泳</label>  
+                        <input id="c" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="c">户外</label>  
+                        <input id="d" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="d">骑车</label>  
+                    </div>
+                    <div class="ui-form-explain">请选择您的爱好！</div>
+                </div>
+                <div class="ui-form-item ui-form-item-wait">
+                    <label class="ui-label"><span class="required">*</span>输入密码：</label>
+                    <input class="ui-input ui-input-disabled" type="text" value="" name="pwd" disabled />
+                    <span class="ui-form-link">
+                        <a href="#">忘记密码</a>
+                    </span>
+                    <div class="ui-form-explain">密码正在校验中，请稍候。。。</div>
+                </div>
+                <div class="ui-form-item ui-form-item-last">
+                    <span class="ui-button ui-button-mblue ui-button-mblue-next">
+                        <input class="ui-button-text" type="submit" value="下一步" />
+                        <span class="ui-button-icon"></span>
+                    </span>
+                </div>
+        </form>
+    
+        <div class="title">
+            ui-form (垂直)
+        </div>
+        <form action="#" method="post" class="ui-form ui-form-vertical fn-mt20">
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="required">*</span>网点编号：</label>
+                    <input type="text" class="ui-input" />
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="required">*</span>批次号：</label>
+                    <input type="text" class="ui-input" />
+                </div>
+                <div class="ui-form-item ui-form-item-time">
+                    <label class="ui-label">创建时间：</label>
+                    <input type="text" class="ui-input" />
+                    <span class="ui-form-spliter">到</span>
+                    <input type="text" class="ui-input" />
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="required">*</span>所属中心：</label>
+                    <div class="ui-form-text">
+                        <select id="">
+                            <option value="" selected="selected">请选择相应的中心</option>
+                            <option value="">900</option>
+                            <option value="">800</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="required">*</span>请选择性别：</label>
+                    <div class="ui-form-text">
+                        <input id="first" type="radio" class="ui-radio" name="sex" value="1" /><label class="ui-radio-label" for="first">男</label>  
+                        <input id="second" type="radio" class="ui-radio" name="sex" value="1" /><label class="ui-radio-label" for="second">女</label>
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">请选择爱好：</label>
+                    <div class="ui-form-text">
+                        <input id="a" type="checkbox" class="ui-checkbox" name="a" value="1" /><label class="ui-checkbox-label" for="a">爬山</label>  
+                        <input id="b" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="b">游泳</label>  
+                        <input id="c" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="c">户外</label>  
+                        <input id="d" type="checkbox" class="ui-checkbox" name="b" value="1" /><label class="ui-checkbox-label" for="d">骑车</label>  
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="required">*</span>输入密码：</label>
+                    <input class="ui-input" type="text" value="" name="pwd" />
+                    <span class="ui-form-link">
+                        <a href="#">忘记密码</a>
+                    </span>
+                </div>
+                <div class="ui-form-item ui-form-item-last">
+                    <span class="ui-button ui-button-mblue ui-button-mblue-next">
+                        <input class="ui-button-text" type="submit" value="下一步" />
+                        <span class="ui-button-icon"></span>
+                    </span>
+                </div>
+        </form>
+
+        <div class="title">
+            表单添加
+        </div>
+
+        <form action="#" method="post" class="ui-form fn-mt20">
+                <div class="ui-form-item">
+                    <label class="ui-label">网点编号：</label>
+                    <input type="text" class="ui-input" />
+                    <a href="#" class="ui-button ui-button-swhite add-btn"><span class="ui-button-text">点击添加</span></a>
+                    <div class="fn-mt10">
+                        <input type="text" class="ui-input" />
+                        <span class="ui-form-link">
+                            <a class="ui-input-del" href="#">删除</a>
+                        </span>
+                    </div>
+                    <a class="ui-input-add" href="#">点击添加</a>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">银行卡号：</label>
+                    <input type="text" class="ui-input ui-input-banknum" value="2658 9765 6236 8888" />
+                </div>
+                 <div class="ui-form-item">
+                    <label class="ui-label">提现金额：</label>
+                    <input type="text" class="ui-input ui-input-amount" value="1234.68" />
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">备注内容：</label>
+                    <textarea class="ui-textarea" cols="30" rows="10"></textarea>
+                </div>
+                <div class="ui-form-item ui-form-item-last">
+                    <span class="ui-button ui-button-mblue ui-button-mblue-next">
+                        <input class="ui-button-text" type="submit" value="下一步" />
+                        <span class="ui-button-icon"></span>
+                    </span>
+                </div>
+        </form>
+        </div>
+
+            <div class="ui-tab-ctn-item">
+
+            <div class="row-container">
+            <div class="row-step fn-clear">
+            <div class="ui-grid-20">
+                <div class="title">ui-step 990px宽度示例</div>
+                <ol class="ui-step ui-step-two fn-mt20">
+                    <li class="ui-step-item ui-step-item-current">
+                        <span>1、第一步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-last">
+                        <span>2、第二步</span>
+                    </li>
+                </ol>
+                <ol class="ui-step ui-step-three">
+                    <li class="ui-step-item ui-step-item-current">
+                        <span>1、第一步</span>
+                    </li>
+                    <li class="ui-step-item">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-last">
+                        <span>3、第三步</span>
+                    </li>
+                </ol>
+
+                <dl class="ui-step ui-step-three">
+                    <dt class="ui-step-title">签约流程：</dt>
+                    <dd class="ui-step-item ui-step-item-finished">
+                        <span>1、第一步</span>
+                    </dd>
+                    <dd class="ui-step-item ui-step-item-current">
+                        <span>2、第二步</span>
+                    </dd>
+                    <dd class="ui-step-item ui-step-item-last">
+                        <span>3、第三步</span>
+                    </dd>
+                </dl>
+
+                <ul class="ui-step ui-step-four">
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>1、第一步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-current">
+                        <span>3、第三步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-last">
+                        <span>4、第四步</span>
+                    </li>
+                </ul>
+
+                <ul class="ui-step ui-step-five">
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>1、第一步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-current">
+                        <span>3、第三步</span>
+                    </li>
+                    <li class="ui-step-item">
+                        <span>4、第四步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-last">
+                        <span>5、第五步</span>
+                    </li>
+                </ul>
+
+                <ul class="ui-step ui-step-five">
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>1、第一步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-finished">
+                        <span>2、第二步</span>
+                    </li>
+                    <li class="ui-step-item ui-step-item-last-current">
+                        <span>3、第三步</span>
+                    </li>
+                </ul>
+
+            </div><!-- end ui-grid-20 -->
+            </div>
+            </div>
+
+            </div>
+            <div class="ui-tab-ctn-item">
+            
+
+
+<div style="position:relative;">
+    <div style="left: 20px; top: 20px;" class="ui-pop">
+        <div class="ui-pop-ctn">
+            未读取到您的支付宝证书！<br />
+            <a target="_blank" href="http://help.alipay.com/support/help_detail.htm?help_id=24746">为什么？</a>
+        </div>
+        <div style="left: 20px;" class="ui-pop-angle"></div>
+    </div>
+
+
+<div style="left: 20px; top: 100px;" class="ui-pop">
+    <div class="ui-pop-ctn">
+        <p>未读取到您的支付宝证书！</p>
+        <a target="_blank" href="http://help.alipay.com/support/help_detail.htm?help_id=24746">为什么？</a>
+    </div>
+    <div class="ui-pop-angle"></div>
+</div>
+
+
+<div style="left: 20px; top: 200px;" class="ui-pop ui-pop-normal">
+    <div class="ui-pop-ctn">
+        未读取到您的支付宝证书！<br />
+        <a target="_blank" href="http://help.alipay.com/support/help_detail.htm?help_id=24746">为什么？</a>
+    </div>
+    <div class="ui-pop-angle"></div>
+</div>
+
+<div style="top: 135px; left: 524px;" class="ui-pop ui-pop-normal">
+    <div style="width:250px;" class="ui-pop-ctn">
+        <div class="ui-pop-title">
+            <h3>修改分类</h3>
+        </div>
+        <div class="ui-line"></div>
+        <div class="fm-input"></div>
+    </div>
+    <div class="ui-pop-angle"></div>
+    <a class="pop-close-link" href="#"><span>x</span></a>
+</div>
+
+
+<div style="left: 583px; top: 281px ;width:250px;" class="pop-form p-kt-pop">
+    <div class="container">
+        <div class="pop-title">
+            <h3>卡通余额查询</h3>
+            <a class="pop-close-link"><em>关闭</em></a>
+        </div>
+        <div class="ui-line"></div>
+        <div class="fm-input"></div>
+    </div>
+    <div class="angle"></div>
+</div>
+
+
+<div style="top: 432px; left: 351px" class="ui-pop">
+    <div style="width: 283px" class="ui-pop-ctn">
+        <div class="ui-pop-title">
+            <h3 class="ico-remind">jb </h3>
+            <a class="pop-close-link"><em>关闭</em></a></div>
+        <div class="ui-line">
+        </div>
+        <div class="popup-content">
+            <p class="datetime">10月21日（周三） 下午8:00<em> </em></p>
+            <p class="ad">地址：</p>
+            <p class="ct">内容：jb</p>
+            <p class="des">说明：</p>
+            <p>提醒方式：邮件 </p>
+        </div>
+    </div>
+    <div class="ui-pop-angle ui-pop-angle-top"></div>
+</div>
+
+<div style="top: 432px; left: 651px" class="ui-pop">
+    <div style="width: 283px" class="ui-pop-ctn">
+        <div class="ui-pop-title">
+            <h3 class="ico-remind">jb </h3>
+            <a href="#" class="pop-close-link"><em>关闭</em></a>
+        </div>
+        <div class="ui-line"></div>
+        <div class="popup-content">
+            <p class="datetime">10月21日（周三） 下午8:00<em> </em></p>
+            <p class="ad">地址：</p>
+            <p class="ct">内容：jb</p>
+            <p class="des">说明：</p>
+            <p>提醒方式：邮件 </p>
+        </div>
+    </div>
+    <div class="ui-pop-angle"></div>
+</div>
+
+
+
+<div style="top: 430px; left: 10px" class="ui-pop ui-pop-confirm">
+    <div class="ui-pop-confirm-ctn">
+        <span class="ui-pop-message">确认删除？</span>
+        <span class="ui-button ui-button-sorange"><button class="ui-button-text">确定</button></span>
+        <span class="ui-button ui-button-swhite fn-ml5"><button class="ui-button-text">取消</button></span>
+    </div>
+</div>
+
+
+<div style="top: 630px; left: 10px;width:600px;" class="ui-pop ui-pop-square">
+    <div class="ui-pop-ctn">
+
+        <div class="ui-table">
+            <table cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col width="200"/>
+                    <col width="200"/>
+                    <col width="200"/>
+                    <col />
+                </colgroup>
+                <caption>
+                    <span class="ui-table-caption">我的交易记录</span>
+                    <span class="ui-table-tool fn-right">
+                        <a href="#">记录查询</a><span class="ft-bar">|</span>
+                        <a href="#">退款管理</a><span class="ft-bar">|</span>
+                        <a href="#">充提记录</a><span class="ft-bar">|</span>
+                        <a href="#">电子对账单</a>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <td>90000</td>
+                        <td>兰坤</td>
+                        <td>111111111111111111</td>
+                        <td>江西体彩</td>
+                    </tr>
+                    <tr class="ui-table-spliter">
+                        <td>90000</td>
+                        <td>兰坤</td>
+                        <td>111111111111111111</td>
+                        <td>江西体彩</td>
+                    </tr>
+                    <tr>
+                        <td>90000</td>
+                        <td>兰坤</td>
+                        <td>111111111111111111</td>
+                        <td>江西体彩</td>
+                    </tr>
+                    <tr class="ui-table-spliter">
+                        <td>90000</td>
+                        <td>兰坤</td>
+                        <td>111111111111111111</td>
+                        <td>江西体彩</td>
+                    </tr>
+                    <tr>
+                        <td>90000</td>
+                        <td>兰坤</td>
+                        <td>111111111111111111</td>
+                        <td>江西体彩</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="ui-table-foot">
+                        <td colspan="4">
+                            注：您最近有<a href="#">48</a>笔消费记录，<a href="#">5</a>笔待处理。<a href="#">&gt;&gt;查看所有消费记录</a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+    <!-- <div class="ui-pop-shadow"></div> -->
+</div>
+
+
+<div style="top: 930px; left: 10px;width:600px;" class="ui-pop-square pop-select">
+    <div class="pop-content">
+        <div class="pop-select-title">
+            <h3>标题啊标题啊</h3>
+            <a class="pop-select-title-link" href="#"></a>
+        </div>
+        <dl>
+            <dt>请选择</dt>
+            <dd>
+                <a href="#">第一个</a>
+                <a href="#" class="selected">第二个</a>
+            </dd>
+            <dd>
+                <a href="#">第一个</a>
+                <a href="#" class="selected">第二个</a>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+
+
+            </div>
+
+
+        </div> <!-- end ui-tab-ctn-item -->
+
+            <div class="ui-tab-ctn-item">
+
+<div class="title">ui-box</div>
+
+<div class="ui-box fn-clear">
+    <div class="ui-box-title fn-clear"><!-- 可选 -->
+        <div class="ui-box-title-border sl-linear">
+            <h3>区块标题</h3>
+            <span class="ui-box-title-setting">设定</span><!-- 可选 -->
+        </div>
+    </div>
+    <div class="ui-box-container">
+        <div class="ui-box-content"><!-- 可选，ui-box-content提供了默认内边距，如不需要则不加这层 -->
+            <p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p>
+        </div>
+    </div>
+</div><!-- .ui-box -->
+
+<div class="ui-box fn-clear">
+    <div class="ui-box-title fn-clear"><!-- 可选 -->
+        <div class="ui-box-title-border sl-linear">
+            <h3>区块标题</h3>
+            <a href="#" class="ui-box-title-link">其他链接</a><!-- 可选 -->
+            <a href="#" class="ui-box-title-more">更多</a><!-- 可选 -->
+        </div>
+    </div>
+    <div class="ui-box-container">
+        <div class="ui-box-content">
+            <p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p>
+        </div>
+    </div>
+</div><!-- .ui-box -->
+
+<div class="ui-box ui-box-follow fn-clear"><!-- ui-box-follow使用在box和上面的box相连的情况下 -->
+    <div class="ui-box-title fn-clear"><!-- 可选 -->
+        <div class="ui-box-title-border sl-linear">
+            <h3>区块标题,与上面的模块相连</h3>
+            <a href="#" class="ui-box-title-link">其他链接</a><!-- 可选 -->
+            <a href="#" class="ui-box-title-more">更多</a><!-- 可选 -->
+        </div>
+    </div>
+    <div class="ui-box-container">
+        <div class="ui-box-content">
+            <p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p>
+        </div>
+    </div>
+</div><!-- .ui-box -->
+
+<div class="ui-box-green fn-clear">
+    <div class="ui-box-container">
+        <div class="ui-box-content">
+            <p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p><p>测试内容</p>
+        </div>
+    </div>
+</div><!-- .ui-box-newuser -->
+
+            </div>
+
+            <div class="ui-tab-ctn-item">
+
+<div class="row-container">
+    <div class="title">ui-grid (990栅格 每格 40px 共 20 格)</div>
+    <div class="row">
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-1">grid-1</div>
+    </div>
+
+    <div class="row">
+        <div class="ui-grid-1">grid-1</div>
+        <div class="ui-grid-19">grid-19</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-2">grid-2</div>
+        <div class="ui-grid-18">grid-18</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-3">grid-3</div>
+        <div class="ui-grid-17">grid-17</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-4">grid-4</div>
+        <div class="ui-grid-16">grid-16</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-5">grid-5</div>
+        <div class="ui-grid-15">grid-15</div>
+    </div>
+
+    <div class="row">
+        <div class="ui-grid-6">grid-6</div>
+        <div class="ui-grid-14">grid-14</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-7">grid-7</div>
+        <div class="ui-grid-13">grid-13</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-8">grid-8</div>
+        <div class="ui-grid-12">grid-12</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-9">grid-9</div>
+        <div class="ui-grid-11">grid-11</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-10">grid-10</div>
+        <div class="ui-grid-10">grid-10</div>
+    </div>
+
+    <div class="row">
+        <div class="ui-grid-11">grid-11</div>
+        <div class="ui-grid-9">grid-9</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-12">grid-12</div>
+        <div class="ui-grid-8">grid-8</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-13">grid-13</div>
+        <div class="ui-grid-7">grid-7</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-14">grid-14</div>
+        <div class="ui-grid-6">grid-6</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-15">grid-15</div>
+        <div class="ui-grid-5">grid-5</div>
+    </div>
+
+    <div class="row">
+        <div class="ui-grid-16">grid-16</div>
+        <div class="ui-grid-4">grid-4</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-17">grid-17</div>
+        <div class="ui-grid-3">grid-3</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-18">grid-18</div>
+        <div class="ui-grid-2">grid-2</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-19">grid-19</div>
+        <div class="ui-grid-1">grid-1</div>
+    </div>
+    <div class="row">
+        <div class="ui-grid-20">grid-20</div>
+    </div>
+
+    <div class="row">
+        <div class="ui-grid-5">grid-5</div>
+        <div class="ui-grid-10">grid-10</div>
+        <div class="ui-grid-5">grid-5</div>
+    </div>
+</div>
+
+
+            </div>
+
+    </div>
+
+</div>
+<!-- end content -->
+
+
+</div>
+<!-- end layout -->
+<script type="text/javascript" charset="utf-8" src="http://dev.assets.alipay.net/ar/arale.core-1.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/button.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/tab.js"></script>
+<script type="text/javascript">
+new Tab("J_tabTrigger0", "J_tabContainer0", {
+    activeTriggerClass: 'ui-tab-trigger-item-current',
+    activeTriggerHoverClass:'ui-tab-trigger-item-hover',
+    activeViewClass: 'ui-tab-ctn-item-current',
+    defaultShow:true,
+    triggerEvent: "onclick"
+});
+
+
+new Tab("J_productDetailTab", "J_productDetailContent", {
+    activeTriggerClass: 'ui-tab-trigger-item-current',
+    activeTriggerHoverClass:'ui-tab-trigger-item-hover',
+    activeViewClass: 'ui-tab-ctn-item-current',
+    defaultShow:true,
+    triggerEvent: "onclick"
+});
+
+new Tab("J_tabtri1", "J_tabctn1", {
+    activeTriggerClass: 'ui-tab-trigger-item-current',
+    activeTriggerHoverClass:'ui-tab-trigger-item-hover',
+    activeViewClass: 'ui-tab-ctn-item-current',
+    defaultShow:true,
+    triggerEvent: "onclick"
+});
+
+</script>
+</body>
+</html>

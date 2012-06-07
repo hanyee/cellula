@@ -1,0 +1,26 @@
+/** 水平分隔线
+ * @name: ui-line
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 实线和虚线样式
+ * @require: null
+ *  @example
+实线
+<hr class="ui-line" />
+
+虚线
+<hr class="ui-line ui-line-dot" />
+*/
+.ui-line {
+    font-size:0;
+    line-height:1px;
+    overflow:hidden;
+    border:none;
+    height:1px;
+    background-color:#E1E1E1;
+    display:block;
+    margin:5px 0;
+}
+.ui-line-dot {
+    background:transparent url("") repeat-x 0 0;
+}
+

@@ -1,0 +1,33 @@
+/** 用户系统级别css样式
+* @name layout
+*/
+a {
+    color: #0090F0;
+}
+
+/** 页面最外层容器 */
+.layout {
+    width: 990px;
+    margin: 0 auto;
+}
+
+/** 页面头部 */
+.header {}
+
+/** 内容部分*/
+.content {
+    padding:0;
+}
+
+.user-img {
+    border:1px solid #ccc;
+    background-color:#fff;
+    padding:1px;
+}
+.user-name {
+    font-weight:700;
+}
+
+.ui-tab-trigger-item em {display:none;}
+/** 页面底部 */
+.footer {}
