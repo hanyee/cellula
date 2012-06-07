@@ -101,6 +101,8 @@ var Paginator = new Class('Paginator', {
         throw new Error('root id undefined or more paginators!');
     },
     render : function(){
+        //this.save('page');
+
         var root = this.getRootNode('ui-paging'),
             current = parseInt(this.get('page').getProp('value').current),
             total = this.get('page').getProp('value').totalItems,
@@ -114,6 +116,9 @@ var Paginator = new Class('Paginator', {
             this.get('page').set({value:{totalPages : pages}});
 
         var tplCfg = {
+            totalItems : total,
+            startItem : (current-1)*size+1,
+            endItem : current*size,
             totalPages : pages,
             totalShow : pages > sd ? (pages-half > current?true:false) : false,
             ellipsis : pages > sd ? (pages-half-1 > current?true:false) : false,

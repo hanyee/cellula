@@ -85,14 +85,17 @@ UtilTools.parseTpl = function(tpl, data) {
         if(data[n] === false){
             newTpl = newTpl.replace(reg, '');
         }else if(this.isArray(data[n])){
-            var t = reg.exec(tpl)[2],
-                s = '',
-                d = data[n];
+            var r = reg.exec(tpl);
+            if(r){
+                var t = r[2],
+                    s = '',
+                    d = data[n];
 
-            for(var i=0; i<d.length; i++){
-                s += this.parseTpl(t, d[i]);
+                for(var i=0; i<d.length; i++){
+                    s += this.parseTpl(t, d[i]);
+                }
+                newTpl = newTpl.replace(reg, s);
             }
-            newTpl = newTpl.replace(reg, s);
         }else{
             newTpl = newTpl.replace(regHead, '').replace(regTail, '');
         }

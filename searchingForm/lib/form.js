@@ -38,7 +38,7 @@ var SearchingForm = new Class('SearchingForm', {
             }
 
             console.log('dosearch');
-            console.log(postData);
+            //console.log(postData);
             this.search.call(this, postData);
 
             // paginating
