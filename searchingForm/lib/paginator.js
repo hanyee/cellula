@@ -13,14 +13,14 @@ var Paginator = new Class('Paginator', {
         size : {},
         number: {},
         page : {
-            first : 1,
-            last : null,
-            prev : null,
-            next : null,
+            first : 1, // optional
+            last : null, // optional
+            prev : null, // optional
+            next : null, // optional
             totalItems : null,
-            totalPages : null,
+            totalPages : null, // optional
             current : null,
-            currentArray : null
+            currentArray : null // optional
         }
          */
     },
@@ -100,25 +100,29 @@ var Paginator = new Class('Paginator', {
 
         throw new Error('root id undefined or more paginators!');
     },
-    render : function(){
-        //this.save('page');
+    prepareTplConfig : function(data){
+        var pageEl = this.get('page');
 
-        var root = this.getRootNode('ui-paging'),
-            current = parseInt(this.get('page').getProp('value').current),
-            total = this.get('page').getProp('value').totalItems,
+        if(data && data.page) pageEl.set({value : data.page});
+
+        var current = parseInt(pageEl.getProp('value').current),
+            total = parseInt(pageEl.getProp('value').totalItems),
             sv = this.get('size').getProp('value'),
             pds = this.pageDefault.size,
-            size = UtilTools.isEmptyObject(sv) ? pds[UtilTools.getFirstPropName(pds)] : sv[UtilTools.getFirstPropName(sv)],
+            size = parseInt(UtilTools.isEmptyObject(sv) ? pds[UtilTools.getFirstPropName(pds)] : sv[UtilTools.getFirstPropName(sv)]),
             m = total % size,
             pages = (total-m) / size + (m > 0 ? 1 : 0),
             sd = this.sizeDefault,
-            half = (sd-1)/2;
-            this.get('page').set({value:{totalPages : pages}});
+            half = (sd-1)/2,
+            tplCfg;
 
-        var tplCfg = {
+        //this.save('page');
+        pageEl.set({value : {totalPages : pages}});
+
+        tplCfg = {
             totalItems : total,
             startItem : (current-1)*size+1,
-            endItem : current*size,
+            endItem : current*size>total?total:current*size,
             totalPages : pages,
             totalShow : pages > sd ? (pages-half > current?true:false) : false,
             ellipsis : pages > sd ? (pages-half-1 > current?true:false) : false,
@@ -141,7 +145,12 @@ var Paginator = new Class('Paginator', {
             tplCfg.items.push({num:num, currentClass:current === num ? true : false});
         }
 
-        root.innerHTML = UtilTools.parseTpl(this.pageTpl, tplCfg);
+        return tplCfg;
+    },
+    render : function(data){
+        var root = this.getRootNode('ui-paging');
+
+        root.innerHTML = UtilTools.parseTpl(this.pageTpl, this.prepareTplConfig(data));
         this.registerEvents();
     }
 }).inherits(SearchModuleBase);

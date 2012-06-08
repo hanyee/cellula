@@ -14,9 +14,6 @@ var SearchingForm = new Class('SearchingForm', {
 
         this.registerEvents();
     },
-    getFormData : function(){
-        return this.getData();
-    },
     doSearch : function(e){
         // TODO:
         // to deal with different framework's events handler
@@ -30,15 +27,13 @@ var SearchingForm = new Class('SearchingForm', {
             if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
                 pageDefault = this.applyInterface('getDefault');
                 size = this.applyInterface('getData', 'size');
-                postData = UtilTools.mix(this.getFormData(), UtilTools.isEmptyObject(size)?pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
+                postData = UtilTools.mix(this.getData(), UtilTools.isEmptyObject(size)?pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
             }else{
                 if(e){ // triggered by paginator
-                    postData = UtilTools.mix({},this.getFormData(), e);
+                    postData = UtilTools.mix({},this.getData(), e);
                 }
             }
 
-            console.log('dosearch');
-            //console.log(postData);
             this.search.call(this, postData);
 
             // paginating
@@ -50,5 +45,22 @@ var SearchingForm = new Class('SearchingForm', {
         console.log(data);
         //this.customSearch.call(this, data);
     },
-    customSearch : function(){} // Deprecated
+    dataDispatch : function(data){  // for ajax
+        /**
+         * data struct
+         * {
+         *     dataTable:{...},
+         *     paging:{
+         *         size:{...},
+         *         number:{...},
+         *         page:{...} // see paginator.pageDefault
+         *     }
+         * }
+         */
+        //TODD:
+        // to table
+
+        // to paginator
+        this.applyInterface('render',data.paging);
+    }
 }).inherits(SearchModuleBase);

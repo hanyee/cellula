@@ -232,6 +232,8 @@
             +'<a class="ui-paging-last" href="#">尾页</a>';
     var tplList = {'1':tpl,'2':tpl2,'3':tpl3};
 
+
+
     var elementsArray = ElementFactory(QueryElement, [{
         key : 'calendar',
         value : "{beginDate : $('#J_beginDate').val(), endDate : $('#J_endDate').val()}",
@@ -248,7 +250,9 @@
     }, {
         key : '#J_siteNo',
         value : "{siteNo : $(this.key).val()}",
-        //errHandler : function(msg){},
+        errHandler : function(msg){
+            $('.ui-form-explain').eq(0).html(msg).removeClass('fn-hide');
+        },
         validate : function(){
             if(this.data.value.siteNo.length > 5 ){
                 return '长度不能大于5！';
@@ -296,6 +300,20 @@
                 str += nn + '=' + data[nn]+'; '
             }
             $('#result').html(str);
+
+
+            // simulating ajax callback
+            if(data.number) $('#J_pagingCurrent').val(data['number']);
+            if(data.totalItems) $('#J_totalItmes').val(data['totalItems']);
+
+            var d = {paging:{
+                page:{
+                    current : $('#J_pagingCurrent').val(),
+                    totalItems : $('#J_totalItmes').val()
+                }
+            }};
+
+            this.dataDispatch(d);
         }
     });
 
@@ -309,7 +327,7 @@
         registerEvents : function(){
             //$('#J_sizePerPage').bind('change', this.changeSize);
             //$('.ui-paging-goto').bind('click', this.paginate);
-            $('[class*="ui-paging-"]').bind('click', this.paginate);
+            $('.ui-paging-first,.ui-paging-last,.ui-paging-prev,.ui-paging-next,.ui-paging-item,.ui-paging-goto').bind('click', this.paginate);
 
         }
     });
@@ -317,15 +335,18 @@
     !function(){
         f.interfaceReg('getDefault', pg);
         f.interfaceReg('getData', pg);
+        f.interfaceReg('render', pg);
+
         pg.interfaceReg('doSearch', f);
         console.log(pg.pageDefault);
 
     }();
 
     var act = function (){
-        console.log('a');
         pg.pageTpl = tplList[$('#tplname').val()];
-        pg.save('page');
+        $('#tplname').val() === '3'?$('.ui-paging').addClass('ui-paging-text'):$('.ui-paging').removeClass('ui-paging-text');
+
+        //pg.save('page');
         pg.render();
     };
 </script>
