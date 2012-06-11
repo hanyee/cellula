@@ -7,12 +7,20 @@
  */
 
 var DataTable = new Class('DataTable', {
-    root:null,
+    tips : {
+        noResult : null,
+        error : null
+    },
+    getRootNode : function(rootStyle){
+        return this._super(rootStyle, 'data tables');
+    },
     init : function(){
 
         this.registerEvents();
     },
-    registerEvents:function(){
+    render : function(){
+        var root = this.getRootNode('ui-table');
+        var table = root.getElementsByTagName('table');
 
     }
-});
+}).inherits(SearchModuleBase);

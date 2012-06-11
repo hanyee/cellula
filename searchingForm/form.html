@@ -125,7 +125,25 @@
             </tbody>
         </table>
     </div>
-
+    <div class="ui-notice ui-notice-warn fn-mt20 fn-hide">
+        <h3 class="ui-notice-title">文案文案</h3>
+        <p class="ui-notice-explain-other">
+            没有查询到可显示的信息
+        </p>
+    </div>
+    <div class="ui-notice ui-notice-error fn-mt20 fn-hide">
+        <div class="ui-notice-cnt">
+            <h3 class="ui-notice-title">抱歉，操作失败</h3>
+            <p class="ui-notice-explain">错误原因，需技术提供。</p>
+            <p class="ui-notice-explain-other">
+                现在您可能需要：<a href="#">111</a>
+                <span class="fn-bar">|</span>
+                <a href="#">222</a>
+                <span class="fn-bar">|</span>
+                <a href="#">333</a>
+            </p>
+        </div>
+    </div>
     <div class="section">
         <!-- begin ui-paging -->
         <div class="ui-paging fn-clear">
@@ -151,7 +169,6 @@
             <span class="ui-paging-ellipsis">...</span>
             <a class="ui-paging-item" href="#"><span>1024</span></a>
             <a class="ui-paging-next" href="#">下一页</a>
-
             <span class="ui-paging-info fn-ml0"><span class="ui-paging-bold">2/1024</span>页</span>
             <span class="ui-paging-info ui-paging-which">
                 <input id="J_pageNumber" type="text" value="" name="some_name">
@@ -170,7 +187,6 @@
 
     </div>
 
-
     <div class="section">
         <div class="ui-paging ui-paging-text fn-clear">
             <a class="ui-paging-first" href="#">首页</a>
@@ -182,6 +198,10 @@
     </div>
 
     -->
+
+    <br/><br/><br/><br/>
+    /****************分割器*****************/
+    <br/><br/>
     请选择
     <select id="tplname">
         <option value="1">分页模版1</option>
@@ -233,12 +253,14 @@
     var tplList = {'1':tpl,'2':tpl2,'3':tpl3};
 
 
-
+/************************************************/
     var elementsArray = ElementFactory(QueryElement, [{
         key : 'calendar',
         value : "{beginDate : $('#J_beginDate').val(), endDate : $('#J_endDate').val()}",
         //errHandler : function(msg){},
         validate : function(){
+            $('.ui-form-explain').eq(0).html('').addClass('fn-hide');
+
             var b = this.data.value.beginDate, e = this.data.value.endDate;
             if(!(regCal.test(b) && regCal.test(e))){
                 return '日期格式错误！';
@@ -332,6 +354,12 @@
         }
     });
 
+
+    // for ajax
+    var dt = new DataTable({
+
+    });
+
     !function(){
         f.interfaceReg('getDefault', pg);
         f.interfaceReg('getData', pg);
@@ -341,7 +369,7 @@
         console.log(pg.pageDefault);
 
     }();
-
+/**************************************/
     var act = function (){
         pg.pageTpl = tplList[$('#tplname').val()];
         $('#tplname').val() === '3'?$('.ui-paging').addClass('ui-paging-text'):$('.ui-paging').removeClass('ui-paging-text');

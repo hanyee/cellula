@@ -10,6 +10,13 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
     root : null,
     collection : null,
     validateAll : false,
+    getRootNode : function(rootStyle, tip){
+        var nodesArray = document.getElementsByClassName(rootStyle);
+        if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
+        if(nodesArray.length === 1) return nodesArray[0];
+
+        throw new Error('root id undefined or more ' + tip + '!');
+    },
     initCfg : function(cfg){
         if (typeof cfg === 'object') {
             for (var n in this) {

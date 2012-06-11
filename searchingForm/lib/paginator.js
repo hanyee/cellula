@@ -94,11 +94,7 @@ var Paginator = new Class('Paginator', {
         this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
     },
     getRootNode : function(rootStyle){
-        var nodesArray = document.getElementsByClassName(rootStyle);
-        if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
-        if(nodesArray.length === 1) return nodesArray[0];
-
-        throw new Error('root id undefined or more paginators!');
+        return this._super(rootStyle, 'paginators');
     },
     prepareTplConfig : function(data){
         var pageEl = this.get('page');
