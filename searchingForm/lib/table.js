@@ -31,10 +31,14 @@ var DataTable = new Class('DataTable', {
             table = root.getElementsByTagName('table')[0],
             tbody = table.getElementsByTagName('tbody')[0],
             tpl = '';
+        if(tbody) table.removeChild(tbody);
+
         if(UtilTools.isEmptyObject(data)){
             UtilTools.addClass(root, this.hideClass);
         }else{
+            tbody = document.createElement('tbody');
             tbody.innerHTML = UtilTools.parseTpl(this.tableTpl, data);
+            table.appendChild(tbody);
             this.registerEvents();
             UtilTools.removeClass(root, this.hideClass);
         }
