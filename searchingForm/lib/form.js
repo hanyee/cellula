@@ -49,7 +49,9 @@ var SearchingForm = new Class('SearchingForm', {
         /**
          * data struct
          * {
-         *     dataTable:{...},
+         *     dataTable:{
+         *         rows : [{...},{...}...]
+         *     },
          *     paging:{
          *         size:{...},
          *         number:{...},
@@ -58,7 +60,11 @@ var SearchingForm = new Class('SearchingForm', {
          * }
          */
         //TODD:
+        // data validate
+
+
         // to table
+        this.applyInterface('trender',data.dataTable);
 
         // to paginator
         this.applyInterface('render',data.paging);

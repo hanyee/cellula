@@ -67,7 +67,7 @@
         </span>
     </div>
 
-    <div class="ui-table fn-mt20">
+    <div class="ui-table fn-mt20 fn-hide">
         <table>
             <colgroup>
                 <col width="200">
@@ -92,7 +92,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+ <!--           <tr>
                 <td>90000</td>
                 <td>兰坤</td>
                 <td>111111111111111111</td>
@@ -104,24 +104,7 @@
                 <td>111111111111111111</td>
                 <td>江西体彩</td>
             </tr>
-            <tr>
-                <td>90000</td>
-                <td>兰坤</td>
-                <td>111111111111111111</td>
-                <td>江西体彩</td>
-            </tr>
-            <tr class="ui-table-spliter">
-                <td>90000</td>
-                <td>兰坤</td>
-                <td>111111111111111111</td>
-                <td>江西体彩</td>
-            </tr>
-            <tr>
-                <td>90000</td>
-                <td>兰坤</td>
-                <td>111111111111111111</td>
-                <td>江西体彩</td>
-            </tr>
+            -->
             </tbody>
         </table>
     </div>
@@ -146,7 +129,7 @@
     </div>
     <div class="section">
         <!-- begin ui-paging -->
-        <div class="ui-paging fn-clear">
+        <div class="ui-paging fn-clear fn-hide">
 <!--
             <input type="hidden" id="J_totalItmes" value="132" />
             <input type="hidden" id="J_pagingCurrent" value="10">
@@ -203,7 +186,7 @@
     /****************分割器*****************/
     <br/><br/>
     请选择
-    <select id="tplname">
+    <select id="tplname" onchange="act()">
         <option value="1">分页模版1</option>
         <option value="2">分页模版2</option>
         <option value="3">分页模版3</option>
@@ -211,8 +194,26 @@
     改变 总记录数 和 当前页 点击 分页看 分页效果：<br/>
     总记录数<input type="text" id="J_totalItmes" value="132" />
     当前页<input type="text" id="J_pagingCurrent" value="10" />
-    <input id="confirm" type="button" value="分页" onclick="act()"/>
+    <!--<input id="confirm" type="button" value="分页" onclick="act()"/>-->
     提交的数据为：<span id="result"></span>
+    <br/>
+    <textarea id="mockdata" style="width: 600px;height: 300px;">
+        rows : [
+            {
+                spliter : false,
+                items : [{content :'12345'},{content :'name1'},{content :'into....1'},{content :'description1'}]
+            },{
+                spliter : true,
+                items : [{content :'22345'},{content :'name2'},{content :'into....2'},{content :'description2'}]
+            },{
+                spliter : false,
+                items : [{content :'32345'},{content :'name3'},{content :'into....3'},{content :'description3'}]
+            },{
+                spliter : true,
+                items : [{content :'42345'},{content :'name4'},{content :'into....4'},{content :'description4'}]
+            }
+        ]
+    </textarea>
 
 
 </form>
@@ -250,6 +251,16 @@
             +'<span class="ui-paging-info">$-{startItem} - $-{endItem}条，共$-{totalItems}条</span>'
             +'<a class="ui-paging-next" href="#">下一页</a>'
             +'<a class="ui-paging-last" href="#">尾页</a>';
+
+    var tableTpl = '$-{#rows}<tr$-{#spliter} class="ui-table-spliter"$-{/spliter}>'
+            +'$-{#items}<td>$-{content}</td>$-{/items}'
+            +'</tr>$-{/rows}';
+
+    //+'<td>$-{sn}</td>'
+    //+'<td>$-{name}</td>'
+    //+'<td>$-{intro}</td>'
+    //+'<td>$-{desc}</td>'
+
     var tplList = {'1':tpl,'2':tpl2,'3':tpl3};
 
 
@@ -328,12 +339,23 @@
             if(data.number) $('#J_pagingCurrent').val(data['number']);
             if(data.totalItems) $('#J_totalItmes').val(data['totalItems']);
 
-            var d = {paging:{
-                page:{
-                    current : $('#J_pagingCurrent').val(),
-                    totalItems : $('#J_totalItmes').val()
+
+            var tabledata = eval($('#mockdata').val());
+
+            if(!UtilTools.isArray(tabledata)) alert('table data struct error!');
+
+            var d = {
+                paging : {
+                    page:{
+                        current:$('#J_pagingCurrent').val(),
+                        totalItems:$('#J_totalItmes').val()
+                    }
+                },
+                dataTable : {
+                    rows : tabledata
                 }
-            }};
+            };
+
 
             this.dataDispatch(d);
         }
@@ -357,6 +379,7 @@
 
     // for ajax
     var dt = new DataTable({
+        tableTpl : tableTpl
 
     });
 
@@ -364,6 +387,7 @@
         f.interfaceReg('getDefault', pg);
         f.interfaceReg('getData', pg);
         f.interfaceReg('render', pg);
+        f.interfaceReg('trender', dt);
 
         pg.interfaceReg('doSearch', f);
         console.log(pg.pageDefault);
@@ -373,9 +397,9 @@
     var act = function (){
         pg.pageTpl = tplList[$('#tplname').val()];
         $('#tplname').val() === '3'?$('.ui-paging').addClass('ui-paging-text'):$('.ui-paging').removeClass('ui-paging-text');
-
+        f.search({});
         //pg.save('page');
-        pg.render();
+        //pg.render();
     };
 </script>
 </body>

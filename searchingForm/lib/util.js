@@ -104,4 +104,18 @@ UtilTools.parseTpl = function(tpl, data) {
     return this.makeTpl(newTpl, data);
 };
 
+UtilTools.addClass = function(node, className){
+    if(node){
+        if(node.className === '') {node.className = className;return;}
+        if(!new RegExp('('+className+')').test(node.className)) node.className = node.className + ' ' + className;
+    }
+};
+UtilTools.removeClass = function(node, className){
+    if(node && node.className){
+        var reg = new RegExp('(\\s'+className+')');
+        if(reg.test(node.className)) {node.className = node.className.replace(reg, ''); return ;}
+        reg = new RegExp('(' + className + ')');
+        if(reg.test(node.className)) node.className = node.className.replace(reg, '');
+    }
+};
 var UT = UtilTools;

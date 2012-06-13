@@ -146,7 +146,12 @@ var Paginator = new Class('Paginator', {
     render : function(data){
         var root = this.getRootNode('ui-paging');
 
-        root.innerHTML = UtilTools.parseTpl(this.pageTpl, this.prepareTplConfig(data));
-        this.registerEvents();
+        if(UtilTools.isEmptyObject(data)){
+            UtilTools.addClass(root, this.hideClass);
+        }else{
+            root.innerHTML = UtilTools.parseTpl(this.pageTpl, this.prepareTplConfig(data));
+            this.registerEvents();
+            UtilTools.removeClass(root, this.hideClass);
+        }
     }
 }).inherits(SearchModuleBase);

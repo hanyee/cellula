@@ -11,16 +11,32 @@ var DataTable = new Class('DataTable', {
         noResult : null,
         error : null
     },
+    tableTpl : '',
     getRootNode : function(rootStyle){
         return this._super(rootStyle, 'data tables');
     },
-    init : function(){
-
+    init : function(cfg){
+        this.initCfg(cfg);
         this.registerEvents();
     },
-    render : function(){
-        var root = this.getRootNode('ui-table');
-        var table = root.getElementsByTagName('table');
-
+    prepareTplConfig : function(data){
+        var tpl = '',
+            rows = data.rows;
+        if(UtilTools.isArray(rows)){
+        }
+        return tpl;
+    },
+    trender : function(data){
+        var root = this.getRootNode('ui-table'),
+            table = root.getElementsByTagName('table')[0],
+            tbody = table.getElementsByTagName('tbody')[0],
+            tpl = '';
+        if(UtilTools.isEmptyObject(data)){
+            UtilTools.addClass(root, this.hideClass);
+        }else{
+            tbody.innerHTML = UtilTools.parseTpl(this.tableTpl, data);
+            this.registerEvents();
+            UtilTools.removeClass(root, this.hideClass);
+        }
     }
 }).inherits(SearchModuleBase);
