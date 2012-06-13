@@ -12,7 +12,7 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
     validateAll : false,
     hideClass : 'fn-hide',
     getRootNode : function(rootStyle, tip){
-        var nodesArray = document.getElementsByClassName(rootStyle);
+        var nodesArray = UtilTools.getElementsByClassName(rootStyle, document, 'div'); //document.getElementsByClassName(rootStyle);
         if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
         if(nodesArray.length === 1) return nodesArray[0];
 

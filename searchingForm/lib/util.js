@@ -118,4 +118,25 @@ UtilTools.removeClass = function(node, className){
         if(reg.test(node.className)) node.className = node.className.replace(reg, '');
     }
 };
+
+UtilTools.getElementsByClassName = function(searchClass, node, tag) {
+    node = node || document;
+    if(node.getElementsByClassName){
+        return  node.getElementsByClassName(searchClass);
+    }else{
+        tag = tag || '*';
+        var returnElements = [],
+        els = node.getElementsByTagName(tag), //var els =  (tag === "*" && node.all)? node.all : node.getElementsByTagName(tag);
+        i = els.length,
+        reg = new RegExp('(^|\\s)' + searchClass + '(\\s|$)');
+        while(--i >= 0){
+            if (reg.test(els[i].className) ) {
+                returnElements.push(els[i]);
+            }
+        }
+        return returnElements;
+    }
+};
+
+
 var UT = UtilTools;
