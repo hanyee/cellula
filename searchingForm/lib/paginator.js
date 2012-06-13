@@ -64,7 +64,7 @@ var Paginator = new Class('Paginator', {
         if(e && e.preventDefault){
             e.preventDefault();
         }
-        console.log('paginate');
+        //console.log('paginate');
 
         if(this.getOperationType(e.currentTarget.className) === 'goto'){
             if(this.save.apply(this, arguments) === undefined){

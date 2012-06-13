@@ -36,8 +36,9 @@ var DataTable = new Class('DataTable', {
         if(UtilTools.isEmptyObject(data)){
             UtilTools.addClass(root, this.hideClass);
         }else{
-            tbody = document.createElement('tbody');
-            tbody.innerHTML = UtilTools.parseTpl(this.tableTpl, data);
+            var div = document.createElement('div');
+            div.innerHTML = '<table><tbody>'+UtilTools.parseTpl(this.tableTpl, data)+'</tbody></table>';
+            tbody = div.getElementsByTagName('tbody')[0];
             table.appendChild(tbody);
             this.registerEvents();
             UtilTools.removeClass(root, this.hideClass);

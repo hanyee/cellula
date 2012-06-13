@@ -319,8 +319,8 @@
         }
     }]);
 
-    console.log(elementsArray);
-    console.log(pageElements);
+    //console.log(elementsArray);
+    //console.log(pageElements);
 
     var f = new SearchingForm({
         collection : elementsArray,
@@ -328,7 +328,7 @@
             $('.ui-button-mblue').bind('click', this.doSearch);
         },
         search : function(data){
-            console.log('custom! post? submit? as your wish!');
+            //console.log('custom! post? submit? as your wish!');
 
             var str = '';
             for(var nn in data){
@@ -392,7 +392,7 @@
         f.interfaceReg('trender', dt);
 
         pg.interfaceReg('doSearch', f);
-        console.log(pg.pageDefault);
+        //console.log(pg.pageDefault);
 
     }();
 /**************************************/
