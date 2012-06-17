@@ -64,9 +64,9 @@ var SearchingForm = new Class('SearchingForm', {
 
 
         // to table
-        this.applyInterface('trender',data.dataTable);
+        this.applyInterface('DataTable.render',data.dataTable);
 
         // to paginator
-        this.applyInterface('render',data.paging);
+        this.applyInterface('Paginator.render',data.paging);
     }
 }).inherits(SearchModuleBase);

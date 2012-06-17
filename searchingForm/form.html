@@ -386,12 +386,12 @@
     });
 
     !function(){
-        f.interfaceReg('getDefault', pg);
-        f.interfaceReg('getData', pg);
-        f.interfaceReg('render', pg);
-        f.interfaceReg('trender', dt);
+        f.registerInterface('getDefault', pg);
+        f.registerInterface('getData', pg);
+        f.registerInterface('render', pg);
+        f.registerInterface('render', dt);
 
-        pg.interfaceReg('doSearch', f);
+        pg.registerInterface('doSearch', f);
         //console.log(pg.pageDefault);
 
     }();

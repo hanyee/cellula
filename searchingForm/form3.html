@@ -275,9 +275,9 @@
     });
 
     !function(){
-        f.interfaceReg('getDefault', pg);
-        f.interfaceReg('getData', pg);
-        pg.interfaceReg('doSearch', f);
+        f.registerInterface('getDefault', pg);
+        f.registerInterface('getData', pg);
+        pg.registerInterface('doSearch', f);
         console.log(pg.pageDefault);
 
     }();

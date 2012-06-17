@@ -26,7 +26,7 @@ var DataTable = new Class('DataTable', {
         }
         return tpl;
     },
-    trender : function(data){
+    render : function(data){
         var root = this.getRootNode('ui-table'),
             table = root.getElementsByTagName('table')[0],
             tbody = table.getElementsByTagName('tbody')[0],
