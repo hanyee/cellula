@@ -13,14 +13,14 @@
              size : {},
              number: {},
              page : {
-             first : 1, // optional
-             last : null, // optional
-             prev : null, // optional
-             next : null, // optional
-             totalItems : null,
-             totalPages : null, // optional
-             current : null,
-             currentArray : null // optional
+                 first : 1, // optional
+                 last : null, // optional
+                 prev : null, // optional
+                 next : null, // optional
+                 totalItems : null,
+                 totalPages : null, // optional
+                 current : null,
+                 currentArray : null // optional
              }
              */
         },
@@ -93,7 +93,7 @@
             // mix this.getData() && this.pageDefault.number
             this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
         },
-        getRootNode : function(rootStyle){
+        getNode : function(rootStyle){
             return this._super(rootStyle, 'paginators');
         },
         prepareTplConfig : function(data){
@@ -143,19 +143,21 @@
 
             return tplCfg;
         },
-
+        error :function(){
+            this.show(false);
+        },
         render : function(data){
             data = data.paging;
 
-            var root = this.getRootNode('ui-paging');
+            var root = this.rootNode;
 
-            if(util.isEmptyObject(data)){
-                util.addClass(root, this.hideClass);
-            }else{
+            //if(util.isEmptyObject(data)){
+            //    util.addClass(root, this.hideClass);
+            //}else{
                 root.innerHTML = util.parseTpl(this.pageTpl, this.prepareTplConfig(data));
                 this.registerEvents();
                 util.removeClass(root, this.hideClass);
-            }
+            //}
         }
 
     }).inherits(Cellula.Block);

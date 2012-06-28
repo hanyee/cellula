@@ -67,7 +67,7 @@ var SearchingForm = new Class('SearchingForm', {
 
         // to paginator
         //this.applyInterface('PaginatorAlipay.render',data.paging);
-console.log(data)
+
         this.applyInterface('render', data);
     }
 }).inherits(SearchModuleBase);

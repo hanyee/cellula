@@ -110,7 +110,7 @@
         </table>
     </div>
     <div class="ui-notice ui-notice-warn fn-mt20 fn-hide">
-        <h3 class="ui-notice-title">文案文案</h3>
+        <h3 class="ui-notice-title">没有查询到结果</h3>
         <p class="ui-notice-explain-other">
             没有查询到可显示的信息
         </p>
@@ -199,7 +199,7 @@
     提交的数据为：<span id="result"></span>
     <br/>
     <textarea id="mockdata" style="width: 600px;height: 300px;">
-        rows : [
+        {rows : [
             {
                 spliter : false,
                 items : [{content :'12345'},{content :'name1'},{content :'into....1'},{content :'description1'}]
@@ -213,7 +213,7 @@
                 spliter : true,
                 items : [{content :'42345'},{content :'name4'},{content :'into....4'},{content :'description4'}]
             }
-        ]
+        ]}
     </textarea>
 
 
@@ -331,9 +331,11 @@
             if(data.totalItems) $('#J_totalItmes').val(data['totalItems']);
 
 
-            var tabledata = eval($('#mockdata').val());
+            //var tabledata = eval($('#mockdata').val());
+            var tabledata = new Function("return " + $('#mockdata').val() ).call(this);
 
-            if(!Cellula._util.isArray(tabledata)) alert('table data struct error!');
+            //if(!Cellula._util.isArray(tabledata)) alert('table data struct error!');
+            if(!Cellula._util.isObject(tabledata)) alert('table data struct error!');
 
             var d = {
                 paging : {
@@ -342,9 +344,10 @@
                         totalItems:$('#J_totalItmes').val()
                     }
                 },
-                dataTable : {
-                    rows : tabledata
-                }
+                dataTable : tabledata
+                //dataTable : {
+                //    rows : tabledata
+                //}
             };
 
 
@@ -378,6 +381,10 @@
         f.registerInterface('getData', pg);
         f.registerInterface('render', pg);
         f.registerInterface('render', dt);
+        f.registerInterface('error', pg);
+        f.registerInterface('error', dt);
+        dt.registerInterface('error', pg);
+        //console.log(dt);
 
         pg.registerInterface('doSearch', f);
         //console.log(pg.pageDefault);

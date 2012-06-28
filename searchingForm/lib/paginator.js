@@ -93,7 +93,7 @@ var Paginator = new Class('Paginator', {
         // mix this.getData() && this.pageDefault.number
         this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
     },
-    getRootNode : function(rootStyle){
+    getNode : function(rootStyle){
         return this._super(rootStyle, 'paginators');
     },
     prepareTplConfig : function(data){
@@ -144,7 +144,7 @@ var Paginator = new Class('Paginator', {
         return tplCfg;
     },
     render : function(data){
-        var root = this.getRootNode('ui-paging');
+        var root = this.getNode('ui-paging');
 
         if(UtilTools.isEmptyObject(data)){
             UtilTools.addClass(root, this.hideClass);

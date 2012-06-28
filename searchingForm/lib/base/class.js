@@ -30,8 +30,8 @@
                         _ifl[interfaceName] ? _ifl[interfaceName].next = node : _ifl[interfaceName] = node;
 
                     }else{
-                        //throw 'the registered method does not exist!';
-                        console.log(interfaceName);
+                        throw 'the registered method does not exist!';
+                        //console.log(interfaceName);
                     }
                 };
 
@@ -72,7 +72,9 @@
                 };
 
                 if(this.init){
-                    return this.init.apply(this,arguments);
+                    return this.init.apply(this, arguments);
+                    // TODO:
+                    // afterInit :
                 }
 
             }else{

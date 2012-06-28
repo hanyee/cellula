@@ -10,9 +10,12 @@
     var util = cellula._util,
         nativeBind = Function.prototype.bind,
         slice = Array.prototype.slice;
+
     cellula.Block = new cellula.Class('Block', {
         root : null,
+        rootNode : null,
         collection : null,
+        //hideClass : '',
         bind:function (func, obj) {
             if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
             var args = slice.call(arguments, 2);
@@ -72,17 +75,28 @@
             }
             return data;
         },
-        getRootNode : function(root, tip){// id || unique style
+        getNode : function(root, tip, target){// id || unique style
+            //if(this.rootNode) return this.rootNode;
             tip = tip || this.__className__;
             root = root || '';
+            target = target || document;
+            //this.rootNode = document.getElementById(root);
             var node = document.getElementById(root);
             if(node) return node;
-            var nodesArray = util.getElementsByClassName(root, document, 'div'); //document.getElementsByClassName(root);
+            var nodesArray = util.getElementsByClassName(root, target, 'div');
+            //document.getElementsByClassName(root);
             //if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
+            //this.rootNode = nodesArray[0];
             if(nodesArray.length === 1) return nodesArray[0];
 
             throw new Error('root id, unique style class undefined or more ' + tip + 's have unique style class!');
         },
+        show : function(flag){
+            if(!this.rootNode) this.rootNode = this.getRootNode(this.root);
+            if(flag) return util.removeClass(this.rootNode, this.hideClass);
+            util.addClass(this.rootNode, this.hideClass);
+        },
+        error :function(){},
         registerEvents:function(){}
     });
 

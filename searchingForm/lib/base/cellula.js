@@ -8,7 +8,7 @@
 
 var Cellula = {_cellula : Cellula};
 
-Cellula.version = '0.2.1';
+Cellula.version = '0.2.2';
 
 Cellula.Class = null;
 

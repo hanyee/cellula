@@ -12,7 +12,7 @@ var DataTable = new Class('DataTable', {
         error : null
     },
     tableTpl : '',
-    getRootNode : function(rootStyle){
+    getNode : function(rootStyle){
         return this._super(rootStyle, 'data tables');
     },
     init : function(cfg){
@@ -27,7 +27,7 @@ var DataTable = new Class('DataTable', {
         return tpl;
     },
     render : function(data){
-        var root = this.getRootNode('ui-table'),
+        var root = this.getNode('ui-table'),
             table = root.getElementsByTagName('table')[0],
             tbody = table.getElementsByTagName('tbody')[0],
             tpl = '';

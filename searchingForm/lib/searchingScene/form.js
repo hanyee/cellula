@@ -57,14 +57,20 @@
              *     }
              * }
              */
-                //TODD:
-                // data validate
+            //TODD:
+            // data validate
 
-                // to table
-                //this.applyInterface('DataTableAlipay.render',data.dataTable);
+            // data stuct error
+            if(!data.dataTable || !data.dataTable.rows || !data.paging || !data.paging.page){ //!(data.paging.size || data.paging.page || data.paging.number)
+                this.applyInterface('error');
+                return ;
+            }
 
-                // to paginator
-                //this.applyInterface('PaginatorAlipay.render',data.paging);
+            // to table
+            //this.applyInterface('DataTableAlipay.render',data.dataTable);
+
+            // to paginator
+            //this.applyInterface('PaginatorAlipay.render',data.paging);
 
             this.applyInterface('render', data);
 

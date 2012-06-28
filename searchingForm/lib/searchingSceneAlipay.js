@@ -20,7 +20,7 @@ var DataTableAlipay = new Class('DataTableAlipay', {
     },
     render : function(data){
         data = data.dataTable;
-        var root = this.getRootNode('ui-table'),
+        var root = this.getNode('ui-table'),
             table = root.getElementsByTagName('table')[0],
             tbody = table.getElementsByTagName('tbody')[0],
             tpl = '';
@@ -148,7 +148,7 @@ var PaginatorAlipay = new Class('PaginatorAlipay', {
     },
     render : function(data){
         data = data.paging;
-        var root = this.getRootNode('ui-paging');
+        var root = this.getNode('ui-paging');
 
         if(UtilTools.isEmptyObject(data)){
             UtilTools.addClass(root, this.hideClass);
