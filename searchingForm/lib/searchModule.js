@@ -15,7 +15,7 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
         var nodesArray = UtilTools.getElementsByClassName(rootStyle, document, 'div'); //document.getElementsByClassName(rootStyle);
         if(nodesArray.length > 1 && document.getElementById(this.root)) return document.getElementById(this.root);
         if(nodesArray.length === 1) return nodesArray[0];
-
+        tip = tip || '';
         throw new Error('root id undefined or more ' + tip + '!');
     },
     initCfg : function(cfg){

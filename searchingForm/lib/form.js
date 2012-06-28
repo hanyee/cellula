@@ -10,7 +10,7 @@ var SearchingForm = new Class('SearchingForm', {
     init : function(cfg){
         this.initCfg(cfg);
 
-        this.bindAll('search','doSearch');
+        this.bindAll('search','doSearch','dataDispatch');
 
         this.registerEvents();
     },
@@ -62,11 +62,12 @@ var SearchingForm = new Class('SearchingForm', {
         //TODD:
         // data validate
 
-
         // to table
-        this.applyInterface('DataTable.render',data.dataTable);
+        //this.applyInterface('DataTableAlipay.render',data.dataTable);
 
         // to paginator
-        this.applyInterface('Paginator.render',data.paging);
+        //this.applyInterface('PaginatorAlipay.render',data.paging);
+console.log(data)
+        this.applyInterface('render', data);
     }
 }).inherits(SearchModuleBase);
