@@ -1,0 +1,2975 @@
+/** begin ---base.css---*/
+@charset "utf-8";
+
+/* 
+	@名称: base
+	@功能: 重设浏览器默认样式
+*/
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html{
+	color:#000;background:#fff;
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video {
+    display: inline-block;*display: inline;*zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{
+	font:12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+input,select,textarea{
+	font-size:100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{
+	border-collapse:collapse;border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset,img{
+	border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{
+	border:0;font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+	text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul {
+	list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+	text-align:left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:500;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;
+}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+	text-decoration:underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+	text-decoration:none;
+}
+
+/* 清理浮动 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right {
+	display:inline;
+}
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+/** end ---base.css---*/
+/**Last Changed Author: chenda--Last Changed Date: Fri Jan 06 17:53:13 CST 2012**/
+/**alice.base-1.1**/
+/** CurrentDeveloper: Shawn**/
+/** DeployDate: Tue Apr 17 19:18:29 CST 2012**/
+/** begin ---mi-font.css---*/
+/** 统一字体及字体颜色样式
+ @name font
+ @example
+    <span class="ft-orange">200.00</span>
+*/
+/** 默认链接颜色 */
+a {
+    color: #06b;
+}
+/** 字体 */
+html body .ft-orange, html body .ft-green {
+    font-family: tahoma,verdana,arial;
+}
+
+/** 颜色 */
+html body .ft-weaken {
+    color: #666;
+}
+html body .ft-link {
+    color: #06b;
+}
+html body .ft-orange {
+    color: #F60;
+}
+html body .ft-green {
+    color: #53A000;
+}
+html body .ft-explain {
+    color: #A6A6A6;
+}
+html body .ft-normal {
+    color: #4D4D4D;
+}
+html body .ft-black {
+    color: #000;
+}
+html body .ft-error {
+    color:#FF5243;
+}
+/** 大小 */
+html body .ft-12 {
+    font-size: 12px;
+}
+html body .ft-14 {
+    font-size: 14px;
+}
+html body .ft-18 {
+    font-size: 18px;
+}
+
+/** 对齐 */
+html body .ft-left {
+    text-align: left;
+}
+html body .ft-center {
+    text-align: center;
+}
+html body .ft-right {
+    text-align: right;
+}
+html body .ft-top {
+    vertical-align: top;
+}
+html body .ft-middle {
+    vertical-align: middle;
+}
+html body .ft-bottom {
+    vertical-align: bottom;
+}
+html body .ft-baseline {
+    vertical-align: baseline;
+}
+/** 样式 */
+html body .ft-bold {
+    font-weight: 700;
+}
+html body .ft-normal {
+    font-weight: normal;
+}
+html body .ft-bar {
+    color: #C7C7C7;
+    padding: 0 7px 0 6px;
+}
+
+/** 换行 */
+.ft-break {
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+/** 不换行 */
+.ft-nowrap {
+    white-space:nowrap;
+}
+
+/** end ---mi-font.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:19:12 CST 2012**/
+/**alice.components.mi-font-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:36:48 CST 2012**/
+/** begin ---mi-function.css---*/
+/** 主要用于调整元素的外边距与内边距
+* @name function
+* @example <div class="fn-mt5">上边margin为5px</div>
+*/
+/** 让元素内联显示 */
+html body .fn-inline {
+    display:-moz-inline-stack;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+}
+html body .fn-left {
+    float:left;
+}
+
+html body .fn-right {
+    float:right;
+}
+/** 上边距 */
+html body .fn-m0 {
+    margin:0;
+}
+html body .fn-mt0 {
+    margin-top:0;
+}
+html body .fn-mr0 {
+    margin-right:0;
+}
+html body .fn-mb0 {
+    margin-bottom:0;
+}
+html body .fn-ml0 {
+    margin-left:0;
+}
+html body .fn-mt5 {
+    margin-top:5px;
+}
+
+html body .fn-mt10 {
+    margin-top:10px;
+}
+
+html body .fn-mt15 {
+    margin-top:15px;
+}
+
+html body .fn-mt20 {
+    margin-top:20px;
+}
+/** 右边距 */
+html body .fn-mr5 {
+    margin-right:5px;
+}
+
+html body .fn-mr10 {
+    margin-right:10px;
+}
+
+
+html body .fn-mr20 {
+    margin-right:20px;
+}
+
+/** 下边距 */
+html body .fn-mb5 {
+    margin-bottom:5px;
+}
+
+html body .fn-mb10 {
+    margin-bottom:10px;
+}
+
+html body .fn-mb15 {
+    margin-bottom:15px;
+}
+
+html body .fn-mb20 {
+    margin-bottom:20px;
+}
+/** 左边距 */
+html body .fn-ml5 {
+    margin-left:5px;
+}
+
+html body .fn-ml10 {
+    margin-left:10px;
+}
+
+html body .fn-ml15 {
+    margin-left:15px;
+}
+
+html body .fn-ml20 {
+    margin-left:20px;
+}
+
+html body .fn-pd0 {
+    padding:0;
+}
+html body .fn-pt0 {
+    padding-top:0;
+}
+html body .fn-pr0 {
+    padding-right:0;
+}
+html body .fn-pb0 {
+    padding-bottom:0;
+}
+html body .fn-pl0 {
+    padding-left:0;
+}
+
+/** end ---mi-function.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:07:38 CST 2012**/
+/**alice.components.mi-function-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:38:01 CST 2012**/
+/** begin ---mi-button.css---*/
+/**
+ * @name: mi-button
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 各种按钮样式
+ * @require: null
+ * @example:
+ * 外层可以是 a, span 标签
+ * 里层可以是 span, input, button
+ * a > span
+ * <a class="mi-button mi-button-sorange">
+ *    <span class="mi-button-text">确定</span>
+ * </a>
+ *
+ * span > input
+ * <sapn class="mi-button mi-button-sorange">
+ *    <input type="button" class="mi-button-text" value="确定" />
+ * </span>
+ *
+ * span > button
+ * <span class="mi-button mi-button-sorange">
+ *    <button class="mi-button-text">确定</button>
+ * </span>
+ */
+
+    /** 按钮基类样式*/
+    .mi-button{display:inline-block;padding:0; text-decoration:none !important;text-align:center; *zoom:1;*display:inline; overflow:visible;vertical-align:middle;position:relative;}
+    .mi-button-text{cursor:pointer; border:none;float:left;cursor:pointer;}
+    .mi-button-icon {position:absolute;top:10px;width:6px;height:11px;}
+    .mi-button input.mi-button-text, .mi-button button.mi-button-text{*line-height:normal;overflow:visible;border:none; float:left;}
+
+    .mi-button-sblue, .mi-button-swhite, .mi-button-sorange, /** 小按钮 高 24px */
+    .mi-button-sblue-hover, .mi-button-swhite-hover, .mi-button-sorange-hover,
+    .mi-button-sblue-disabled, .mi-button-swhite-disabled, .mi-button-sorange-disabled, /** 小按钮不可点 */
+
+    .mi-button-mblue, .mi-button-mwhite, .mi-button-morange, /** 普通按钮 高 30px */
+    .mi-button-mblue-hover, .mi-button-mwhite-hover, .mi-button-morange-hover,
+    .mi-button-mblue-disabled, .mi-button-mwhite-disabled, .mi-button-morange-disabled, /** 普通按钮不可点 */
+
+    .mi-button-lblue, .mi-button-lwhite, .mi-button-lorange, /** 大按钮 高 34px */
+    .mi-button-lblue-hover, .mi-button-lwhite-hover, .mi-button-lorange-hover,
+    .mi-button-lblue-disabled, .mi-button-lwhite-disabled, .mi-button-lorange-disabled, /** 大按钮不可点 */
+
+    .mi-button-text {
+        padding:0 0 0 4px;
+        background:url("https://i.alipayobjects.com/e/201205/2jqIj9rJRR.png") no-repeat 0 0;
+    }
+
+    .mi-button-text {
+        padding:0 4px 0 0;
+        background-position:right 0;
+    }
+
+    .mi-button-icon {
+        background:url("https://i.alipayobjects.com/e/201205/2jqJNfyrAv.png") no-repeat 0 0;
+    }
+
+    /** 小按钮 height:24px */
+    .mi-button-sblue .mi-button-text, .mi-button-swhite .mi-button-text, .mi-button-sorange .mi-button-text {
+        height:24px;
+        color:#FFF;
+        font:700 12px/1 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+    a.mi-button-sblue .mi-button-text, a.mi-button-swhite .mi-button-text, a.mi-button-sorange .mi-button-text {
+        padding:7px 11px 0 8px;
+        height:17px;
+    }
+
+    /*a.mi-button-swhite .mi-button-text {*/
+        /*padding-top:7px;*/
+        /*height:17px;*/
+    /*}*/
+
+    /** 对button进行处理 */
+    .mi-button-sblue button.mi-button-text, .mi-button-swhite button.mi-button-text, .mi-button-sorange button.mi-button-text {
+        padding:4px 8px 4px 5px;
+        padding:5px 8px 2px 5px\9;
+        height:24px;
+    }
+
+    /** 对input进行处理 */
+    .mi-button-sblue input.mi-button-text, .mi-button-swhite input.mi-button-text, .mi-button-sorange input.mi-button-text {
+        padding:1px 8px 1px 5px;
+        padding:2px 8px 1px 5px\9;
+    }
+
+    /*.mi-button-swhite input.mi-button-text {*/
+        /*padding:2px 8px 2px 5px;*/
+    /*}*/
+
+    .mi-button-swhite {
+        background-position:0 -50px;
+    }
+
+    .mi-button-swhite .mi-button-text {
+        background-position:right -50px;
+        color:#4D4D4D;
+    }
+
+    .mi-button-sorange {
+        background-position:0 -100px;
+    }
+
+    .mi-button-sorange .mi-button-text {
+        background-position:right -100px;
+    }
+
+    /** 小按钮 hover */
+    a.mi-button-sblue:hover, .mi-button-sblue-hover {
+        background-position:0 -25px;
+    }
+    a.mi-button-sblue:hover .mi-button-text, .mi-button-sblue-hover .mi-button-text {
+        background-position:right -25px;
+    }
+
+    a.mi-button-swhite:hover, .mi-button-swhite-hover {
+        background-position:0 -75px;
+    }
+    a.mi-button-swhite:hover .mi-button-text, .mi-button-swhite-hover .mi-button-text {
+        background-position:right -75px;
+    }
+
+    a.mi-button-sorange:hover, .mi-button-sorange-hover {
+        background-position:0 -125px;
+    }
+    a.mi-button-sorange:hover .mi-button-text, .mi-button-sorange-hover .mi-button-text {
+        background-position:right -125px;
+    }
+
+
+    /** 小按钮 disabled */
+    a.mi-button-sblue-disabled:hover, a.mi-button-swhite-disabled:hover, a.mi-button-sorange-disabled:hover,
+    .mi-button-sblue-disabled, .mi-button-swhite-disabled, .mi-button-sorange-disabled {
+        background-position:0 -150px;
+    } 
+    
+    a.mi-button-sblue-disabled:hover .mi-button-text, a.mi-button-swhite-disabled:hover .mi-button-text, a.mi-button-sorange-disabled:hover .mi-button-text, 
+    .mi-button-sblue-disabled .mi-button-text, .mi-button-swhite-disabled .mi-button-text, .mi-button-sorange-disabled .mi-button-text {
+        background-position:right -150px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 普通按钮 height:30px */
+    .mi-button-mblue .mi-button-text, .mi-button-morange .mi-button-text, .mi-button-mwhite .mi-button-text {
+        height:30px;
+        color:#fff;
+        font:700 14px/1.2 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+    a.mi-button-mblue .mi-button-text, a.mi-button-mwhite .mi-button-text, a.mi-button-morange .mi-button-text {
+        padding:8px 21px 0 18px;
+        height:22px;
+    }
+
+    a.mi-button-mwhite .mi-button-text {
+        padding-top:7px;
+        height:23px;
+    }
+
+    /** 对button进行处理 */
+    .mi-button-mblue button.mi-button-text, .mi-button-mwhite button.mi-button-text, .mi-button-morange button.mi-button-text {
+        padding:4px 18px 3px 15px;
+        padding:6px 18px 1px 15px\9;
+        height:30px;
+    }
+
+    /** 对input进行处理 */
+    .mi-button-mblue input.mi-button-text, .mi-button-mwhite input.mi-button-text, .mi-button-morange input.mi-button-text {
+        padding:3px 18px 3px 15px;
+        padding:5px 18px 1px 15px\9;
+    }
+
+    /*.mi-button-mwhite input.mi-button-text {*/
+        /*padding:4px 18px 2px 15px;*/
+    /*}*/
+
+    .mi-button-mblue {
+        background-position:0 -175px;
+    }
+
+    .mi-button-mblue .mi-button-text {
+        background-position:right -175px;
+    }
+
+    .mi-button-mwhite {
+        background-position:0 -237px;
+    }
+
+    .mi-button-mwhite .mi-button-text {
+        background-position:right -237px;
+        color:#4d4d4d;
+    }
+
+    .mi-button-morange {
+        background-position:0 -299px;
+    }
+
+    .mi-button-morange .mi-button-text {
+        background-position:right -299px;
+    }
+
+    /** 普通按钮 hover */
+    a.mi-button-mblue:hover, .mi-button-mblue-hover {
+        background-position:0 -206px;
+    }
+    a.mi-button-mblue:hover .mi-button-text, .mi-button-mblue-hover .mi-button-text {
+        background-position:right -206px;
+    }
+
+    a.mi-button-mwhite:hover, .mi-button-mwhite-hover {
+        background-position:0 -268px;
+    }
+    a.mi-button-mwhite:hover .mi-button-text, .mi-button-mwhite-hover .mi-button-text {
+        background-position:right -268px;
+    }
+
+    a.mi-button-morange:hover, .mi-button-morange-hover {
+        background-position:0 -330px;
+    }
+    a.mi-button-morange:hover .mi-button-text, .mi-button-morange-hover .mi-button-text {
+        background-position:right -330px;
+    }
+
+    /** 普通按钮 disabled */
+    a.mi-button-mblue-disabled:hover, a.mi-button-mwhite-disabled:hover, a.mi-button-morange-disabled:hover,
+    .mi-button-mblue-disabled, .mi-button-mwhite-disabled, .mi-button-morange-disabled {
+        background-position:0 -361px;
+    } 
+
+    a.mi-button-mblue-disabled:hover .mi-button-text, a.mi-button-mwhite-disabled:hover .mi-button-text, a.mi-button-morange-disabled:hover .mi-button-text,
+    .mi-button-mblue-disabled .mi-button-text, .mi-button-mwhite-disabled .mi-button-text, .mi-button-morange-disabled .mi-button-text {
+        background-position:right -361px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 大按钮 height:34px */
+    .mi-button-lblue .mi-button-text, .mi-button-lorange .mi-button-text, .mi-button-lwhite .mi-button-text {
+        height:34px;
+        color:#FFF;
+        font:700 14px/1.4 \5b8b\4f53,\9ED1\4F53,verdana;
+    }
+
+
+    a.mi-button-lblue .mi-button-text, a.mi-button-lwhite .mi-button-text, a.mi-button-lorange .mi-button-text {
+        padding:8px 19px 4px 16px;
+        height:22px;
+    }
+
+    /** 对button进行处理 */
+    .mi-button-lblue button.mi-button-text, .mi-button-lwhite button.mi-button-text, .mi-button-lorange button.mi-button-text {
+        padding:4px 18px 3px 15px;
+        padding:4px 18px 2px 15px\9;
+        height:34px;
+    }
+
+    /** 对input进行处理 */
+    .mi-button-lblue input.mi-button-text, .mi-button-lwhite input.mi-button-text, .mi-button-lorange input.mi-button-text {
+        padding:3px 18px 3px 15px;
+        padding:4px 18px 2px 15px\9;
+    }
+
+
+    .mi-button-lblue {
+        background-position:0 -392px;
+    }
+
+    .mi-button-lblue .mi-button-text {
+        background-position:right -392px;
+    }
+
+    .mi-button-lwhite {
+        background-position:0 -462px;
+    }
+
+    .mi-button-lwhite .mi-button-text {
+        background-position:right -462px;
+        color:#4d4d4d;
+    }
+
+    .mi-button-lorange {
+        background-position:0 -532px;
+    }
+
+    .mi-button-lorange .mi-button-text {
+        background-position:right -532px;
+    }
+
+    /** 大按钮 hover */
+    a.mi-button-lblue:hover, .mi-button-lblue-hover {
+        background-position:0 -427px;
+    }
+    a.mi-button-lblue:hover .mi-button-text, .mi-button-lblue-hover .mi-button-text {
+        background-position:right -427px;
+    }
+
+    a.mi-button-lwhite:hover, .mi-button-lwhite-hover {
+        background-position:0 -497px;
+    }
+    a.mi-button-lwhite:hover .mi-button-text, .mi-button-lwhite-hover .mi-button-text {
+        background-position:right -497px;
+    }
+
+    a.mi-button-lorange:hover, .mi-button-lorange-hover {
+        background-position:0 -567px;
+    }
+    a.mi-button-lorange:hover .mi-button-text, .mi-button-lorange-hover .mi-button-text {
+        background-position:right -567px;
+    }
+
+    /** 大按钮 disabled */
+    a.mi-button-lblue-disabled:hover, a.mi-button-lwhite-disabled:hover, a.mi-button-lorange-disabled:hover,
+    .mi-button-lblue-disabled, .mi-button-lwhite-disabled, .mi-button-lorange-disabled {
+        background-position:0 -602px;
+    } 
+
+    a.mi-button-lblue-disabled:hover .mi-button-text, a.mi-button-lwhite-disabled:hover .mi-button-text, a.mi-button-lorange-disabled:hover .mi-button-text, 
+    .mi-button-lblue-disabled .mi-button-text, .mi-button-lwhite-disabled .mi-button-text, .mi-button-lorange-disabled .mi-button-text {
+        background-position:right -602px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+
+
+
+    /** 按钮上一步 可以单独拆分成一个文件 文件便引入 */
+    a.mi-button-mblue-prev-disabled:hover, a.mi-button-mwhite-prev-disabled:hover, a.mi-button-morange-prev-disabled:hover,
+    .mi-button-mblue-prev-disabled, .mi-button-mwhite-prev-disabled, .mi-button-morange-prev-disabled, /** 上一步不可点 */
+    .mi-button-mblue-next-disabled, .mi-button-mwhite-next-disabled, .mi-button-morange-next-disabled /** 下一步不可点 */{
+        background:url("https://i.alipayobjects.com/e/201205/2jqIj9rJRR.png") no-repeat 0 0;
+    }
+    /** 普通按钮 */
+    .mi-button-mblue-prev .mi-button-icon, .mi-button-mwhite-prev .mi-button-icon, .mi-button-morange-prev .mi-button-icon {
+        left:15px;
+        background-position:0 0;
+    }
+
+    /** 白色按钮黑色箭头 */
+    .mi-button-mwhite-prev .mi-button-icon {
+        background-position:-7px 0;
+    }
+
+    .mi-button-mblue-next .mi-button-icon, .mi-button-mwhite-next .mi-button-icon, .mi-button-morange-next .mi-button-icon {
+        right:15px;
+        background-position:-21px 0;
+    }
+
+    .mi-button-mwhite-next .mi-button-icon {
+        background-position:-28px 0;
+    }
+
+    /** 普通按钮 上一步，下一步 disabled */
+    a.mi-button-mblue-prev-disabled:hover, a.mi-button-mwhite-prev-disabled:hover, a.mi-button-morange-prev-disabled:hover,
+    a.mi-button-mblue-next-disabled:hover, a.mi-button-mwhite-next-disabled:hover, a.mi-button-morange-next-disabled:hover,
+    .mi-button-mblue-prev-disabled, .mi-button-mwhite-prev-disabled, .mi-button-morange-prev-disabled, 
+    .mi-button-mblue-next-disabled, .mi-button-mwhite-next-disabled, .mi-button-morange-next-disabled {
+        background-position:0 -361px;
+    } 
+
+    a.mi-button-mblue-prev-disabled:hover .mi-button-icon, a.mi-button-mwhite-prev-disabled:hover .mi-button-icon, a.mi-button-morange-prev-disabled:hover .mi-button-icon,
+    .mi-button-mblue-prev-disabled .mi-button-icon, .mi-button-mwhite-prev-disabled .mi-button-icon, .mi-button-morange-prev-disabled .mi-button-icon {
+        left:15px;
+        background-position:-14px 0;
+    }
+
+    a.mi-button-mblue-next-disabled:hover .mi-button-icon, a.mi-button-mwhite-next-disabled:hover .mi-button-icon, a.mi-button-morange-next-disabled:hover .mi-button-icon,
+    .mi-button-mblue-next-disabled .mi-button-icon, .mi-button-mwhite-next-disabled .mi-button-icon, .mi-button-morange-next-disabled .mi-button-icon {
+        right:15px;
+        background-position:-35px 0;
+    }
+
+    a.mi-button-mblue-prev-disabled:hover .mi-button-text, a.mi-button-mwhite-prev-disabled:hover .mi-button-text, a.mi-button-morange-prev-disabled:hover .mi-button-text, 
+    a.mi-button-mblue-next-disabled:hover .mi-button-text, a.mi-button-mwhite-next-disabled:hover .mi-button-text, a.mi-button-morange-next-disabled:hover .mi-button-text,
+    .mi-button-mblue-prev-disabled .mi-button-text, .mi-button-mwhite-prev-disabled .mi-button-text, .mi-button-morange-prev-disabled .mi-button-text, 
+    .mi-button-mblue-next-disabled .mi-button-text, .mi-button-mwhite-next-disabled .mi-button-text, .mi-button-morange-next-disabled .mi-button-text {
+        background-position:right -361px;
+        color:#e5e5e5;
+        cursor:default;
+    }
+
+    /** 调整上一步箭头与文字间距离 */
+    a.mi-button-mblue-prev .mi-button-text, a.mi-button-mwhite-prev .mi-button-text, a.mi-button-morange-prev .mi-button-text,
+    a.mi-button-mblue-prev-disabled .mi-button-text, a.mi-button-mwhite-prev-disabled .mi-button-text, a.mi-button-morange-prev-disabled .mi-button-text /** 不可点 */{
+        padding-right:14px;
+        padding-left:27px;
+    }
+
+    /** 对button进行处理 */
+    .mi-button-mblue-prev button.mi-button-text, .mi-button-mwhite-prev button.mi-button-text, .mi-button-morange-prev button.mi-button-text, 
+    .mi-button-mblue-prev-disabled button.mi-button-text, .mi-button-mwhite-prev-disabled button.mi-button-text, .mi-button-morange-prev-disabled button.mi-button-text  /** 不可点 */{
+        padding-right:11px;
+        padding-left:24px;
+    }
+
+    /** 对input进行处理 */
+    .mi-button-mblue-prev input.mi-button-text, .mi-button-mwhite-prev input.mi-button-text, .mi-button-morange-prev input.mi-button-text,
+    .mi-button-mblue-prev-disabled input.mi-button-text, .mi-button-mwhite-prev-disabled input.mi-button-text, .mi-button-morange-prev-disabled input.mi-button-text {
+        padding-right:11px;
+        padding-left:24px;
+    }
+
+    /** 调整下一步箭头与文字间距离 */
+    a.mi-button-mblue-next .mi-button-text, a.mi-button-mwhite-next .mi-button-text, a.mi-button-morange-next .mi-button-text, 
+    a.mi-button-mblue-next-disabled .mi-button-text, a.mi-button-mwhite-next-disabled .mi-button-text, a.mi-button-morange-next-disabled .mi-button-text {
+        padding-right:30px;
+        padding-left:11px;
+    }
+
+    /** 对button进行处理 */
+    .mi-button-mblue-next button.mi-button-text, .mi-button-mwhite-next button.mi-button-text, .mi-button-morange-next button.mi-button-text,
+    .mi-button-mblue-next-disabled button.mi-button-text, .mi-button-mwhite-next-disabled button.mi-button-text, .mi-button-morange-next-disabled button.mi-button-text {
+        padding-right:27px;
+        padding-left:8px;
+    }
+
+    /** 对input进行处理 */
+    .mi-button-mblue-next input.mi-button-text, .mi-button-mwhite-next input.mi-button-text, .mi-button-morange-next input.mi-button-text,
+    .mi-button-mblue-next-disabled input.mi-button-text, .mi-button-mwhite-next-disabled input.mi-button-text, .mi-button-morange-next-disabled input.mi-button-text {
+        padding-right:27px;
+        padding-left:8px;
+    }
+
+/** end ---mi-button.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:18:41 CST 2012**/
+/**alice.components.mi-button-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:34:37 CST 2012**/
+/** begin ---mi-header.css---*/
+/**
+ * @name: ui-header
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 头部样式
+ * @require: null
+*/
+.site-nav {
+    background: none repeat scroll 0 0 #F7F7F7;
+    color: #BFCDD8;
+    height: 32px;
+    width: 100%;
+}
+
+.the-alipay-global .site-con, .header-cnt {
+    width:990px;
+    margin:0 auto;
+}
+
+.site-nav h2 {
+    color: #666666;
+    float: left;
+    line-height: 32px;
+}
+
+/** 用于覆盖下拉白色背景 */
+.site-nav .global-toplink .global-toplink-username {
+    background-color: #F7F7F7;
+}
+
+.site-nav .global-dropdown-active .global-toplink-username {
+    background-color: #FFF;
+}
+
+.header {
+    background:#2566A0;
+    color: #FFFFFF;
+    height: 66px;
+    width: 100%;
+}
+
+.header-cnt {
+    height:66px;
+}
+
+.header-cnt img {
+    vertical-align:top;
+}
+
+.header-cnt h1 {
+    margin-top: 15px;
+}
+
+/** end ---mi-header.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:10:08 CST 2012**/
+/**alice.components.mi-header-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:38:52 CST 2012**/
+/** begin ---mi-footer.css---*/
+/**
+ * @name: ui-footer
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 底部样式
+ * @require: null
+*/
+.ui-footer {
+    border-top: 1px solid #CCCCCC;
+    height: 100px;
+    background-color:#F5F5F5;
+}
+
+.ui-footer-copyright .server {
+    color:#f5f5f5;
+}
+
+.ui-footer-copyright {
+    text-align:center;
+    background-color:#f5f5f5;
+}
+
+/** 产品自定义尾 */
+
+.ui-productfooter {
+    border-top:1px solid #ccc;
+}
+
+.ui-productfooter-ctn {
+    border-top:1px solid #fff;
+    background-color:#f5f5f5;
+    text-align:center;
+    padding:5px 0;
+}
+.ui-productfooter .ui-footer {
+    margin-top:0;
+    border-top:none;
+}
+ .ui-productfooter .ui-footer-ctn {
+    border-top:none;
+ }
+
+ /** 首页尾样式 */
+.ui-footermain {
+    background-color:#F7F7F7;
+}
+
+.site-links{text-align:center; border-top:1px solid #D9D9D9; padding-top:15px; margin-bottom:15px}
+.site-links .first{border:none}
+.site-links li{display:inline; color:#BBB}
+
+.alibaba-links span{display:block; height:26px; line-height:26px}
+.alibaba-links a, .alibaba-links span{color:#999}
+.alibaba-links{text-align:center; color:#CCC}
+.alibaba-links{text-align:center; color:#CCC; margin-bottom:10px}
+
+.security-links li{display:inline; float:left;}
+.security-links{text-align:center; padding-bottom:30px; margin:0 auto;width:608px;}
+.security-links a{height:35px; display:block; text-indent:-9999em; background:url("https://i.alipayobjects.com/e/201202/2XSZoo2M8p.png") no-repeat 0 0; margin-right:12px; position:relative;overflow:hidden;}
+.security-links .verisign{width:82px}
+.security-links .zjswm{background-position:-186px 0; width:35px}
+.security-links .wlgs{background-position:-227px 0; width:29px}
+.security-links .ppaa{background-position:-265px 0; width:33px}
+.security-links .hzdtgt{background-position:-303px 0; width:30px}
+.security-links .anfang{background-position:-342px 0; width:40px}
+
+.security-links  .newIcon,.pci-vertify span{background:url("https://i.alipayobjects.com/e/201202/2XSZoo2M8p.png") no-repeat;}
+.security-links li a.zfxkz{width:48px;height:35px;}
+.security-links .visa{width:57px;height:35px;background-position:-60px top;cursor:auto;}
+.security-links .visa span{display:block;width:57px;height:35px;text-indent:-9999px;}
+.security-links li a.versign{background-position:-120px top;width:64px;height:35px;}
+.security-links .pci-vertify a{display:block;width:76px;height:35px;background-position:-382px top;cursor:pointer;text-indent:-9999px;}
+.security-links .szfw-renzheng{background-position:-461px 0; width:96px;margin-right:0;}
+
+
+
+
+/** end ---mi-footer.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:05:59 CST 2012**/
+/**alice.components.mi-footer-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:37:16 CST 2012**/
+/** begin ---mi-form.css---*/
+/**
+ * @name: mi-form
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 通用表单样式
+ * @require: null
+ */
+
+.mi-form {}
+
+label,
+label:focus,
+label:hover,
+label:active {
+    border: 0 none;
+    outline: medium none;
+}
+
+legend {
+    display:none;
+}
+
+fieldset {
+    padding:10px 0 0;
+}
+
+/** 表单项 */
+.mi-form-item{
+    padding:0 0 20px 170px;
+    margin:0;
+}
+
+.mi-form-item select {
+    color:#4d4d4d;
+    vertical-align:middle;
+}
+.mi-form-item-normal {
+    padding-left:0;
+}
+.mi-form-spliter {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    padding:6px 3px 0;
+}
+
+/** 表单标签 */
+.mi-label {
+    padding:3px 0 6px;
+    padding:5px 0 0\9;
+    *padding:4px 0 0;
+    _padding:3px 0 0;
+    width:170px;
+    float:left;
+    *margin-top:1px;
+    margin-left:-170px;
+    vertical-align:middle;
+    text-align:right;
+    color:#4D4D4D;
+    font-size:14px;
+    position:relative;
+}
+
+/** 表单必填项 */
+.mi-form .required {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    position:relative;
+    top:2px;
+    padding:0 5px 0;
+    color:#f00;
+}
+
+/** 表单输入元素 input, textarea */
+.mi-input,
+.mi-textarea,
+.mi-form .mi-securitycore .mi-checkcode-input /** 对手机校验码进行修正 */{
+    border:1px solid #CCC;
+    border-top-color:#a6a6a6;
+    color:#4D4D4D;
+    font:normal 12px tahoma, arial, \5b8b\4f53;
+    padding:7px 4px;
+    padding:8px 4px 5px\9;
+    *padding:8px 4px 5px;
+    _padding:7px 4px 6px;
+    vertical-align:top;
+    width:210px;
+}
+.mi-form .ui-securitycore .ui-checkcode-input {
+    width:60px;
+}
+
+.mi-form .ui-securitycore .ui-checkcode-input {
+    height:auto;
+}
+
+.mi-form-item-placeholder,
+.mi-input-placeholder,
+.mi-textarea-placeholder {
+    color:#A6A6A6;
+}
+
+.mi-input-len3{
+    width:3em;
+}
+
+.mi-input-len4 {
+    width:4em;
+}
+.mi-input-authcode {
+    width:4.5em;
+}
+
+.mi-input-len6,
+.mi-input-securitycode,
+.mi-input-date {
+    width:6em;
+}
+
+.mi-input-len8 {
+    width:8em;
+}
+
+.mi-input-len10 {
+    width:14em;
+}
+
+.mi-input-hover,
+.mi-textarea-hover {
+    border-color:#A6A6A6;
+    color:#4D4D4D;
+}
+
+/** 获取焦点提示样式 */
+.mi-form-item-focus .mi-form-explain,
+.mi-form-item-hover .mi-form-explain {
+    color:#4D4D4D;
+}
+
+.mi-form-item-hover .mi-input,
+.mi-form-item-hover .mi-textarea {
+    border-color:#A6A6A6;
+    color:#4D4D4D;
+}
+
+/** 获取焦点样式 */
+.mi-form-item .mi-input:focus, .mi-form-item .mi-textarea:focus,
+.mi-form-item .mi-input-focus, .mi-form-item .mi-textarea-focus,
+.mi-form-item-focus .mi-input, .mi-form-item-focus .mi-textarea,
+.mi-form .ui-securitycore .ui-checkcode-input:focus{
+    color:#4D4D4D;
+    border-color:#07F;
+    outline:1px solid #8CDDFF;
+    *padding:7px 3px 4px;
+    *border:2px solid #07F;
+}
+
+/** radio标签样式 */
+.mi-radio, .mi-checkbox {
+    width:16px;
+    vertical-align:middle;
+    margin-top:2px;
+    margin-top:-2px\0;
+    *margin-top:0px;
+    *zoom:1;
+}
+
+.mi-radio-label, .mi-checkbox-label {
+    display:inline-block;
+    *zoom:1;
+    *display:inline;
+    position:relative;
+    padding:0 5px 0 1px;
+    top:2px;
+    top:0px\9;
+    *top:1px;
+    _top:0;
+}
+
+.mi-input-banknum, .mi-input-bigdigital {
+    font-size:18px;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.mi-input-amount,
+.mi-input-digital,
+.mi-form .ui-securitycore .mi-input-digital {
+    font-weight:700;
+}
+
+.mi-form .ui-securitycore .ui-form-item-placeholder {
+    font-weight:500;
+}
+
+.mi-textarea {
+    width:650px;
+    overflow:auto;
+    resize:none;/** 针对textarea可以支持resize而设 */
+}
+
+.mi-input-disabled,
+.mi-textarea-disabled {
+    border-color:#CCC;
+    background-color:#F2F2F2;
+    color:#CCC;
+    cursor:default;
+}
+
+/** 表单项提示信息 */
+.mi-form-explain {
+    color:#A6A6A6;
+    padding:3px 0 0;
+    padding-top:5px\9;
+    *padding-top:5px;
+    _padding-top:3px;
+    _margin-left:3px;
+    font-size:12px;
+}
+
+/** 报错表单输入框样式 */
+.mi-form-item-error .mi-input {
+    border-color:#F00;
+    color:#FF5243;
+}
+.mi-form-item-error .alieditContainer {
+    border:1px solid #F00;
+}
+
+.mi-form-item-success .mi-form-explain,
+.mi-form-item-forbidden .mi-form-explain,
+.mi-form-item-cue .mi-form-explain,
+.mi-form-item-warn .mi-form-explain,
+.mi-form-item-error .mi-form-explain,
+.mi-form-item-doubt .mi-form-explain, 
+.mi-form-item-wait .mi-form-explain,
+.mi-form-item-loading .mi-form-explain {
+    background:url("https://i.alipayobjects.com/e/201205/2jqI4wyfNx.png") no-repeat 0 0;
+    color:#4D4D4D;
+    padding-left:19px;
+}
+
+.mi-form-item-error .mi-select {
+    border-color: #F00;
+}
+
+.mi-form-item-error .mi-select-value {
+    color: #F00;
+}
+
+/** 成功提示信息样式 */
+.mi-form-item-success .mi-form-explain {
+    background-position: -486px -520px;
+}
+
+/** 禁止提示信息样式 */
+.mi-form-item-forbidden .mi-form-explain {
+    color:#FF5243;
+    background-position: -458px -546px;
+}
+
+/** 普通信息提示样式 */
+.mi-form-item-cue .mi-form-explain {
+    background-position: -431px -570px;
+}
+
+/** 警告提示信息样式 */
+.mi-form-item-warn .mi-form-explain {
+    background-position:-400px -596px;
+}
+
+/** 错误提示信息样式 */
+.mi-form-item-error .mi-form-explain{
+    color:#FF5243;
+    background-position: -368px -626px;
+}
+
+/** 疑问提示信息样式 */
+.mi-form-item-doubt .mi-form-explain{
+    background-position: -338px -653px;
+}
+
+/** 等待提示信息样式 */
+.mi-form-item-wait .mi-form-explain{
+    background-position: -305px -681px;
+}
+
+/** 动态加载信息提示 */
+.mi-form-item-loading .mi-form-explain {
+    background:url("https://i.alipayobjects.com/e/201205/2budYKAewD.gif") no-repeat 0 4px;
+}
+
+/** 正在加载信息提示样式 */
+.mi-loading-text {
+    zoom:1;
+    padding-right:15px;
+    color:#20B907;
+    background:url("https://i.alipayobjects.com/e/201205/2bueMwUB2X.gif") no-repeat right 80%;
+}
+
+.mi-form-text,
+.mi-form-link,
+.sl-checkcode-link/** 图片验证码 */{
+    display:-moz-inline-stack;
+    display: inline-block;
+    *display:inline;
+    zoom:1;
+    padding:3px 0 0;
+}
+
+.mi-form-text {
+    font-size:14px;
+    vertical-align:middle;
+}
+
+.mi-form-link, .sl-checkcode-link {
+    padding-top:5px;
+}
+
+.mi-form-link {
+    *padding-top:2px;
+    vertical-align:middle;
+    height:18px;
+}
+
+.mi-form-link, .sl-checkcode-link {
+    margin:0 0 0 3px;
+    margin-top:3px\9;
+}
+
+.mi-form-alieditlink {
+    padding:0;
+    position:relative;
+    top:-2px;
+    left:3px;
+}
+
+/** 图片验证码 */
+.sl-checkcode-img {
+    vertical-align:top;
+}
+
+.sl-checkcode-link {
+    height:22px;
+    line-height:1.2;
+    padding-top:8px;
+    overflow:hidden;
+}
+
+.mi-form-item-authcodebreak .sl-checkcode-link {
+    width:40px;
+    height:30px;
+    padding-top:0;
+}
+
+.mi-input-del {
+    display:block;
+    width:10px;
+    height:10px;
+    text-indent:-10em;
+    overflow:hidden;
+    margin:4px 0 0 3px;
+    background:url("https://i.alipayobjects.com/e/201205/2lOVDr2nsf.png") no-repeat 0 -40px;
+}
+
+.mi-input-add, .mi-input-add:visited, .mi-input-add:hover {
+    margin:10px 0 0;
+    text-decoration:none;
+    display:block;
+    padding:6px 0 0 31px;
+    width:190px;
+    height:24px;
+    font-weight:700;
+    overflow:hidden;
+    background:url("https://i.alipayobjects.com/e/201205/2lOVDr2nsf.png") no-repeat 0 0;
+}
+
+/** 水平显示表单 */
+
+.mi-form-horizontal .mi-form-item{
+    display:inline;
+    float:left;
+    padding:0 0 15px 70px;
+}
+
+.mi-form-horizontal .mi-form-item select{
+    width:90px;
+}
+.mi-form-horizontal .mi-label{
+    width:70px;
+    margin-left:-70px;
+}
+.mi-form-horizontal .mi-input {
+    width:90px;
+}
+.mi-form-horizontal .mi-input-date {
+    width:6em;
+}
+
+.mi-form-horizontal .mi-form-item-last{
+    width:60px;
+    padding:0 0 15px 5px;
+}
+.mi-form-horizontal .mi-form-item-time{
+    width:220px;
+}
+
+
+/** 垂直显示表单 */
+
+.mi-form-vertical {}
+
+.mi-form-vertical .mi-form-item {
+    padding-left:20px;
+}
+
+.mi-form-vertical .mi-label {
+    margin:0;
+    text-align:left;
+    float:none;
+    display:block;
+}
+
+/** 竖直必填 */
+.mi-form-vertical .required {
+    padding-left:0;
+}
+
+/** end ---mi-form.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:06:52 CST 2012**/
+/**alice.components.mi-form-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:37:37 CST 2012**/
+/** begin ---mi-grid.css---*/
+/**
+ * @name: 内容布局(20格栅格布局)
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 下边有注释的为常用宽度
+ * @example: (相加为20，则页面宽度为990px)
+ * <div class="mi-grid-row">
+ *     <div class="mi-grid-4"></div>
+ *     <div class="mi-grid-16"></div>
+ * </div>
+ */
+.mi-grid-1,.mi-grid-2,.mi-grid-3,
+.mi-grid-4,.mi-grid-5,.mi-grid-6,
+.mi-grid-7,.mi-grid-8,.mi-grid-9,
+.mi-grid-10,.mi-grid-11,.mi-grid-12,
+.mi-grid-13,.mi-grid-14,.mi-grid-15,
+.mi-grid-16,.mi-grid-17,.mi-grid-18,
+.mi-grid-19,.mi-grid-20 {
+    margin: 0 0 0 10px;
+    float:left;
+    display:inline;
+}
+.mi-grid-1 {width:40px;}
+.mi-grid-2 {width:90px;}
+.mi-grid-3 {width:140px;}
+.mi-grid-4 {width:190px;} /* 右侧推广位的宽度 */
+.mi-grid-5 {width:240px;} /* 左侧边栏的宽度 */
+.mi-grid-6 {width:290px;}
+.mi-grid-7 {width:340px;}
+.mi-grid-8 {width:390px;}
+.mi-grid-9 {width:440px;}
+.mi-grid-10 {width:490px;}
+.mi-grid-11 {width:540px;}
+.mi-grid-12 {width:590px;} /* 中央区域宽度 */
+.mi-grid-13 {width:640px;}
+.mi-grid-14 {width:690px;}
+.mi-grid-15 {width:740px;}
+.mi-grid-16 {width:790px;}
+.mi-grid-17 {width:840px;} /* 交易明细表区域的宽度 */
+.mi-grid-18 {width:890px;}
+.mi-grid-19 {width:940px;}
+.mi-grid-20 {width:990px;} /* 最大页面宽度 */
+
+/* 清理浮动 */
+.mi-grid-row:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.mi-grid-row {
+    zoom: 1; /* for IE6 IE7 */
+    margin:0 0 0 -10px;
+}
+
+/** end ---mi-grid.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:08:54 CST 2012**/
+/**alice.components.mi-grid-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:38:27 CST 2012**/
+/** begin ---mi-line.css---*/
+/** 水平分隔线
+ * @name: mi-line
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 实线和虚线样式
+ * @require: null
+ *  @example
+实线
+<hr class="mi-line" />
+
+虚线
+<hr class="mi-line mi-line-dot" />
+*/
+.mi-line {
+    font-size:0;
+    line-height:0;
+    overflow:hidden;
+    border:none;
+    height:1px;
+    background-color:#CCC;
+    display:block;
+    margin:5px 0;
+}
+.mi-line-dashed {
+    height:0;
+    background-color:transparent;
+    border-bottom:1px dashed #CCC;
+}
+.mi-line-dot {
+    background:transparent url("https://i.alipayobjects.com/e/201205/2mWxr1oBG5.png") repeat-x 0 0;
+}
+
+
+/** end ---mi-line.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:11:34 CST 2012**/
+/**alice.components.mi-line-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:39:35 CST 2012**/
+/** begin ---ui-list.css---*/
+/**
+ * @name:         ui-list
+ * @author:       展新(zhanxin.lin@alipay.com)
+ * @Description:  列表
+ * @example:
+ * <ul class="ui-list">
+ *    <li class="ui-list-item">列表</li>
+ * </ul>
+ */
+.ui-list {
+    display: inline-block;
+    padding: 10px 10px;
+}
+/* 默认有方角 */
+.ui-list-item {
+    font-size: 12px;
+    line-height: 20px;
+    background: url(https://img.alipay.com/sys/personal/style/ui-components.png) no-repeat -172px -19px;
+    padding-left: 10px;
+    color: #808080;
+}
+.ui-list-item a {
+    font-size: 12px;
+    line-height: 20px;
+}
+/* 灰色小方角 */
+.ui-list-gray .ui-list-item {
+    background: url(https://img.alipay.com/sys/personal/style/ui-components.png) no-repeat -188px 2px;
+}
+/* 灰色小方角＋灰色链接 */
+.ui-list-graylink .ui-list-item {
+    background: url(https://img.alipay.com/sys/personal/style/ui-components.png) no-repeat -188px 2px;
+}
+.ui-list-graylink .ui-list-item a { color: #666666; }
+/* 没有小图标的 */
+.ui-list-nosquare .ui-list-item {
+    background: transparent;
+    padding-left: 0;
+}
+
+
+/** end ---ui-list.css---*/
+/**Last Changed Author: shuai.shao--Last Changed Date: Wed Dec 07 18:18:01 CST 2011**/
+/**alice.components.ui-list-1.0**/
+/** CurrentDeveloper: afc163**/
+/** DeployDate: Wed Jun 06 18:06:13 CST 2012**/
+/** begin ---mi-message.css---*/
+/** 带图标信息提示
+@name: mi-message
+@author: 天孝(chentao.yuan@alipay.com)
+@description: 信息提示, 错误提示、成功提示、警告提示、禁止提示、等待提示、疑问提示。
+@require: null
+@name mi-message
+@example
+成功提示
+<span class="mi-message mi-message-success"></span>
+
+禁止提示
+<span class="mi-message mi-message-forbidden"></span>
+
+信息提示
+<span class="mi-message mi-message-cue"></span>
+
+警告提示
+<span class="mi-message mi-message-warn"></span>
+
+错误提示
+<span class="mi-message mi-message-error"></span>
+
+疑问提示
+<span class="mi-message mi-message-doubt"></span>
+
+等待提示
+<span class="mi-message mi-message-wait"></span>
+
+请求提示
+<span class="mi-message mi-message-loading"></span>
+
+*/
+
+.mi-message {
+    padding:4px 0 4px 20px;
+    background:url("https://i.alipayobjects.com/e/201205/2jqI4wyfNx.png") no-repeat 0 100px;
+    zoom:1;
+    *padding:1px 0 0 20px;
+    _padding:0 0 1px 20px;
+    line-height:23px;
+}
+
+.mi-message-success {
+    background-position:-485px -520px;
+}
+
+.mi-message-forbidden {
+    background-position:-457px -546px;
+}
+
+.mi-message-cue {
+    background-position:-430px -570px;
+}
+
+.mi-message-warn {
+    background-position:-399px -597px;
+}
+
+.mi-message-error {
+    background-position:-367px -626px;
+}
+
+.mi-message-doubt {
+    background-position:-337px -653px;
+}
+
+.mi-message-wait {
+    background-position:-304px -682px;
+}
+
+.mi-message-loading {
+    background:url("https://i.alipayobjects.com/e/201205/2budYKAewD.gif") no-repeat 0 3px;
+}
+
+.mi-message-error, .mi-message-forbidden {
+    color:#f00;
+}
+
+.mi-message-notext {
+    display:inline-block;
+    line-height:14px;
+    width:0;
+    height:12px;
+    *height:20px;
+    overflow:hidden;
+    white-space:nowrap;
+    vertical-align:middle;
+}
+
+
+
+/** end ---mi-message.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:12:27 CST 2012**/
+/**alice.components.mi-message-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:39:55 CST 2012**/
+/** begin ---mi-notice.css---*/
+/*
+ * @name: mi-notice
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 通用提示, 成功提示、禁止提示、信息提示、警告提示、错误提示、疑问提示、等待提示。
+ * @require: null
+ * @example 
+<div class="mi-notice mi-notice-success">
+    <div class="mi-notice-cnt">
+        <h3 class="mi-notice-title">成功</h3>
+        <p class="mi-notice-explain">
+            缴款成功成功！
+        </p>
+        <p class="mi-notice-explain-other">
+            现在您可能需要：<a href="#">返回首页</a>
+            <span class="fn-bar">|</span>
+            <a href="#">返回账单查询</a>
+            <span class="fn-bar">|</span>
+            <a href="#">返回合同查询</a>
+        </p>
+    </div>
+</div>
+*/
+.mi-notice {
+    font-size: 12px;
+    min-height: 50px;
+    _height: 50px;
+    padding: 14px 22px 12px 87px;
+}
+
+.mi-notice-success,
+.mi-notice-forbidden,
+.mi-notice-cue,
+.mi-notice-warn,
+.mi-notice-error,
+.mi-notice-doubt,
+.mi-notice-wait {
+    background: url("https://i.alipayobjects.com/e/201205/2mWCqOSIk5.png") no-repeat 0 0;
+    border:1px solid #E5E5CD;
+}
+
+.mi-notice-success {
+    background-color: #EFFFCF;
+    background-position: -428px 15px;
+    border-color:#E7E7CF;
+}
+
+.mi-notice-forbidden {
+    background-color: #FFEFEB;
+    background-position: -353px -32px;
+    border-color:#F7CBB6;
+}
+
+.mi-notice-cue {
+    background-color: #E5F5FF;
+    background-position: -280px -83px;
+    border-color:#CBD7E3;
+}
+
+.mi-notice-warn {
+    background-color: #FFFF9E;
+    background-position: -208px -133px;
+    border-color:#E8C761;
+}
+
+.mi-notice-error {
+    background-color: #FFEFEF;
+    background-position: -136px -182px;
+    border-color:#F7CBB6;
+}
+
+.mi-notice-doubt {
+    background-color: #E5F5FF;
+    background-position: -60px -230px;
+    border-color:#CBD7E3;
+}
+
+.mi-notice-wait {
+    background-color: #E5F5FF;
+    background-position: 27px -281px;
+    border-color:#CBD7E3;
+}
+
+.mi-notice-title {
+    color:#4d4d4d;
+    font:700 14px \5B8B\4F53;
+    margin: 0;
+    padding: 0 0 0;
+}
+
+.mi-notice-explain {
+    color: #999;
+    margin: 4px 0 0;
+    padding: 0;
+}
+
+.mi-notice-explain-other {
+    color: #4d4d4d;
+    margin: 3px 0 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+.mi-notice-explain-other .ft-bar{
+    padding:0 5px;
+}
+
+.mi-notice-noexplain .mi-notice-cnt {
+    padding:11px 0 0;
+}
+
+/**
+    嵌套于xbox之中
+    xboxClass:{
+                MOCK_CLASS: 'mi-notice-inxbox'
+            }
+*/
+
+.mi-notice-inxbox .mi-xbox-action a,
+.mi-notice-inxbox .mi-xbox-action a:hover {
+    text-decoration:none;
+}
+.mi-notice-inxbox .mi-notice-success,
+.mi-notice-inxbox .mi-notice-forbidden,
+.mi-notice-inxbox .mi-notice-cue,
+.mi-notice-inxbox .mi-notice-warn,
+.mi-notice-inxbox .mi-notice-error,
+.mi-notice-inxbox .mi-notice-doubt,
+.mi-notice-inxbox .mi-notice-wait {
+    border:none;
+    background-color:#fff;
+    margin-top:5px;
+    padding-bottom:27px;
+}
+
+
+/** end ---mi-notice.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:13:38 CST 2012**/
+/**alice.components.mi-notice-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:40:16 CST 2012**/
+/** begin ---mi-table.css---*/
+/**
+ * @name: mi-table
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: 表格组件
+ * @require: null
+ * @example 
+    普通表格
+    <div class="mi-table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    表格嵌套
+    <div class="mi-table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="mi-table-inner">
+                        <div class="mi-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+*/
+
+.mi-table {
+    border:1px solid #CCC;
+    background-color:#FFF;
+}
+
+.mi-table table {
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+}
+
+/** 提供普通表格的fixed支持，如果table当中checkbox, radio, 请自行解决 fixed 问题! */
+.mi-table-fixed table {
+    table-layout:fixed;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+.mi-table th, .mi-table td {
+    color:#4d4d4d;
+    text-align:left;
+    padding: 6px 9px 6px 10px;
+    *padding:5px 9px 5px 10px;
+    _padding:5px 9px 5px 10px;
+    vertical-align:middle;
+}
+
+.mi-table caption, .mi-table th {
+    padding: 5px 9px 5px 10px;
+    padding:7px 9px 3px 10px\9;
+    *padding:7px 9px 3px 10px;
+    _padding:5px 9px 5px 10px;
+    font-weight:700;
+    background:#f7f7f7 url("https://i.alipayobjects.com/e/201205/2jqod2eDRB.png") repeat-x 0 0;
+    border-bottom:1px solid #ccc;
+}
+
+.mi-table caption:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.mi-table caption {
+    zoom:1;
+    padding:4px 9px 3px 10px;
+}
+
+.mi-table-caption {
+    float:left;
+    height:21px;
+    font-size:14px;
+}
+
+.mi-table-tool {
+    color:#ccc;
+    font-size:12px;
+    font-weight:normal;
+    padding:1px 0 0 19px;
+}
+
+.mi-table-tool-title {
+    color:#6a6a6a;
+}
+
+.mi-table-tool .ft-bar {
+    padding:0 7px 0 6px;
+}
+
+/** 表格排序按钮 */
+.mi-table .sort, .mi-table .sort:visited {
+    padding:0 11px 0 0;
+    *padding-top:2px;
+    _padding-top:0;
+    overflow:hidden;
+    text-decoration:none;
+    color:#4D4D4D;
+    background:url("https://i.alipayobjects.com/e/201205/2jqod2eDRB.png") no-repeat right -32px;
+}
+.mi-table .sort:hover {
+    text-decoration:none;
+}
+
+.mi-table-spliter {
+    background-color:#f2f2f2;
+}
+
+.mi-table .mi-table-explain {
+    color:#A6A6A6;
+}
+
+.mi-table .border-left-none {border-left:0;}
+
+.mi-table-foot td {
+    text-align:right;
+    padding-right:9px;
+    border-top:1px solid #ccc;
+    background-color:#f2f2f2;
+}
+
+/** 当checkbox在表格当中时 */
+.mi-table .mi-checkbox, .mi-table .mi-radio {
+    vertical-align:middle;
+    margin-top:0;
+}
+
+/** 当图片在表格当中时 */
+.mi-table img {
+    vertical-align:middle;
+}
+
+/** 表格全边框 */
+.mi-table-border {
+    border-left:none;
+    border-top:none;
+}
+
+.mi-table-border caption {
+    border-bottom:none;
+}
+
+.mi-table-border caption, .mi-table-border th, .mi-table-border td {
+    border-top:1px solid #CCC;
+    border-left:1px solid #CCC;
+}
+
+/** 表格无边框 */
+.mi-table-bordernone {
+    border:none;
+}
+
+/** 表格上边框 */
+.mi-table-bordertop {
+    border-top:none;
+}
+
+.mi-table-bordertop caption {
+    border-top:1px solid #ccc;
+    border-bottom:none;
+}
+
+.mi-table-bordertop th, .mi-table-bordertop td {
+    border-top:1px solid #ccc;
+}
+
+/** 表格左边框 */
+.mi-table-borderleft {
+    border-left:none;
+}
+
+.mi-table-borderleft caption {
+    border-left:1px solid #CCC;
+}
+
+.mi-table-borderleft th, .mi-table-borderleft td {
+    border-left:1px solid #ccc;
+}
+
+/** table嵌套 */
+.mi-table .mi-table-inner {
+    padding:0;
+}
+
+.mi-table-inner .mi-table {
+    border:none;
+}
+
+.mi-table-inner .mi-table caption {
+    border-top:none;
+    border-bottom:1px solid #ccc;
+}
+
+.mi-table-inner thead th {
+    border-top:none;
+}
+
+
+/** mi-table-border */
+.mi-table-border .mi-table-inner .mi-table {
+    margin-left:-1px;
+}
+
+/** mi-table-bordertop */
+
+.mi-table-bordertop .mi-table-inner {
+    border-left:1px solid #CCC;
+}
+
+
+/** mi-table-borderleft */
+
+.mi-table-borderleft .mi-table caption {
+    border-top:1px solid #ccc;
+    border-bottom:none;
+}
+
+.mi-table-borderleft .mi-table-inner .mi-table {
+    margin-left:-1px;
+}
+
+.mi-table-borderleft .mi-table-inner thead th {
+    border-top:1px solid #CCC;
+}
+.mi-table-borderleft .mi-table-inner td {
+    border-top:none;
+}
+
+.mi-table-borderleft .mi-table-inner .mi-table-foot td {
+    border-top:1px solid #CCC;
+}
+
+/** end ---mi-table.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:16:31 CST 2012**/
+/**alice.components.mi-table-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:41:20 CST 2012**/
+/** begin ---mi-tip.css---*/
+/** 提示样式 icon的上，左，下边距都是10px 距离文字是9px 单行高度为34px 其中icon高度为14px
+ * @name: mi-tip
+ * @author: 天孝(chentao.yuan@alipay.com)
+ * @description: tip提示组件
+ * @require: null
+ * @example 
+基本样式
+<div class="mi-tip"></div>
+
+带箭头标识, 其它同样添加标签即可。
+<div class="mi-tip mi-tip-error">
+   <div class="mi-tip-arrow"></div>
+    <div class="mi-tip-ctn"></div>
+</div>
+
+
+错误提示
+<div class="mi-tip mi-tip-error">
+    <div class="mi-tip-ctn"></div>
+</div>
+
+警告提示
+<div class="mi-tip mi-tip-warn">
+    <div class="mi-tip-ctn"></div>
+</div>
+
+信息提示
+<div class="mi-tip mi-tip-cue">
+    <div class="mi-tip-ctn"></div>
+</div>
+
+禁止提示
+<div class="mi-tip mi-tip-forbidden">
+    <div class="mi-tip-ctn"></div>
+</div>
+
+成功提示
+<div class="mi-tip mi-tip-success">
+    <div class="mi-tip-cnt"></div>
+</div>
+*/
+
+.mi-tip {
+    border: 1px solid #C9D5E3;
+    background-color: #E4F5FF;
+    margin: 10px 0 0;
+    zoom: 1;
+    position: relative;
+    color:#4d4d4d;
+}
+
+/** tip当中的小箭头 */
+.mi-tip-arrow {
+    position: absolute;
+    top: -8px;
+    left: 36px;
+    font-size: 0;
+    width: 13px;
+    height: 9px;
+    overflow: hidden;
+    background: url("https://i.alipayobjects.com/e/201205/2jqI4wyfNx.png") no-repeat 0 0
+}
+
+/** tip容器 */
+.mi-tip-ctn {
+    padding: 6px 10px 6px 32px;
+    padding:7px 10px 5px 32px\9; /** for ie8 */
+    *padding:8px 10px 4px 32px;  /** for ie7 */
+    _padding:6px 10px 6px 32px;  /** for ie6 */
+    border: 1px solid #F8FCFF;
+}
+
+/** tip说明文字 */
+.mi-tip-explain {
+    margin-top: 1px;
+}
+
+.mi-tip-success .mi-tip-ctn,
+.mi-tip-forbidden .mi-tip-ctn,
+.mi-tip-cue .mi-tip-ctn,
+.mi-tip-warn .mi-tip-ctn,
+.mi-tip-error .mi-tip-ctn,
+.mi-tip-doubt .mi-tip-ctn,
+.mi-tip-wait .mi-tip-ctn,
+.mi-tip-close {
+    background: url("https://i.alipayobjects.com/e/201205/2jqI4wyfNx.png") no-repeat 0 0;
+}
+
+.mi-tip-close {
+    position:absolute;
+    top:6px;
+    right:6px;
+    width:8px;
+    height:7px;
+    line-height:0;
+    display:block;
+    overflow:hidden;
+    text-indent:-100em;
+    cursor:pointer;
+    background-position:-25px 0;
+}
+
+/** 成功提示 */
+.mi-tip-success {
+    border-color:#B9E39B;
+}
+
+.mi-tip-success .mi-tip-ctn {
+    background-color: #E7FFCB;
+    background-position: -478px -517px;
+    *background-position:-478px -516px;
+}
+
+/** 禁止提示 */
+.mi-tip-forbidden {
+    border-color: #F6C8B5;
+}
+
+.mi-tip-forbidden .mi-tip-arrow {
+    background-position: 0 -20px;
+}
+
+.mi-tip-forbidden .mi-tip-ctn {
+    background-color: #FCEEE8;
+    background-position: -450px -542px;
+    *background-position: -449px -541px;
+}
+
+/** 信息提示 */
+.mi-tip-cue {
+    border-color: #C9D5E3;
+}
+
+.mi-tip-cue .mi-tip-arrow {
+    background-position: 0 0;
+}
+
+.mi-tip-cue .mi-tip-ctn {
+    background-color: #E5F5FF;
+    background-position: -423px -567px;
+    *background-position: -422px -566px;
+}
+
+/** 警告提示 */
+.mi-tip-warn {
+    border-color: #E8C561;
+}
+
+.mi-tip-warn .mi-tip-arrow {
+    background-position: 0 -10px;
+}
+
+.mi-tip-warn .mi-tip-ctn {
+    background-color: #FFFF8D;
+    background-position: -392px -593px;
+    *background-position:-391px -592px;
+}
+
+/** 错误提示 */
+.mi-tip-error {
+    border-color: #F5C8B5;
+}
+
+.mi-tip-error .mi-tip-arrow {
+    background-position: 0 -20px;
+}
+
+.mi-tip-error .mi-tip-ctn {
+    background-color: #FDEEE9;
+    background-position: -360px -623px;
+    *background-position: -359px -622px;
+}
+
+/** 疑问提示 */
+.mi-tip-doubt {
+    border-color: #C9D5E3;
+}
+
+.mi-tip-doubt .mi-tip-ctn {
+    background-color: #E4F5FF;
+    background-position: -330px -650px;
+    *background-position:-329px -649px;
+}
+
+/** 等待提示 */
+.mi-tip-wait {
+    border-color: #C9D5E3;
+}
+
+.mi-tip-wait .mi-tip-ctn {
+    background-color: #E4F5FF;
+    background-position: -297px -678px;
+    *background-position:-296px -677px;
+}
+
+/** 无图标提示 */
+.mi-tip-noicon {
+    
+}
+
+.mi-tip-noicon .mi-tip-ctn {
+    padding-left:10px;
+    background-image:none;
+}
+
+/** 有关闭按钮 */
+.mi-tip-canclose .mi-tip-ctn {
+    padding-right:20px;
+}
+
+/** cue提示左边显示箭头 */
+.mi-tip-cue-larrow {
+    margin-left:7px;
+}
+
+/** cue提示右边显示箭头 */
+.mi-tip-cue-rarrow {
+    margin-right:7px;
+}
+
+.mi-tip-cue-rarrow .mi-tip-arrow,
+.mi-tip-cue-barrow .mi-tip-arrow,
+.mi-tip-cue-larrow .mi-tip-arrow {
+    width:9px;
+    height:13px;
+    background-position:-48px 0;
+}
+
+/** cue提示右边显示箭头 */
+.mi-tip-cue-rarrow .mi-tip-arrow {
+    right:-8px;
+    top:9px;
+    left:auto;
+}
+
+/** cue提示下边显示箭头 */
+.mi-tip-cue-barrow .mi-tip-arrow {
+    width:13px;
+    height:9px;
+    top:auto;
+    left:36px;
+    bottom:-8px;
+    background-position:-34px 0;
+}
+
+/** cue提示左边显示箭头 */
+.mi-tip-cue-larrow .mi-tip-arrow {
+    top:9px;
+    left:-8px;
+    background-position:-15px 0;
+}
+
+
+
+
+
+
+
+
+/** end ---mi-tip.css---*/
+/**Last Changed Author: chentao.yuan--Last Changed Date: Fri Jun 15 14:17:26 CST 2012**/
+/**alice.components.mi-tip-1.0**/
+/** CurrentDeveloper: chentao.yuan**/
+/** DeployDate: Fri Jun 15 15:41:43 CST 2012**/
+
+/** begin ---mobileagent.css---*/
+/** 用户系统级别css样式
+* @name layout
+*/
+html, body {
+    width:100%;
+    height:100%;
+    background-color:#F9FAFC;
+}
+/** font reset */
+.ft-middle {
+    vertical-align:middle;
+}
+/** 安全服务化 */
+.ui-securitycore .alieditContainer {
+    width:175px;
+    vertical-align:middle;
+}
+.ui-securitycore .ui-fm-label {
+    
+}
+
+a, .ui-list a, .ui-form .ui-securitycore .ui-fm-link {
+    color: #06B;
+}
+
+/** 找回密码在ie下面离密码框距离较远，先由系统自身解决，后续安全核心改动 */
+
+.ui-securitycore .ui-fm-link {
+    margin-left:-32px\9;
+    *margin-left:-32px;
+    _margin-left:-32px;
+
+}
+
+
+
+
+.add-number-form .ui-securitycore .ui-fm-item /** 手机校验码 */{margin-left:-170px;padding-bottom:20px;}
+
+.ui-form-havebank .ui-securitycore .ui-authcode-input {
+
+}
+
+.ui-securitycore .ui-fm-error .alieditContainer, .ui-securitycore .ui-form-item-error .alieditContainer {
+    border:1px solid #f00;
+}
+.ui-fm-label {
+    color:#4D4D4D;
+}
+
+.mi-form-link {
+    vertical-align:top;
+    margin-top:4px;
+    padding-top:4px;
+}
+
+
+/** table reset */
+.mi-table {
+    background-color:#fff;
+}
+.mi-table th {
+    background-color:#f2f2f2;
+    background-image:none;
+}
+.mi-table th, .ui-table td {
+    color:#808080;
+}
+
+.mi-table-spliter {
+    background-color:#f5f5f5;
+}
+
+/** 提示 components */
+.components {
+    width:623px;
+    margin:0 auto;
+    padding:0 0 36px;
+}
+
+/** 页面最外层容器 */
+.layout {
+    background:#f9fafc url("https://i.alipayobjects.com/e/201206/2pjIZPBnZB.png") repeat-x 0 62px;
+}
+
+/** 页面头部 */
+.header {
+    height:62px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") repeat-x 0 -81px;
+    border-top:3px solid #f60;
+    border-bottom:1px solid #d6d6d6;
+}
+.header-cnt {
+    width:990px;
+    height:100%;
+    margin:0 auto;
+}
+.header-cnt h1 {
+    margin-top: 15px;
+}
+.header-cnt img {
+    vertical-align:top;
+}
+
+.header-logo-text {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    height:26px;
+    color:#4d4d4d;
+    margin:7px 0 0 6px;
+    padding:0 0 0 10px;
+    overflow:hidden;
+    border-left:1px solid #a5a5a5;
+    font:500 20px "Microsoft YaHei";
+}
+
+.site-nav {
+    width:75%;
+    float:right;
+    height: 32px;
+    color: #bfcdd8;
+    background-color:transparent;
+}
+
+.site-nav .site-con {
+    width:100%;
+    height: 30px;
+}
+
+.site-nav h2 {
+    float: left;
+    color: #666666;
+    line-height: 32px;
+}
+
+.site-nav .site-meta {
+    float: right;
+    color: #6585c6;
+}
+
+.site-nav .site-meta a {
+    color: #666666;
+}
+
+.site-nav .global-toplink .global-toplink-username {
+    background-color:#fafafa;
+}
+
+.site-nav .global-dropdown-active .global-toplink-username {
+    background-color: #FFF;
+}
+
+/** 公共 */
+.ui-cornerbox {
+}
+
+/** 顶部 */
+.ui-cornerbox-top, .ui-cornerbox-bottom {
+    width:100%;
+    height:8px;
+    position:relative;
+    overflow:hidden;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") repeat-x 0 -27px;
+}
+.ui-cornerbox-left, .ui-cornerbox-right {
+    width:8px;
+    height:8px;
+    font-size:0;
+    position:absolute;
+    top:0;
+}
+.ui-cornerbox-left {
+    left:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") no-repeat 0 -9px;
+}
+.ui-cornerbox-right {
+    right:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") no-repeat -9px -9px;
+}
+
+/** 内容 */
+.ui-cornerbox-container {
+    padding:0 8px 0 0;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjJmQ8Cwz.png") repeat-y right 0;
+}
+.ui-cornerbox-content {
+    min-height:10px;
+    _height:10px;
+    padding:10px 0 10px 8px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjK2DB94D.png") repeat-y 0 0;
+}
+
+/** 底部 */
+.ui-cornerbox-bottom {
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") repeat-x 0 0;
+}
+.ui-cornerbox-bottom .ui-cornerbox-left {
+    left:0;
+    background-position:0 -18px;
+}
+.ui-cornerbox-bottom .ui-cornerbox-right {
+    right:0;
+    background-position:-9px -18px;
+}
+
+/** 小圆角提示 */
+.ui-cornerbox-small {
+
+}
+.ui-cornerbox-arrow {
+    width:9px;
+    height:10px;
+    position:absolute;
+    left:-8px;
+    top:10px;
+    font-size:0;
+    z-index:1;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -546px 0;
+}
+.ui-cornerbox-small .ui-cornerbox-top {
+    height:6px;
+    background:#f00 url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") repeat-x 0 -21px;
+}
+.ui-cornerbox-small .ui-cornerbox-left, .ui-cornerbox-small .ui-cornerbox-right {
+    width:6px;
+    height:6px;
+}
+.ui-cornerbox-small .ui-cornerbox-left {
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") no-repeat 0 -7px;
+}
+.ui-cornerbox-small .ui-cornerbox-right {
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") no-repeat -7px -7px;
+}
+.ui-cornerbox-small .ui-cornerbox-container {
+    position:relative;
+    padding-right:6px;
+    background:#ffffff url("https://i.alipayobjects.com/e/201206/2pjKhcWpMn.png") repeat-y right 0;
+}
+.ui-cornerbox-small .ui-cornerbox-content {
+    position:relative;
+    padding:0 0 0 6px;
+    background:#f9fafc url("https://i.alipayobjects.com/e/201206/2pjL1qZ8MD.png") repeat-y 0 0;
+}
+
+/** 底部 */
+.ui-cornerbox-small .ui-cornerbox-bottom {
+    height:6px;
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") repeat-x 0 0;
+}
+.ui-cornerbox-small .ui-cornerbox-bottom .ui-cornerbox-left {
+    left:0;
+    background-position:0 -14px;
+}
+.ui-cornerbox-small .ui-cornerbox-bottom .ui-cornerbox-right {
+    right:0;
+    background-position:-7px -14px;
+}
+
+
+/** 协议框样式 */
+.protocol-xbox {
+    
+}
+.protocol-xbox .ui-xbox-action {
+    font-size:14px;
+    right:20px;
+    top:15px;
+}
+.protocol-xbox .mi-xbox-close-link {
+    background:url("https://img.alipay.com/pa/frame/v2/ico-text.png") no-repeat -2px -73px;
+    padding-left:14px;
+    color:#006fff;
+}
+.protocol-box {
+    padding:10px 20px 10px;
+}
+.protocol-box .ui-xbox-action {
+    right:20px;
+}
+.protocol-box .mi-textarea {
+    width:550px;
+}
+.protocol-box .mi-form-item {
+    padding-left:0;
+    padding-bottom:10px;
+    text-align:center;
+}
+
+.protocol-box h4 {
+    padding:15px 0 0;
+    font:700 14px 宋体;
+}
+
+/** xbox标题 */
+.mi-xbox-title {
+    padding:5px 0;
+    border-bottom:1px solid #CCC;
+}
+.mi-xbox-title h3 {
+    font:700 16px tahoma;
+}
+
+.deletephone-confirmbox {
+    padding:20px 10px 10px;
+}
+.deletephone-confirmbox .messages {
+    padding:0 20px;
+}
+.deletephone-confirmbox .mi-message {
+    display:block;
+    padding-top:1px;
+}
+
+.deletephone-confirmbox .mi-form-item {
+    padding-left:110px;
+}
+.deletephone-confirmbox .mi-label {
+    width:110px;
+    margin-left:-110px;
+}
+.deletephone-confirmbox .confirmbox-buttons {
+    padding-left:0;
+    text-align:center;
+}
+
+
+.deleteallphone-xbox .ui-xbox-action {
+    font-size:14px;
+    right:9px;
+    top:12px;
+}
+
+.deleteallphone {
+    padding:0;
+}
+
+.deleteallphone .xbox-title  {
+    font:700 16px Simsun;
+    height:17px;
+    padding:19px 0 10px 21px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/3MPIieCtA3.png") repeat-x 0 0;
+   border-bottom:1px solid #ccc;
+}
+
+.deleteallphone .messages {
+    padding:36px 10px 33px 46px;
+}
+
+.deleteallphone .confirmbox-buttons {
+    padding:0 58px 39px 0;
+    text-align:right;
+}
+
+
+
+/** ui-notice */
+.open-success-table {
+    width:510px;
+}
+
+.content-container {
+    padding:0 0 44px;
+    background:url("https://i.alipayobjects.com/e/201206/2pjLLsFNFZ.png") no-repeat center bottom;
+}
+
+/** 内容部分*/
+.content {
+    width:990px;
+    margin:0 auto;
+    padding:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat 0 -154px;
+}
+
+.form-title {
+    position:relative;
+    height:80px;
+    padding:0 0 10px;
+    z-index:100;
+}
+.form-title h3 {
+    float:left;
+    color:#647a87;
+    padding:7px 20px 0 10px;
+    font:500 20px "Microsoft YaHei";
+}
+
+/** 支持地区列表 */
+.ui-cornerbox-small, .ui-cornerbox-small-iframe {
+    width:515px;
+    position:absolute;
+    left:120px;
+    top:0;
+    z-index:2;
+}
+.ui-cornerbox-small-iframe {
+    z-index:1;
+    height:78px;
+}
+
+.ui-cornerbox-small .support-areas {
+    height:66px;
+    overflow:hidden;
+}
+.ui-cornerbox-small .ui-cornerbox-content {
+    position:relative;
+}
+.ui-cornerbox-small .ui-cornerbox-content .morearea-link {
+    position:absolute;
+    bottom:3px;
+    right:5px;
+}
+
+.ui-cornerbox-small-full .support-areas{
+    height:auto;
+    overflow:visible;
+}
+
+.support-areas {
+    position:relative;
+    color:#6b818e;
+    padding:0 0 0 65px;
+    zoom:1;
+}
+
+.support-areas dt {
+    position:absolute;
+    top:0;
+    _top:-2px;
+    margin-left:-60px;
+    width:60px;
+}
+.support-areas dd {
+    position:relative;
+    padding:0 30px 0 0;
+    line-height:22px;
+}
+
+.product {
+    padding:29px 0 19px;
+}
+
+/** 项目标题说明 */
+.product-title {
+    display:block;
+    width:335px;
+    height:57px;
+    overflow:hidden;
+    text-indent:-100em;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat 0 0;
+}
+
+.product-intro {
+    padding:20px 0 0 15px;
+}
+
+.product-intro .open-link, .product-intro .open-link:hover {
+    width:38px;
+    height:18px;
+    text-align:center;
+    color:#fff;
+    vertical-align:middle;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -506px 0;
+}
+
+
+.add-number-form {
+    margin:30px 0 0;
+}
+
+.add-number-form .mi-form-item {
+    padding-left:110px;
+}
+.add-number-form .mi-label {
+    width:110px;
+    margin-left:-110px;
+}
+.add-number-form .mi-input {
+    width:144px;
+}
+
+.add-number-form .mi-input-authcode {
+    width:4.5em;
+}
+
+
+.mi-input-del {
+    margin-top:1px;
+    margin-left:17px;
+    background:url("https://i.alipayobjects.com/e/201206/2u9N1GCuLh.png") no-repeat 0 0;
+}
+
+.form-area {
+    width:690px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.number-section {
+    width:575px;
+}
+
+
+.numbers .number {
+    float:left;
+    width:100%;
+    height:52px;
+    padding:0 0 8px;
+}
+
+.number-cnt {
+    height:30px;
+    padding:1px;
+    overflow:hidden;
+}
+
+.number-cnt .mi-input,
+.number-cnt .phone-number,
+.nubmer-cnt .ui-form-text,
+.number-cnt .amount,
+.number-cnt .label,
+.number-cnt select, 
+.number-cnt .mi-form-link {
+    float:left;
+}
+
+.number-cnt .mi-input:focus {
+    outline:none;
+}
+
+.number-cnt .mi-input-bigdigital, .number-cnt .mi-input-focus {
+    padding:2px 4px 2px 3px;
+    height:24px\9;
+    padding:0 5px 0 4px\9;
+    *padding:2px 3px 1px 4px;
+    _padding:2px 3px 1px 4px;
+    font-size:18px;
+    border-width:2px;
+}
+
+.mi-form-item-error .number-cnt .mi-input-bigdigital {
+    padding:3px 5px 3px 4px;
+    padding:1px 6px 1px 5px\9;
+    *padding:3px 4px 2px 5px;
+    _padding:3px 4px 2px 5px;
+    border-width:1px;
+}
+
+.number-cnt select {
+    width:100px;
+    vertical-align:top;
+    margin-top:4px;
+}
+
+/** 默认样式 */
+.number .phone-number, 
+.number .amount {
+    border:1px solid #ccc;
+    border-top-color:#A6A6A6;
+    cursor:pointer;
+}
+
+.number .phone-number, .number .amount .text {
+    cursor:pointer;
+    color:#4D4D4D;
+    overflow:hidden;
+    padding-right:5px;
+    font:18px tahoma,arial,宋体;
+}
+
+.number .phone-number {
+    width:143px;
+    height:25px;
+    padding:3px 5px 0;
+}
+
+.number .label {
+    padding-right:5px;
+    padding-top:5px;
+    padding-top:7px\9;
+    *padding-top:7px;
+    _padding-top:5px;
+    padding-left:11px;
+    color:#4D4D4D;
+}
+
+.number .amount {
+    width:93px;
+    padding:3px 0 0 5px;
+    height:25px;
+    background:url("https://i.alipayobjects.com/e/201206/3PEcjkVYpP.png") no-repeat right 0;
+}
+
+
+/** 鼠标hover样式*/
+.number-hover .phone-number, 
+.number-hover .amount {
+    border:1px solid #A6A6A6;
+    border-top-color:#808080;
+}
+.number-hover .mi-input-del {
+    background:url("https://i.alipayobjects.com/e/201205/2lOVDr2nsf.png") no-repeat 0 -40px
+}
+
+
+
+.number-item-add {
+    padding:2px 0 0;
+}
+
+.add-number-btn, .add-number-btn:visited {
+    float:left;
+    width:134px;
+    height:24px;
+    padding:6px 0 0 20px;
+    padding-top:8px\9;
+    *padding-top:8px;
+    _padding-top:6px;
+    color:#cbcbcb;
+    overflow:hidden;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -350px 0;
+}
+
+.add-number-btn:hover {
+    color:#949494;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/3RDSQeCetP.png") no-repeat 0 0;
+}
+
+.add-explain {
+    float:left;
+    font-size:12px;
+    color:#828282;
+    padding:6px 0 0 10px;
+}
+
+/** 页面底部 */
+.footer {
+    margin-top:-37px;
+    padding:22px 0 0;
+}
+
+.ui-footer-copyright {
+    text-align:center;
+    background-color:transparent;
+}
+.ui-footer-copyright .server {
+    visibility:hidden;
+}
+#J_otpPassword{width:46px;}
+/**协议内容**/
+.protocol-area{
+    height:200px;
+}
+.protocol-area-title{
+    text-align:center;
+    font-weight:700;
+}
+
+/** end ---mobileagent.css---*/
+/**Last Changed Author: wb-caoping--Last Changed Date: Thu Jun 28 15:19:41 CST 2012**/
+/**virtualprod.mobileagent-1.0-SNAPSHOT**/
+/** CurrentDeveloper: wb-caoping**/
+/** DeployDate: Fri Jun 29 10:53:17 CST 2012**/

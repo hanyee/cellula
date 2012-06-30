@@ -1,0 +1,649 @@
+/** 用户系统级别css样式
+* @name layout
+*/
+html, body {
+    width:100%;
+    height:100%;
+    background-color:#F9FAFC;
+}
+/** font reset */
+.ft-middle {
+    vertical-align:middle;
+}
+/** 安全服务化 */
+.ui-securitycore .alieditContainer {
+    width:175px;
+    vertical-align:middle;
+}
+.ui-securitycore .ui-fm-label {
+    _position:relative;
+    _zoom:1;
+}
+
+a, .ui-list a, .ui-form .ui-securitycore .ui-fm-link {
+    color: #06B;
+}
+
+/** 找回密码在ie下面离密码框距离较远，先由系统自身解决，后续安全核心改动 */
+
+.ui-securitycore .ui-fm-link {
+    margin-left:-32px\9;
+    *margin-left:-32px;
+    _margin-left:-32px;
+
+}
+
+.add-number-form .ui-securitycore .ui-fm-item /** 手机校验码 */{margin-left:-170px;padding-bottom:20px;}
+.ui-form-havebank .ui-securitycore .ui-authcode-input {
+
+}
+
+.ui-securitycore .ui-fm-error .alieditContainer, .ui-securitycore .ui-form-item-error .alieditContainer {
+    border:1px solid #f00;
+}
+.ui-fm-label {
+    color:#4D4D4D;
+}
+
+.mi-form-link {
+    vertical-align:top;
+    margin-top:4px;
+    padding-top:4px;
+}
+
+
+/** table reset */
+.mi-table {
+    background-color:#fff;
+}
+.mi-table th {
+    background-color:#f2f2f2;
+    background-image:none;
+}
+.mi-table th, .ui-table td {
+    color:#808080;
+}
+
+.mi-table-spliter {
+    background-color:#f5f5f5;
+}
+
+/** 提示 components */
+.components {
+    width:623px;
+    margin:0 auto;
+    padding:0 0 36px;
+}
+
+/** 页面最外层容器 */
+.layout {
+    background:#f9fafc url("https://i.alipayobjects.com/e/201206/2pjIZPBnZB.png") repeat-x 0 62px;
+}
+
+/** 页面头部 */
+.header {
+    height:62px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") repeat-x 0 -81px;
+    border-top:3px solid #f60;
+    border-bottom:1px solid #d6d6d6;
+}
+.header-cnt {
+    width:990px;
+    height:100%;
+    margin:0 auto;
+}
+.header-cnt h1 {
+    margin-top: 15px;
+}
+.header-cnt img {
+    vertical-align:top;
+}
+
+.header-logo-text {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    height:26px;
+    color:#4d4d4d;
+    margin:7px 0 0 6px;
+    padding:0 0 0 10px;
+    overflow:hidden;
+    border-left:1px solid #a5a5a5;
+    font:500 20px "Microsoft YaHei";
+}
+
+.site-nav {
+    width:75%;
+    float:right;
+    height: 32px;
+    color: #bfcdd8;
+    background-color:transparent;
+}
+
+.site-nav .site-con {
+    width:100%;
+    height: 30px;
+}
+
+.site-nav h2 {
+    float: left;
+    color: #666666;
+    line-height: 32px;
+}
+
+.site-nav .site-meta {
+    float: right;
+    color: #6585c6;
+}
+
+.site-nav .site-meta a {
+    color: #666666;
+}
+
+.site-nav .global-toplink .global-toplink-username {
+    background-color:#fafafa;
+}
+
+.site-nav .global-dropdown-active .global-toplink-username {
+    background-color: #FFF;
+}
+
+/** 公共 */
+.ui-cornerbox {
+}
+
+/** 顶部 */
+.ui-cornerbox-top, .ui-cornerbox-bottom {
+    width:100%;
+    height:8px;
+    position:relative;
+    overflow:hidden;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") repeat-x 0 -27px;
+}
+.ui-cornerbox-left, .ui-cornerbox-right {
+    width:8px;
+    height:8px;
+    font-size:0;
+    position:absolute;
+    top:0;
+}
+.ui-cornerbox-left {
+    left:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") no-repeat 0 -9px;
+}
+.ui-cornerbox-right {
+    right:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") no-repeat -9px -9px;
+}
+
+/** 内容 */
+.ui-cornerbox-container {
+    padding:0 8px 0 0;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjJmQ8Cwz.png") repeat-y right 0;
+}
+.ui-cornerbox-content {
+    min-height:10px;
+    _height:10px;
+    padding:10px 0 10px 8px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/2pjK2DB94D.png") repeat-y 0 0;
+}
+
+/** 底部 */
+.ui-cornerbox-bottom {
+    background:url("https://i.alipayobjects.com/e/201206/2pjJUsiRyb.png") repeat-x 0 0;
+}
+.ui-cornerbox-bottom .ui-cornerbox-left {
+    left:0;
+    background-position:0 -18px;
+}
+.ui-cornerbox-bottom .ui-cornerbox-right {
+    right:0;
+    background-position:-9px -18px;
+}
+
+/** 小圆角提示 */
+.ui-cornerbox-small {
+
+}
+.ui-cornerbox-arrow {
+    width:9px;
+    height:10px;
+    position:absolute;
+    left:-8px;
+    top:10px;
+    font-size:0;
+    z-index:1;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -546px 0;
+}
+.ui-cornerbox-small .ui-cornerbox-top {
+    height:6px;
+    background:#f00 url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") repeat-x 0 -21px;
+}
+.ui-cornerbox-small .ui-cornerbox-left, .ui-cornerbox-small .ui-cornerbox-right {
+    width:6px;
+    height:6px;
+}
+.ui-cornerbox-small .ui-cornerbox-left {
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") no-repeat 0 -7px;
+}
+.ui-cornerbox-small .ui-cornerbox-right {
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") no-repeat -7px -7px;
+}
+.ui-cornerbox-small .ui-cornerbox-container {
+    position:relative;
+    padding-right:6px;
+    background:#ffffff url("https://i.alipayobjects.com/e/201206/2pjKhcWpMn.png") repeat-y right 0;
+}
+.ui-cornerbox-small .ui-cornerbox-content {
+    position:relative;
+    padding:0 0 0 6px;
+    background:#f9fafc url("https://i.alipayobjects.com/e/201206/2pjL1qZ8MD.png") repeat-y 0 0;
+}
+
+/** 底部 */
+.ui-cornerbox-small .ui-cornerbox-bottom {
+    height:6px;
+    background:url("https://i.alipayobjects.com/e/201206/2pjKOqigpF.png") repeat-x 0 0;
+}
+.ui-cornerbox-small .ui-cornerbox-bottom .ui-cornerbox-left {
+    left:0;
+    background-position:0 -14px;
+}
+.ui-cornerbox-small .ui-cornerbox-bottom .ui-cornerbox-right {
+    right:0;
+    background-position:-7px -14px;
+}
+
+
+/** 协议框样式 */
+.protocol-xbox {
+    
+}
+.protocol-xbox .ui-xbox-action {
+    font-size:14px;
+    right:20px;
+    top:15px;
+}
+.protocol-xbox .mi-xbox-close-link {
+    background:url("https://img.alipay.com/pa/frame/v2/ico-text.png") no-repeat -2px -73px;
+    padding-left:14px;
+    color:#006fff;
+}
+.protocol-box {
+    padding:10px 20px 10px;
+}
+.protocol-box .ui-xbox-action {
+    right:20px;
+}
+.protocol-box .mi-textarea {
+    width:550px;
+}
+.protocol-box .mi-form-item {
+    padding-left:0;
+    padding-bottom:10px;
+    text-align:center;
+}
+
+.protocol-box h4 {
+    padding:15px 0 0;
+    font:700 14px 宋体;
+}
+
+/** xbox标题 */
+.mi-xbox-title {
+    padding:5px 0;
+    border-bottom:1px solid #CCC;
+}
+.mi-xbox-title h3 {
+    font:700 16px tahoma;
+}
+
+.deletephone-confirmbox {
+    padding:20px 10px 10px;
+}
+.deletephone-confirmbox .messages {
+    padding:0 20px;
+}
+.deletephone-confirmbox .mi-message {
+    display:block;
+    padding-top:1px;
+}
+
+.deletephone-confirmbox .mi-form-item {
+    padding-left:110px;
+}
+.deletephone-confirmbox .mi-label {
+    width:110px;
+    margin-left:-110px;
+}
+.deletephone-confirmbox .confirmbox-buttons {
+    padding-left:0;
+    text-align:center;
+}
+
+
+.deleteallphone-xbox .ui-xbox-action {
+    font-size:14px;
+    right:9px;
+    top:12px;
+}
+
+.deleteallphone {
+    padding:0;
+}
+
+.deleteallphone .xbox-title  {
+    font:700 16px Simsun;
+    height:17px;
+    padding:19px 0 10px 21px;
+    background:#fff url("https://i.alipayobjects.com/e/201206/3MPIieCtA3.png") repeat-x 0 0;
+   border-bottom:1px solid #ccc;
+}
+
+.deleteallphone .messages {
+    padding:36px 10px 33px 46px;
+}
+
+.deleteallphone .confirmbox-buttons {
+    padding:0 58px 39px 0;
+    text-align:right;
+}
+
+
+
+/** ui-notice */
+.open-success-table {
+    width:510px;
+}
+
+.content-container {
+    padding:0 0 44px;
+    background:url("https://i.alipayobjects.com/e/201206/2pjLLsFNFZ.png") no-repeat center bottom;
+}
+
+/** 内容部分*/
+.content {
+    width:990px;
+    margin:0 auto;
+    padding:0;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat 0 -154px;
+}
+
+.form-title {
+    position:relative;
+    height:80px;
+    padding:0 0 10px;
+    z-index:100;
+}
+.form-title h3 {
+    float:left;
+    color:#647a87;
+    padding:7px 20px 0 10px;
+    font:500 20px "Microsoft YaHei";
+}
+
+/** 支持地区列表 */
+.ui-cornerbox-small, .ui-cornerbox-small-iframe {
+    width:515px;
+    position:absolute;
+    left:120px;
+    top:0;
+    z-index:2;
+}
+.ui-cornerbox-small-iframe {
+    z-index:1;
+    height:78px;
+}
+
+.ui-cornerbox-small .support-areas {
+    height:66px;
+    overflow:hidden;
+}
+.ui-cornerbox-small .ui-cornerbox-content {
+    position:relative;
+}
+.ui-cornerbox-small .ui-cornerbox-content .morearea-link {
+    position:absolute;
+    bottom:3px;
+    right:5px;
+}
+
+.ui-cornerbox-small-full .support-areas{
+    height:auto;
+    overflow:visible;
+}
+
+.support-areas {
+    position:relative;
+    color:#6b818e;
+    padding:0 0 0 65px;
+    zoom:1;
+}
+
+.support-areas dt {
+    position:absolute;
+    top:0;
+    _top:-2px;
+    margin-left:-60px;
+    width:60px;
+}
+.support-areas dd {
+    position:relative;
+    padding:0 30px 0 0;
+    line-height:22px;
+}
+
+.product {
+    padding:29px 0 19px;
+}
+
+/** 项目标题说明 */
+.product-title {
+    display:block;
+    width:335px;
+    height:57px;
+    overflow:hidden;
+    text-indent:-100em;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat 0 0;
+}
+
+.product-intro {
+    padding:20px 0 0 15px;
+}
+
+.product-intro .open-link, .product-intro .open-link:hover {
+    width:38px;
+    height:18px;
+    text-align:center;
+    color:#fff;
+    vertical-align:middle;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -506px 0;
+}
+
+
+.add-number-form {
+    margin:30px 0 0;
+}
+
+.add-number-form .mi-form-item {
+    padding-left:110px;
+}
+.add-number-form .mi-label {
+    width:110px;
+    margin-left:-110px;
+}
+.add-number-form .mi-input {
+    width:144px;
+}
+
+.add-number-form .mi-input-authcode {
+    width:4.5em;
+}
+
+
+.mi-input-del {
+    margin-top:1px;
+    margin-left:17px;
+    background:url("https://i.alipayobjects.com/e/201206/2u9N1GCuLh.png") no-repeat 0 0;
+}
+
+.form-area {
+    width:690px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.number-section {
+    width:575px;
+}
+
+
+.numbers .number {
+    float:left;
+    width:100%;
+    height:52px;
+    padding:0 0 8px;
+}
+
+.number-cnt {
+    height:30px;
+    padding:1px;
+    overflow:hidden;
+}
+
+.number-cnt .mi-input,
+.number-cnt .phone-number,
+.nubmer-cnt .ui-form-text,
+.number-cnt .amount,
+.number-cnt .label,
+.number-cnt select, 
+.number-cnt .mi-form-link {
+    float:left;
+}
+
+.number-cnt .mi-input:focus {
+    outline:none;
+}
+
+.number-cnt .mi-input-bigdigital, .number-cnt .mi-input-focus {
+    padding:2px 4px 2px 3px;
+    height:24px\9;
+    padding:0 5px 0 4px\9;
+    *padding:2px 3px 1px 4px;
+    _padding:2px 3px 1px 4px;
+    font-size:18px;
+    border-width:2px;
+}
+
+.mi-form-item-error .number-cnt .mi-input-bigdigital {
+    padding:3px 5px 3px 4px;
+    padding:1px 6px 1px 5px\9;
+    *padding:3px 4px 2px 5px;
+    _padding:3px 4px 2px 5px;
+    border-width:1px;
+}
+
+.number-cnt select {
+    width:100px;
+    vertical-align:top;
+    margin-top:4px;
+}
+
+/** 默认样式 */
+.number .phone-number, 
+.number .amount {
+    border:1px solid #ccc;
+    border-top-color:#A6A6A6;
+    cursor:pointer;
+}
+
+.number .phone-number, .number .amount .text {
+    cursor:pointer;
+    color:#4D4D4D;
+    overflow:hidden;
+    padding-right:5px;
+    font:18px tahoma,arial,宋体;
+}
+
+.number .phone-number {
+    width:143px;
+    height:25px;
+    padding:3px 5px 0;
+}
+
+.number .label {
+    padding-right:5px;
+    padding-top:5px;
+    padding-top:7px\9;
+    *padding-top:7px;
+    _padding-top:5px;
+    padding-left:11px;
+    color:#4D4D4D;
+}
+
+.number .amount {
+    width:93px;
+    padding:3px 0 0 5px;
+    height:25px;
+    background:url("https://i.alipayobjects.com/e/201206/3PEcjkVYpP.png") no-repeat right 0;
+}
+
+
+/** 鼠标hover样式*/
+.number-hover .phone-number, 
+.number-hover .amount {
+    border:1px solid #A6A6A6;
+    border-top-color:#808080;
+}
+.number-hover .mi-input-del {
+    background:url("https://i.alipayobjects.com/e/201205/2lOVDr2nsf.png") no-repeat 0 -40px
+}
+
+
+
+.number-item-add {
+    padding:2px 0 0;
+}
+
+.add-number-btn, .add-number-btn:visited {
+    float:left;
+    width:134px;
+    height:24px;
+    padding:6px 0 0 20px;
+    padding-top:8px\9;
+    *padding-top:8px;
+    _padding-top:6px;
+    color:#cbcbcb;
+    overflow:hidden;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/2pjJCOKdfF.png") no-repeat -350px 0;
+}
+
+.add-number-btn:hover {
+    color:#949494;
+    text-decoration:none;
+    background:url("https://i.alipayobjects.com/e/201206/3RDSQeCetP.png") no-repeat 0 0;
+}
+
+.add-explain {
+    float:left;
+    font-size:12px;
+    color:#828282;
+    padding:6px 0 0 10px;
+}
+
+/** 页面底部 */
+.footer {
+    margin-top:-37px;
+    padding:22px 0 0;
+}
+
+.ui-footer-copyright {
+    text-align:center;
+    background-color:transparent;
+}
+.ui-footer-copyright .server {
+    visibility:hidden;
+}
+#J_otpPassword{width:46px;}
