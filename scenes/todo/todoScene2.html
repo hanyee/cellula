@@ -123,7 +123,7 @@
 
                         <div class="number-section">
                             <ul class="numbers fn-clear" id="J_item_container">
-                                <li class="number">
+                                <li class="number mi-form-item-error">
                                     <div class="number-cnt">
                                         <input id="J_mobileNumber0" name="mobileNumber0" class="mi-input mi-input-bigdigital fn-hide" type="text" value="15381130333" />
                                         <span class="phone-number fn-view">15381130333</span>
@@ -454,7 +454,37 @@
     <script type="text/javascript" src="todoSceneAlipay/todolist-alipay.js"></script>
 
     <script type="text/javascript" charset="utf-8">
-        var todos = new ToDoListAlipay({});
+        var tpl = '<li class="number mi-form-item-error">'
+                + '<div class="number-cnt">'
+                + '<input id="J_mobileNumber0" name="mobileNumber0" class="mi-input mi-input-bigdigital fn-hide" type="text" value="" />'
+                + '<span class="phone-number fn-view"></span>'
+                + '<span class="mi-form-text label">话费余额少于:</span>'
+                + '<select name="min_0" class="fn-edit fm-data-minValue" >'
+                + '<option value="20" selected>20.00元</option>'
+                + '<option value="30">30.00元</option>'
+                + '<option value="50">50.00元</option>'
+                + '</select>'
+                + '<span class="mi-form-text label">自动充值:</span>'
+                + '<select name="amount_0" class="fn-edit fm-data-amountValue" >'
+                + '<option value="50" selected>50.00元</option>'
+                + '<option value="100">100.00元</option>'
+                + '<option value="300">300.00元</option>'
+                + '</select>'
+                + '<span class="mi-form-link">'
+                + '<a href="javascript:;" class="mi-input-del" >删除</a>'
+                + '</span>'
+                + '</div>'
+                + '<div class="mi-form-explain"></div>'
+                + '</li>'
+
+
+        var todos = new ToDoListAlipay({
+            root : 'J_item_container',
+            collection : {},
+            add : function(){},
+            remove : function(){},
+            render : function(){}
+        });
 
         var itemArr = [{
             key : 'mobileNumber',
@@ -473,9 +503,24 @@
             value : "{charges : $(this.key).val()}"
         }];
 
-        var item = new ToDoItem({});
+        var item = new ToDoItem({
+            root : '',
+            itemTpl : tpl,
+            init : function(){
+
+            }
 
 
+
+        });
+
+
+        !function(f, pg, dt){
+
+                //f.registerInterface('render', dt);
+
+                //console.log(pg.pageDefault);
+        }();
 
     </script>
 </body>

@@ -18,6 +18,7 @@
 
 (function(util, Class){
     this.ToDoItem = new Class('ToDoItem', {
+        itemTpl : null,
         init : function(){
 
         }

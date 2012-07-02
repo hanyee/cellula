@@ -8,6 +8,8 @@
 (function(util, Class){
     this.ToDoListAlipay = new Class('ToDoListAlipay', {
         init : function(){
+            this.initCfg(cfg);
+            this.rootNode = this.getNode('ui-paging');
 
         }
 
