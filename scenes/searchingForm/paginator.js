@@ -93,9 +93,9 @@ var Paginator = new Class('Paginator', {
         // mix this.getData() && this.pageDefault.number
         this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
     },
-    getNode : function(rootStyle){
-        return this._super(rootStyle, 'paginators');
-    },
+    //getNode : function(rootStyle){
+    //    return this._super(rootStyle, 'paginators');
+    //},
     prepareTplConfig : function(data){
         var pageEl = this.get('page');
 
@@ -144,6 +144,7 @@ var Paginator = new Class('Paginator', {
         return tplCfg;
     },
     render : function(data){
+        //var root = this.getNode('ui-paging');
         var root = this.getNode('ui-paging');
 
         if(UtilTools.isEmptyObject(data)){

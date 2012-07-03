@@ -8,6 +8,9 @@
 
 (function(util, Class){
     this.ToDoList = new Class('ToDoList', {
+        add : function(){},
+        remove : function(){},
+        render : function(){},
         init : function(){
 
         }
@@ -19,7 +22,15 @@
 (function(util, Class){
     this.ToDoItem = new Class('ToDoItem', {
         itemTpl : null,
-        init : function(){
+        init : function(cfg){
+            this.initCfg(cfg);
+            this.rootNode = this.getRoot();
+
+            this.render();
+            this.registerEvents();
+
+        },
+        render : function(){
 
         }
 

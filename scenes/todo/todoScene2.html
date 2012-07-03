@@ -116,7 +116,7 @@
 
                 <div class="mi-line mi-line-dashed"></div>
 
-                <form class="mi-form add-number-form" action="" method="">
+                <form class="mi-form add-number-form">
 
                     <div class="mi-form-item">
                         <label class="mi-label phone-label">开通手机号码：</label>
@@ -128,13 +128,13 @@
                                         <input id="J_mobileNumber0" name="mobileNumber0" class="mi-input mi-input-bigdigital fn-hide" type="text" value="15381130333" />
                                         <span class="phone-number fn-view">15381130333</span>
                                         <span class="mi-form-text label">话费余额少于:</span>
-                                        <select name="min_0" class="fn-edit fm-data-minValue" >
+                                        <select name="accountBalance_0" class="fn-edit fm-data-minValue" >
                                             <option value="20" selected>20.00元</option>
                                             <option value="30">30.00元</option>
                                             <option value="50">50.00元</option>
                                         </select>
                                         <span class="mi-form-text label">自动充值:</span>
-                                        <select name="amount_0" class="fn-edit fm-data-amountValue" >
+                                        <select name="charges_0" class="fn-edit fm-data-amountValue" >
                                             <option value="50" selected>50.00元</option>
                                             <option value="100">100.00元</option>
                                             <option value="300">300.00元</option>
@@ -154,7 +154,7 @@
                                         <span class="mi-form-text phone-number fn-view">15381130329</span>
                                         <span class="mi-form-text label">话费余额少于:</span>
 
-                                        <select name="min_0" class="fn-edit fm-data-minValue" >
+                                        <select name="accountBalance_1" class="fn-edit fm-data-minValue" >
                                             <option value="20">20.00元</option>
                                             <option value="30">30.00元</option>
                                             <option value="50" selected>50.00元</option>
@@ -162,7 +162,7 @@
 
 
                                         <span class="mi-form-text label">自动充值:</span>
-                                        <select name="amount_0" class="fn-edit fm-data-amountValue" >
+                                        <select name="charges_1" class="fn-edit fm-data-amountValue" >
                                             <option value="50" selected>50.00元</option>
                                             <option value="100">100.00元</option>
                                             <option value="300">300.00元</option>
@@ -442,7 +442,7 @@
 
     </div>
 
-    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../jquery-1.7.2.js"></script>
 
     <script type="text/javascript" src="../../lib/base/cellula.js"></script>
     <script type="text/javascript" src="../../lib/base/class.js"></script>
@@ -454,18 +454,18 @@
     <script type="text/javascript" src="todoSceneAlipay/todolist-alipay.js"></script>
 
     <script type="text/javascript" charset="utf-8">
-        var tpl = '<li class="number mi-form-item-error">'
+        var tpl = '<li id="$-{id}" class="number">'
                 + '<div class="number-cnt">'
-                + '<input id="J_mobileNumber0" name="mobileNumber0" class="mi-input mi-input-bigdigital fn-hide" type="text" value="" />'
+                + '<input id="$-{}" name="$-{mobileNumber}" class="mi-input mi-input-bigdigital fn-hide" type="text" value="" />'
                 + '<span class="phone-number fn-view"></span>'
                 + '<span class="mi-form-text label">话费余额少于:</span>'
-                + '<select name="min_0" class="fn-edit fm-data-minValue" >'
+                + '<select name="$-{accountBalance}" class="fn-edit fm-data-minValue" >'
                 + '<option value="20" selected>20.00元</option>'
                 + '<option value="30">30.00元</option>'
                 + '<option value="50">50.00元</option>'
                 + '</select>'
                 + '<span class="mi-form-text label">自动充值:</span>'
-                + '<select name="amount_0" class="fn-edit fm-data-amountValue" >'
+                + '<select name="$-{charges}" class="fn-edit fm-data-amountValue" >'
                 + '<option value="50" selected>50.00元</option>'
                 + '<option value="100">100.00元</option>'
                 + '<option value="300">300.00元</option>'
@@ -480,10 +480,8 @@
 
         var todos = new ToDoListAlipay({
             root : 'J_item_container',
-            collection : {},
-            add : function(){},
-            remove : function(){},
-            render : function(){}
+            collection : {}
+
         });
 
         var itemArr = [{
@@ -503,19 +501,30 @@
             value : "{charges : $(this.key).val()}"
         }];
 
-        var item = new ToDoItem({
-            root : '',
-            itemTpl : tpl,
-            init : function(){
 
-            }
+        var itemCfg = {
+            root : 'number',
+            itemTpl : tpl
+
+        };
+/*
+        var item = new ToDoItemAlipay({
+            root : '',
+            itemTpl : tpl
 
 
 
         });
-
+*/
 
         !function(f, pg, dt){
+
+            var it = new ToDoItemAlipay(itemCfg);
+            console.log(it);
+            console.log(it.rootNode);
+            console.log($(it.rootNode));
+
+            document.getElementById('J_item_container').appendChild(it.rootNode);
 
                 //f.registerInterface('render', dt);
 

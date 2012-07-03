@@ -18,9 +18,9 @@
                 this.tipNodes[n] = this.getNode(this.tips[n]);
             }
         },
-        getNode : function(rootStyle){
-            return this._super(rootStyle, 'data tables');
-        },
+        //getNode : function(rootStyle){
+        //    return this._super(rootStyle, 'data tables');
+        //},
         init : function(cfg){
             this.initCfg(cfg);
             this.initTip();

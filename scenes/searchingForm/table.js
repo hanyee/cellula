@@ -12,9 +12,9 @@ var DataTable = new Class('DataTable', {
         error : null
     },
     tableTpl : '',
-    getNode : function(rootStyle){
-        return this._super(rootStyle, 'data tables');
-    },
+    //getNode : function(rootStyle){
+    //    return this._super(rootStyle, 'data tables');
+    //},
     init : function(cfg){
         this.initCfg(cfg);
         this.registerEvents();
