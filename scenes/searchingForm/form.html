@@ -231,6 +231,8 @@
 <script type="text/javascript" src="searchingScene/paginator.js"></script>
 <script type="text/javascript" src="searchingScene/table.js"></script>
 
+
+<script type="text/javascript" src="searchingSceneAlipay/queryElement-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/form-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/table-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/paginator-alipay.js"></script>
@@ -256,7 +258,8 @@
 
 
 /************************************************/
-    var elementsArray = Cellula.Element.factory([{
+    //var elementsArray = Cellula.Element.factory([{
+    var elementsArray = QueryElementAlipay.factory([{
         key : 'calendar',
         value : "{beginDate : $('#J_beginDate').val(), endDate : $('#J_endDate').val()}",
         //errHandler : function(msg){},
@@ -287,7 +290,8 @@
         value : "{batchNo : $(this.key).val()}"
     }]);
 
-    var pageElements = Cellula.Element.factory([{
+    //var pageElements = Cellula.Element.factory([{
+    var pageElements = QueryElementAlipay.factory([{
         key : 'page',
         value : "{current : $('#J_pagingCurrent').val(), totalItems : $('#J_totalItmes').val()}"
         //value : "{current : 1, totalPages : 8}"
