@@ -52,7 +52,12 @@
             alert(msg);
         },
         remove : function(item){
-            if(item) return this.rootNode.removeChild(item);
+            if(item){
+                this.rootNode.removeChild(item);
+                delete this.collection[item.id];
+                this.collection.length -= 1;
+                return ;
+            }
             throw new Error('invalid item node!');
         },
         registerEvents :function(){
@@ -134,7 +139,8 @@
             console.log('delete');
         },
         getElementCfg : function(){
-            var nodeId = this.__cid__.substring(this.__cid__.lastIndexOf('_')+1,this.__cid__.length);
+            //var nodeId = this.__cid__.substring(this.__cid__.lastIndexOf('_')+1,this.__cid__.length);
+            var nodeId = this.__cid__;
             return {
                 id : nodeId,
                 mobileNumber : 'mobileNumber_' + nodeId,
