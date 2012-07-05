@@ -121,8 +121,9 @@
                     <div class="mi-form-item">
                         <label class="mi-label phone-label">开通手机号码：</label>
 
-                        <div class="number-section">
+                        <div id="J_mobileList" class="number-section">
                             <ul class="numbers fn-clear" id="J_item_container">
+                                <!--
                                 <li class="number mi-form-item-error">
                                     <div class="number-cnt">
                                         <input id="J_mobileNumber0" name="mobileNumber0" class="mi-input mi-input-bigdigital fn-hide" type="text" value="15381130333" />
@@ -147,7 +148,6 @@
                                     </div>
                                     <div class="mi-form-explain"></div>
                                 </li>
-
                                 <li class="number number-hover">
                                     <div class="number-cnt">
                                         <input id="J_mobileNumber1" name="mobileNumber1" class="mi-input mi-input-bigdigital fn-hide" type="text" value="15381130329" />
@@ -174,14 +174,16 @@
                                     </div>
                                     <div class="mi-form-explain"></div>
                                 </li>
-
+-->
                             </ul>
+
+                            <div class="number-item-add fn-clear">
+                                <a href="javascript:;" class="add-number-btn">点此添加其它手机号码</a>
+                                <span class="add-explain">（最多可以同时开通5个手机号码）</span>
+                            </div>
                         </div>
 
-                        <div class="number-item-add fn-clear">
-                            <a href="#" class="add-number-btn">点此添加其它手机号码</a>
-                            <span class="add-explain">（最多可以同时开通5个手机号码）</span>
-                        </div>
+
                     </div>
 
                     <div class="mi-form-item">
@@ -450,92 +452,21 @@
     <script type="text/javascript" src="../../lib/base/block.js"></script>
     <script type="text/javascript" src="../../lib/base/element.js"></script>
 
-    <script type="text/javascript" src="todoScene/todolist.js"></script>
-    <script type="text/javascript" src="todoSceneAlipay/todolist-alipay.js"></script>
+    <script type="text/javascript" src="todoScene/todolist.js" charset="utf-8"></script>
+    <script type="text/javascript" src="todoSceneAlipay/todolist-alipay.js" charset="utf-8"></script>
+    <script type="text/javascript" src="todoSceneAlipay/assets-alipay.js" charset="utf-8"></script>
 
     <script type="text/javascript" charset="utf-8">
-        var tpl = '<li id="$-{id}" class="number">'
-                + '<div class="number-cnt">'
-                + '<input id="$-{mobileNumber}" name="$-{mobileNumber}" class="mi-input mi-input-bigdigital fn-hide" type="text" value="" />'
-                + '<span class="phone-number fn-view"></span>'
-                + '<span class="mi-form-text label">话费余额少于:</span>'
-                + '<select id="$-{accountBalance}" name="$-{accountBalance}" class="fn-edit fm-data-minValue" >'
-                + '<option value="20" selected>20.00元</option>'
-                + '<option value="30">30.00元</option>'
-                + '<option value="50">50.00元</option>'
-                + '</select>'
-                + '<span class="mi-form-text label">自动充值:</span>'
-                + '<select id="$-{charges}" name="$-{charges}" class="fn-edit fm-data-amountValue" >'
-                + '<option value="50" selected>50.00元</option>'
-                + '<option value="100">100.00元</option>'
-                + '<option value="300">300.00元</option>'
-                + '</select>'
-                + '<span class="mi-form-link">'
-                + '<a href="javascript:;" class="mi-input-del" >删除</a>'
-                + '</span>'
-                + '</div>'
-                + '<div class="mi-form-explain"></div>'
-                + '</li>'
+
+        window.console = window.console || function(){};
+
 
 
         var todos = new ToDoListAlipay({
+            //root : 'J_mobileList',
             root : 'J_item_container',
-            collection : {}
-
+            addItemNode : $('.add-number-btn')
         });
-
-        var itemArr = [{
-            key : 'mobileNumber',
-
-            errHandler : function(msg){
-                //$('.ui-form-explain').eq(0).html(msg).removeClass('fn-hide');
-            },
-            validate : function(){
-
-            }
-        },{
-            key : 'accountBalance',
-            setData : function(){
-                return this.set({value : {}});
-            }
-
-        },{
-            key : 'charges'
-        }];
-
-
-        var itemCfg = {
-            root : 'number',
-            itemTpl : tpl
-
-        };
-/*
-        var item = new ToDoItemAlipay({
-            root : '',
-            itemTpl : tpl
-
-
-
-        });
-*/
-
-        !function(f, pg, dt){
-
-            var it = new ToDoItemAlipay(itemCfg);
-            //console.log(it);
-            //console.log(it.rootNode);
-            //console.log($(it.rootNode));
-
-            //document.getElementsByName('')
-            document.getElementById('J_item_container').appendChild(it.rootNode);
-
-            it.get('accountBalance').setData();
-            it.get('charges').setData();
-
-                //f.registerInterface('render', dt);
-
-                //console.log(pg.pageDefault);
-        }();
 
     </script>
 </body>

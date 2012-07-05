@@ -5,7 +5,7 @@
  * Time: 下午4:54
  * To change this template use File | Settings | File Templates.
  */
-var searchingSceneAssets = {};
+var searchingSceneAssets = searchingSceneAssets || {};
 searchingSceneAssets.pagingTplStyles = [
     '<a class="ui-paging-prev" href="#">上一页</a>'
         +'$-{#items}<a class="ui-paging-item$-{#currentClass} ui-paging-current$-{/currentClass}" href="#"><span>$-{num}</span></a>$-{/items}'
