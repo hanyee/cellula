@@ -7,6 +7,12 @@
  */
 var PaginatorAlipay = new Class('PaginatorAlipay', {
     hideClass : 'fn-hide',
+    pageDefault:{
+        number : {number:1},
+        size : {size:10},
+        sizeDefault : 5,
+        sizeOptions : [10,20,30]
+    },
     init : function(cfg){
         this.initCfg(cfg);
         this.rootNode = this.getNode('ui-paging');

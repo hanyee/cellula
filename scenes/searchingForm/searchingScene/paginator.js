@@ -21,10 +21,12 @@
                  totalPages : null, // optional
                  current : null,
                  currentArray : null // optional
-             }
+             },
+             sizeDefault : 5,
+             sizeOptions : []
              */
         },
-        sizeDefault : 5,
+        // sizeDefault : 5,  // deprecated
         pageTpl : '',
         typeEnum : {
             first : '\\bfirst\\b',
@@ -106,10 +108,10 @@
                 total = parseInt(pageEl.getProp('value').totalItems),
                 sv = this.get('size').getProp('value'),
                 pds = this.pageDefault.size,
-                size = parseInt(util.isEmptyObject(sv) ? pds[util.getFirstPropName(pds)] : sv[util.getFirstPropName(sv)]),
+                size = parseInt(util.isEmptyObject(sv[util.getFirstPropName(sv)]) ? pds[util.getFirstPropName(pds)] : sv[util.getFirstPropName(sv)]),
                 m = total % size,
                 pages = (total-m) / size + (m > 0 ? 1 : 0),
-                sd = this.sizeDefault,
+                sd = this.pageDefault.sizeDefault,
                 half = (sd-1)/2,
                 tplCfg;
 
@@ -117,6 +119,8 @@
             pageEl.set({value : {totalPages : pages}});
 
             tplCfg = {
+                size : size,
+                options : [],
                 totalItems : total,
                 startItem : (current-1)*size+1,
                 endItem : current*size>total?total:current*size,
@@ -140,6 +144,12 @@
                 }
 
                 tplCfg.items.push({num:num, currentClass:current === num ? true : false});
+            }
+
+            if(util.isArray(this.pageDefault.sizeOptions)){
+                for(var i = 0, op = this.pageDefault.sizeOptions; i<op.length; i++){
+                    tplCfg.options.push({num : op[i], selected : size === op[i]});
+                }
             }
 
             return tplCfg;

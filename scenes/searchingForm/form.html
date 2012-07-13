@@ -365,10 +365,6 @@
     var pg = new PaginatorAlipay({
         collection : pageElements,
         pageTpl : searchingSceneAssets.pagingTplStyles[0],
-        pageDefault : {
-            number : {number : 1},
-            size : {size : 10}
-        },
         registerEvents : function(){
             //$('#J_sizePerPage').bind('change', this.changeSize);
             //$('.ui-paging-goto').bind('click', this.paginate);
@@ -380,7 +376,7 @@
 
     // for ajax
     var dt = new DataTableAlipay({
-        tableTpl : searchingSceneAssets.tableTplStyles[0]
+        tableTpl : {body : searchingSceneAssets.tableTplStyles[0]}
     });
 
     !function(){

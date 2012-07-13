@@ -26,8 +26,10 @@
             if(this.save.apply(this, isEvent?arguments:[]) === undefined){
                 if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
                     pageDefault = this.applyInterface('getDefault');
-                    size = this.applyInterface('getData', 'size');
-                    postData = util.mix(this.getData(), util.isEmptyObject(size)?pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
+                    //size = this.applyInterface('getData', 'size');
+                    size = this.applyInterface('getSavedData', 'size');
+
+                    postData = util.mix(this.getData(), util.isEmptyObject(size) || util.isEmptyObject(size[util.getFirstPropName(size)]) ? pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
                 }else{
                     if(e){ // triggered by paginator
                         postData = util.mix({},this.getData(), e);
