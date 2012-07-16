@@ -71,7 +71,6 @@
             //util.removeClass(root, this.hideClass);
             this.show(true);
 
-
         }
 
     }).inherits(Cellula.Block);
