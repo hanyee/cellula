@@ -5,8 +5,9 @@
  * Time: 下午2:55
  * To change this template use File | Settings | File Templates.
  */
-(function(util){
-    this.DataTable = new Class('DataTable', {
+(function(cellula){
+    var util = cellula._util;
+    this.DataTable = new cellula.Class('DataTable', {
         tableTpl : {head : null, body : null},
         tips : {
             noResult : null,
@@ -41,6 +42,7 @@
             util.addClass(this.tipNodes.noResult, this.hideClass);
             //var root = this.getNode('ui-table');
             var root = this.rootNode;
+            //var root = this.getNode(this.root);
 
             if(data.dataTable.rows.length === 0){
                 //this.show(false);
@@ -58,7 +60,6 @@
             if(thead) table.removeChild(thead);
             if(tbody) table.removeChild(tbody);
 
-
             var div = document.createElement('div');
             div.innerHTML = '<table><thead>' + util.parseTpl(this.tableTpl.head, data) + '</thead></table>';
             thead = div.getElementsByTagName('thead')[0];
@@ -73,5 +74,5 @@
 
         }
 
-    }).inherits(Cellula.Block);
-})(Cellula._util);
+    }).inherits(cellula.Block);
+})(Cellula);

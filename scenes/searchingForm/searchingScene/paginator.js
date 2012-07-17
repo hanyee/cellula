@@ -5,8 +5,9 @@
  * Time: 下午2:55
  * To change this template use File | Settings | File Templates.
  */
-(function(util){
-    this.Paginator = new Class('Paginator', {
+(function(cellula){
+    var util = cellula._util;
+    this.Paginator = new cellula.Class('Paginator', {
         pageDefault : {
             /**
              *
@@ -70,11 +71,13 @@
 
             if(this.getOperationType(e.currentTarget.className) === 'goto'){
                 if(this.save.apply(this, arguments) === undefined){
-                    return this.applyInterface('doSearch', this.getData());
+                    return this.applyInterface('doSearch', this.getData('size','number'));
                 }
             }else{
                 if(this.operate(e.currentTarget)){
-                    return this.applyInterface('doSearch', this.getData());
+                    var s = this.getData('size');
+                    if(!s[util.getFirstPropName(s)]) this.save('size');
+                    return this.applyInterface('doSearch', this.getData('size','number')); // this.getData();
                 }
             }
         },
@@ -108,7 +111,7 @@
                 total = parseInt(pageEl.getProp('value').totalItems),
                 sv = this.get('size').getProp('value'),
                 pds = this.pageDefault.size,
-                size = parseInt(util.isEmptyObject(sv[util.getFirstPropName(sv)]) ? pds[util.getFirstPropName(pds)] : sv[util.getFirstPropName(sv)]),
+                size = parseInt(!sv[util.getFirstPropName(sv)] ? pds[util.getFirstPropName(pds)] : sv[util.getFirstPropName(sv)]),
                 m = total % size,
                 pages = (total-m) / size + (m > 0 ? 1 : 0),
                 sd = this.pageDefault.sizeDefault,
@@ -161,15 +164,10 @@
             data = data.paging;
 
             var root = this.rootNode;
-
-            //if(util.isEmptyObject(data)){
-            //    util.addClass(root, this.hideClass);
-            //}else{
-                root.innerHTML = util.parseTpl(this.pageTpl, this.prepareTplConfig(data));
-                this.registerEvents();
-                util.removeClass(root, this.hideClass);
-            //}
+            root.innerHTML = util.parseTpl(this.pageTpl, this.prepareTplConfig(data));
+            this.registerEvents();
+            util.removeClass(root, this.hideClass);
         }
 
-    }).inherits(Cellula.Block);
-})(Cellula._util);
+    }).inherits(cellula.Block);
+})(Cellula);

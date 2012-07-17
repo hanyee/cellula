@@ -5,8 +5,9 @@
  * Time: 下午2:55
  * To change this template use File | Settings | File Templates.
  */
-(function(util){
-    this.SearchingForm = new Class('SearchingForm', {
+(function(cellula){
+    var util = cellula._util;
+    this.SearchingForm = new cellula.Class('SearchingForm', {
         validateAll : false,
         init : function(cfg){
             this.initCfg(cfg);
@@ -28,8 +29,7 @@
                     pageDefault = this.applyInterface('getDefault');
                     //size = this.applyInterface('getData', 'size');
                     size = this.applyInterface('getSavedData', 'size');
-
-                    postData = util.mix(this.getData(), util.isEmptyObject(size) || util.isEmptyObject(size[util.getFirstPropName(size)]) ? pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
+                    postData = util.mix(this.getData(), util.isEmptyObject(size) || !size[util.getFirstPropName(size)] ? (pageDefault.size?pageDefault.size:size) : size, pageDefault.number?pageDefault.number:{});
                 }else{
                     if(e){ // triggered by paginator
                         postData = util.mix({},this.getData(), e);
@@ -78,6 +78,6 @@
 
         }
 
-    }).inherits(Cellula.Block);
-})(Cellula._util);
+    }).inherits(cellula.Block);
+})(Cellula);
 
