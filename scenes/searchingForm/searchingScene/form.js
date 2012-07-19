@@ -10,10 +10,12 @@
     this.SearchingForm = new cellula.Class('SearchingForm', {
         validateAll : false,
         init : function(cfg){
-            this.initCfg(cfg);
+            //this.initCfg(cfg);
+            this._super(cfg);
             this.bindAll('search','doSearch','dataDispatch');
 
-            this.registerEvents();
+            this.render();
+            //this.registerEvents();
         },
         doSearch : function(e){
             // TODO:
@@ -24,8 +26,10 @@
                 isEvent = true;
             }
 
-            if(this.save.apply(this, isEvent?arguments:[]) === undefined){
-                if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
+            //if(this.save.apply(this, isEvent?arguments:[]) === undefined){
+            //    if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
+            //if(){
+                if((isEvent || (!isEvent && !e) ) && this.save.apply(this, isEvent?arguments:[]) === undefined){ // trigger by event // direct operation
                     pageDefault = this.applyInterface('getDefault');
                     //size = this.applyInterface('getData', 'size');
                     size = this.applyInterface('getSavedData', 'size');
@@ -35,10 +39,9 @@
                         postData = util.mix({},this.getData(), e);
                     }
                 }
-                this.search.call(this, postData);
+                if(postData) this.search.call(this, postData);
 
-                // paginating
-            }
+            //}
         },
         search : function(data){
             //console.log('search');
@@ -67,6 +70,13 @@
                 this.applyInterface('error');
                 return ;
             }
+
+            // TODO:
+            // no result
+
+
+
+
 
             // to table
             //this.applyInterface('DataTableAlipay.render',data.dataTable);

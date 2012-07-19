@@ -23,9 +23,10 @@
         //    return this._super(rootStyle, 'data tables');
         //},
         init : function(cfg){
-            this.initCfg(cfg);
+            //this.initCfg(cfg);
+            this._super(cfg);
             this.initTip();
-            this.registerEvents();
+            //this.registerEvents();
         },
         prepareTplConfig : function(data){},
         error : function(){
@@ -68,10 +69,11 @@
             div.innerHTML = '<table><tbody>' + util.parseTpl(this.tableTpl.body, data) + '</tbody></table>';
             tbody = div.getElementsByTagName('tbody')[0];
             table.appendChild(tbody);
-            this.registerEvents();
+
             //util.removeClass(root, this.hideClass);
             this.show(true);
 
+            this.registerEvents();
         }
 
     }).inherits(cellula.Block);

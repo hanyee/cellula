@@ -38,6 +38,15 @@
             //current : '\\bcurrent\\b'
             //number : '(\\D*)(\\d+)(\\D*)'
         },
+        init:function (cfg) {
+            //this.initCfg(cfg);
+            //this.rootNode = this.getNode('ui-paging');
+            this._super(cfg);
+
+            this.bindAll('changeSize', 'paginate');
+
+            //this.render();
+        },
         getOperationType : function(name){
             for(var n in this.typeEnum){
                 if(new RegExp(this.typeEnum[n]).test(name)) return n;
@@ -70,7 +79,6 @@
             //console.log('paginate');
 
             if(this.getOperationType(e.currentTarget.className) === 'goto'){
-                console.log(this.save('number'));
                 if(this.save.call(this, 'number') === undefined){
                 //if(this.save('number')){
                     var s = this.getData('size'), size = this.get('size');
@@ -87,14 +95,6 @@
         },
         getDefault : function(){
             return this.pageDefault;
-        },
-        init : function(cfg){
-            this.initCfg(cfg);
-            this.rootNode = this.getNode('ui-paging');
-
-            this.bindAll('changeSize', 'paginate');
-
-            //this.render();
         },
         changeSize : function(e){
             this.save('size');
@@ -166,11 +166,11 @@
         },
         render : function(data){
             data = data.paging;
-
             var root = this.rootNode;
             root.innerHTML = util.parseTpl(this.pageTpl, this.prepareTplConfig(data));
-            this.registerEvents();
             util.removeClass(root, this.hideClass);
+
+            this.registerEvents();
         }
 
     }).inherits(cellula.Block);
