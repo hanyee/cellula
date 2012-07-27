@@ -63,8 +63,14 @@ searchingSceneAssets.pagingTplStyles = [
 
 searchingSceneAssets.tableTplStyles = [
     '$-{#rows}<tr$-{#spliter} class="mi-table-spliter"$-{/spliter}>'
-        +'$-{#items}<td>$-{content}</td>$-{/items}'
+        +'$-{#items}<td>'
+        +'$-{content}'
+        +'$-{#operate}'
+        +'$-{#detail}<a href="$-{detailUrl}">$-{detail}</a>$-{/detail}'
+        +'$-{#refund}  <a href="$-{refundUrl}">$-{refund}</a>$-{/refund}</a>'
+        +'$-{/operate}'
+        +'</td>$-{/items}'
         +'</tr>$-{/rows}',
-
+        //+'$-{#operate}<td>$-{#detail}<a href="$-{detailUrl}">$-{detail}</a>$-{/detail}$-{#refund}  <a href="$-{refundUrl}">$-{refund}</a>$-{/refund}</td>$-{/operate}'
     '<tr>$-{#head}<th>$-{content}</th>$-{/head}</tr>'
 ];
