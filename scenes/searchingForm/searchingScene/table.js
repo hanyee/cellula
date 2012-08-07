@@ -76,5 +76,5 @@
             this.registerEvents();
         }
 
-    }).inherits(cellula.Block);
+    }).inherits(cellula.Cell);
 })(Cellula);

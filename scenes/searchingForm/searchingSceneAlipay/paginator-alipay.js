@@ -14,9 +14,9 @@ var PaginatorAlipay = new Class('PaginatorAlipay', {
         sizeOptions : [10,20,30]
     },
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
         this.rootNode = this.getNode('ui-paging');
-        this.bindAll('changeSize', 'paginate');
+        this._bindAll('changeSize', 'paginate');
 
         //this.render();
     }

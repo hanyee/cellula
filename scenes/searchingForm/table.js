@@ -16,7 +16,7 @@ var DataTable = new Class('DataTable', {
     //    return this._super(rootStyle, 'data tables');
     //},
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
         this.registerEvents();
     },
     prepareTplConfig : function(data){

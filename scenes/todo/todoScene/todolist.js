@@ -23,7 +23,7 @@
         itemTpl : null,
 
         init : function(cfg){
-            this.initCfg(cfg);
+            this._initCfg(cfg);
             this.rootNode = this.getRoot();
 
             this.render();

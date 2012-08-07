@@ -64,9 +64,9 @@
             this.addItemNode.bind('click', this.add);
         },
         init : function(cfg){
-            this.initCfg(cfg);
+            this._initCfg(cfg);
             this.rootNode = this.getRoot();
-            this.bindAll('add','remove');
+            this._bindAll('add','remove');
 
             this.registerEvents();
         }
@@ -101,9 +101,9 @@
     this.ToDoItemAlipay = new Class('ToDoItemAlipay', {
         hideClass : 'fn-hide',
         init : function(cfg){
-            this.initCfg(cfg);
+            this._initCfg(cfg);
             //this.rootNode = this.getNode(this.root);
-            this.bindAll('delete','edit','close');
+            this._bindAll('delete','edit','close');
             var data = this.getElementCfg();
 
             this.render(data);

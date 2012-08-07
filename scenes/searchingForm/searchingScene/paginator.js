@@ -43,7 +43,7 @@
             //this.rootNode = this.getNode('ui-paging');
             this._super(cfg);
 
-            this.bindAll('changeSize', 'paginate');
+            this._bindAll('changeSize', 'paginate');
 
             //this.render();
         },
@@ -173,5 +173,5 @@
             this.registerEvents();
         }
 
-    }).inherits(cellula.Block);
+    }).inherits(cellula.Cell);
 })(Cellula);

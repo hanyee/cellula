@@ -10,11 +10,10 @@
     this.SearchingForm = new cellula.Class('SearchingForm', {
         validateAll : false,
         init : function(cfg){
-            //this.initCfg(cfg);
             this._super(cfg);
-            this.bindAll('search','doSearch','dataDispatch');
-
+            this._bindAll('search','doSearch','dataDispatch');
             this.render();
+
             //this.registerEvents();
         },
         doSearch : function(e){
@@ -25,7 +24,6 @@
                 e.preventDefault();
                 isEvent = true;
             }
-
             //if(this.save.apply(this, isEvent?arguments:[]) === undefined){
             //    if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
             //if(){
@@ -39,7 +37,7 @@
                         postData = util.mix({},this.getData(), e);
                     }
                 }
-                if(postData) this.search.call(this, postData);
+                if(postData) this.search(postData);
 
             //}
         },
@@ -88,6 +86,6 @@
 
         }
 
-    }).inherits(cellula.Block);
+    }).inherits(cellula.Cell);
 })(Cellula);
 
