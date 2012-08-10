@@ -79,7 +79,7 @@
 
 (function(util, Class, Element){
     this.ElementAlipay = new Class('ElementAlipay', {
-        isValidated : true,
+        _isValidated : true,
         silent : true,
         node : null,
         elementData : {},

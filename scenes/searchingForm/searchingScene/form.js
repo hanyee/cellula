@@ -13,13 +13,20 @@
             this._super(cfg);
             this._bindAll('search','doSearch','dataDispatch');
             this.render();
-
             //this.registerEvents();
+        },
+        getData : function(){// returns all elements' data
+            var t = {};
+            util.each(this.collection.get(), function(v){
+                t = util.mix(t, v.get());
+            });
+
+            return t;
         },
         doSearch : function(e){
             // TODO:
             // to deal with different framework's events handler
-            var pageDefault, size, postData, isEvent = false;
+            var pageDefault, cll, size, postData, isEvent = false;
             if(e && e.preventDefault){
                 e.preventDefault();
                 isEvent = true;
@@ -27,11 +34,21 @@
             //if(this.save.apply(this, isEvent?arguments:[]) === undefined){
             //    if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
             //if(){
-                if((isEvent || (!isEvent && !e) ) && this.save.apply(this, isEvent?arguments:[]) === undefined){ // trigger by event // direct operation
+                //if((isEvent || (!isEvent && !e) ) && this.save.apply(this, isEvent?arguments:[]) === undefined){ // trigger by event // direct operation
+                if((isEvent || (!isEvent && !e) ) && this.collection.save()){ // trigger by event // direct operation
+                    alert('here');
                     pageDefault = this.applyInterface('getDefault');
+                    console.log(pageDefault);
+                    cll = this.applyInterface('getCollection');
+                    cll.save('size');
                     //size = this.applyInterface('getData', 'size');
-                    size = this.applyInterface('getSavedData', 'size');
+                    //size = this.applyInterface('getSavedData', 'size');
+                    size = cll.get('size');
+                    size = size.get(util.keys(size.get())[0]);
+                    console.log(size);
+                    console.log(this.getData());
                     postData = util.mix(this.getData(), util.isEmptyObject(size) || !size[util.getFirstPropName(size)] ? (pageDefault.size?pageDefault.size:size) : size, pageDefault.number?pageDefault.number:{});
+                    console.log(postData);
                 }else{
                     if(e){ // triggered by paginator
                         postData = util.mix({},this.getData(), e);
