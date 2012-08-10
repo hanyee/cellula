@@ -19,11 +19,7 @@
                 this.tipNodes[n] = this.getNode(this.tips[n]);
             }
         },
-        //getNode : function(rootStyle){
-        //    return this._super(rootStyle, 'data tables');
-        //},
         init : function(cfg){
-            //this.initCfg(cfg);
             this._super(cfg);
             this.initTip();
             //this.registerEvents();
@@ -41,9 +37,7 @@
         render : function(data){
             util.addClass(this.tipNodes.error, this.hideClass);
             util.addClass(this.tipNodes.noResult, this.hideClass);
-            //var root = this.getNode('ui-table');
             var root = this.rootNode;
-            //var root = this.getNode(this.root);
 
             if(data.dataTable.rows.length === 0){
                 //this.show(false);

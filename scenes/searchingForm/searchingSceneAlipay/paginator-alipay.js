@@ -17,7 +17,7 @@ var PaginatorAlipay = new Class('PaginatorAlipay', {
         this._initCfg(cfg);
         this.rootNode = this.getNode('ui-paging');
         this._bindAll('changeSize', 'paginate');
-
+console.log(this.rootNode);
         //this.render();
     }
 }).inherits(Paginator);

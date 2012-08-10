@@ -26,37 +26,29 @@
         doSearch : function(e){
             // TODO:
             // to deal with different framework's events handler
-            var pageDefault, cll, size, postData, isEvent = false;
+            var pageDefault, cll, size, sv, sizeData, postData, isEvent = false;
             if(e && e.preventDefault){
                 e.preventDefault();
                 isEvent = true;
             }
-            //if(this.save.apply(this, isEvent?arguments:[]) === undefined){
-            //    if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
-            //if(){
-                //if((isEvent || (!isEvent && !e) ) && this.save.apply(this, isEvent?arguments:[]) === undefined){ // trigger by event // direct operation
-                if((isEvent || (!isEvent && !e) ) && this.collection.save()){ // trigger by event // direct operation
-                    alert('here');
-                    pageDefault = this.applyInterface('getDefault');
-                    console.log(pageDefault);
-                    cll = this.applyInterface('getCollection');
-                    cll.save('size');
-                    //size = this.applyInterface('getData', 'size');
-                    //size = this.applyInterface('getSavedData', 'size');
-                    size = cll.get('size');
-                    size = size.get(util.keys(size.get())[0]);
-                    console.log(size);
-                    console.log(this.getData());
-                    postData = util.mix(this.getData(), util.isEmptyObject(size) || !size[util.getFirstPropName(size)] ? (pageDefault.size?pageDefault.size:size) : size, pageDefault.number?pageDefault.number:{});
-                    console.log(postData);
-                }else{
-                    if(e){ // triggered by paginator
-                        postData = util.mix({},this.getData(), e);
-                    }
-                }
-                if(postData) this.search(postData);
 
-            //}
+            if ((isEvent || (!isEvent && !e) ) && this.collection.save()) { // trigger by event // direct operation
+                pageDefault = this.applyInterface('getDefault');
+                cll = this.applyInterface('getCollection');
+                cll.save('size');
+                size = cll.get('size');
+                sizeData = size.get();
+                sv = util.values(sizeData)[0];
+                postData = util.mix(this.getData(), util.isEmpty(sv) ? pageDefault.size : sizeData, pageDefault.number || {});
+            } else {
+                if (e) { // triggered by paginator
+                    console.log(e);
+                    postData = util.mix({}, this.getData(), e);
+                }
+            }console.log(postData);
+            if (postData) this.search(postData);
+
+
         },
         search : function(data){
             //console.log('search');
@@ -89,10 +81,6 @@
             // TODO:
             // no result
 
-
-
-
-
             // to table
             //this.applyInterface('DataTableAlipay.render',data.dataTable);
 
@@ -100,6 +88,7 @@
             //this.applyInterface('PaginatorAlipay.render',data.paging);
 
             this.applyInterface('render', data);
+            console.log('done');
 
         }
 
