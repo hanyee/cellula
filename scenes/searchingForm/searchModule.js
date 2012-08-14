@@ -18,7 +18,7 @@ var SearchModuleBase = new Class('SearchModuleBase' ,{
         tip = tip || '';
         throw new Error('root id undefined or more ' + tip + '!');
     },
-    initCfg : function(cfg){
+    _initCfg : function(cfg){
         if (typeof cfg === 'object') {
             for (var n in this) {
                 //this[n] = cfg[n] ? cfg[n] : this[n];

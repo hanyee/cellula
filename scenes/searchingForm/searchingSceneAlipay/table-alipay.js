@@ -12,7 +12,7 @@ var DataTableAlipay = new Class('DataTableAlipay', {
         error : 'ui-notice-error'
     },
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
         this.rootNode = this.getNode('ui-table');
         this.initTip();
         this.registerEvents();

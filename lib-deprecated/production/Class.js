@@ -22,7 +22,7 @@
                     };
                 };
 
-                this.bindAll = function() {
+                this._bindAll = function() {
                     for(var n = 0; n<arguments.length;n++){
                         this[arguments[n]] = this.bind(this[arguments[n]], this);
                     }

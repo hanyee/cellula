@@ -7,11 +7,17 @@
  */
 var PaginatorAlipay = new Class('PaginatorAlipay', {
     hideClass : 'fn-hide',
+    pageDefault:{
+        number : {number:1},
+        size : {size:10},
+        sizeDefault : 5,
+        sizeOptions : [10,20,30]
+    },
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
         this.rootNode = this.getNode('ui-paging');
-        this.bindAll('changeSize', 'paginate');
-
+        this._bindAll('changeSize', 'paginate');
+console.log(this.rootNode);
         //this.render();
     }
 }).inherits(Paginator);

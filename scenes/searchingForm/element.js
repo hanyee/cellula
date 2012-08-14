@@ -27,7 +27,7 @@ var QueryElement = new Class('QueryElement',{
                 return false;
             }
             this.data = UtilTools.mix({},t.data);
-            this.isValidated = true;
+            this._isValidated = true;
             return true;
         }
     },
@@ -62,7 +62,7 @@ var ElementFactory = function (typeClass, elements) {
         for (var n in elements) {
             var t = new typeClass(elements[n]);
             //t.isValidated ? elArray.push(t) : delete t;
-            t.isValidated ? elArray[t.key] = t : delete t;
+            t._isValidated ? elArray[t.key] = t : delete t;
         }
         return elArray;
     } else {

@@ -15,7 +15,7 @@ var DataTableAlipay = new Class('DataTableAlipay', {
     },
     tableTpl : '',
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
         this.registerEvents();
     },
     render : function(data){
@@ -92,9 +92,9 @@ var PaginatorAlipay = new Class('PaginatorAlipay', {
         }
     },
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
 
-        this.bindAll('changeSize', 'paginate');
+        this._bindAll('changeSize', 'paginate');
 
         //this.render();
     },

@@ -5,38 +5,50 @@
  * Time: 下午2:55
  * To change this template use File | Settings | File Templates.
  */
-(function(util){
-    this.SearchingForm = new Class('SearchingForm', {
+(function(cellula){
+    var util = cellula._util;
+    this.SearchingForm = new cellula.Class('SearchingForm', {
         validateAll : false,
         init : function(cfg){
-            this.initCfg(cfg);
-            this.bindAll('search','doSearch','dataDispatch');
+            this._super(cfg);
+            this._bindAll('search','doSearch','dataDispatch');
+            this.render();
+            //this.registerEvents();
+        },
+        getData : function(){// returns all elements' data
+            var t = {};
+            util.each(this.collection.get(), function(v){
+                t = util.mix(t, v.get());
+            });
 
-            this.registerEvents();
+            return t;
         },
         doSearch : function(e){
             // TODO:
             // to deal with different framework's events handler
-            var pageDefault, size, postData, isEvent = false;
+            var pageDefault, cll, size, sv, sizeData, postData, isEvent = false;
             if(e && e.preventDefault){
                 e.preventDefault();
                 isEvent = true;
             }
 
-            if(this.save.apply(this, isEvent?arguments:[]) === undefined){
-                if(isEvent || (!isEvent && !e)){ // trigger by event // direct operation
-                    pageDefault = this.applyInterface('getDefault');
-                    size = this.applyInterface('getData', 'size');
-                    postData = util.mix(this.getData(), util.isEmptyObject(size)?pageDefault.size?pageDefault.size:size:size, pageDefault.number?pageDefault.number:{});
-                }else{
-                    if(e){ // triggered by paginator
-                        postData = util.mix({},this.getData(), e);
-                    }
+            if ((isEvent || (!isEvent && !e) ) && this.collection.save()) { // trigger by event // direct operation
+                pageDefault = this.applyInterface('getDefault');
+                cll = this.applyInterface('getCollection');
+                cll.save('size');
+                size = cll.get('size');
+                sizeData = size.get();
+                sv = util.values(sizeData)[0];
+                postData = util.mix(this.getData(), util.isEmpty(sv) ? pageDefault.size : sizeData, pageDefault.number || {});
+            } else {
+                if (e) { // triggered by paginator
+                    console.log(e);
+                    postData = util.mix({}, this.getData(), e);
                 }
-                this.search.call(this, postData);
+            }console.log(postData);
+            if (postData) this.search(postData);
 
-                // paginating
-            }
+
         },
         search : function(data){
             //console.log('search');
@@ -66,6 +78,9 @@
                 return ;
             }
 
+            // TODO:
+            // no result
+
             // to table
             //this.applyInterface('DataTableAlipay.render',data.dataTable);
 
@@ -73,9 +88,10 @@
             //this.applyInterface('PaginatorAlipay.render',data.paging);
 
             this.applyInterface('render', data);
+            console.log('done');
 
         }
 
-    }).inherits(Cellula.Block);
-})(Cellula._util);
+    }).inherits(cellula.Cell);
+})(Cellula);
 
