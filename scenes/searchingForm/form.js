@@ -8,9 +8,9 @@
 
 var SearchingForm = new Class('SearchingForm', {
     init : function(cfg){
-        this.initCfg(cfg);
+        this._initCfg(cfg);
 
-        this.bindAll('search','doSearch','dataDispatch');
+        this._bindAll('search','doSearch','dataDispatch');
 
         this.registerEvents();
     },

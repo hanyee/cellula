@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0/jasmine.css">
+
+</head>
+<body style="padding: 30px;">
+</body>
+<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine.js"></script>
+<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+<script type="text/javascript">
+    araleConfig = {
+        combo_host: 'https://assets.alipay.com',
+        combo_path: '/ar/??',
+        debug: true
+    }
+</script>
+<script type="text/javascript" charset="utf-8" src="https://assets.alipay.com/ar/arale.core-1.1-src.js"></script>
+<script type="text/javascript" charset="utf-8"
+        src="https://assets.alipay.com/ar/aralex.calendar-1.4-index.js"></script>
+<script type="text/javascript" charset="utf-8"
+        src="https://assets.alipay.com/ar/aralex.validator.Validator-1.4-index.js"></script>
+<script type="text/javascript" src="../js/araleCore.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/araleBackbone.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/searchScene.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+    var mySearchFormField1 = new FormScene.FormField({
+        type: ["alpha", ["lengthBetween", 2,8]],
+        alias: "PNR",
+        required:true
+    });
+    var mySearchFormField2 = new FormScene.FormField({
+        type: ["alpha"],
+        alias: "PNR",
+        required:false
+    });
+    //isBoolean
+    var mySearchFormField3 = new FormScene.FormField({
+        type: ["Boolean"],
+        alias: "Boolean",
+        required:false
+    });
+
+    var mySearchFormField4 = new FormScene.FormField({
+        type: ["date"],
+        alias: "date",
+        required:false
+    });
+
+    var mySearchFormModel1 = FormScene.FormModel.CreateCollection({
+        branchId:{
+            type: ["alpha", ["lengthBetween", 2,8]],
+            alias: "PNR号",
+            required:true
+        },
+        startDate:{
+            type: ["date"],
+            alias:"开始时间"
+        },
+        endDate:{
+            type: ["date"],
+            alias:"结束时间"
+        },
+        validate:function() {
+            if (this.get('endDate') && this.get('startDate')) {
+                if (new Date(this.get('endDate')).getTime() < new Date(this.get('startDate')).getTime()) {
+                    //console.log('canot end before it starts ' + new Date(this.get('endDate')).getTime() + " " + new Date(this.get('startDate')).getTime());
+                    return "can't end before it starts";
+                }
+            }
+            return false;
+        }
+    });
+    mySearchFormModel1.on(FormScene.FormModel.VALIDATEFAIL, function(e) {
+        console.log('mySearchFormModel1 输入数据不合法:');
+        //console.log(e);
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    //unitTest
+    describe("Largest Test", function() {
+
+        it("mySearchFormField1.set('value', 0);", function() {
+            var result = mySearchFormField1.set('value', 0);
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormField1.set('value', 'a')", function() {
+            var result = mySearchFormField1.set('value', 'a');
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormField1.set('value', 'aa');", function() {
+            var result = mySearchFormField1.set('value', 'aa');
+            expect(mySearchFormField1.get('value')).toEqual('aa');
+        });
+
+
+        it("mySearchFormField1.set('value', 'a0');", function() {
+            var result = mySearchFormField1.set('value', 'a0');
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormField1.set('value', 'a0a');", function() {
+            var result = mySearchFormField1.set('value', 'a0a');
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormField1.set('value', 'aaaaaaaa');", function() {
+            var result = mySearchFormField1.set('value', 'aaaaaaaa');
+            expect(mySearchFormField1.get('value')).toEqual('aaaaaaaa');
+        });
+        it(" mySearchFormField1.set('value','aaaaaaaab');", function() {
+            var result = mySearchFormField1.set('value', 'aaaaaaaab');
+            expect(result).toEqual(false);
+        });
+
+        it("mySearchFormField2.set('value','');", function() {
+            var result = mySearchFormField2.set('value', '');
+            expect(mySearchFormField2.get('value')).toEqual('');
+        });
+        it("mySearchFormField2.set('value',undefined);", function() {
+            var result = mySearchFormField2.set('value', undefined);
+            expect(mySearchFormField2.get('value')).toEqual(undefined);
+        });
+        it("mySearchFormField2.set('value','a0');", function() {
+            var result = mySearchFormField2.set('value', 'a0');
+            expect(result).toEqual(false);
+        });
+
+        it("mySearchFormField3.set('value','a0');", function() {
+            var result = mySearchFormField3.set('value', 'a0');
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormField3.set('value',true);", function() {
+            var result = mySearchFormField3.set('value', true);
+            expect(mySearchFormField3.get('value')).toEqual(true);
+        });
+        it("mySearchFormField3.set('value',undefined);", function() {
+            var result = mySearchFormField3.set('value', undefined);
+            expect(mySearchFormField3.get('value')).toEqual(null);
+        });
+
+        it("mySearchFormField4.set('value', 'aa');", function() {
+            var result = mySearchFormField4.set('value', 'aa');
+            expect(result).toEqual(false);
+        });
+
+        it("mySearchFormField4.set('value', '2012-10-10');", function() {
+            var result = mySearchFormField4.set('value', '2012-10-10');
+            expect(result.get('value')).toEqual('2012-10-10');
+        });
+
+
+        it("mySearchFormModel1.insertModel('branchId',{name:'branchId'})", function() {
+            var result = mySearchFormModel1.insertModel('branchId', {name:'branchId'});
+            expect(result).toEqual(false);
+        });
+        it("mySearchFormModel1.insertModel('branchId',{name:'branchId'})", function() {
+            var result = mySearchFormModel1.set('branchId', '');
+            expect(result).toEqual(false);
+        });
+
+        it("mySearchFormModel1.has('branchId2')", function() {
+            var result = mySearchFormModel1.has('branchId2');
+            expect(result).toEqual(false);
+        });
+
+        it("mySearchFormModel1.set({'branchId':'addd','startDate':'2012-02-01','endDate':'2011-01-10'})", function() {
+            mySearchFormModel1.set({'branchId':'abcd','startDate':'2012-02-01','endDate':'2012-03-10'});
+            //console.log("1:" + mySearchFormModel1.get('branchId'));
+            mySearchFormModel1.set({'branchId':'efgh','startDate':'2012-02-01','endDate':'2011-01-10'});
+            //console.log("2:" + mySearchFormModel1.get('branchId'));
+            mySearchFormModel1.set({'branchId':'jklm','startDate':'2012-02-01','endDate':'2011-01-01'});
+            //console.log("3:" + mySearchFormModel1.get('branchId'));
+            var result = mySearchFormModel1.get('branchId');
+            expect(result).toEqual('abcd');
+
+        });
+
+
+    })
+</script>
+<script type="text/javascript">
+    (function() {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var trivialReporter = new jasmine.TrivialReporter();
+
+        jasmineEnv.addReporter(trivialReporter);
+
+        jasmineEnv.specFilter = function(spec) {
+            return trivialReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function() {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+
+    })();
+</script>
+</html>

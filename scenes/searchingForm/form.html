@@ -219,7 +219,7 @@
 
 </form>
 
-<script type="text/javascript" src="jquery-1.7.2.js"></script>
+<script type="text/javascript" src="../jquery-1.7.2.js"></script>
 
 <script type="text/javascript" src="../../lib/base/cellula.js"></script>
 <script type="text/javascript" src="../../lib/base/class.js"></script>
@@ -231,19 +231,21 @@
 <script type="text/javascript" src="searchingScene/paginator.js"></script>
 <script type="text/javascript" src="searchingScene/table.js"></script>
 
+
+<script type="text/javascript" src="searchingSceneAlipay/queryElement-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/form-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/table-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/paginator-alipay.js"></script>
 <script type="text/javascript" src="searchingSceneAlipay/assets-alipay.js"></script>
 <!--
-<script type="text/javascript" src="../lib-old/dev/Class.js"></script>
-<script type="text/javascript" src="lib-old/util.js"></script>
-<script type="text/javascript" src="lib-old/searchModule.js"></script>
-<script type="text/javascript" src="lib-old/form.js"></script>
-<script type="text/javascript" src="lib-old/paginator.js"></script>
-<script type="text/javascript" src="lib-old/element.js"></script>
-<script type="text/javascript" src="lib-old/table.js"></script>
-<script type="text/javascript" src="lib-old/searchingSceneAlipay.js"></script>
+<script type="text/javascript" src="../lib-deprecated/dev/Class.js"></script>
+<script type="text/javascript" src="lib-deprecated/util.js"></script>
+<script type="text/javascript" src="lib-deprecated/searchModule.js"></script>
+<script type="text/javascript" src="lib-deprecated/form.js"></script>
+<script type="text/javascript" src="lib-deprecated/paginator.js"></script>
+<script type="text/javascript" src="lib-deprecated/element.js"></script>
+<script type="text/javascript" src="lib-deprecated/table.js"></script>
+<script type="text/javascript" src="lib-deprecated/searchingSceneAlipay.js"></script>
 -->
 
 <script type="text/javascript">
@@ -256,14 +258,16 @@
 
 
 /************************************************/
-    var elementsArray = Cellula.Element.factory([{
+    //var elementsArray = Cellula.Element.factory([{
+    var elementsArray = QueryElementAlipay.factory([{
         key : 'calendar',
         value : "{beginDate : $('#J_beginDate').val(), endDate : $('#J_endDate').val()}",
         //errHandler : function(msg){},
-        validate : function(){
+        validate : function(data){
             $('.ui-form-explain').eq(0).html('').addClass('fn-hide');
 
-            var b = this.data.value.beginDate, e = this.data.value.endDate;
+            //var b = this.data.value.beginDate, e = this.data.value.endDate;
+            var b = data.value.beginDate, e = data.value.endDate;
             if(!(regCal.test(b) && regCal.test(e))){
                 return '日期格式错误！';
             }
@@ -277,8 +281,9 @@
         errHandler : function(msg){
             $('.ui-form-explain').eq(0).html(msg).removeClass('fn-hide');
         },
-        validate : function(){
-            if(this.data.value.siteNo.length > 5 ){
+        validate : function(data){
+            //if(this.data.value.siteNo.length > 5 ){
+            if(data.value.siteNo.length > 5 ){
                 return '长度不能大于5！';
             }
         }
@@ -287,7 +292,8 @@
         value : "{batchNo : $(this.key).val()}"
     }]);
 
-    var pageElements = Cellula.Element.factory([{
+    //var pageElements = Cellula.Element.factory([{
+    var pageElements = QueryElementAlipay.factory([{
         key : 'page',
         value : "{current : $('#J_pagingCurrent').val(), totalItems : $('#J_totalItmes').val()}"
         //value : "{current : 1, totalPages : 8}"
@@ -297,8 +303,9 @@
         key : 'number',
         value : "{number : $('#J_pageNumber').val()}",
         //errHandler : function(msg){},
-        validate : function(){
-            var v = this.data.value.number;
+        validate : function(data){
+            //var v = this.data.value.number;
+            var v = data.value.number;
             if(v && isNaN(Number(v))){
                 return 'must be a number!';
             }
@@ -358,10 +365,6 @@
     var pg = new PaginatorAlipay({
         collection : pageElements,
         pageTpl : searchingSceneAssets.pagingTplStyles[0],
-        pageDefault : {
-            number : {number : 1},
-            size : {size : 10}
-        },
         registerEvents : function(){
             //$('#J_sizePerPage').bind('change', this.changeSize);
             //$('.ui-paging-goto').bind('click', this.paginate);
@@ -373,7 +376,7 @@
 
     // for ajax
     var dt = new DataTableAlipay({
-        tableTpl : searchingSceneAssets.tableTplStyles[0]
+        tableTpl : {body : searchingSceneAssets.tableTplStyles[0]}
     });
 
     !function(){
