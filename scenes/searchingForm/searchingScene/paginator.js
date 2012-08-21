@@ -1,10 +1,11 @@
 /**
- * Created by JetBrains WebStorm.
- * User: hanyee
- * Date: 12-6-27
- * Time: 下午2:55
- * To change this template use File | Settings | File Templates.
+ * @fileOverview SearchingScene's paging module definition based on Cellula.
+ * @description: defines paginator module
+ * @namespace: Cellula
+ * @version: 0.3.1
+ * @author: @hanyee
  */
+
 (function(cellula){
     var util = cellula._util;
     this.Paginator = new cellula.Class('Paginator', {
@@ -30,13 +31,13 @@
         // sizeDefault : 5,  // deprecated
         pageTpl : '',
         typeEnum : {
-            first : '\\bfirst\\b',
-            last : '\\blast\\b',
-            prev : '\\bprev\\b',
-            next : '\\bnext\\b',
-            goto : '\\bgoto\\b'
-            //current : '\\bcurrent\\b'
-            //number : '(\\D*)(\\d+)(\\D*)'
+            'first' : '\\bfirst\\b',
+            'last' : '\\blast\\b',
+            'prev' : '\\bprev\\b',
+            'next' : '\\bnext\\b',
+            'goto' : '\\bgoto\\b'
+            //'current' : '\\bcurrent\\b'
+            //'number' : '(\\D*)(\\d+)(\\D*)'
         },
         init:function (cfg) {
             this._super(cfg);
@@ -120,11 +121,10 @@
             return this.pageDefault;
         },
         changeSize : function(e){
-            this.save('size');
+            var size = this.collection.get('size');
+            size.save();
             console.log('change');
-            // TODO:
-            // mix this.getData() && this.pageDefault.number
-            this.applyInterface('doSearch', UT.mix(this.getData(),this.pageDefault.number));
+            return this.applyInterface('doSearch', util.mix({}, size.get(), this.pageDefault.number));
         },
         prepareTplConfig : function(data){
             var pageEl = this.collection.get('page');
@@ -141,11 +141,15 @@
                 half = (sd-1)/2,
                 tplCfg;
 
-            //this.save('page');
+            if(current < 1) current = 1;
+            if(current > pages) current = pages;
+
             pageEl.set({totalPages : pages});
 
             tplCfg = {
                 size : size,
+                pre : current !== 1,
+                next : current !== pages,
                 options : [],
                 totalItems : total,
                 startItem : (current-1)*size+1,

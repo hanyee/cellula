@@ -46,9 +46,9 @@ searchingSceneAssets.pagingTplStyles = [
     +'</div>',
 
     '<div class="mi-paging fn-right">'
-        +'<a class="mi-paging-prev" href="#">上一页</a>'
+        +'$-{#pre}<a class="mi-paging-prev" href="#">上一页</a>$-{/pre}'
         +'<span class="mi-paging-info">第<span class="mi-paging-bold">$-{current}/$-{totalPages}</span>页</span>'
-        +'<a class="mi-paging-next" href="#">下一页</a>'
+        +'$-{#next}<a class="mi-paging-next" href="#">下一页</a>$-{/next}'
         +'<span class="mi-paging-info fn-ml0"><span class="mi-paging-bold">$-{current}/$-{totalPages}</span>页</span>'
         +'<span class="mi-paging-info mi-paging-which"><input id="J_number" type="text" value="" name="number"></span>'
         +'<a href="#" class="mi-paging-info mi-paging-goto"><span>跳转</span></a>'
@@ -63,7 +63,7 @@ searchingSceneAssets.pagingTplStyles = [
 
 searchingSceneAssets.tableTplStyles = [
     '$-{#rows}<tr$-{#spliter} class="mi-table-spliter"$-{/spliter}>'
-        +'$-{#items}<td>'
+        +'$-{#items}<td$-{#red} class="red"$-{/red}>'
         +'$-{content}'
         +'$-{#operate}'
         +'$-{#detail}<a href="$-{detailUrl}">$-{detail}</a>$-{/detail}'
