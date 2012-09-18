@@ -1,10 +1,11 @@
 /**
- * Created by JetBrains WebStorm.
- * User: hanyee
- * Date: 12-6-27
- * Time: 下午2:55
- * To change this template use File | Settings | File Templates.
+ * @fileOverview SearchingScene's table module definition based on Cellula.
+ * @description: defines datatable module
+ * @namespace: Cellula
+ * @version: 0.3.1
+ * @author: @hanyee
  */
+
 (function(cellula){
     var util = cellula._util;
     this.DataTable = new cellula.Class('DataTable', {

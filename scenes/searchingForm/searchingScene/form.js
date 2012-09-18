@@ -1,10 +1,11 @@
 /**
- * Created by JetBrains WebStorm.
- * User: hanyee
- * Date: 12-6-27
- * Time: 下午2:55
- * To change this template use File | Settings | File Templates.
+ * @fileOverview SearchingScene's form module definition based on Cellula.
+ * @description: defines form module
+ * @namespace: Cellula
+ * @version: 0.3.1
+ * @author: @hanyee
  */
+
 (function(cellula){
     var util = cellula._util;
     this.SearchingForm = new cellula.Class('SearchingForm', {
@@ -13,8 +14,10 @@
             this._super(cfg);
             this._bindAll('search','doSearch','dataDispatch');
             this.render();
+            //this.disable(true);
             //this.registerEvents();
         },
+        disable : function(){},
         getData : function(){// returns all elements' data
             var t = {};
             util.each(this.collection.get(), function(v){
@@ -41,7 +44,7 @@
                 sv = util.values(sizeData)[0];
                 postData = util.mix(this.getData(), util.isEmpty(sv) ? pageDefault.size : sizeData, pageDefault.number || {});
             } else {
-                if (e) { // triggered by paginator
+                if (!isEvent && e) { // triggered by paginator
                     console.log(e);
                     postData = util.mix({}, this.getData(), e);
                 }
