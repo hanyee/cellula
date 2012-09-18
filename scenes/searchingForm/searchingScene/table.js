@@ -45,9 +45,9 @@
                 //this.applyInterface('error');
                 //util.removeClass(this.tipNodes.noResult, this.hideClass);
                 this.showNoResult();
-                return ;
+                return false;
             }
-            data = data.dataTable;
+            //data = data.dataTable;
             var table = root.getElementsByTagName('table')[0],
                 thead = table.getElementsByTagName('thead')[0],
                 tbody = table.getElementsByTagName('tbody')[0],
@@ -57,11 +57,11 @@
             if(tbody) table.removeChild(tbody);
 
             var div = document.createElement('div');
-            div.innerHTML = '<table><thead>' + util.parseTpl(this.tableTpl.head, data) + '</thead></table>';
+            div.innerHTML = '<table><thead>' + util.parseTpl(this.tableTpl.head, data.dataTable) + '</thead></table>';
             thead = div.getElementsByTagName('thead')[0];
             table.appendChild(thead);
 
-            div.innerHTML = '<table><tbody>' + util.parseTpl(this.tableTpl.body, data) + '</tbody></table>';
+            div.innerHTML = '<table><tbody>' + util.parseTpl(this.tableTpl.body, data.dataTable) + '</tbody></table>';
             tbody = div.getElementsByTagName('tbody')[0];
             table.appendChild(tbody);
 
@@ -69,6 +69,7 @@
             this.show(true);
 
             this.registerEvents();
+            this.applyInterface('render',data);
         }
 
     }).inherits(cellula.Cell);

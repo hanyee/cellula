@@ -72,5 +72,10 @@ searchingSceneAssets.tableTplStyles = [
         +'</td>$-{/items}'
         +'</tr>$-{/rows}',
         //+'$-{#operate}<td>$-{#detail}<a href="$-{detailUrl}">$-{detail}</a>$-{/detail}$-{#refund}  <a href="$-{refundUrl}">$-{refund}</a>$-{/refund}</td>$-{/operate}'
-    '<tr>$-{#head}<th>$-{content}</th>$-{/head}</tr>'
+    '<tr>$-{#head}<th>$-{content}</th>$-{/head}</tr>',
+
+    '$-{#rows}<tr>' +
+        '<td class="ft-right">$-{title}</td>' +
+        '<td>$-{content}</td>' +
+        '</tr>$-{/rows}'
 ];
