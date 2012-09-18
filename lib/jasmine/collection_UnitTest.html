@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0/jasmine.css">
+
+</head>
+<body style="padding: 30px;">
+</body>
+<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine.js"></script>
+<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+<script type="text/javascript" src="../base/cellula.js" charset="utf-8"></script>
+<script type="text/javascript" src="../base/class.js" charset="utf-8"></script>
+<script type="text/javascript" src="../base/util.js" charset="utf-8"></script>
+<script type="text/javascript" src="../base/collection.js" charset="utf-8"></script>
+
+
+
+
+<script type="text/javascript">
+    var util = Cellula._util;
+    var newClass = Cellula.Class.create('Cell',{
+        key:1,
+        foo:function(a){
+            alert(a);
+        }
+    })
+    var newClassInstance = new newClass();
+
+    //unitTest
+    describe("Util Test", function() {
+
+
+        it("util.mix", function() {
+            var a = newClassInstance;
+            var b = {a:1,b:2,c:a,d:{aa:1}};
+            util.mix(a,b);
+            b.a=222;
+            expect(a.a).toEqual(1);
+            a.key =4;
+            expect(b.c.key).toEqual(4);
+            b.d.aa=4;
+            expect(a.d.aa).toEqual(4);
+        });
+        it("util.deepMix", function() {
+            var a = newClassInstance;
+            var b = {a:1,b:2,d:{aa:1}};
+            util.deepMix(a,b);
+            expect(a.a).toEqual(1);
+            b.d.aa=4;
+            expect(a.d.aa).toEqual(1);
+        });
+
+
+
+    })
+</script>
+<script type="text/javascript">
+    (function() {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var trivialReporter = new jasmine.TrivialReporter();
+
+        jasmineEnv.addReporter(trivialReporter);
+
+        jasmineEnv.specFilter = function(spec) {
+            return trivialReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function() {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+
+    })();
+</script>
+</html>
