@@ -42,13 +42,15 @@
                 size = cll.get('size');
                 sizeData = size.get();
                 sv = util.values(sizeData)[0];
+
                 postData = util.mix(this.getData(), util.isEmpty(sv) ? pageDefault.size : sizeData, pageDefault.number || {});
             } else {
                 if (!isEvent && e) { // triggered by paginator
                     console.log(e);
                     postData = util.mix({}, this.getData(), e);
                 }
-            }console.log(postData);
+            }
+            console.log(postData);
             if (postData) this.search(postData);
 
 
