@@ -1,0 +1,13 @@
+load:
+  - jasmine/lib/jasmine-1.1.0/jasmine.js
+  - jasmine/lib/jasmineAdapter.js
+  - base/cellula.js
+  - base/class.js
+  - base/util.js
+  - base/cell.js
+  - base/element.js
+  - base/collection.js
+  - base/message.js
+
+test:
+  - test/BaseTest.js
