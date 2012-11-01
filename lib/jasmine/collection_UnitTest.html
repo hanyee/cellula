@@ -34,24 +34,24 @@
 
 
         it("util.mix", function() {
-            var a = newClassInstance;
-            var b = {a:1,b:2,c:a,d:{aa:1}};
-            util.mix(a,b);
-            b.a=222;
-            expect(a.a).toEqual(1);
-            a.key =4;
-            expect(b.c.key).toEqual(4);
-            b.d.aa=4;
-            expect(a.d.aa).toEqual(4);
-        });
-        it("util.deepMix", function() {
-            var a = newClassInstance;
-            var b = {a:1,b:2,d:{aa:1}};
-            util.deepMix(a,b);
-            expect(a.a).toEqual(1);
-            b.d.aa=4;
-            expect(a.d.aa).toEqual(1);
-        });
+                    var a = newClassInstance;
+                    var b = {a:1,b:2,c:a,d:{aa:1}};
+                    util.mix(a,b);
+                    b.a=222;
+                    expect(a.a).toEqual(1);
+                    a.key =4;
+                    expect(b.c.key).toEqual(4);
+                    b.d.aa=4;
+                    expect(a.d.aa).toEqual(4);
+                });
+                it("util.deepMix", function() {
+                    var a = newClassInstance;
+                    var b = {a:1,b:2,d:{aa:1}};
+                    util.deepMix(a,b);
+                    expect(a.a).toEqual(1);
+                    b.d.aa=4;
+                    expect(a.d.aa).toEqual(1);
+                });
 
 
 

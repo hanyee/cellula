@@ -1,0 +1,1200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="canonical" href="http://backbonejs.org" />
+  <link rel="icon" href="" />
+  <title>Cellula.js</title>
+  <style>
+    body {
+      font-size: 14px;
+      line-height: 22px;
+      font-family: Helvetica Neue, Helvetica, Arial;
+      background: #fffff0;
+    }
+    .interface {
+      font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+    }
+    div#sidebar {
+      background: #FdFde0;
+      position: fixed;
+      z-index: 10;
+      top: 0; left: 0; bottom: 0;
+      width: 200px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 15px 0 30px 30px;
+      border-right: 1px solid #bbb;
+      box-shadow: 0 0 20px #ccc; -webkit-box-shadow: 0 0 20px #ccc; -moz-box-shadow: 0 0 20px #ccc;
+    }
+      a.toc_title, a.toc_title:visited {
+        display: block;
+        color: black;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+        a.toc_title:hover {
+          text-decoration: underline;
+        }
+        #sidebar .version {
+          font-size: 10px;
+          font-weight: normal;
+        }
+      ul.toc_section {
+        font-size: 11px;
+        line-height: 14px;
+        margin: 5px 0 0 0;
+        padding-left: 0px;
+        list-style-type: none;
+        font-family: Lucida Grande;
+      }
+        .toc_section li {
+          cursor: pointer;
+          margin: 0 0 3px 0;
+        }
+          .toc_section li a {
+            text-decoration: none;
+            color: black;
+          }
+            .toc_section li a:hover {
+              text-decoration: underline;
+            }
+    div.container {
+      position: relative;
+      width: 550px;
+      margin: 40px 0 50px 260px;
+    }
+    img#logo {
+      width: 451px;
+      height: 80px;
+    }
+    div.run {
+      position: absolute;
+      right: 15px;
+      width: 26px; height: 18px;
+      background: url('docs/images/arrows.png') no-repeat -26px 0;
+    }
+      div.run:active {
+        background-position: -51px 0;
+      }
+    p, div.container ul {
+      margin: 25px 0;
+      width: 550px;
+    }
+      p.warning {
+        font-size: 12px;
+        line-height: 18px;
+        font-style: italic;
+      }
+      div.container ul {
+        list-style: circle;
+        padding-left: 15px;
+        font-size: 13px;
+        line-height: 18px;
+      }
+        div.container ul li {
+          margin-bottom: 10px;
+        }
+        div.container ul.small {
+          font-size: 12px;
+        }
+    a, a:visited {
+      color: #444;
+    }
+    a:active, a:hover {
+      color: #000;
+    }
+    a.punch {
+      display: inline-block;
+      background: #4162a8;
+      border-top: 1px solid #38538c;
+      border-right: 1px solid #1f2d4d;
+      border-bottom: 1px solid #151e33;
+      border-left: 1px solid #1f2d4d;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+      -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+      -ms-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+      -o-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+      box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+      color: #fff;
+      font: bold 14px "helvetica neue", helvetica, arial, sans-serif;
+      line-height: 1;
+      margin-bottom: 15px;
+      padding: 8px 0 10px 0;
+      text-align: center;
+      text-shadow: 0px -1px 1px #1e2d4d;
+      text-decoration: none;
+      width: 225px;
+      -webkit-background-clip: padding-box; }
+      a.punch:hover {
+        -webkit-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+        -moz-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+        -ms-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+        -o-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+        box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
+        cursor: pointer; }
+      a.punch:active {
+        -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+        -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+        -ms-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+        -o-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+        box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
+        margin-top: 5px; margin-bottom: 10px }
+    a img {
+      border: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      padding-top: 20px;
+    }
+      h2 {
+        font-size: 22px;
+      }
+    b.header {
+      font-size: 18px;
+      line-height: 35px;
+    }
+    span.alias {
+      font-size: 14px;
+      font-style: italic;
+      margin-left: 20px;
+    }
+    table {
+      margin: 15px 0 0; padding: 0;
+    }
+      tr, td {
+        margin: 0; padding: 0;
+      }
+        td {
+          padding: 0px 15px 5px 0;
+        }
+        table .rule {
+          height: 1px;
+          background: #ccc;
+          margin: 5px 0;
+        }
+    code, pre, tt {
+      font-family: Monaco, Consolas, "Lucida Console", monospace;
+      font-size: 12px;
+      line-height: 18px;
+      font-style: normal;
+    }
+      tt {
+        padding: 0px 3px;
+        background: #fff;
+        border: 1px solid #ddd;
+        zoom: 1;
+      }
+      code {
+        margin-left: 20px;
+      }
+      pre {
+        font-size: 12px;
+        padding: 2px 0 2px 15px;
+        border: 4px solid #bbb; border-top: 0; border-bottom: 0;
+        margin: 0px 0 25px;
+      }
+      img.example_image {
+        margin: 0px auto;
+      }
+    @media only screen and (-webkit-max-device-pixel-ratio: 1) and (max-width: 600px),
+           only screen and (max--moz-device-pixel-ratio: 1) and (max-width: 600px) {
+      div#sidebar {
+        display: none;
+      }
+      img#logo {
+        max-width: 451px;
+        width: 100%;
+        height: auto;
+      }
+      div.container {
+        width: auto;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+        p, div.container ul {
+          width: auto;
+        }
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 640px),
+          only screen and (-o-min-device-pixel-ratio: 3/2) and (max-width: 640px),
+          only screen and (min-device-pixel-ratio: 1.5) and (max-width: 640px) {
+      img {
+        max-width: 290px;
+      }
+      div#sidebar {
+        -webkit-overflow-scrolling: initial;
+        position: relative;
+        width: 90%;
+        height: 120px;
+        left: 0;
+        top: -7px;
+        padding: 10px 0 10px 30px;
+        border: 0;
+      }
+      img#logo {
+        width: auto;
+        height: auto;
+      }
+      div.container {
+        margin: 0;
+        width: 100%;
+      }
+      p, div.container ul {
+        max-width: 98%;
+        overflow-x: scroll;
+      }
+      table {
+        position: relative;
+      }
+        tr:first-child td {
+          padding-bottom: 25px;
+        }
+        td.text {
+          padding: 0;
+          position: absolute;
+          left: 0;
+          top: 48px;
+        }
+        tr:last-child td.text {
+          top: 122px;
+        }
+      pre {
+        overflow: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="sidebar" class="interface">
+
+    <a class="toc_title" href="#">
+      Cellula.js <span class="version">(0.3.2)</span>
+    </a>
+    <ul class="toc_section">
+      <li>&raquo; <a href="http://github.com/hanyee/cellula">GitHub Repository</a></li>
+    </ul>
+
+    <a class="toc_title" href="#introduction">Introduction</a>
+
+    <a class="toc_title" href="#upgrading">Upgrading</a>
+
+      <a class="toc_title" href="#Class">Class</a>
+      <ul class="toc_section">
+          <li><a href="#inherits">inherits</a></li>
+      </ul>
+
+      <a class="toc_title" href="#util">util</a>
+      <ul class="toc_section">
+          <li>– <a href="#util-aspect">aspect</a></li>
+          <li>– <a href="#util-breaker">breaker</a></li>
+          <li>– <a href="#util-isArray">isArray</a></li>
+          <li>– <a href="#util-isObject">isObject</a></li>
+          <li>– <a href="#util-isString">isString</a></li>
+          <li>– <a href="#util-isFunction">isFunction</a></li>
+          <li>– <a href="#util-isArguments">isArguments</a></li>
+          <li>– <a href="#util-isClass">isClass</a></li>
+          <li>– <a href="#util-isEmpty">isEmpty</a></li>
+          <li>– <a href="#util-has">has</a></li>
+          <li>– <a href="#util-each">each</a></li>
+          <li>– <a href="#util-map">map</a></li>
+          <li>– <a href="#util-keys">keys</a></li>
+          <li>– <a href="#util-values">values</a></li>
+          <li>– <a href="#util-bind">bind</a></li>
+          <li>– <a href="#util-toArray">toArray</a></li>
+          <li>– <a href="#util-mix">mix</a></li>
+          <li>– <a href="#util-deepMix">deepMix</a></li>
+          <li>– <a href="#util-copy">copy</a></li>
+          <li>– <a href="#util-makeTpl">makeTpl</a></li>
+          <li>– <a href="#util-parseTpl">parseTpl</a></li>
+      </ul>
+
+      <a class="toc_title" href="#Element">Element</a>
+      <ul class="toc_section">
+          <li>– <a href="#History-start">start</a></li>
+      </ul>
+      <a class="toc_title" href="#Cell">Cell</a>
+      <ul class="toc_section">
+          <li>– <a href="#Router-extend">extend</a></li>
+          <li>– <a href="#Router-routes">routes</a></li>
+          <li>– <a href="#Router-constructor">constructor / initialize</a></li>
+          <li>– <a href="#Router-route">route</a></li>
+          <li>– <a href="#Router-navigate">navigate</a></li>
+      </ul>
+      <a class="toc_title" href="#Collection">
+          Collection
+      </a>
+      <ul class="toc_section">
+          <li>– <a href="#Collection-extend">extend</a></li>
+      </ul>
+
+      <a class="toc_title" href="#Utility">
+          Utility
+      </a>
+      <ul class="toc_section">
+          <li>– <a href="#Utility-Backbone-noConflict">Backbone.noConflict</a></li>
+          <li>– <a href="#Utility-Backbone-$">Backbone.$</a></li>
+      </ul>
+
+      <a class="toc_title" href="#examples">
+          Examples
+      </a>
+      <ul class="toc_section">
+          <li>– <a href="#examples-todos">Todos</a></li>
+          <li>– <a href="#examples-documentcloud">DocumentCloud</a></li>
+      </ul>
+
+      <a class="toc_title" href="#faq">
+          F.A.Q.
+      </a>
+      <ul class="toc_section">
+          <li>– <a href="#FAQ-events">Catalog of Events</a></li>
+      </ul>
+
+      <a class="toc_title" href="#changelog">Change Log</a>
+
+  </div>
+
+  <div class="container">
+
+    <p>
+      Cellula
+    </p>
+
+    <p>
+      Backbone.js gives structure to web applications
+      by providing <b>models</b> with key-value binding and custom events,
+      <b>collections</b> with a rich API of enumerable functions,
+      <b>views</b> with declarative event handling, and connects it all to your
+      existing API over a RESTful JSON interface.
+    </p>
+
+    <p>
+      The project is <a href="http://github.com/documentcloud/backbone/">hosted on GitHub</a>,
+      and the <a href="docs/backbone.html">annotated source code</a> is available,
+      as well as an online <a href="test/">test suite</a>,
+      an <a href="examples/todos/index.html">example application</a>,
+      a <a href="https://github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites">list of tutorials</a>
+      and a <a href="#examples">long list of real-world projects</a> that use Backbone.
+      Backbone is available for use under the <a href="http://github.com/documentcloud/backbone/blob/master/LICENSE">MIT software license</a>.
+    </p>
+
+    <p>
+      You can report bugs and discuss features on the
+      <a href="http://github.com/documentcloud/backbone/issues">GitHub issues page</a>,
+      on Freenode IRC in the <tt>#documentcloud</tt> channel, post questions to the
+      <a href="https://groups.google.com/forum/#!forum/backbonejs">Google Group</a>,
+      add pages to the <a href="https://github.com/documentcloud/backbone/wiki">wiki</a>
+      or send tweets to <a href="http://twitter.com/documentcloud">@documentcloud</a>.
+    </p>
+
+    <p>
+      <i>
+        Backbone is an open-source component of
+        <a href="http://documentcloud.org/">DocumentCloud</a>.
+      </i>
+    </p>
+
+    <h2 id="downloads">
+      Downloads &amp; Dependencies
+      <span style="padding-left: 7px; font-size:11px; font-weight: normal;" class="interface">(Right-click, and use "Save As")</span>
+    </h2>
+
+    <table>
+      <tr>
+        <td><a class="punch" href="backbone.js">Development Version (0.9.2)</a></td>
+        <td class="text"><i>52kb, Full source, lots of comments</i></td>
+      </tr>
+      <tr>
+        <td><a class="punch" href="backbone-min.js">Production Version (0.9.2)</a></td>
+        <td class="text"><i>5.6kb, Packed and gzipped</i></td>
+      </tr>
+      <tr>
+        <td><a class="punch" href="https://raw.github.com/documentcloud/backbone/master/backbone.js">Edge Version (master)</a></td>
+        <td><i>Unreleased, use at your own risk</i></td>
+      </tr>
+    </table>
+
+    <p>
+      luckly Cellula has no dependency :). you can use it anywhere.
+    </p>
+
+    <h2 id="introduction">Introduction</h2>
+
+    <p>
+      When working on a web application that involves a lot of JavaScript, one
+      of the first things you learn is to stop tying your data to the DOM. It's all
+      too easy to create JavaScript applications that end up as tangled piles of
+      jQuery selectors and callbacks, all trying frantically to keep data in
+      sync between the HTML UI, your JavaScript logic, and the database on your
+      server. For rich client-side applications, a more structured approach
+      is often helpful.
+    </p>
+
+    <p>
+      With Backbone, you represent your data as
+      <a href="#Model">Models</a>, which can be created, validated, destroyed,
+      and saved to the server. Whenever a UI action causes an attribute of
+      a model to change, the model triggers a <i>"change"</i> event; all
+      the <a href="#View">Views</a> that display the model's state can be notified of the
+      change, so that they are able to respond accordingly, re-rendering themselves with
+      the new information. In a finished Backbone app, you don't have to write the glue
+      code that looks into the DOM to find an element with a specific <i>id</i>,
+      and update the HTML manually
+      &mdash; when the model changes, the views simply update themselves.
+    </p>
+
+    <p>
+      If you're new here, and aren't yet quite sure what Backbone is for, start by
+      browsing the <a href="#examples">list of Backbone-based projects</a>.
+    </p>
+
+    <p>
+      Many of the examples that follow are runnable. Click the <i>play</i> button
+      to execute them.
+    </p>
+
+    <h2 id="upgrading">Upgrading to 0.4.0</h2>
+    <p></p>
+
+    <ul>
+      <li></li>
+    </ul>
+
+    <h2 id="Class">Cellula.Class</h2>
+
+    <p>
+      <b>Class</b>
+      是一个类构造器(Class type constructor)，作为javascript在oop设计和编码时的补充。
+      Class做为Cellula的基础，提供稳定且强大的功能，内建了事件模型和接口方法调用模型。
+      应用Class你可以很轻松的创建一个“class”类型，并保持良好的oo的特性。由Class创建的“类”仍然是个构造器(constructor)。
+      例：
+    </p>
+
+    <pre class="runnable">
+var SomeClass = new Cellula.Class('SomeClass' ,{
+    init:function(arg){
+        alert('i am called when an instance is creating by SomeClass!')
+        alert(hello + arg);
+    },
+    prop:"some prop"
+});
+
+var classInstance = new SomeClass('world!');
+    </pre>
+
+    <p>
+      For example, to make a handy event dispatcher that can coordinate events
+      among different areas of your application: <tt>var dispatcher = _.clone(Backbone.Events)</tt>
+    </p>
+
+    <p id="Events-off">
+      <b class="header">off</b><code>object.off([event], [callback], [context])</code><span class="alias">Alias: unbind</span>
+      <br />
+      Remove a previously-bound <b>callback</b> function from an object. If no
+      <b>context</b> is specified, all of the versions of the callback with
+      different contexts will be removed. If no
+      callback is specified, all callbacks for the <b>event</b> will be
+      removed. If no event is specified, callbacks for <i>all</i> events
+      will be removed.
+    </p>
+
+<pre>
+// Removes just the `onChange` callback.
+object.off("change", onChange);
+
+// Removes all "change" callbacks.
+object.off("change");
+
+// Removes the `onChange` callback for all events.
+object.off(null, onChange);
+
+// Removes all callbacks for `context` for all events.
+object.off(null, null, context);
+
+// Removes all callbacks on `object`.
+object.off();
+</pre>
+
+    <p>
+      Note that calling <tt>model.off()</tt>, for example, will indeed remove <i>all</i> events
+      on the model &mdash; including events that Backbone uses for internal bookkeeping.
+    </p>
+
+
+    <h2 id="View">Backbone.View</h2>
+
+    <p>
+      Backbone views are almost more convention than they are code &mdash; they
+      don't determine anything about your HTML or CSS for you, and can be used
+      with any JavaScript templating library.
+      The general idea is to organize your interface into logical views,
+      backed by models, each of which can be updated independently when the
+      model changes, without having to redraw the page. Instead of digging into
+      a JSON object, looking up an element in the DOM, and updating the HTML by hand,
+      you can bind your view's <tt>render</tt> function to the model's <tt>"change"</tt>
+      event &mdash; and now everywhere that
+      model data is displayed in the UI, it is always immediately up to date.
+    </p>
+
+    <p id="View-extend">
+      <b class="header">extend</b><code>Backbone.View.extend(properties, [classProperties])</code>
+      <br />
+      Get started with views by creating a custom view class. You'll want to
+      override the <a href="#View-render">render</a> function, specify your
+      declarative <a href="#View-delegateEvents">events</a>, and perhaps the
+      <tt>tagName</tt>, <tt>className</tt>, or <tt>id</tt> of the View's root
+      element.
+    </p>
+
+<pre>
+var DocumentRow = Backbone.View.extend({
+
+  tagName: "li",
+
+  className: "document-row",
+
+  events: {
+    "click .icon":          "open",
+    "click .button.edit":   "openEditDialog",
+    "click .button.delete": "destroy"
+  },
+
+  render: function() {
+    ...
+  }
+
+});
+</pre>
+
+    <p id="View-constructor">
+      <b class="header">constructor / initialize</b><code>new View([options])</code>
+      <br />
+      When creating a new View, the options you pass are attached to the view
+      as <tt>this.options</tt>, for future reference. There are several special
+      options that, if passed, will be attached directly to the view:
+      <tt>model</tt>, <tt>collection</tt>,
+      <tt>el</tt>, <tt>id</tt>, <tt>className</tt>, <tt>tagName</tt> and <tt>attributes</tt>.
+      If the view defines an <b>initialize</b> function, it will be called when
+      the view is first created. If you'd like to create a view that references
+      an element <i>already</i> in the DOM, pass in the element as an option:
+      <tt>new View({el: existingElement})</tt>
+    </p>
+
+<pre>
+var doc = Documents.first();
+
+new DocumentRow({
+  model: doc,
+  id: "document-row-" + doc.id
+});
+</pre>
+
+    <p id="View-el">
+      <b class="header">el</b><code>view.el</code>
+      <br />
+      All views have a DOM element at all times (the <b>el</b> property),
+      whether they've already been inserted into the page or not. In this
+      fashion, views can be rendered at any time, and inserted into the DOM all
+      at once, in order to get high-performance UI rendering with as few
+      reflows and repaints as possible. <tt>this.el</tt> is created from the
+      view's <tt>tagName</tt>, <tt>className</tt>, <tt>id</tt> and <tt>attributes</tt> properties,
+      if specified. If not, <b>el</b> is an empty <tt>div</tt>.
+    </p>
+
+<pre class="runnable">
+var ItemView = Backbone.View.extend({
+  tagName: 'li'
+});
+
+var BodyView = Backbone.View.extend({
+  el: 'body'
+});
+
+var item = new ItemView();
+var body = new BodyView();
+
+alert(item.el + ' ' + body.el);
+</pre>
+
+    <p id="View-$el">
+      <b class="header">$el</b><code>view.$el</code>
+      <br />
+      A cached jQuery (or Zepto) object for the view's element. A handy
+      reference instead of re-wrapping the DOM element all the time.
+    </p>
+
+<pre>
+view.$el.show();
+
+listView.$el.append(itemView.el);
+</pre>
+
+    <p id="View-setElement">
+      <b class="header">setElement</b><code>view.setElement(element)</code>
+      <br />
+      If you'd like to apply a Backbone view to a different DOM element, use
+      <b>setElement</b>, which will also create the cached <tt>$el</tt> reference
+      and move the view's delegated events from the old element to the new one.
+    </p>
+
+    <p id="View-attributes">
+      <b class="header">attributes</b><code>view.attributes</code>
+      <br />
+      A hash of attributes that will be set as HTML DOM element attributes on the
+      view's <tt>el</tt> (id, class, data-properties, etc.), or a function that
+      returns such a hash.
+    </p>
+
+    <p id="View-dollar">
+      <b class="header">$ (jQuery or Zepto)</b><code>view.$(selector)</code>
+      <br />
+      If jQuery or Zepto is included on the page, each view has a
+      <b>$</b> function that runs queries scoped within the view's element. If you use this
+      scoped jQuery function, you don't have to use model ids as part of your query
+      to pull out specific elements in a list, and can rely much more on HTML class
+      attributes. It's equivalent to running: <tt>view.$el.find(selector)</tt>
+    </p>
+
+<pre>
+ui.Chapter = Backbone.View.extend({
+  serialize : function() {
+    return {
+      title: this.$(".title").text(),
+      start: this.$(".start-page").text(),
+      end:   this.$(".end-page").text()
+    };
+  }
+});
+</pre>
+
+    <p id="View-render">
+      <b class="header">render</b><code>view.render()</code>
+      <br />
+      The default implementation of <b>render</b> is a no-op. Override this
+      function with your code that renders the view template from model data,
+      and updates <tt>this.el</tt> with the new HTML. A good
+      convention is to <tt>return this</tt> at the end of <b>render</b> to
+      enable chained calls.
+    </p>
+
+<pre>
+var Bookmark = Backbone.View.extend({
+  template: _.template(…),
+  render: function() {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+</pre>
+
+    <p>
+      Backbone is agnostic with respect to your preferred method of HTML templating.
+      Your <b>render</b> function could even munge together an HTML string, or use
+      <tt>document.createElement</tt> to generate a DOM tree. However, we suggest
+      choosing a nice JavaScript templating library.
+      <a href="http://github.com/janl/mustache.js">Mustache.js</a>,
+      <a href="http://github.com/creationix/haml-js">Haml-js</a>, and
+      <a href="http://github.com/sstephenson/eco">Eco</a> are all fine alternatives.
+      Because <a href="http://underscorejs.org/">Underscore.js</a> is already on the page,
+      <a href="http://underscorejs.org/#template">_.template</a>
+      is available, and is an excellent choice if you prefer simple
+      interpolated-JavaScript style templates.
+    </p>
+
+    <p>
+      Whatever templating strategy you end up with, it's nice if you <i>never</i>
+      have to put strings of HTML in your JavaScript. At DocumentCloud, we
+      use <a href="http://documentcloud.github.com/jammit/">Jammit</a> in order
+      to package up JavaScript templates stored in <tt>/app/views</tt> as part
+      of our main <tt>core.js</tt> asset package.
+    </p>
+
+    <p id="View-remove">
+      <b class="header">remove</b><code>view.remove()</code>
+      <br />
+      <a href="#View-dispose">Dispose</a> of the view before removing it from
+      the DOM via <tt>view.$el.remove()</tt>.
+    </p>
+
+    <p id="View-dispose">
+      <b class="header">dispose</b><code>view.dispose()</code>
+      <br />
+      Clean up any references to the view in order to prevent unwanted latent
+      effects and memory leaks.
+    </p>
+
+    <p id="View-make">
+      <b class="header">make</b><code>view.make(tagName, [attributes], [content])</code>
+      <br />
+      Convenience function for creating a DOM element of the given type (<b>tagName</b>),
+      with optional attributes and HTML content. Used internally to create the
+      initial <tt>view.el</tt>.
+    </p>
+
+<pre class="runnable">
+var view = new Backbone.View;
+
+var el = view.make("b", {"class": "bold"}, "Bold! ");
+
+$("#make-demo").append(el);
+</pre>
+
+<div id="make-demo"></div>
+
+    <p id="View-delegateEvents">
+      <b class="header">delegateEvents</b><code>delegateEvents([events])</code>
+      <br />
+      Uses jQuery's <tt>delegate</tt> function to provide declarative callbacks
+      for DOM events within a view.
+      If an <b>events</b> hash is not passed directly, uses <tt>this.events</tt>
+      as the source. Events are written in the format <tt>{"event selector": "callback"}</tt>.
+      The callback may be either the name of a method on the view, or a direct
+      function body.
+      Omitting the <tt>selector</tt> causes the event to be bound to the view's
+      root element (<tt>this.el</tt>). By default, <tt>delegateEvents</tt> is called
+      within the View's constructor for you, so if you have a simple <tt>events</tt>
+      hash, all of your DOM events will always already be connected, and you will
+      never have to call this function yourself.
+    </p>
+
+    <p>
+      The <tt>events</tt> property may also be defined as a function that returns
+      an <b>events</b> hash, to make it easier to programmatically define your
+      events, as well as inherit them from parent views.
+    </p>
+
+    <p>
+      Using <b>delegateEvents</b> provides a number of advantages over manually
+      using jQuery to bind events to child elements during <a href="#View-render">render</a>. All attached
+      callbacks are bound to the view before being handed off to jQuery, so when
+      the callbacks are invoked, <tt>this</tt> continues to refer to the view object. When
+      <b>delegateEvents</b> is run again, perhaps with a different <tt>events</tt>
+      hash, all callbacks are removed and delegated afresh &mdash; useful for
+      views which need to behave differently when in different modes.
+    </p>
+
+    <p>
+      A view that displays a document in a search result might look
+      something like this:
+    </p>
+
+<pre>
+var DocumentView = Backbone.View.extend({
+
+  events: {
+    "dblclick"                : "open",
+    "click .icon.doc"         : "select",
+    "contextmenu .icon.doc"   : "showMenu",
+    "click .show_notes"       : "toggleNotes",
+    "click .title .lock"      : "editAccessLevel",
+    "mouseover .title .date"  : "showTooltip"
+  },
+
+  render: function() {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  },
+
+  open: function() {
+    window.open(this.model.get("viewer_url"));
+  },
+
+  select: function() {
+    this.model.set({selected: true});
+  },
+
+  ...
+
+});
+</pre>
+
+    <p id="View-undelegateEvents">
+      <b class="header">undelegateEvents</b><code>undelegateEvents()</code>
+      <br />
+      Removes all of the view's delegated events. Useful if you want to disable
+      or remove a view from the DOM temporarily.
+    </p>
+
+    <h2 id="Utility">Utility</h2>
+
+    <p id="Utility-Backbone-noConflict">
+      <b class="header">Backbone.noConflict</b><code>var backbone = Backbone.noConflict();</code>
+      <br />
+      Returns the <tt>Backbone</tt> object back to its original value. You can
+      use the return value of <tt>Backbone.noConflict()</tt> to keep a local
+      reference to Backbone. Useful for embedding Backbone on third-party
+      websites, where you don't want to clobber the existing Backbone.
+    </p>
+
+<pre>
+var localBackbone = Backbone.noConflict();
+var model = localBackbone.Model.extend(...);
+</pre>
+
+    <p id="Utility-Backbone-$">
+      <b class="header">Backbone.$</b><code>Backbone.$ = $;</code>
+      <br />
+      If you have multiple copies of <tt>jQuery</tt> on the page, or simply want
+      to tell Backbone to use a particular object as its DOM / Ajax library,
+      this is the property for you.
+    </p>
+
+    <h2 id="examples">Examples</h2>
+
+    <p>
+      The list of examples that follows, while long, is not exhaustive. If you've
+      worked on an app that uses Backbone, please add it to the
+      <a href="https://github.com/documentcloud/backbone/wiki/Projects-and-Companies-using-Backbone">wiki page of Backbone apps</a>.
+    </p>
+
+    <p id="examples-todos">
+      <a href="http://jgn.me/">Jérôme Gravel-Niquet</a> has contributed a
+      <a href="examples/todos/index.html">Todo List application</a>
+      that is bundled in the repository as Backbone example. If you're wondering
+      where to get started with Backbone in general, take a moment to
+      <a href="docs/todos.html">read through the annotated source</a>. The app uses a
+      <a href="docs/backbone-localstorage.html">LocalStorage adapter</a>
+      to transparently save all of your todos within your browser, instead of
+      sending them to a server. Jérôme also has a version hosted at
+      <a href="http://localtodos.com/">localtodos.com</a> that uses a
+      <a href="http://github.com/jeromegn/backbone-mootools">MooTools-backed version of Backbone</a>
+      instead of jQuery.
+    </p>
+
+    <div style="text-align: center;">
+      <a href="examples/todos/index.html">
+        <img width="400" height="427" data-original="docs/images/todos.png" alt="Todos" class="example_image" />
+      </a>
+    </div>
+
+
+    <h2 id="faq">F.A.Q.</h2>
+
+    <p id="FAQ-events">
+      <b class="header">Catalog of Events</b>
+      <br />
+      Here's a list of all of the built-in events that Backbone.js can fire.
+      You're also free to trigger your own events on Models and Views as you
+      see fit.
+    </p>
+
+    <ul class="small">
+      <li><b>"add"</b> (model, collection, options) &mdash; when a model is added to a collection. </li>
+      <li><b>"remove"</b> (model, collection, options) &mdash; when a model is removed from a collection. </li>
+      <li><b>"reset"</b> (collection, options) &mdash; when the collection's entire contents have been replaced. </li>
+      <li><b>"change"</b> (model, options) &mdash; when a model's attributes have changed. </li>
+      <li><b>"change:[attribute]"</b> (model, value, options) &mdash; when a specific attribute has been updated. </li>
+      <li><b>"destroy"</b> (model, collection, options) &mdash; when a model is <a href="#Model-destroy">destroyed</a>. </li>
+      <li><b>"sync"</b> (model, resp, options) &mdash; triggers whenever a model has been successfully synced to the server. </li>
+      <li><b>"error"</b> (model, collection) &mdash; when a model's validation fails, or a <a href="#Model-save">save</a> call fails on the server. </li>
+      <li><b>"route:[name]"</b> (router) &mdash; when one of a router's routes has matched. </li>
+      <li><b>"all"</b> &mdash; this special event fires for <i>any</i> triggered event, passing the event name as the first argument. </li>
+    </ul>
+
+    <p id="FAQ-tim-toady">
+      <b class="header">There's More Than One Way To Do It</b>
+      <br />
+      It's common for folks just getting started to treat the examples listed
+      on this page as some sort of gospel truth. In fact, Backbone.js is intended
+      to be fairly agnostic about many common patterns in client-side code.
+      For example...
+    </p>
+
+    <p>
+      <b>References between Models and Views</b> can be handled several ways.
+      Some people like to have direct pointers, where views correspond 1:1 with
+      models (<tt>model.view</tt> and <tt>view.model</tt>). Others prefer to have intermediate
+      "controller" objects that orchestrate the creation and organization of
+      views into a hierarchy. Others still prefer the evented approach, and always
+      fire events instead of calling methods directly. All of these styles work well.
+    </p>
+
+    <p>
+      <b>Batch operations</b> on Models are common, but often best handled differently
+      depending on your server-side setup. Some folks don't mind making individual
+      Ajax requests. Others create explicit resources for RESTful batch operations:
+      <tt>/notes/batch/destroy?ids=1,2,3,4</tt>. Others tunnel REST over JSON, with the
+      creation of "changeset" requests:
+    </p>
+
+<pre>
+  {
+    "create":  [array of models to create]
+    "update":  [array of models to update]
+    "destroy": [array of model ids to destroy]
+  }
+</pre>
+
+    <p>
+      <b>Feel free to define your own events.</b> <a href="#Events">Backbone.Events</a>
+      is designed so that you can mix it in to any JavaScript object or prototype.
+      Since you can use any string as an event, it's often handy to bind
+      and trigger your own custom events: <tt>model.on("selected:true")</tt> or
+      <tt>model.on("editing")</tt>
+    </p>
+
+    <p>
+      <b>Render the UI</b> as you see fit. Backbone is agnostic as to whether you
+      use <a href="http://underscorejs.org/#template">Underscore templates</a>,
+      <a href="https://github.com/janl/mustache.js">Mustache.js</a>, direct DOM
+      manipulation, server-side rendered snippets of HTML, or
+      <a href="http://jqueryui.com/">jQuery UI</a> in your <tt>render</tt> function.
+      Sometimes you'll create a view for each model ... sometimes you'll have a
+      view that renders thousands of models at once, in a tight loop. Both can be
+      appropriate in the same app, depending on the quantity of data involved,
+      and the complexity of the UI.
+    </p>
+
+    <p id="FAQ-nested">
+      <b class="header">Nested Models &amp; Collections</b>
+      <br />
+      It's common to nest collections inside of models with Backbone. For example,
+      consider a <tt>Mailbox</tt> model that contains many <tt>Message</tt> models.
+      One nice pattern for handling this is have a <tt>this.messages</tt> collection
+      for each mailbox, enabling the lazy-loading of messages, when the mailbox
+      is first opened ... perhaps with <tt>MessageList</tt> views listening for
+      <tt>"add"</tt> and <tt>"remove"</tt> events.
+    </p>
+
+<pre>
+var Mailbox = Backbone.Model.extend({
+
+  initialize: function() {
+    this.messages = new Messages;
+    this.messages.url = '/mailbox/' + this.id + '/messages';
+    this.messages.on("reset", this.updateCounts);
+  },
+
+  ...
+
+});
+
+var Inbox = new Mailbox;
+
+// And then, when the Inbox is opened:
+
+Inbox.messages.fetch();
+</pre>
+
+    <p>
+      If you're looking for something more opinionated, there are a number of
+      Backbone plugins that add sophisticated associations among models,
+      <a href="https://github.com/documentcloud/backbone/wiki/Extensions%2C-Plugins%2C-Resources">available on the wiki</a>.
+    </p>
+
+    <p>
+      Backbone doesn't include direct support for nested models and collections
+      or "has many" associations because there are a number
+      of good patterns for modeling structured data on the client side, and
+      <i>Backbone should provide the foundation for implementing any of them.</i>
+      You may want to&hellip;
+    </p>
+
+    <ul>
+      <li>
+        Mirror an SQL database's structure, or the structure of a NoSQL database.
+      </li>
+      <li>
+        Use models with arrays of "foreign key" ids, and join to top level
+        collections (a-la tables).
+      </li>
+      <li>
+        For associations that are numerous, use a range of ids instead of an
+        explicit list.
+      </li>
+      <li>
+        Avoid ids, and use direct references, creating a partial object graph
+        representing your data set.
+      </li>
+      <li>
+        Lazily load joined models from the server, or lazily deserialize nested
+        models from JSON documents.
+      </li>
+    </ul>
+
+    <p>You have to <a href="http://mathiasbynens.be/notes/etago">escape</a>
+    <tt>&lt;/</tt> within the JSON string, to prevent javascript injection
+    attacks.
+
+    <p id="FAQ-extending">
+      <b class="header">Extending Backbone</b>
+      <br />
+      Many JavaScript libraries are meant to be insular and self-enclosed,
+      where you interact with them by calling their public API, but never peek
+      inside at the guts. Backbone.js is <i>not</i> that kind of library.
+    </p>
+
+    <p>
+      Because it serves as a foundation for your application, you're meant to
+      extend and enhance it in the ways you see fit &mdash; the entire source
+      code is <a href="docs/backbone.html">annotated</a> to make this easier
+      for you. You'll find that there's very little there apart from core
+      functions, and most of those can be overriden or augmented should you find
+      the need. If you catch yourself adding methods to <tt>Backbone.Model.prototype</tt>,
+      or creating your own base subclass, don't worry &mdash; that's how things are
+      supposed to work.
+    </p>
+
+    <p id="FAQ-mvc">
+      <b class="header">How does Backbone relate to "traditional" MVC?</b>
+      <br />
+      Different implementations of the
+      <a href="http://en.wikipedia.org/wiki/Model–View–Controller">Model-View-Controller</a>
+      pattern tend to disagree about the definition of a controller. If it helps any, in
+      Backbone, the <a href="#View">View</a> class can also be thought of as a
+      kind of controller, dispatching events that originate from the UI, with
+      the HTML template serving as the true view. We call it a View because it
+      represents a logical chunk of UI, responsible for the contents of a single
+      DOM element.
+    </p>
+
+    <p>
+      Comparing the overall structure of Backbone to a server-side MVC framework
+      like <b>Rails</b>, the pieces line up like so:
+    </p>
+
+    <ul>
+      <li>
+        <b>Backbone.Model</b> &ndash; Like a Rails model minus the class
+        methods. Wraps a row of data in business logic.
+      </li>
+      <li>
+        <b>Backbone.Collection</b> &ndash; A group of models on the client-side,
+        with sorting/filtering/aggregation logic.
+      </li>
+      <li>
+        <b>Backbone.Router</b> &ndash; Rails <tt>routes.rb</tt> + Rails controller
+        actions. Maps URLs to functions.
+      </li>
+      <li>
+        <b>Backbone.View</b> &ndash; A logical, re-usable piece of UI. Often,
+        but not always, associated with a model.
+      </li>
+      <li>
+        <b>Client-side Templates</b> &ndash; Rails <tt>.html.erb</tt> views,
+        rendering a chunk of HTML.
+      </li>
+    </ul>
+
+    <p id="FAQ-this">
+      <b class="header">Binding "this"</b>
+      <br />
+      Perhaps the single most common JavaScript "gotcha" is the fact that when
+      you pass a function as a callback, its value for <tt>this</tt> is lost. With
+      Backbone, when dealing with <a href="#Events">events</a> and callbacks,
+      you'll often find it useful to rely on
+      <a href="http://underscorejs.org/#bind">_.bind</a> and
+      <a href="http://underscorejs.org/#bindAll">_.bindAll</a>
+      from Underscore.js.
+    </p>
+
+    <p>
+      When binding callbacks to Backbone events, you can choose to pass an optional
+      third argument to specify the <tt>this</tt> that will be used when the
+      callback is later invoked:
+    </p>
+
+<pre>
+var MessageList = Backbone.View.extend({
+
+  initialize: function() {
+    var messages = this.collection;
+    messages.on("reset", this.render, this);
+    messages.on("add", this.addMessage, this);
+    messages.on("remove", this.removeMessage, this);
+  }
+
+});
+
+// Later, in the app...
+
+Inbox.messages.add(newMessage);
+</pre>
+
+    <h2 id="changelog">Change Log</h2>
+
+    <b class="header">0.9.2</b> &mdash; <small><i>March 21, 2012</i></small> &mdash; <a href="https://github.com/documentcloud/backbone/compare/0.9.1...0.9.2">Diff</a><br />
+    <ul style="margin-top: 5px;">
+      <li>
+        Instead of throwing an error when adding duplicate models to a collection,
+        Backbone will now silently skip them instead.
+      </li>
+      <li>
+        Added <a href="#Collection-push">push</a>,
+        <a href="#Collection-pop">pop</a>,
+        <a href="#Collection-unshift">unshift</a>, and
+        <a href="#Collection-shift">shift</a> to collections.
+      </li>
+      <li>
+        A model's <a href="#Model-changed">changed</a> hash is now exposed for
+        easy reading of the changed attribute delta, since the model's last
+        <tt>"change"</tt> event.
+      </li>
+      <li>
+        Added <a href="#Collection-where">where</a> to collections for simple
+        filtering.
+      </li>
+      <li>
+        You can now use a single <a href="#Events-off">off</a> call
+        to remove all callbacks bound to a specific object.
+      </li>
+      <li>
+        Bug fixes for nested individual change events, some of which may be
+        "silent".
+      </li>
+      <li>
+        Bug fixes for URL encoding in <tt>location.hash</tt> fragments.
+      </li>
+      <li>
+        Bug fix for client-side validation in advance of a <tt>save</tt> call
+        with <tt>{wait: true}</tt>.
+      </li>
+      <li>
+        Updated / refreshed the example
+        <a href="examples/todos/index.html">Todo List</a> app.
+      </li>
+    </ul>
+
+    <p>
+      <b class="header">0.1.0</b> &mdash; <small><i>Oct 13, 2010</i></small><br />
+      Initial Backbone release.
+    </p>
+
+    <p>
+      <br />
+      <a href="http://documentcloud.org/" title="A DocumentCloud Project" style="background:none;">
+        <img src="http://jashkenas.s3.amazonaws.com/images/a_documentcloud_project.png" alt="A DocumentCloud Project" style="position:relative;left:-10px;" />
+      </a>
+    </p>
+
+  </div>
+
+  <script src="test/vendor/jquery-1.7.1.js"></script>
+  <script src="docs/js/jquery.lazyload.js"></script>
+  <script src="test/vendor/json2.js"></script>
+
+  <script>
+    // Set up the "play" buttons for each runnable code example.
+    $(function() {
+      $('.runnable').each(function() {
+        var code = this;
+        var button = '<div class="run" title="Run"></div>';
+        $(button).insertBefore(code).bind('click', function(){
+          eval($(code).text());
+        });
+      });
+      $('[data-original]').lazyload();
+    });
+  </script>
+
+</body>
+</html>
