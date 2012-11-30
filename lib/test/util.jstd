@@ -1,0 +1,7 @@
+load:
+  - ../base/cellula.js
+  - ../base/class.js
+  - ../base/util.js
+
+test:
+  - test-util.js
