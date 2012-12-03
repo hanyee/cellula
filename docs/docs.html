@@ -4,8 +4,6 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=1" />
   <meta name="viewport" content="width=device-width">
-  <link rel="canonical" href="http://backbonejs.org" />
-  <link rel="icon" href="" />
   <title>Cellula.js</title>
   <style>
     body {
@@ -365,9 +363,7 @@
 
   <div class="container">
 
-    <p>
-      Cellula
-    </p>
+    <h2 id="Cellula">Cellula</h2>
 
     <p>
       Cellula.js 提供了一种web开发的思路,即是讲web页面应用片段化,模块化,颗粒化.并提供了
@@ -378,50 +374,21 @@
     </p>
 
     <p>
-      The project is <a href="http://github.com/documentcloud/backbone/">hosted on GitHub</a>,
-      and the <a href="docs/backbone.html">annotated source code</a> is available,
-      as well as an online <a href="test/">test suite</a>,
-      an <a href="examples/todos/index.html">example application</a>,
-      a <a href="https://github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites">list of tutorials</a>
-      and a <a href="#examples">long list of real-world projects</a> that use Backbone.
-      Backbone is available for use under the <a href="http://github.com/documentcloud/backbone/blob/master/LICENSE">MIT software license</a>.
+      Cellula 目前托管在 <a href="https://github.com/hanyee/cellula/">GitHub</a>,
+      这里有尚不完善的 <a href="test/">test case</a>.
     </p>
-
     <p>
-      You can report bugs and discuss features on the
-      <a href="http://github.com/documentcloud/backbone/issues">GitHub issues page</a>,
-      on Freenode IRC in the <tt>#documentcloud</tt> channel, post questions to the
-      <a href="https://groups.google.com/forum/#!forum/backbonejs">Google Group</a>,
-      add pages to the <a href="https://github.com/documentcloud/backbone/wiki">wiki</a>
-      or send tweets to <a href="http://twitter.com/documentcloud">@documentcloud</a>.
+      Cellula 采用 <a href="https://github.com/hanyee/cellula/blob/master/LICENSE">MIT License</a>.
     </p>
-
     <p>
-      <i>
-        Backbone is an open-source component of
-        <a href="http://documentcloud.org/">DocumentCloud</a>.
-      </i>
+      欢迎对此有兴趣的您可以在 这里 <a href="http://github.com/documentcloud/backbone/issues">GitHub issues page</a> 一起讨论并提出宝贵意见.
+      同样有一个可供及时交流的 <a href="https://groups.google.com/forum/#!forum/backbonejs">Google Group</a> 讨论组，
+      或者也可以直接在 Twitter 上联系 <a href="http://twitter.com/hanyee">@hanyee</a>.
     </p>
 
     <h2 id="downloads">
-      Downloads &amp; Dependencies
-      <span style="padding-left: 7px; font-size:11px; font-weight: normal;" class="interface">(Right-click, and use "Save As")</span>
+      Cellula has no Dependencies
     </h2>
-
-    <table>
-      <tr>
-        <td><a class="punch" href="backbone.js">Development Version (0.9.2)</a></td>
-        <td class="text"><i>52kb, Full source, lots of comments</i></td>
-      </tr>
-      <tr>
-        <td><a class="punch" href="backbone-min.js">Production Version (0.9.2)</a></td>
-        <td class="text"><i>5.6kb, Packed and gzipped</i></td>
-      </tr>
-      <tr>
-        <td><a class="punch" href="https://raw.github.com/documentcloud/backbone/master/backbone.js">Edge Version (master)</a></td>
-        <td><i>Unreleased, use at your own risk</i></td>
-      </tr>
-    </table>
 
     <p>
       luckly Cellula has no dependency :). you can use it anywhere.
@@ -430,26 +397,23 @@
     <h2 id="introduction">Introduction</h2>
 
     <p>
-      When working on a web application that involves a lot of JavaScript, one
-      of the first things you learn is to stop tying your data to the DOM. It's all
-      too easy to create JavaScript applications that end up as tangled piles of
-      jQuery selectors and callbacks, all trying frantically to keep data in
-      sync between the HTML UI, your JavaScript logic, and the database on your
-      server. For rich client-side applications, a more structured approach
-      is often helpful.
+      通常前端开发人员在开发web页面或者webapp时，为了迅速或后续的通用性会用到或者自己写很多的‘插件’(widget),
+      但你也经常会发现在你想用已有的插件时，它并不像你想象的那般完美，要么挑来挑去一直没有心仪的，
+      要么看到一个差不多的，但还是要看说明或者源码，再改造成真正想要的插件，或者干脆自己动手实现一个，
+      但是你实现的这个，后续对于自己或者其他的开发人员可能还是会遇到同样的遭遇。往往这种情况下，我们发现
+      写插件的时候所谓的“硬编码，死关联”很多，我们会抱怨这个插件不够颗粒化，抱怨配置和改造不是那么容易，
+      但同时我们自己在开发的时候也懒得去更进一步考虑和规划这个事情，因为你这样做了会让你觉得花费了很多不必要的精力。
     </p>
 
     <p>
-      With Backbone, you represent your data as
-      <a href="#Model">Models</a>, which can be created, validated, destroyed,
-      and saved to the server. Whenever a UI action causes an attribute of
-      a model to change, the model triggers a <i>"change"</i> event; all
-      the <a href="#View">Views</a> that display the model's state can be notified of the
-      change, so that they are able to respond accordingly, re-rendering themselves with
-      the new information. In a finished Backbone app, you don't have to write the glue
-      code that looks into the DOM to find an element with a specific <i>id</i>,
-      and update the HTML manually
-      &mdash; when the model changes, the views simply update themselves.
+      <b>Cellula.js</b> 便可以很好的解决这个问题，它提供了一种web开发的思路,即是将web页面应用片段化,模块化,颗粒化.
+      在<tt>Cellula</tt>的基础上再开发插件，会帮助你更容易的组织插件的每个“颗粒”，更容易建立对象和模型的概念。
+      <tt>Cellula</tt>围绕自带的<tt>Class</tt>构造，<tt>Class</tt>为<b>Javascript</b>提供了良好的面向对象的特性，
+      并集成了接口调用，事件等特性，这样就可以使得由<tt>Class</tt>构造出的类型或类型的实例都有相同的特性，达到表现统一。
+      同时<tt>Cellula</tt>提供了<tt>cell</tt>用于表示模块或片段的最小集, 提供<tt>element</tt>
+      用于为各种数据结构建立模型, 提供<tt>collection</tt> 来管理cell和element. 提供<tt>message</tt> 来实现模块和片段间的通信,
+      提供<tt>util</tt> 来弥补对dom框架依赖的缺憾. 在<tt>Cellula</tt>的基础上你可以任意发挥你的架构思路,开发类似于<b>Backbone.js</b>
+      或者<b>Spine.js</b>的各种<b>MVC</b>小框架，玩转各种看似简单时而又复杂的web页面开发.
     </p>
 
     <p>
