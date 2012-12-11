@@ -8,16 +8,19 @@
   <style>
     body {
       font-size: 14px;
-      line-height: 22px;
-      font-family: Helvetica Neue, Helvetica, Arial;
-      background: #fffff0;
+      line-height: 2;
+      font-family:  Arial;
+      color: #c5c681;
+      background: #434343;
     }
     .interface {
       font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
     }
     div#sidebar {
-      background: #FdFde0;
-      position: fixed;
+      background: #434343;
+      color: #e5e6a1;
+      /*position: fixed;*/
+      float: left;
       z-index: 10;
       top: 0; left: 0; bottom: 0;
       width: 200px;
@@ -25,8 +28,11 @@
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
       padding: 15px 0 30px 30px;
-      border-right: 1px solid #bbb;
-      box-shadow: 0 0 20px #ccc; -webkit-box-shadow: 0 0 20px #ccc; -moz-box-shadow: 0 0 20px #ccc;
+      border-right: 1px solid #333;
+      box-shadow: 0 0 20px #333; -webkit-box-shadow: 0 0 20px #333; -moz-box-shadow: 0 0 20px #333;
+    }
+    div#sidebar a{
+        color: #e5e6a1;
     }
       a.toc_title, a.toc_title:visited {
         display: block;
@@ -100,10 +106,10 @@
           font-size: 12px;
         }
     a, a:visited {
-      color: #444;
+      color: #80a6c8;
     }
     a:active, a:hover {
-      color: #000;
+      color: #fff;
     }
     a.punch {
       display: inline-block;
@@ -152,10 +158,12 @@
     h1, h2, h3, h4, h5, h6 {
       padding-top: 20px;
     }
-      h2 {
+    h2 {
+        color: #ffbaba;
         font-size: 22px;
-      }
+    }
     b.header {
+      color: #ffbaba;
       font-size: 18px;
       line-height: 35px;
     }
@@ -186,8 +194,10 @@
     }
       tt {
         padding: 0px 3px;
-        background: #fff;
-        border: 1px solid #ddd;
+        background: #59511f;
+        color: #e9caa6;
+        font-weight: bold;
+        border: 1px solid #57501c;
         zoom: 1;
       }
       code {
@@ -195,8 +205,9 @@
       }
       pre {
         font-size: 12px;
+        color: #eabfc0;
         padding: 2px 0 2px 15px;
-        border: 4px solid #bbb; border-top: 0; border-bottom: 0;
+        border: 4px solid #566e6e; border-top: 0; border-bottom: 0;
         margin: 0px 0 25px;
       }
       img.example_image {
@@ -271,7 +282,7 @@
   </style>
 </head>
 <body>
-
+  <a href="#sidebar" style="position: fixed;top: 100px;text-decoration: none;background-color: #435669;left: 840px;padding: 0px 5px;">To SideBar</a>
   <div id="sidebar" class="interface">
 
     <a class="toc_title" href="#">
@@ -283,13 +294,53 @@
 
     <a class="toc_title" href="#introduction">Introduction</a>
 
-    <a class="toc_title" href="#upgrading">Upgrading</a>
-
       <a class="toc_title" href="#Class">Class</a>
       <ul class="toc_section">
-          <li><a href="#inherits">inherits</a></li>
+          <li><a href="#Class-inherits">inherits</a></li>
+          <li>- <a href="#Class-registerInterface">registerInterface</a></li>
+          <li>- <a href="#Class-applyInterface">applyInterface</a></li>
+          <li>- <a href="#Class-removeInterface">removeInterface</a></li>
       </ul>
 
+      <a class="toc_title" href="#Element">Element</a>
+      <ul class="toc_section">
+          <li>– <a href="#Element-key">key</a></li>
+          <li>– <a href="#Element-init">init</a></li>
+          <li>– <a href="#Element-get">get</a></li>
+          <li>– <a href="#Element-set">set</a></li>
+          <li>– <a href="#Element-save">save</a></li>
+          <li>– <a href="#Element-reset">reset</a></li>
+          <li>– <a href="#Element-destroy">destroy</a></li>
+          <li>– <a href="#Element-validate">validate</a></li>
+      </ul>
+      <a class="toc_title" href="#Cell">Cell</a>
+      <ul class="toc_section">
+          <li>– <a href="#Cell-key">key</a></li>
+          <li>– <a href="#Cell-rootNode">rootNode</a></li>
+          <li>– <a href="#Cell-_bindAll">_bindAll</a></li>
+          <li>– <a href="#Cell-init">init</a></li>
+          <li>– <a href="#Cell-render">render</a></li>
+          <li>– <a href="#Cell-getRoot">getRoot</a></li>
+          <li>– <a href="#Cell-registerEvents">registerEvents</a></li>
+          <li>– <a href="#Cell-getCollection">getCollection</a></li>
+          <li>– <a href="#Cell-error">error</a></li>
+          <li>– <a href="#Cell-getNode">getNode</a></li>
+      </ul>
+      <a class="toc_title" href="#Collection">
+          Collection
+      </a>
+      <ul class="toc_section">
+          <li>– <a href="#Collection-type">type</a></li>
+          <li>– <a href="#Collection-init">init</a></li>
+          <li>– <a href="#Collection-add">add</a></li>
+          <li>– <a href="#Collection-get">get</a></li>
+          <li>– <a href="#Collection-save">save</a></li>
+          <li>– <a href="#Collection-remove">remove</a></li>
+          <li>– <a href="#Collection-pop">pop</a></li>
+          <li>– <a href="#Collection-push">push</a></li>
+          <li>– <a href="#Collection-shift">shift</a></li>
+          <li>– <a href="#Collection-reverse">reverse</a></li>
+      </ul>
       <a class="toc_title" href="#util">util</a>
       <ul class="toc_section">
           <li>– <a href="#util-aspect">aspect</a></li>
@@ -315,39 +366,11 @@
           <li>– <a href="#util-parseTpl">parseTpl</a></li>
       </ul>
 
-      <a class="toc_title" href="#Element">Element</a>
-      <ul class="toc_section">
-          <li>– <a href="#History-start">start</a></li>
-      </ul>
-      <a class="toc_title" href="#Cell">Cell</a>
-      <ul class="toc_section">
-          <li>– <a href="#Router-extend">extend</a></li>
-          <li>– <a href="#Router-routes">routes</a></li>
-          <li>– <a href="#Router-constructor">constructor / initialize</a></li>
-          <li>– <a href="#Router-route">route</a></li>
-          <li>– <a href="#Router-navigate">navigate</a></li>
-      </ul>
-      <a class="toc_title" href="#Collection">
-          Collection
-      </a>
-      <ul class="toc_section">
-          <li>– <a href="#Collection-extend">extend</a></li>
-      </ul>
-
-      <a class="toc_title" href="#Utility">
-          Utility
-      </a>
-      <ul class="toc_section">
-          <li>– <a href="#Utility-Backbone-noConflict">Backbone.noConflict</a></li>
-          <li>– <a href="#Utility-Backbone-$">Backbone.$</a></li>
-      </ul>
-
       <a class="toc_title" href="#examples">
           Examples
       </a>
       <ul class="toc_section">
           <li>– <a href="#examples-todos">Todos</a></li>
-          <li>– <a href="#examples-documentcloud">DocumentCloud</a></li>
       </ul>
 
       <a class="toc_title" href="#faq">
@@ -356,9 +379,7 @@
       <ul class="toc_section">
           <li>– <a href="#FAQ-events">Catalog of Events</a></li>
       </ul>
-
       <a class="toc_title" href="#changelog">Change Log</a>
-
   </div>
 
   <div class="container">
@@ -367,26 +388,24 @@
 
     <p>
       Cellula.js 提供了一种web开发的思路,即是讲web页面应用片段化,模块化,颗粒化.并提供了
-      <b>cell</b> 用于表示模块或片段的最小集, 提供<b>element</b> 用于为各种数据结构建立模型,
-      提供<b>collection</b> 来管理cell和element. 提供<b>message</b> 来实现模块和片段间的通信,
-      提供<b>class</b> 作为面向对象封装的核心并,以上cell,element,collection和message 都是基于class这个强大的核心构建的,
-      提供<b>util</b> 来弥补对dom框架依赖的缺憾. 在cellula的基础上你可以任意发挥你的架构思路,玩转各种看似简单时而又复杂的web页面开发.
+      <b>cell</b> 用于表示模块或片段的最小集, 提供 <b>element</b> 用于为各种数据结构建立模型,
+      提供 <b>collection</b> 来管理cell和element. 提供 <b>message</b> 来实现模块和片段间的通信,
+      提供 <b>class</b> 作为面向对象封装的核心并, 以上cell, element, collection 和 message 都是基于 Class 这个强大的核心构建的,
+      提供 <b>util</b> 来弥补对 dom 框架依赖的缺憾. 在 Cellula 的基础上你可以任意发挥你的架构思路, 玩转各种看似简单时而又复杂的 web 页面开发.
     </p>
 
     <p>
-      Cellula 目前托管在 <a href="https://github.com/hanyee/cellula/">GitHub</a>,
+      Cellula 目前托管在 <a href="https://github.com/hanyee/cellula/">GitHub</a> ,
+      并且采用 <a href="https://github.com/hanyee/cellula/blob/master/LICENSE">MIT License</a> 授权,
       这里有尚不完善的 <a href="test/">test case</a>.
     </p>
     <p>
-      Cellula 采用 <a href="https://github.com/hanyee/cellula/blob/master/LICENSE">MIT License</a>.
-    </p>
-    <p>
-      欢迎对此有兴趣的您可以在 这里 <a href="http://github.com/documentcloud/backbone/issues">GitHub issues page</a> 一起讨论并提出宝贵意见.
-      同样有一个可供及时交流的 <a href="https://groups.google.com/forum/#!forum/backbonejs">Google Group</a> 讨论组，
+      欢迎对此有兴趣的您可以在 这里 <a href="http://github.com/hanyee/cellula/issues">GitHub issues page</a> 一起讨论并提出宝贵意见.
+      同样有一个可供及时交流的 <a href="https://groups.google.com/forum/?fromgroups#!forum/f2e_sh_alipay">Google Group</a> 讨论组，
       或者也可以直接在 Twitter 上联系 <a href="http://twitter.com/hanyee">@hanyee</a>.
     </p>
 
-    <h2 id="downloads">
+    <h2 id="dependencies">
       Cellula has no Dependencies
     </h2>
 
@@ -397,7 +416,7 @@
     <h2 id="introduction">Introduction</h2>
 
     <p>
-      通常前端开发人员在开发web页面或者webapp时，为了迅速或后续的通用性会用到或者自己写很多的‘插件’(widget),
+      通常前端开发人员在开发 web 页面或者 webapp 时，为了迅速或后续的通用性会用到或者自己写很多的‘插件’(widget),
       但你也经常会发现在你想用已有的插件时，它并不像你想象的那般完美，要么挑来挑去一直没有心仪的，
       要么看到一个差不多的，但还是要看说明或者源码，再改造成真正想要的插件，或者干脆自己动手实现一个，
       但是你实现的这个，后续对于自己或者其他的开发人员可能还是会遇到同样的遭遇。往往这种情况下，我们发现
@@ -407,34 +426,20 @@
 
     <p>
       <b>Cellula.js</b> 便可以很好的解决这个问题，它提供了一种web开发的思路,即是将web页面应用片段化,模块化,颗粒化.
-      在<tt>Cellula</tt>的基础上再开发插件，会帮助你更容易的组织插件的每个“颗粒”，更容易建立对象和模型的概念。
-      <tt>Cellula</tt>围绕自带的<tt>Class</tt>构造，<tt>Class</tt>为<b>Javascript</b>提供了良好的面向对象的特性，
-      并集成了接口调用，事件等特性，这样就可以使得由<tt>Class</tt>构造出的类型或类型的实例都有相同的特性，达到表现统一。
-      同时<tt>Cellula</tt>提供了<tt>cell</tt>用于表示模块或片段的最小集, 提供<tt>element</tt>
-      用于为各种数据结构建立模型, 提供<tt>collection</tt> 来管理cell和element. 提供<tt>message</tt> 来实现模块和片段间的通信,
-      提供<tt>util</tt> 来弥补对dom框架依赖的缺憾. 在<tt>Cellula</tt>的基础上你可以任意发挥你的架构思路,开发类似于<b>Backbone.js</b>
-      或者<b>Spine.js</b>的各种<b>MVC</b>小框架，玩转各种看似简单时而又复杂的web页面开发.
+      在 <tt>Cellula</tt> 的基础上再开发插件，会帮助你更容易的组织插件的每个“颗粒”，更容易建立对象和模型的概念。
+      <tt>Cellula</tt> 围绕自带的 <tt>Class</tt> 构造， <tt>Class</tt> 为 <b>Javascript</b> 提供了良好的面向对象的特性，
+      并集成了接口调用，事件等特性，这样就可以使得由 <tt>Class</tt> 构造出的类型或类型的实例都有相同的特性，达到表现统一。
+      同时 <tt>Cellula</tt> 提供了 <tt>cell</tt> 用于表示模块或片段的最小集, 提供 <tt>element</tt>
+      用于为各种数据结构建立模型, 提供 <tt>collection</tt> 来管理cell和element. 提供 <tt>message</tt> 来实现模块和片段间的通信,
+      提供 <tt>util</tt> 来弥补对dom框架依赖的缺憾. 在 <tt>Cellula</tt> 的基础上你可以任意发挥你的架构思路,开发类似于 <b>Backbone.js</b>
+      或者 <b>Spine.js</b> 的各种 <b>MVC</b> 小框架，玩转各种看似简单时而又复杂的web页面开发.
     </p>
 
     <p>
-      If you're new here, and aren't yet quite sure what Backbone is for, start by
-      browsing the <a href="#examples">list of Backbone-based projects</a>.
+      <a href="#examples">更多示例演示...</a>.
     </p>
-
-    <p>
-      Many of the examples that follow are runnable. Click the <i>play</i> button
-      to execute them.
-    </p>
-
-    <h2 id="upgrading">Upgrading to 0.4.0</h2>
-    <p></p>
-
-    <ul>
-      <li></li>
-    </ul>
 
     <h2 id="Class">Cellula.Class</h2>
-
     <p>
       <b>Class</b>
       是一个类构造器(Class type constructor)，作为javascript在oop设计和编码时的补充。
@@ -447,54 +452,68 @@
 var SomeClass = new Cellula.Class('SomeClass' ,{
     init:function(arg){
         alert('i am called when an instance is creating by SomeClass!')
-        alert(hello + arg);
+        alert('hello' + arg);
     },
     prop:"some prop"
 });
 
 var classInstance = new SomeClass('world!');
+alert(classInstance.prop === "some prop");
     </pre>
 
-    <p>
-      For example, to make a handy event dispatcher that can coordinate events
-      among different areas of your application: <tt>var dispatcher = _.clone(Backbone.Events)</tt>
-    </p>
-
-    <p id="Events-off">
-      <b class="header">off</b><code>object.off([event], [callback], [context])</code><span class="alias">Alias: unbind</span>
+    <p id="Class-inherits">
+      <b class="header">inherits</b><code>SubClass.inherits(SomeClass)</code>
       <br />
-      Remove a previously-bound <b>callback</b> function from an object. If no
-      <b>context</b> is specified, all of the versions of the callback with
-      different contexts will be removed. If no
-      callback is specified, all callbacks for the <b>event</b> will be
-      removed. If no event is specified, callbacks for <i>all</i> events
-      will be removed.
+      <b>inherits</b> 是 <b>Class</b> 提供的继承方法，任何一个由 <b>Class</b> 创建的类都可以继承和被继承，例：
     </p>
+    <pre class="runnable">
+var SubClass = new Cellula.Class('SubClass' ,{
+    init:function(arg){
+        this._super(arg);
+        alert('i am a SubClass inherited from SomeClass!')
+    },
+    someprop:"someprop"
+}).inherits(SomeClass);
 
-<pre>
-// Removes just the `onChange` callback.
-object.off("change", onChange);
+var subClassInstance = new SubClass('world!');
+alert(subClassInstance.prop === "some prop");
+alert(subClassInstance.someprop === "someprop");
 
-// Removes all "change" callbacks.
-object.off("change");
-
-// Removes the `onChange` callback for all events.
-object.off(null, onChange);
-
-// Removes all callbacks for `context` for all events.
-object.off(null, null, context);
-
-// Removes all callbacks on `object`.
-object.off();
-</pre>
-
+    </pre>
     <p>
-      Note that calling <tt>model.off()</tt>, for example, will indeed remove <i>all</i> events
-      on the model &mdash; including events that Backbone uses for internal bookkeeping.
+      上面的例子中 <tt>Class</tt> 创建了一个新的类 <tt>SubClass</tt> ，同时 <tt>SubClass</tt> 继承了前面创建的类
+      <tt>SomeClass</tt>，并拥有了父类 <tt>SomeClass</tt> 的属性 <tt>prop</tt>, 同时重写了父类的 <tt>init</tt>
+      方法，替代父类的 <tt>init</tt>。这里用到了 <tt>this._super</tt> 这个方法用于调用父类的同名方法，是 <tt>Class</tt>
+      提供的一种方便的语法糖。
+    </p>
+    <p>
+      这里需要注意 <tt>inherits</tt> 是由 <tt>Class</tt> 创建的类的自有属性方法，如同 <tt>Function</tt> 的 <tt>call</tt>，<tt>length</tt> 等，
+      与其 <tt>prototype</tt> 的属性是不同的，下面介绍的 <tt>registerInterface</tt>， <tt>applyInterface</tt>, <tt>removeInterface</tt>
+      等方法是写在 <tt>prototype</tt> 上的。所以请注意区别。
+    </p>
+
+    <p id="Class-registerInterface">
+      <b class="header">registerInterface</b><code>classInstance.registerInterface(interfaceName, SomeClass)</code>
+      <br/>
+      <b>registerInterface</b> 是 <b>Class</b> 提供的继承方法，任何一个由 <b>Class</b> 创建的类都可以继承和被继承，例：
     </p>
 
 
-    <h2 id="View">Backbone.View</h2>
+    <h2 id="Element">Cellula.Element</h2>
+
+    <p></p>
+
+    <h2 id="Cell">Cellula.Cell</h2>
+
+    <p></p>
+
+    <h2 id="Collection">Cellula.Collection</h2>
+
+    <p></p>
+
+    <h2 id="Util">Cellula._util</h2>
+
+    <p></p>
 
     <p>
       Backbone views are almost more convention than they are code &mdash; they
@@ -1141,24 +1160,6 @@ Inbox.messages.add(newMessage);
     </p>
 
   </div>
-
-  <script src="test/vendor/jquery-1.7.1.js"></script>
-  <script src="docs/js/jquery.lazyload.js"></script>
-  <script src="test/vendor/json2.js"></script>
-
-  <script>
-    // Set up the "play" buttons for each runnable code example.
-    $(function() {
-      $('.runnable').each(function() {
-        var code = this;
-        var button = '<div class="run" title="Run"></div>';
-        $(button).insertBefore(code).bind('click', function(){
-          eval($(code).text());
-        });
-      });
-      $('[data-original]').lazyload();
-    });
-  </script>
 
 </body>
 </html>
