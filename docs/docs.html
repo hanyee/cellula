@@ -387,11 +387,11 @@
     <h2 id="Cellula">Cellula</h2>
 
     <p>
-      Cellula.js 提供了一种web开发的思路,即是讲web页面应用片段化,模块化,颗粒化.并提供了
-      <b>cell</b> 用于表示模块或片段的最小集, 提供 <b>element</b> 用于为各种数据结构建立模型,
-      提供 <b>collection</b> 来管理cell和element. 提供 <b>message</b> 来实现模块和片段间的通信,
-      提供 <b>class</b> 作为面向对象封装的核心并, 以上cell, element, collection 和 message 都是基于 Class 这个强大的核心构建的,
-      提供 <b>util</b> 来弥补对 dom 框架依赖的缺憾. 在 Cellula 的基础上你可以任意发挥你的架构思路, 玩转各种看似简单时而又复杂的 web 页面开发.
+        Cellula.js 提供了一种web开发的思路,即是讲web页面应用片段化,模块化,颗粒化.并提供了
+        <b>cell</b> 用于表示模块或片段的最小集, 提供 <b>element</b> 用于为各种数据结构建立模型,
+        提供 <b>collection</b> 来管理cell和element. 提供 <b>message</b> 来实现模块和片段间的通信,
+        提供 <b>class</b> 作为面向对象封装的核心并, 以上cell, element, collection 和 message 都是基于 Class 这个强大的核心构建的,
+        提供 <b>util</b> 来弥补对 dom 框架依赖的缺憾. 在 Cellula 的基础上你可以任意发挥你的架构思路, 玩转各种看似简单时而又复杂的 web 页面开发.
     </p>
 
     <p>
@@ -495,13 +495,34 @@ alert(subClassInstance.someprop === "someprop");
     <p id="Class-registerInterface">
       <b class="header">registerInterface</b><code>classInstance.registerInterface(interfaceName, SomeClass)</code>
       <br/>
-      <b>registerInterface</b> 是 <b>Class</b> 提供的继承方法，任何一个由 <b>Class</b> 创建的类都可以继承和被继承，例：
+      <b>registerInterface</b> 是 <b>Class</b> 提供的注册应用接口的方法，任何一个由 <b>Class</b> 创建的类都可以继承和被继承，例：
     </p>
 
 
     <h2 id="Element">Cellula.Element</h2>
 
-    <p></p>
+    <p>
+
+    </p>
+
+    <pre class="runnable">
+var el = new Cellula.Element();
+alert(subClassInstance.prop === "some prop");
+alert(subClassInstance.someprop === "someprop");
+    </pre>
+
+    <p id="Element-key">
+        <b class="header">key</b><code>el.key</code>
+        <br />
+        <tt>key</tt> 应该是不同 <tt>Element</tt> 的唯一标识，如果初始化时没有值则会默认取该实例的 <tt>__cid__</tt> 属性为 <tt>key</tt> 赋值。
+        （<tt>__cid__</tt> 为私有属性用于识别每个实例，请勿修改！）
+    </p>
+
+    <p id="Element-init">
+        <b class="header">constructor / init</b><code>var el = new Elemnet([attributes]) / el.init([attributes])</code>
+        <br />
+        <tt>init</tt> 会在每个 <tt>Element</tt> 实例创建时被自动的调用，初始化属性提供的参数。（属性为非 <tt>Function</tt> 属性）。
+    </p>
 
     <h2 id="Cell">Cellula.Cell</h2>
 
