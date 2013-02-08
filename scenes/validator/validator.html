@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Pure Validator</title>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/base.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/font.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/function.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-table.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-title.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-button.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-form.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-tip.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-tab.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-list.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-xbox.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-box.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-message.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-icon.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-line.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-footer.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-notice.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-step.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-pop.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-column.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-repeater.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-paging.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-dialog.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/tpl/ui-grid.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/solutions/sl-input-file.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/solutions/sl-linear.css"/>
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/default.css"/>
+</head>
+<body>
+<div id="1">
+
+    <form id="validator" data-validator="auto" class="ui-form fn-mt20" method="post" action="#">
+        <div data-validator="required blur number desc:请输入数字" class="ui-form-item">
+            <label class="ui-label"><span class="required">*</span>请填写数字：</label>
+            <input id="J_No" type="text" value="" class="ui-input"/>
+            <div class="ui-form-explain fn-hide"></div>
+        </div>
+        <div data-validator="blur email cnMobile" class="ui-form-item">
+            <label class="ui-label"><span class="required">*</span>邮箱或手机号码：</label>
+            <input id="J_email" type="text" value="" class="ui-input"/>
+            <input id="J_test" data-validator="mobile" type="text" value="" class="ui-input"/>
+            <div class="ui-form-explain fn-hide">请填写邮箱或手机号码</div>
+        </div>
+        <div data-validator="" class="ui-form-item ui-form-item-cue">
+            <label class="ui-label">创建时间：</label>
+            <input id="J_beginDate" name="beginDate" type="text" class="ui-input ui-input-hover" value="2012-01-01"/>
+            <span class="ui-form-spliter">到</span>
+            <input id="J_endDate" name="endDate" type="text" class="ui-input" value="2012-02-03"/>
+            <div class="ui-form-explain">起始日期, 格式为 yyyy-mm-dd</div>
+        </div>
+
+        <div class="ui-form-item ui-form-item-last">
+        <span class="ui-button ui-button-mblue ui-button-mblue-next">
+            <input type="submit" value="确定" class="ui-button-text">
+            <span class="ui-button-icon"></span>
+        </span>
+        </div>
+    </form>
+
+</div>
+<script type="text/javascript" src="../jquery-1.7.2.js"></script>
+
+<script type="text/javascript" src="../../lib/base/cellula.js"></script>
+<script type="text/javascript" src="../../lib/base/class.js"></script>
+<script type="text/javascript" src="../../lib/base/util.js"></script>
+<script type="text/javascript" src="../../lib/base/events.js"></script>
+<script type="text/javascript" src="../../lib/base/message.js"></script>
+<script type="text/javascript" src="../../lib/base/cell.js"></script>
+<script type="text/javascript" src="../../lib/base/element.js"></script>
+<script type="text/javascript" src="../../lib/base/collection.js"></script>
+<script type="text/javascript" src="validator.js"></script>
+<script>
+//new Validator({});
+//console.log(new Cellula.Validator('validator'));
+</script>
+</body>
+</html>
