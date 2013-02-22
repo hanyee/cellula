@@ -106,29 +106,33 @@
     var util = c._util, Class = c.Class;
     //var EL = c.Element;
     var EL = new Class('EL',{
-        save:function(){
-            return this.set({value : util.map(this.get('inputs'), function(val){ return val.input.value;})});
+        save:function(input){
+            // value : [input1,input2...]
+            if(input) return this.set({value:[input]});
+            return this.set({value:this.get('inputs')});
         },
         validate:function(data){
-            if(util.isArray(data.value)){
-                var rules = this.get('rules'), isValid, items = data.inputs;
+            var items = data.value, desc = data.desc;
+            if(util.isArray(items)){
+                var rules = this.get('rules'), isValid;
                 util.each(items, function(val){
                     isValid = false;
-                    var itemRules = val.rules, value = val.input.value;
-                    util.each(itemRules, function(rule){
-                        if((!data.required && util.isEmpty(value)) || rules[rule] && rules[rule].test(value)) isValid = true;
+                    var value = val.input.value;
+                    util.each(val.rules, function(rule){
+                        if((!val.required && util.isEmpty(value)) || rules[rule] && rules[rule].test(value)) isValid = true;
+                        else desc = val.desc;
                     });
 
                     if(!isValid) return util.breaker;
-                },null,util.breaker);
+                }, null, util.breaker);
             } else isValid = true;
 
-            console.log(isValid);
-            return isValid?undefined:data.desc;
+            util.log(isValid);
+            return isValid ? undefined : desc;
         }
     }).inherits(c.Element);
 
-// dom config "required" "blur" "[rule types]"
+    // dom config "required" "blur" "[rule types]"
     var Validator = new Class('Validator', {
         conf:{
             itemClass:'ui-form-item',
@@ -150,6 +154,8 @@
             // {key:'',conf:{},items:{}}
             if(util.isObject(conf)) _conf = conf;
 
+            if(util.isEmpty(_conf)) return util.error('Validator initialization failed!');
+
             this._super(_conf);
 
             // get form node
@@ -159,55 +165,81 @@
 
             // create elements
             if(util.isEmpty(_conf.rules)){
-                this.createElements(util.getElementsByClassName(this.conf.itemClass, this.form));
+                this._createElements(util.getElementsByClassName(this.conf.itemClass, this.form));
             }else{}
 
             this._bindAll('submit');
-
             this.registerEvents();
         },
-        createElements:function(items){ // nodeType || nodeName
+        _parseDomConf:function(conf, options){
+            // key word is[required, blur, desc]
+            var confItem;
+            while(confItem = conf.shift()){
+                if(/^desc:/.test(confItem)) {
+                    options.desc = confItem.split(':')[1] || options.desc;
+                    break;
+                }
+                switch (confItem){
+                    case 'required':
+                        options.required = true;
+                        break;
+                    case 'blur':
+                        options.blur = true;
+                        break;
+                    default : // rules to validate
+                        if(validatorRules[confItem]) options.rules[confItem] = confItem;
+                }
+            }
+        },
+        _createElements:function(items){ // nodeType || nodeName
+            function createOption (){
+                return {required:null, blur:null, rules:{}, desc:''};
+            }
             util.each(util.slice.call(items), function(v, i){
-                var conf = util.trim(v.getAttribute('data-validator')), confItem, inputs = [], explain, required, blur, desc = '', rules = [], _this = this;
-
+                // v is an item
+                var conf = util.trim(v.getAttribute('data-validator')), inputs = [], _this = this, _blurItems = [];
+                var options = createOption();
                 // read dom conf info
                 if(conf && (conf = conf.split(' '))){
-                    while(confItem = conf.shift()){
-                        if(/^desc:/.test(confItem)) {
-                            desc = confItem.split(':')[1] || desc;
-                            break;
-                        }
-                        switch (confItem){
-                            case 'required':
-                                required = true;
-                                break;
-                            case 'blur':
-                                blur = true;
-                                break;
-                            default : // rules to validate
-                                rules.push(confItem);
-                        }
-                    }
+                    this._parseDomConf(conf, options);
 
                     util.each(['input','select'], function(tag){
-                        // read input node's config to override the parent's
-                        var items = util.slice.call(v.getElementsByTagName(tag));
-                        items.length && (inputs = util.map(items, function(val){
-                            var innerConf = util.trim(val.getAttribute('data-validator'));
-                            if(innerConf && (innerConf = innerConf.split(' '))) rules = innerConf;
-                            return {input:val,rules:rules};
+                        // read input nodes' config to override the parent's
+                        var itemNodes = util.slice.call(v.getElementsByTagName(tag));
+                        itemNodes.length && (inputs = util.map(itemNodes, function(itemNode){
+                            var innerConf = util.trim(itemNode.getAttribute('data-validator'));
+                            var itemOption;
+                            if(innerConf && (innerConf = innerConf.split(' '))){
+                                itemOption = util.copy(options);
+                                itemOption.rules = util.copy(options.rules);
+                                _this._parseDomConf(innerConf, itemOption);
+                                itemOption.input = itemNode;
+                            }
+                            itemOption = itemOption || util.mix({}, {input:itemNode}, options);
+                            // put blur required to blur list
+                            itemOption.blur && _blurItems.push(itemOption);
+                            return itemOption;
                         }));
                     });
 
                     // create element
-                    var e = new EL({key:inputs[0] ? inputs[0].input.id : null})
-                        .set({item:v, inputs:inputs, explain:util.getElementsByClassName(this.conf.explain, v)[0], required:required, blur:blur, rules:this.conf.rules, desc:desc});
+                    var e = new EL({key:v.id || (inputs[0] ? (inputs[0].input.id || inputs[0].input.name) : null)})
+                        .set({
+                            item:v,
+                            inputs:inputs,
+                            explain:util.getElementsByClassName(this.conf.explain, v)[0],
+                            //required:options.required,
+                            //blur:options.blur,
+                            rules:this.conf.rules,
+                            desc:options.desc || ' '  // read parent config by default
+                        });
 
                     this.items[e.key] = e;
 
                     // put blur required to blur list
-                    blur && (this.blurItems[e.key] = e);
-                    console.log(this.items);
+                    _blurItems.length && (this.blurItems[e.key] = _blurItems);
+
+                    util.log(this.items);
                 }
             }, this);
         },
@@ -218,7 +250,7 @@
 
             util.each(this.items, function(v){
                 var inputs = v.get('inputs');
-                isValid = this.validate(v) && isValid;
+                isValid = this.validate(v.key) && isValid;
                 // stop or continue to validate the rest?
                 // if(!isValid) return util.breaker;
             }, this, util.breaker);
@@ -239,11 +271,13 @@
             // handle elements
 
             // blur
-            util.each(this.blurItems, function(v){
-                var inputs = v.get('inputs');
-                util.each(inputs, function (val) {
-                    val.input.onblur = function () { _this.validate(v);};
+            util.each(this.blurItems, function(arr, key){
+                // TODO:
+                //var inputs = v.get('inputs');
+                util.each(arr, function (val) {
+                    val.input.onblur = function () { _this.validate(key, val);};
                 });
+                //v.input.onblur = function () { _this.validate(v);};
             });
 
 
@@ -254,17 +288,17 @@
         },
         clear:function(item){},
         showExplain:function(){},
-        validate:function(item){
-            var isValid, itemDom = item.get('item'), explain = item.get('explain'), hide = this.conf.hide, itemError=this.conf.itemError;
+        validate:function(key, input){
+            var isValid, ret, item = this.items[key], itemDom = item.get('item'), explain = item.get('explain'), hide = this.conf.hide, itemError=this.conf.itemError;
             // clear
             //explain.innerHTML = '';
             util.removeClass(itemDom, itemError);
             util.addClass(explain, hide);
 
-            if(item.save() != item){
+            if((ret = item.save(input)) != item){
                 // showExplain
                 util.addClass(itemDom, itemError);
-                explain.innerHTML = item.get('desc') || explain.innerHTML;
+                explain.innerHTML = ret || explain.innerHTML;
                 util.removeClass(explain, hide);
             } else isValid = true;
 
@@ -274,6 +308,8 @@
 
     c.Validator = Validator;
 
+
+    // auto config
     var forms = util.slice.call(document.getElementsByTagName('form'));
     __cellula_validator_forms__ = [];
     util.each(forms, function(v){
