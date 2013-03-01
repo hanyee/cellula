@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
     <title>The Pure Validator</title>
     <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/base.css"/>
     <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/font.css"/>
@@ -31,9 +32,8 @@
     <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="../styles/default.css"/>
 </head>
 <body>
-<div id="1">
-
-    <form id="validator" data-validator="auto" class="ui-form fn-mt20" method="post" action="#">
+<div>
+    <form id="validator" data-validator="" class="ui-form fn-mt20" method="post" action="#">
         <div data-validator="required blur number desc:请输入数字" class="ui-form-item">
             <label class="ui-label"><span class="required">*</span>请填写数字：</label>
             <input name="num" type="text" value="" class="ui-input"/>
@@ -45,14 +45,21 @@
             <input name="test" data-validator="mobile required desc:请填手机号码" type="text" value="" class="ui-input"/>
             <div class="ui-form-explain fn-hide">请填写邮箱或手机号码</div>
         </div>
-        <div data-validator="" class="ui-form-item ui-form-item-cue">
+        <div id="J_calendar" data-validator="blur cal" class="ui-form-item ui-form-item-cue">
             <label class="ui-label">创建时间：</label>
             <input id="J_beginDate" name="beginDate" type="text" class="ui-input ui-input-hover" value="2012-01-01"/>
             <span class="ui-form-spliter">到</span>
             <input id="J_endDate" name="endDate" type="text" class="ui-input" value="2012-02-03"/>
             <div class="ui-form-explain">起始日期, 格式为 yyyy-mm-dd</div>
         </div>
-
+        <div data-validator="isChecked" class="ui-form-item">
+            <label class="ui-label"><span class="required">*</span>请勾选：</label>
+            <input name="mustCheck" type="checkbox" />
+            <div class="ui-form-explain fn-hide">请选择条目</div>
+        </div>
+        <div class="ui-form-item">
+            <a id="J_addMore" href="javascript:;">点击添加条件</a>
+        </div>
         <div class="ui-form-item ui-form-item-last">
         <span class="ui-button ui-button-mblue ui-button-mblue-next">
             <input type="submit" value="确定" class="ui-button-text">
@@ -73,10 +80,59 @@
 <script type="text/javascript" src="../../lib/base/element.js"></script>
 <script type="text/javascript" src="../../lib/base/collection.js"></script>
 <script type="text/javascript" src="validator.js"></script>
-<script>
-//new Validator({});
-//console.log(new Cellula.Validator('validator'));
-//new Cellula.Validator();
+<script type="text/javascript">
+
+var i=0;
+//{required:null, blur:null, rules:{}, desc:''}
+var vv = new Cellula.Validator({key:'validator',items:{num1:
+        {
+            validate:function(data){
+                return 'hah it works!';
+            }
+//            ,required:[false],
+//            blur:[false],
+//            desc:['.'],
+//            rules:{}
+        }
+    },
+    conf:{
+        rules:{
+            someRuleFunc:function(item){
+                return true;
+            },
+            isChecked:function(item){
+                return item.input.checked;
+            },
+            cal:function(item){
+                console.log(item.input.value);
+            }
+        }
+    }
+});
+
+    var v = window.__cellula_validator_forms__[0] || vv;
+    function getTpl() {
+        return '<div data-validator="required blur email desc:请输入数字" class="ui-form-item">' +
+                '<label class="ui-label"><span class="required">*</span>请输入数字' + ++i + '：</label>' +
+                '<input name="num' + i + '" type="text" value="" class="ui-input"/>' +
+                '<div class="ui-form-explain fn-hide"></div>' +
+                '</div>';
+    }
+
+
+    $('#J_addMore').click(function(){
+        var item = $(getTpl());
+        $(this).parent().before(item);
+        v.addItem(item[0]);
+        console.log(v.items);
+        Cellula._util.each(v.items,function(v){
+            console.log(v.get('inputs')[0].required);
+        });
+    });
+
+
+
+
 </script>
 </body>
 </html>
