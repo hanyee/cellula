@@ -266,6 +266,7 @@
                 }
             }, this);
         },
+        //beforeValidate beforeItemValidate
         submit:function(e){
             // prevent form submit
             e = e || window.event;
@@ -279,7 +280,7 @@
                 // if(!isValid) return util.breaker;
             }, this, util.breaker);
 
-            if(isValid && this.define() == undefined) this.form.submit();
+            if(isValid && this.define() === undefined) this.form.submit();
         },
         config:function(conf){
             // TODO: conf.rules to be mixed
@@ -335,7 +336,6 @@
 
 
     // auto config
-    //var forms = util.slice.call(document.getElementsByTagName('form'));
     __cellula_validator_forms__ = [];
     util.each(util.toArrayByLen(document.getElementsByTagName('form')), function(v){
         var conf = util.trim(v.getAttribute('data-validator'));
