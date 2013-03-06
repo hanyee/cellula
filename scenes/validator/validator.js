@@ -106,10 +106,16 @@
     var util = c._util, Class = c.Class;
     //var EL = c.Element;
     var EL = new Class('EL', {
+        init:function(conf){
+            this._super(conf);
+            // `validate` aop
+            if(util.isFunction(this.before)) util.aspect(this).before('validate', this.before, this);
+        },
         save:function(input){
             // value : [input1,input2...]
             return input ? this.set({value:[input]}) : this.set({value:this.get('inputs')});
         },
+        before:undefined,
         validate:function(data){
             function validate(rule, item){
                 return util.isFunction(rule) ? rule(item) : (rule && rule.test(item.input.value));
@@ -193,7 +199,12 @@
             while(confItem = conf.shift()){
                 if(/^desc:/.test(confItem)) {
                     options.desc = confItem.split(':')[1] || options.desc;
-                    break;
+                    continue;
+                }
+                if(/^default:/.test(confItem)) {
+                    console.log(options);
+                    options.default = confItem.split(':')[1] || options.default;
+                    continue;
                 }
                 switch (confItem){
                     case 'required':
@@ -209,13 +220,13 @@
         },
         _createElements:function(items, itemsConf){
             function createOption (){
-                return {required:null, blur:null, rules:{}, desc:'' ,list:null}; // input
+                return {required:null, blur:null, rules:{}, desc:'', default:'' ,list:null}; // input
             }
             if(!util.isArray(items)) items = util.toArrayByLen(items);
             util.each(items, function(v){
                 // v is an item
                 var attrValue = this.conf.attribute, conf = util.trim(v.getAttribute(attrValue)), inputs = [], _this = this, _blurItems = [], key, opt;
-                var options = createOption();
+                var options = createOption(), explain;
                 // read dom conf info
                 if(conf && (conf = conf.split(' '))){
                     this._parseDomConf(conf, options);
@@ -244,15 +255,22 @@
 
                     // create element
                     key = v.id || (inputs[0] ? (inputs[0].input.id || inputs[0].input.name) : null);
+                    explain = util.getElementsByClassName(this.conf.explain, v)[0];
                     opt = {key : key, _data:{
                         item:v,
                         inputs:inputs,
-                        explain:util.getElementsByClassName(this.conf.explain, v)[0],
+                        explain:explain,
                         rules:this.conf.rules,
+                        default:options.default || (explain ? explain.innerHTML : ' '),
                         desc:options.desc || ' '  // read parent config by default
                     }};
 
-                    if(itemsConf && itemsConf[key] && util.isFunction(itemsConf[key].validate)) opt.validate = itemsConf[key].validate;
+                    // runtime conf
+                    if(itemsConf && itemsConf[key]){
+                        util.each(['validate','before'], function(name){
+                            if(util.isFunction(itemsConf[key][name])) opt[name] = itemsConf[key][name];
+                        });
+                    }
 
                     var e = new EL(opt);
 
@@ -316,16 +334,21 @@
         },
         //clear:function(item){},
         validate:function(key, input){
-            var isValid, ret, item = this.items[key], itemDom = item.get('item'), explain = item.get('explain'), hide = this.conf.hide, itemError=this.conf.itemError;
+            var isValid, ret, item = this.items[key],
+                itemDom = item.get('item'), explain = item.get('explain'),
+                defaultDesc = item.get('default'), itemError=this.conf.itemError;
+                //hide = this.conf.hide,
+
             // clear
             util.removeClass(itemDom, itemError);
-            util.addClass(explain, hide);
+            explain.innerHTML = defaultDesc;
+            //util.addClass(explain, hide);
 
             if((ret = item.save(input)) != item){
                 // showExplain
                 util.addClass(itemDom, itemError);
-                explain.innerHTML = ret || explain.innerHTML;
-                util.removeClass(explain, hide);
+                explain.innerHTML = ret || defaultDesc || explain.innerHTML;
+                //util.removeClass(explain, hide);
             } else isValid = true;
 
             return isValid;

@@ -33,17 +33,17 @@
 </head>
 <body>
 <div>
-    <form id="validator" data-validator="auto" class="ui-form fn-mt20" method="post" action="#">
-        <div data-validator="required blur number desc:请输入数字" class="ui-form-item">
+    <form id="validator" data-validator="" class="ui-form fn-mt20" method="post" action="#">
+        <div data-validator="required blur number desc:请输入数字 default:sth" class="ui-form-item">
             <label class="ui-label"><span class="required">*</span>请填写数字：</label>
             <input name="num" type="text" value="" class="ui-input"/>
-            <div class="ui-form-explain fn-hide"></div>
+            <div class="ui-form-explain"></div>
         </div>
         <div id="J_multiInputs" data-validator="blur email cnMobile" class="ui-form-item">
             <label class="ui-label"><span class="required">*</span>邮箱或手机号码：</label>
             <input name="email" data-validator="email desc:请填写邮箱" type="text" value="" class="ui-input"/>
             <input name="test" data-validator="mobile required desc:请填手机号码" type="text" value="" class="ui-input"/>
-            <div class="ui-form-explain fn-hide">请填写邮箱或手机号码</div>
+            <div class="ui-form-explain">请填写邮箱或手机号码</div>
         </div>
         <div id="J_calendar" data-validator="blur cal" class="ui-form-item ui-form-item-cue">
             <label class="ui-label">创建时间：</label>
@@ -55,7 +55,7 @@
         <div data-validator="isChecked" class="ui-form-item">
             <label class="ui-label"><span class="required">*</span>请勾选：</label>
             <input name="mustCheck" type="checkbox" />
-            <div class="ui-form-explain fn-hide">请选择条目</div>
+            <div class="ui-form-explain">请选择条目</div>
         </div>
         <div class="ui-form-item">
             <a id="J_addMore" href="javascript:;">点击添加条件</a>
@@ -82,11 +82,12 @@
 <script type="text/javascript" src="validator.js"></script>
 <script type="text/javascript">
 
-/*
+
 var i=0;
 //{required:null, blur:null, rules:{}, desc:''}
-var vv = new Cellula.Validator({key:'validator',items:{num1:
+var vv = new Cellula.Validator({key:'validator', items:{num:
         {
+            before:function(){alert('vv')},
             validate:function(data){
                 return 'hah it works!';
             }
@@ -120,7 +121,7 @@ var vv = new Cellula.Validator({key:'validator',items:{num1:
         return '<div data-validator="required blur email desc:请输入数字" class="ui-form-item">' +
                 '<label class="ui-label"><span class="required">*</span>请输入数字' + ++i + '：</label>' +
                 '<input name="num' + i + '" type="text" value="" class="ui-input"/>' +
-                '<div class="ui-form-explain fn-hide"></div>' +
+                '<div class="ui-form-explain"></div>' +
                 '</div>';
     }
 
@@ -135,7 +136,7 @@ var vv = new Cellula.Validator({key:'validator',items:{num1:
         });
     });
 
-*/
+
 
 
 </script>
