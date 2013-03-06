@@ -43,13 +43,17 @@
             float: right;
             margin: 5px;
         }
+        #itemListUl li.on-editing{
+            border: 3px solid #fea460;
+            box-shadow: 2px 2px 2px #ccc;
+        }
     </style>
 </head>
 <body>
 
 <div id="itemList" data-itemlist="item:item edit:item-edit del:item-del add:J_addItem">
     <ul id="itemListUl">
-        <li class="item">
+        <li class="item on-editing">
             <a href="javascript:;" class="ui-button ui-button-sorange item-del">
                 <span class="ui-button-text">Del</span>
             </a>
@@ -95,9 +99,19 @@
     var MyItem = new Cellula.Class('MyItem', {
         create:function(){
             var n = document.createElement('li');
-            //n.innerHTML = this.__cid__;
             n.innerHTML = tpl;
             return n;
+        },
+        edit:function(e){
+            //e = e || window.event;
+            // hard code for demo
+            var util = Cellula._util;
+
+            if(util.hasClass(this.rootNode, 'on-editing')) util.removeClass(this.rootNode, 'on-editing');
+            else util.addClass(this.rootNode, 'on-editing');
+
+            util.log('edit '+this.__cid__);
+            this.emit('Item:EDIT');
         }
     }).inherits(Cellula.Item);
 
