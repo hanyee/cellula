@@ -51,25 +51,25 @@
 </head>
 <body>
 
-<div id="itemList" data-itemlist="item:item edit:item-edit del:item-del add:J_addItem">
+<!--<div id="itemList" data-itemlist="item:item edit:item-edit del:item-del add:J_addItem">-->
+<div id="itemList" data-itemlist="listNode:itemListUl">
     <ul id="itemListUl">
-        <li class="item on-editing">
-            <a href="javascript:;" class="ui-button ui-button-sorange item-del">
-                <span class="ui-button-text">Del</span>
-            </a>
-            <a href="javascript:;" class="ui-button ui-button-sblue item-edit">
-                <span class="ui-button-text">edit</span>
-            </a>
-        </li>
-
-        <li class="item">
-            <a href="javascript:;" class="ui-button ui-button-sorange item-del">
-                <span class="ui-button-text">Del</span>
-            </a>
-            <a href="javascript:;" class="ui-button ui-button-sblue item-edit">
-                <span class="ui-button-text">edit</span>
-            </a>
-        </li>
+        <!--<li class="item on-editing">-->
+            <!--<a href="javascript:;" class="ui-button ui-button-sorange item-del">-->
+                <!--<span class="ui-button-text">Del</span>-->
+            <!--</a>-->
+            <!--<a href="javascript:;" class="ui-button ui-button-sblue item-edit">-->
+                <!--<span class="ui-button-text">edit</span>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+            <!--<a href="javascript:;" class="ui-button ui-button-sorange item-del">-->
+                <!--<span class="ui-button-text">Del</span>-->
+            <!--</a>-->
+            <!--<a href="javascript:;" class="ui-button ui-button-sblue item-edit">-->
+                <!--<span class="ui-button-text">edit</span>-->
+            <!--</a>-->
+        <!--</li>-->
     </ul>
     <div style="margin-left: 15px;">
         <a id="J_addItem" href="javascript:;" class="ui-button ui-button-lorange item-add">
@@ -100,6 +100,9 @@
         create:function(){
             var n = document.createElement('li');
             n.innerHTML = tpl;
+
+            this.emit('Item:CREATE');
+            console.log('create');
             return n;
         },
         edit:function(e){
@@ -112,6 +115,9 @@
 
             util.log('edit '+this.__cid__);
             this.emit('Item:EDIT');
+        },
+        remove:function(e){
+            this.emit('Item:REMOVE');
         }
     }).inherits(Cellula.Item);
 
